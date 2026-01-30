@@ -1,0 +1,135 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bmrs37cy442h"]
+
+[ext_resource type="Texture2D" uid="uid://461qsf3283q7" path="res://Textures/Tiles/tilemap-backgrounds.png" id="1_5e7a1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0apc"]
+texture = ExtResource("1_5e7a1")
+margins = Vector2i(4, 4)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+
+[resource]
+tile_size = Vector2i(24, 24)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Grass"
+terrain_set_0/terrain_0/color = Color(2.17792e-06, 0.420164, 0, 1)
+terrain_set_0/terrain_1/name = "Dead Grass"
+terrain_set_0/terrain_1/color = Color(0.343546, 0.157747, 0, 1)
+terrain_set_0/terrain_2/name = "Snow"
+terrain_set_0/terrain_2/color = Color(0.161244, 0.21835, 0.233078, 1)
+terrain_set_0/terrain_3/name = "Dirt"
+terrain_set_0/terrain_3/color = Color(0.420746, 0.210365, 0, 1)
+terrain_set_0/terrain_4/name = "Trees"
+terrain_set_0/terrain_4/color = Color(0.178821, 0.248806, 0.108141, 1)
+terrain_set_0/terrain_5/name = "Trunks"
+terrain_set_0/terrain_5/color = Color(0.130735, 0.0385597, 0.00191811, 1)
+terrain_set_0/terrain_6/name = "Water"
+terrain_set_0/terrain_6/color = Color(8.18223e-07, 0.356999, 0.445503, 1)
+terrain_set_0/terrain_7/name = "Waterfall"
+terrain_set_0/terrain_7/color = Color(0.575622, 0.887675, 1, 1)
+terrain_set_1/mode = 2
+terrain_set_1/terrain_0/name = "Blocks"
+terrain_set_1/terrain_0/color = Color(0.514587, 0.102441, 0, 1)
+terrain_set_1/terrain_1/name = "Clouds"
+terrain_set_1/terrain_1/color = Color(0.221635, 0.209237, 0.186718, 1)
+terrain_set_1/terrain_2/name = "Wood Platforms"
+terrain_set_1/terrain_2/color = Color(0.360971, 0.148967, 7.21961e-08, 1)
+terrain_set_1/terrain_3/name = "Metal Platforms"
+terrain_set_1/terrain_3/color = Color(0.351188, 0.328822, 0.329519, 1)
+terrain_set_1/terrain_4/name = "Pipes"
+terrain_set_1/terrain_4/color = Color(6.01634e-07, 0.245598, 0.353396, 1)
+terrain_set_1/terrain_5/name = "Mushrooms"
+terrain_set_1/terrain_5/color = Color(0.839467, 0, 0.277954, 1)
+terrain_set_1/terrain_6/name = "Stems"
+terrain_set_1/terrain_6/color = Color(0.519197, 0.43881, 0.0693195, 1)
+terrain_set_1/terrain_7/name = "Ropes"
+terrain_set_1/terrain_7/color = Color(0.337259, 0.207732, 2.16588e-07, 1)
+custom_data_layer_0/name = ""
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_g0apc")
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["Green Grass", Color(0.267578, 0.900391, 0.0386887, 1), 0, [19, 18, 17], {
+"coord": Vector2i(0, 3),
+"source_id": 5
+}], ["Dead Grass", Color(1, 0.428, 0.0253906, 1), 0, [19, 18, 17], {
+"coord": Vector2i(0, 7),
+"source_id": 5
+}], ["Snowy Grass", Color(0.902344, 1, 0.994278, 1), 0, [19, 18, 17], {
+"coord": Vector2i(0, 11),
+"source_id": 5
+}], ["Dirt", Color(0.357422, 0.242889, 0.0551491, 1), 0, [19, 18, 17], {
+"coord": Vector2i(0, 15),
+"source_id": 5
+}], ["Spikes", Color(0.416016, 0.416016, 0.416016, 1), 0, [], {
+"coord": Vector2i(13, 7),
+"source_id": 5
+}], ["Tree Leaves", Color(0.124861, 0.445312, 0, 1), 0, [], {
+"path": ""
+}], ["Tree Trunks", Color(0.363281, 0.195831, 0, 1), 0, [], {
+"coord": Vector2i(12, 6),
+"source_id": 5
+}], ["Water", Color(0, 0.425781, 1, 1), 0, [], {
+"path": ""
+}], ["Waterfall", Color(0.104431, 0.893137, 0.921875, 1), 0, [], {
+"coord": Vector2i(22, 7),
+"source_id": 5
+}], ["Mushroom Platform", Color(0.794922, 0.0760765, 0.0760765, 1), 0, [17], {
+"path": ""
+}], ["Mushroom Stem", Color(0.396484, 0.309173, 0.0472374, 1), 0, [], {
+"path": ""
+}], ["Rope", Color(0.525391, 0.215492, 0, 1), 0, [], {
+"path": ""
+}], ["Blocks", Color(0.9375, 0.500572, 0.0567627, 1), 0, [18, 17], {
+"path": ""
+}], ["Clouds", Color(0.507812, 0.507812, 0.507812, 1), 0, [17], {
+"path": ""
+}], ["Wood Platform", Color(0.806641, 0.519905, 0, 1), 0, [20, 17], {
+"path": ""
+}], ["Metal Platform", Color(0.580078, 0.580078, 0.580078, 1), 0, [20, 17], {
+"path": ""
+}], ["Pipe", Color(0.101562, 0, 1, 1), 0, [], {
+"path": ""
+}], ["Floor/Ceiling Tiles", Color(0, 0, 0, 1), 2, [], {
+"coord": Vector2i(16, 8),
+"source_id": 5
+}], ["Wall Tiles", Color(0.609719, 0.368666, 0.54961, 1), 2, [], {
+"coord": Vector2i(16, 8),
+"source_id": 5
+}], ["Grass/Dirt Tiles", Color(0.210938, 0.113898, 0.000411987, 1), 2, [], {
+"coord": Vector2i(9, 6),
+"source_id": 5
+}], ["Platforms", Color(0.898438, 0.886593, 0.140381, 1), 2, [], {
+"path": ""
+}]],
+"version": "0.2"
+}

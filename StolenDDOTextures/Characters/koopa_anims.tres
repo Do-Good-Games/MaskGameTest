@@ -1,0 +1,73 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://ioxpihqed0cc"]
+
+[ext_resource type="Texture2D" uid="uid://b17xqeylqnf0o" path="res://Textures/Characters/tilemap-characters.png" id="1_1etkc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fov1"]
+atlas = ExtResource("1_1etkc")
+region = Rect2(175, 25, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va83b"]
+atlas = ExtResource("1_1etkc")
+region = Rect2(200, 25, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xi6u"]
+atlas = ExtResource("1_1etkc")
+region = Rect2(175, 25, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy1h6"]
+atlas = ExtResource("1_1etkc")
+region = Rect2(150, 25, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4mfj"]
+atlas = ExtResource("1_1etkc")
+region = Rect2(175, 25, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4ovf"]
+atlas = ExtResource("1_1etkc")
+region = Rect2(150, 25, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fov1")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va83b")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xi6u")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy1h6")
+}],
+"loop": false,
+"name": &"Land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4mfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4ovf")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]

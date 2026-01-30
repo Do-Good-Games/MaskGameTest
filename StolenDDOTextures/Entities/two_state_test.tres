@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dv48u4a7a2ykq"]
+
+[ext_resource type="Texture2D" uid="uid://h6v2cy5s6iul" path="res://Textures/Tiles/Entity Tiles.png" id="1_f62ty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6mj5"]
+atlas = ExtResource("1_f62ty")
+region = Rect2(18, 144, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esmri"]
+atlas = ExtResource("1_f62ty")
+region = Rect2(0, 144, 18, 18)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6mj5")
+}],
+"loop": true,
+"name": &"Activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esmri")
+}],
+"loop": true,
+"name": &"Deactivated",
+"speed": 5.0
+}]

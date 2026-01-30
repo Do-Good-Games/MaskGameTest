@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://byk0pyct2mmsh"]
+
+[ext_resource type="Texture2D" uid="uid://c4b6k5kh6iepj" path="res://Textures/Tiles/flags.png" id="1_engae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbx8j"]
+atlas = ExtResource("1_engae")
+region = Rect2(19, 39, 18, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrkyv"]
+atlas = ExtResource("1_engae")
+region = Rect2(19, 0, 18, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eni8r"]
+atlas = ExtResource("1_engae")
+region = Rect2(19, 117, 18, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yek8o"]
+atlas = ExtResource("1_engae")
+region = Rect2(19, 78, 18, 39)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbx8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrkyv")
+}],
+"loop": true,
+"name": &"Activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eni8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yek8o")
+}],
+"loop": true,
+"name": &"Deactivated",
+"speed": 5.0
+}]
