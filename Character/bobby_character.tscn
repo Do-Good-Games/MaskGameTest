@@ -7,6 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
 size = Vector2(123, 125)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdix"]
+size = Vector2(307, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
+size = Vector2(587, 221)
+
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883 groups=["Player"]]
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
@@ -17,5 +23,18 @@ texture = ExtResource("2_d5myv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015673397]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_d5myv")
+debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=550504632]
+
+[node name="GrabArea" type="Area2D" parent="." unique_id=896937632 groups=["Grab"]]
+
+[node name="GrabArea" type="CollisionShape2D" parent="GrabArea" unique_id=185887737 groups=["Grab"]]
+position = Vector2(143.5, -5)
+shape = SubResource("RectangleShape2D_ojdix")
+
+[node name="GravityArea" type="Area2D" parent="." unique_id=331957575 groups=["Gravity"]]
+
+[node name="GravityArea" type="CollisionShape2D" parent="GravityArea" unique_id=35076230 groups=["Gravity"]]
+position = Vector2(283.5, -13.5)
+shape = SubResource("RectangleShape2D_scdtr")
