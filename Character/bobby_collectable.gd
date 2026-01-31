@@ -3,23 +3,33 @@ extends Area2D
 var inGravity = false
 var inGrab = false
 
+var goingToPlayer = false
+
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_pressed("click"):
 		if(inGravity):
 			activate_gravity(delta)
 		if(inGrab):
 			activate_grab()
 			#self.queue_free()
 			
+	if Input.is_action_just_released("click"):
+		goingToPlayer = false
+			
+func _physics_process(delta: float) -> void:
+	if(goingToPlayer):
+		position += position.direction_to(Vector2(game_manager.playerx,game_manager.playery)) * 100 * delta
+
 func activate_grab() -> void:
 	print("active grab")
+	self.queue_free()
 	
 func activate_gravity(delta: float) -> void:
 	print("active gravity")
 	print(game_manager.playerx)
 	print(game_manager.playery)
-	position += position.direction_to(Vector2(game_manager.playerx,game_manager.playery)) * 2000 * delta
+	goingToPlayer = true
 
 func _on_body_entered(body: Node2D) -> void:
 	print(body)
