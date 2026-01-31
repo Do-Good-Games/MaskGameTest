@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://cywdy1g2er7ei"]
 
+[ext_resource type="Shader" uid="uid://bt0pwfql00fu5" path="res://Art/NeeaFolder/Neeatest.gdshader" id="1_o5uol"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_prls3"]
+render_priority = 0
+shader = ExtResource("1_o5uol")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_pgvlp"]
+material = SubResource("ShaderMaterial_prls3")
+subdivide_width = 32
+subdivide_depth = 32
 
 [node name="Neeatest" type="Node3D" unique_id=2039787537]
 
