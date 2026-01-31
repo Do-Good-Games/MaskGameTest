@@ -5,10 +5,12 @@ signal img_updated(updated_region: Rect2i, new_image: Image)
 
 var img: Image
 var image_texture: ImageTexture
+var image_rect: Rect2i
 
 func _ready() -> void:
 	img = texture.get_image()
 	image_texture = ImageTexture.create_from_image(img) 
+	image_rect = Rect2i(Vector2.ZERO, img.get_size())
 	texture = image_texture
 
 
@@ -16,8 +18,9 @@ func _ready() -> void:
 	#texture.upd
 
 
-func paint_texture(brush_texture: Texture2D, brush_position: Vector2) -> void:
+func paint_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2i(1, 1)) -> void:
 	var brush := brush_texture.get_image()
+	brush.resize(brush.get_width() * brush_scale.x, brush.get_height() * brush_scale.y)
 	img.blend_rect(brush, brush.get_used_rect(), brush_position - brush.get_used_rect().size /2.0)
 	image_texture.update(img)
 	var updated_rect := Rect2i(
@@ -26,9 +29,29 @@ func paint_texture(brush_texture: Texture2D, brush_position: Vector2) -> void:
 	)
 	img_updated.emit(updated_rect, img)
 
+
+func paint_circle(radius: float, circle_pos: Vector2) -> void:
+	var circle_rect := Rect2(Vector2(circle_pos.x-radius, circle_pos.y-radius), Vector2(radius*2, radius*2))
+	# Dont paint outside of the image
+	var x_start: int = max(circle_rect.position.x, image_rect.position.x)
+	var x_end: int = min(circle_rect.end.x, image_rect.end.x)
+	
+	var y_start: int = max(circle_rect.position.y, image_rect.position.y)
+	var y_end: int = min(circle_rect.end.y, image_rect.end.y)
+	
+	# Iterate through the rectangle the circle occupies
+	for x in range(x_start, x_end):
+		for y in range(y_start, y_end):
+			var pos := Vector2i(x, y)
+			# Paint if this position is within the circle
+			if pos.distance_squared_to(circle_pos) <= radius*radius:
+				img.set_pixelv(pos, Color.WHITE)
+
+
 # Make this better
-func erase_texture(brush_texture: Texture2D, brush_position: Vector2) -> void:
+func erase_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2i(1, 1)) -> void:
 	var brush := brush_texture.get_image()
+	brush.resize(brush.get_width() * brush_scale.x, brush.get_height() * brush_scale.y)
 	var brush_rect := brush.get_used_rect()
 	var draw_pos := brush_position - brush_rect.size / 2.0
 	

@@ -6,7 +6,7 @@ class_name Layer extends Node2D
 @export var body: StaticBody2D
 @export var rect_size := Vector2(100, 1000)
 
-@onready var layer_mask: Sprite2D = $LayerMask
+@onready var layer_mask: LayerMask = $LayerMask
 @onready var layer_area: Area2D = $LayerArea
 @onready var unmasked_geometry: StaticBody2D = $UnmaskedGeometry
 @onready var masked_geometry: StaticBody2D = $MaskedGeometry
@@ -20,6 +20,7 @@ var regions: Dictionary[Rect2, Array] # {Region, Col. Polygons in region}
 
 
 func _ready() -> void:
+	print(layer_mask)
 	var image := layer_mask.texture.get_image()
 	
 	mask_bitmap = BitMap.new()

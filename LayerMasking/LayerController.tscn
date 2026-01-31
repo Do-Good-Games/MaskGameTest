@@ -1,6 +1,28 @@
 [gd_scene format=3 uid="uid://2wy3lf084bm7"]
 
 [ext_resource type="Script" uid="uid://b01gwbcmrrl47" path="res://LayerMasking/layer_controller.gd" id="1_prpwt"]
+[ext_resource type="PackedScene" uid="uid://bym1nxtie4254" path="res://LayerMasking/layer.tscn" id="2_8q236"]
+[ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="3_1pduu"]
 
-[node name="LayerController" type="Node2D" unique_id=1122606211]
+[node name="LayerController" type="Node2D" unique_id=1122606211 node_paths=PackedStringArray("layers")]
 script = ExtResource("1_prpwt")
+layers = [NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
+
+[node name="RedLayer" parent="." unique_id=1461014223 instance=ExtResource("2_8q236")]
+
+[node name="LayerMask" parent="RedLayer" index="0" unique_id=1379613557]
+texture = ExtResource("3_1pduu")
+
+[node name="GreenLayer" parent="." unique_id=1893432584 instance=ExtResource("2_8q236")]
+
+[node name="LayerMask" parent="GreenLayer" index="0" unique_id=1379613557]
+texture = ExtResource("3_1pduu")
+
+[node name="BlueLayer" parent="." unique_id=980299969 instance=ExtResource("2_8q236")]
+
+[node name="LayerMask" parent="BlueLayer" index="0" unique_id=1379613557]
+texture = ExtResource("3_1pduu")
+
+[editable path="RedLayer"]
+[editable path="GreenLayer"]
+[editable path="BlueLayer"]
