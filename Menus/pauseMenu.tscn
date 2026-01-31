@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cr8v26onkmicu"]
+
+[ext_resource type="Theme" uid="uid://cx3sm5oban123" path="res://Menus/Menu Button Theme.tres" id="1_1syxi"]
+[ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="1_3xx0a"]
+
+[node name="pauseMenu" type="Control" unique_id=659569743]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="[PLACEHOLDER] BG" type="TextureRect" parent="." unique_id=1099719461]
+modulate = Color(0, 0, 0, 0.37254903)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = -117.0
+offset_right = -137.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3xx0a")
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1641662757]
+
+[node name="Text Based Title" type="RichTextLabel" parent="CanvasLayer" unique_id=1387812063]
+anchors_preset = -1
+anchor_top = 0.080000006
+anchor_right = 1.0
+anchor_bottom = 0.34300002
+offset_left = 1.0
+offset_top = 74.159996
+offset_right = 1.0
+offset_bottom = 73.73598
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[b]Game Paused[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button Container" type="VBoxContainer" parent="CanvasLayer" unique_id=2092704062]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -30.5
+offset_right = 150.0
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_1syxi")
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Button Container" unique_id=1628258416]
+visible = false
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Start Button" type="Button" parent="CanvasLayer/Button Container" unique_id=1062910339]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+text = "Resume"
+
+[node name="Credits Button" type="Button" parent="CanvasLayer/Button Container" unique_id=393855208]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+text = "Back To MM"
