@@ -1,8 +1,32 @@
 [gd_scene format=3 uid="uid://bseoqe15ia0bb"]
 
 [ext_resource type="PackedScene" uid="uid://bym1nxtie4254" path="res://Ian Folder/layer.tscn" id="1_1hawf"]
+[ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="1_e4dru"]
+[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://BobbyFolder/BobbyCollectable.tscn" id="2_icfwp"]
+[ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://BobbyFolder/bobby_character.tscn" id="3_e4dru"]
+
+[sub_resource type="GDScript" id="GDScript_xny3m"]
+resource_name = "test_script"
+script/source = "extends Node2D
+
+@export var brush_texture: GradientTexture2D
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		$Layer.layer_mask.paint_texture(brush_texture, get_local_mouse_position())
+"
 
 [node name="TestWorld" type="Node2D" unique_id=1058061648]
+script = SubResource("GDScript_xny3m")
+brush_texture = ExtResource("1_e4dru")
 
 [node name="Layer" parent="." unique_id=807261236 instance=ExtResource("1_1hawf")]
 position = Vector2(1100, 760)
+rect_size = Vector2(1000, 1000)
+
+[node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_icfwp")]
+position = Vector2(299, 752)
+
+[node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("3_e4dru")]
+position = Vector2(579, 1204)

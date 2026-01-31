@@ -1,6 +1,6 @@
 # Adapted from https://www.youtube.com/watch?v=Btk8IzhvaDo
 
-extends StaticBody2D
+class_name Layer extends StaticBody2D
 
 @export var epsilon := 10.0
 @export var body: StaticBody2D
@@ -25,6 +25,7 @@ func _ready() -> void:
 	_register_collision_polygons(unmasked_geometry)
 	
 	generate_collision(bitmap)
+
 
 func generate_collision(bitmap: BitMap) -> void:
 	for x_index: int in ceil(layer_mask.texture.get_size().x / rect_size.x):
@@ -55,13 +56,16 @@ func generate_collision_region(bitmap: BitMap, start_pos: Vector2, size: Vector2
 					new_pos -= bitmap.get_size() / 2.0
 				adjusted_poly.append(new_pos)
 			
-			var bitmap_collision_polygon := CollisionPolygon2D.new()
-			bitmap_collision_polygon.polygon = adjusted_poly
-			layer_area.add_child(bitmap_collision_polygon)
+			#var bitmap_collision_polygon := CollisionPolygon2D.new()
+			#bitmap_collision_polygon.polygon = adjusted_poly
+			#layer_area.add_child(bitmap_collision_polygon)
 			
 			var adjusted_level_polygon: PackedVector2Array = []
 			for point in level_polygon:
-				adjusted_level_polygon.append(level_collision_polygon.to_global(point))
+				var new_pos := level_collision_polygon.to_global(point)
+				if layer_mask.centered:
+					new_pos -= bitmap.get_size() / 2.0
+				adjusted_level_polygon.append(new_pos)
 			
 			var intersected_polygons := Geometry2D.intersect_polygons(adjusted_poly, adjusted_level_polygon)
 			
@@ -81,3 +85,9 @@ func _register_collision_polygons(static_body: StaticBody2D) -> Array[CollisionP
 	level_collision_polygons = polygons
 	return polygons
 	
+
+
+func _on_layer_mask_img_updated(updated_region: Rect2) -> void:
+	var bitmap := BitMap.new()
+	bitmap.create_from_image_alpha(layer_mask.texture.get_image())
+	generate_collision(bitmap)
