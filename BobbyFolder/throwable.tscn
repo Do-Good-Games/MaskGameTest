@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dwj2g8najpxjr"]
+
+[ext_resource type="Script" uid="uid://bteqykmjtyfri" path="res://BobbyFolder/throwable.gd" id="1_6fbao"]
+[ext_resource type="Texture2D" uid="uid://cv1u7cgehrkc0" path="res://StolenDDOTextures/Entities/bullet.png" id="2_pb81h"]
+
+[node name="Throwable" type="CharacterBody2D" unique_id=1897539501]
+script = ExtResource("1_6fbao")
+
+[node name="ThrowableSprite" type="Sprite2D" parent="." unique_id=1975920837]
+texture = ExtResource("2_pb81h")

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@onready var throwable:CharacterBody2D = $Throwable
+#const Throwable: PackedScene = preload("res://BobbyFolder/throwable.tscn")
+@export var Throwable: PackedScene
 
 @export var speed = 200
 @export var friction = 0.01
@@ -18,6 +19,9 @@ func get_input():
 		input.y -= 1
 	if Input.is_action_just_pressed("click"):
 		print("we clicked")
+		var createdThrowable = Throwable.instantiate()
+		get_tree().root.add_child(createdThrowable)
+		createdThrowable.global_transform = self.global_transform
 	return input
 
 func _physics_process(delta):
