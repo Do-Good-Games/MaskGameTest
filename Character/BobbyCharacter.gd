@@ -45,3 +45,7 @@ func _physics_process(delta):
 	move_and_slide()
 	game_manager.playerx = self.position.x
 	game_manager.playery = self.position.y
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

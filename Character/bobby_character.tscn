@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://dgrhfdbhs3r0u" path="res://Character/BobbyCharacter.gd" id="1_dmayn"]
 [ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="2_d5myv"]
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Character/throwable.tscn" id="2_tbytb"]
+[ext_resource type="Script" uid="uid://cme251y5q84v1" path="res://Character/CharacterCollision.gd" id="4_ojdix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
 size = Vector2(123, 125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdix"]
-size = Vector2(307, 160)
+size = Vector2(131, 131)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
 size = Vector2(587, 221)
@@ -19,7 +20,7 @@ albedo_color = Color(1, 0.3882353, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_e68qv"]
 material = SubResource("StandardMaterial3D_qipl1")
 
-[node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883 groups=["Player"]]
+[node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
 
@@ -34,12 +35,21 @@ debug_color = Color(1, 1, 1, 0.41960785)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=550504632]
 
 [node name="GrabArea" type="Area2D" parent="." unique_id=896937632 groups=["Grab"]]
+visible = false
 
 [node name="GrabArea" type="CollisionShape2D" parent="GrabArea" unique_id=185887737 groups=["Grab"]]
 position = Vector2(143.5, -5)
 shape = SubResource("RectangleShape2D_ojdix")
 
+[node name="Hitbox" type="Area2D" parent="." unique_id=149410858 groups=["Player"]]
+script = ExtResource("4_ojdix")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=162888254 groups=["Player"]]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ojdix")
+
 [node name="GravityArea" type="Area2D" parent="." unique_id=331957575 groups=["Gravity"]]
+visible = false
 
 [node name="GravityArea" type="CollisionShape2D" parent="GravityArea" unique_id=35076230 groups=["Gravity"]]
 position = Vector2(283.5, -13.5)
@@ -67,3 +77,5 @@ projection = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1773563866]
 transform = Transform3D(1, 0, 0, 0, 0.99457467, 0.10402508, 0, -0.10402508, 0.99457467, 0, 0.45505333, 0.5942402)
+
+[connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

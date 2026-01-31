@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://begce725f6irl"]
+
+[ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/evil_brush.tres" id="1_3o4wt"]
+[ext_resource type="Script" uid="uid://cud5efta6xo1e" path="res://Enemy/enemy.gd" id="1_epr5s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3o4wt"]
+radius = 205.03963
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oemdl"]
+size = Vector2(203, 200)
+
+[node name="Enemy" type="Area2D" unique_id=2115636220]
+script = ExtResource("1_epr5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=9926488]
+modulate = Color(1, 0.2, 0.20392157, 1)
+texture = ExtResource("1_3o4wt")
+
+[node name="LineOfSight" type="CollisionShape2D" parent="." unique_id=1051441687]
+position = Vector2(0.5, 0)
+scale = Vector2(1.865, 1.865)
+shape = SubResource("CircleShape2D_3o4wt")
+
+[node name="DamageBox" type="Area2D" parent="." unique_id=563277183 groups=["Enemy"]]
+
+[node name="DamageBox" type="CollisionShape2D" parent="DamageBox" unique_id=1540986855 groups=["Enemy"]]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_oemdl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
