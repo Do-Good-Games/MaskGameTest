@@ -1,6 +1,6 @@
 # Adapted from https://www.youtube.com/watch?v=Btk8IzhvaDo
 
-class_name Layer extends StaticBody2D
+class_name Layer extends Node2D
 
 @export var epsilon := 10.0
 @export var body: StaticBody2D
@@ -9,8 +9,10 @@ class_name Layer extends StaticBody2D
 @onready var layer_mask: Sprite2D = $LayerMask
 @onready var layer_area: Area2D = $LayerArea
 @onready var unmasked_geometry: StaticBody2D = $UnmaskedGeometry
+@onready var masked_geometry: StaticBody2D = $MaskedGeometry
 
 var level_collision_polygons: Array[CollisionPolygon2D]
+var regions: Dictionary[Rect2, Array] # {Region, Col. Polygons in region}
 
 # NOTE: there's some weirdness with how it lines up, the outer edges are like 10 pixels too high
 # but the inner edges are exactly right?
@@ -23,35 +25,31 @@ func _ready() -> void:
 	bitmap.create_from_image_alpha(image)
 	
 	_register_collision_polygons(unmasked_geometry)
-	
-	generate_collision(bitmap)
+	_create_regions()
+	generate_collision(bitmap, regions.keys())
 
 
-func generate_collision(bitmap: BitMap) -> void:
-	for x_index: int in ceil(layer_mask.texture.get_size().x / rect_size.x):
-		for y_index: int in ceil(layer_mask.texture.get_size().y / rect_size.y):
-			var x_start: float = x_index * rect_size.x
-			var y_start: float = y_index * rect_size.y
-			var start_pos := Vector2(x_start, y_start)
-			
-			var x_size: float = min(rect_size.x, layer_mask.texture.get_size().x - x_start)
-			var y_size: float = min(rect_size.y, layer_mask.texture.get_size().y - y_start)
-			var size := Vector2(x_size, y_size)
-			generate_collision_region(bitmap, start_pos, size)
+func generate_collision(bitmap: BitMap, region_rects: Array[Rect2]) -> void:
+	for region_rect in region_rects:
+		generate_collision_region(bitmap, region_rect)
 
 
-func generate_collision_region(bitmap: BitMap, start_pos: Vector2, size: Vector2) -> void:
+func generate_collision_region(bitmap: BitMap, region_rect: Rect2) -> void:
 	var polys := bitmap.opaque_to_polygons(
-		Rect2(start_pos, size), 
+		region_rect, 
 		epsilon
 	)
+	
+	if regions.has(region_rect):
+		print("clearing")
+		_clear_collision_polys(regions[region_rect])
 	
 	for poly in polys:
 		for level_collision_polygon in level_collision_polygons:
 			var level_polygon := level_collision_polygon.polygon
 			var adjusted_poly: PackedVector2Array = []
 			for point in poly:
-				var new_pos := point + start_pos
+				var new_pos := point + region_rect.position
 				if layer_mask.centered:
 					new_pos -= bitmap.get_size() / 2.0
 				adjusted_poly.append(new_pos)
@@ -59,6 +57,7 @@ func generate_collision_region(bitmap: BitMap, start_pos: Vector2, size: Vector2
 			var bitmap_collision_polygon := CollisionPolygon2D.new()
 			bitmap_collision_polygon.polygon = adjusted_poly
 			layer_area.add_child(bitmap_collision_polygon)
+			regions[region_rect].append(bitmap_collision_polygon)
 			
 			var adjusted_level_polygon: PackedVector2Array = []
 			for point in level_polygon:
@@ -74,7 +73,8 @@ func generate_collision_region(bitmap: BitMap, start_pos: Vector2, size: Vector2
 					if not Geometry2D.is_polygon_clockwise(intersected_polygon):
 						var collision_polygon := CollisionPolygon2D.new()
 						collision_polygon.polygon = intersected_polygon
-						add_child(collision_polygon)
+						masked_geometry.add_child(collision_polygon)
+						regions[region_rect].append(collision_polygon)
 
 
 func _register_collision_polygons(static_body: StaticBody2D) -> Array[CollisionPolygon2D]:
@@ -84,10 +84,32 @@ func _register_collision_polygons(static_body: StaticBody2D) -> Array[CollisionP
 			polygons.append(child)
 	level_collision_polygons = polygons
 	return polygons
-	
 
 
-func _on_layer_mask_img_updated(updated_region: Rect2) -> void:
+func _clear_collision_polys(polys: Array) -> void:
+	for poly: CollisionPolygon2D in polys:
+		print("kill", poly)
+		poly.queue_free()
+	polys.clear()
+
+
+func _create_regions() -> void:
+	for x_index: int in ceil(layer_mask.texture.get_size().x / rect_size.x):
+		for y_index: int in ceil(layer_mask.texture.get_size().y / rect_size.y):
+			var x_start: float = x_index * rect_size.x
+			var y_start: float = y_index * rect_size.y
+			var start_pos := Vector2(x_start, y_start)
+			
+			var x_size: float = min(rect_size.x, layer_mask.texture.get_size().x - x_start)
+			var y_size: float = min(rect_size.y, layer_mask.texture.get_size().y - y_start)
+			var size := Vector2(x_size, y_size)
+			regions.set(Rect2(start_pos, size), [])
+
+
+func _on_layer_mask_img_updated(updated_region_rect: Rect2) -> void:
 	var bitmap := BitMap.new()
 	bitmap.create_from_image_alpha(layer_mask.texture.get_image())
-	generate_collision(bitmap)
+	
+	for region_rect: Rect2 in regions.keys():
+		if region_rect.intersection(updated_region_rect):
+			generate_collision_region(bitmap, region_rect)
