@@ -4,21 +4,20 @@ var inGravity = false
 var inGrab = false
 
 
-
-func get_input():
-	if Input.is_action_pressed("click"):
-		if(inGravity):
-			print("activate gravity")
-		if(inGrab):
-			print("active grab")
-			
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
-		print("clicked")
 		if(inGravity):
-			print("activate gravity")
+			activate_gravity(delta)
 		if(inGrab):
-			print("active grab")
+			activate_grab()
+			#self.queue_free()
+			
+func activate_grab() -> void:
+	print("active grab")
+	
+func activate_gravity(delta: float) -> void:
+	print("active gravity")
+	position += position.direction_to(position + Vector2(200,200)) * 200 * delta
 
 func _on_body_entered(body: Node2D) -> void:
 	print(body)
