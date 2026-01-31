@@ -107,9 +107,8 @@ func _create_regions() -> void:
 			regions.set(Rect2(start_pos, size), [])
 
 
-func _on_layer_mask_img_updated(updated_region_rect: Rect2) -> void:
-	var image: Image = layer_mask.texture.get_image()
-	var image_rect: Rect2 = image.get_used_rect()
+func _on_layer_mask_img_updated(updated_region_rect: Rect2i, new_image: Image) -> void:
+	var image_rect: Rect2i = Rect2i(Vector2.ZERO, new_image.get_size())
 	
 	var x_start: int = max(updated_region_rect.position.x, image_rect.position.x)
 	var x_end: int = min(updated_region_rect.end.x, image_rect.end.x)
@@ -119,7 +118,7 @@ func _on_layer_mask_img_updated(updated_region_rect: Rect2) -> void:
 	
 	for x in range(x_start, x_end):
 		for y in range(y_start, y_end):
-			mask_bitmap.set_bit(x, y, image.get_pixel(x, y).a > 0)
+			mask_bitmap.set_bit(x, y, new_image.get_pixel(x, y).a > 0)
 	
 	for region_rect: Rect2 in regions.keys():
 		if region_rect.intersection(updated_region_rect):
