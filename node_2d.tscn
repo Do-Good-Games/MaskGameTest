@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_0e48y"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0e48y"]
+
 [node name="Node2D" type="Node2D" unique_id=1359342505]
 
-[node name="RED MASK" type="Sprite2D" parent="." unique_id=1477833609 node_paths=PackedStringArray("body", "level_collision_polygons")]
+[node name="RED MASK" type="Sprite2D" parent="." unique_id=1477833609 node_paths=PackedStringArray("body")]
+material = SubResource("CanvasItemMaterial_0e48y")
 position = Vector2(1056, 729)
 texture = ExtResource("1_wtcfe")
 script = ExtResource("2_0e48y")
 epsilon = 1.0
 body = NodePath("../StaticBody2D")
-level_collision_polygons = [NodePath("../RED GEOMETRY!!!!!!!!!!!!!!!!!/CollisionPolygon2D"), NodePath("../RED GEOMETRY!!!!!!!!!!!!!!!!!/CollisionPolygon2D2")]
 rect_size = Vector2(400, 400)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=17673184]

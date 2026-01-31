@@ -56,9 +56,9 @@ func generate_collision_region(bitmap: BitMap, start_pos: Vector2, size: Vector2
 					new_pos -= bitmap.get_size() / 2.0
 				adjusted_poly.append(new_pos)
 			
-			#var bitmap_collision_polygon := CollisionPolygon2D.new()
-			#bitmap_collision_polygon.polygon = adjusted_poly
-			#layer_area.add_child(bitmap_collision_polygon)
+			var bitmap_collision_polygon := CollisionPolygon2D.new()
+			bitmap_collision_polygon.polygon = adjusted_poly
+			layer_area.add_child(bitmap_collision_polygon)
 			
 			var adjusted_level_polygon: PackedVector2Array = []
 			for point in level_polygon:
