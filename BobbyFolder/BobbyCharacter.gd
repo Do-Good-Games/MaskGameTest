@@ -27,10 +27,12 @@ func get_input():
 			throwSpeed = 75
 			
 		print(throwSpeed)
-		throwSpeed = 0
+
 		var createdThrowable = Throwable.instantiate()
 		get_tree().root.add_child(createdThrowable)
 		createdThrowable.global_transform = self.global_transform
+		createdThrowable.speed = throwSpeed
+		throwSpeed = 0
 	return input
 
 func _physics_process(delta):

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var speed = 60
+@export var speed = 60
 var throwtime = 120
 
 func _ready() -> void:
