@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var friction = 0.01
 @export var acceleration = 0.1
 
+var throwSpeed = 0
+
 func get_input():
 	var input = Vector2()
 	if Input.is_action_pressed('right'):
@@ -17,8 +19,15 @@ func get_input():
 		input.y += 1
 	if Input.is_action_pressed('up'):
 		input.y -= 1
-	if Input.is_action_just_pressed("click"):
-		print("we clicked")
+	if Input.is_action_pressed("click"):
+		throwSpeed += 1
+		
+	if Input.is_action_just_released("click"):
+		if(throwSpeed > 75):
+			throwSpeed = 75
+			
+		print(throwSpeed)
+		throwSpeed = 0
 		var createdThrowable = Throwable.instantiate()
 		get_tree().root.add_child(createdThrowable)
 		createdThrowable.global_transform = self.global_transform
