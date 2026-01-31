@@ -26,6 +26,8 @@ gdscript/warnings/untyped_declaration=1
 [global_group]
 
 Player=""
+Gravity=""
+Grab=""
 
 [input]
 
