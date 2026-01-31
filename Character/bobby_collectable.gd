@@ -17,7 +17,9 @@ func activate_grab() -> void:
 	
 func activate_gravity(delta: float) -> void:
 	print("active gravity")
-	position += position.direction_to(position + Vector2(200,200)) * 200 * delta
+	print(game_manager.playerx)
+	print(game_manager.playery)
+	position += position.direction_to(Vector2(game_manager.playerx,game_manager.playery)) * 2000 * delta
 
 func _on_body_entered(body: Node2D) -> void:
 	print(body)
