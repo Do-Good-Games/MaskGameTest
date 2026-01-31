@@ -42,7 +42,6 @@ func generate_collision_region(bitmap: BitMap, region_rect: Rect2) -> void:
 	)
 	
 	if regions.has(region_rect):
-		print("clearing")
 		_clear_collision_polys(regions[region_rect])
 	
 	for poly in polys:
@@ -89,7 +88,6 @@ func _register_collision_polygons(static_body: StaticBody2D) -> Array[CollisionP
 
 func _clear_collision_polys(polys: Array) -> void:
 	for poly: CollisionPolygon2D in polys:
-		print("kill", poly)
 		poly.queue_free()
 	polys.clear()
 
