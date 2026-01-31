@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-LayerController="*uid://b01gwbcmrrl47"
 game_manager="*uid://qtkuwev62jat"
+RoomManager="*uid://jk3f57j8pjdb"
 
 [debug]
 

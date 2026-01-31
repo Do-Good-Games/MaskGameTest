@@ -14,17 +14,18 @@ signal transition_finished(loaded_scene: Node)
 
 
 var current_scene: Node
-#var scene_file_name: String:
-	#get:
-		#var scene_path: String = ResourceUID.get_id_path(ResourceUID.text_to_id(RoomManager.current_scene_uid))
-		## Ok so I gotta admit this is a bit hacky
-		## Sometimes current_scene_uid is just a path and not a UID and you gotta deal with it
-		#return scene_path.get_file()
-#var scene_file_basename: String:
-	#get:
-		#return scene_file_name.get_basename()
+var scene_file_name: String:
+	get:
+		var scene_path: String = ResourceUID.get_id_path(ResourceUID.text_to_id(RoomManager.current_scene_uid))
+		# Ok so I gotta admit this is a bit hacky
+		# Sometimes current_scene_uid is just a path and not a UID and you gotta deal with it
+		scene_path = RoomManager.current_scene_uid if scene_path == "" else scene_path
+		return scene_path.get_file()
+var scene_file_basename: String:
+	get:
+		return scene_file_name.get_basename()
 # This is a filepath sometimes idk man just deal with it
-#var current_scene_uid: String
+var current_scene_uid: String
 var busy: bool = false
 
 
@@ -35,10 +36,10 @@ func _ready() -> void:
 	
 	if parent_node.get_children().size() > 0:
 		current_scene = parent_node.get_child(parent_node.get_children().size() - 1)
-		#current_scene_uid = (current_scene.scene_file_path)
+		current_scene_uid = (current_scene.scene_file_path)
 		
 	else:
-		#current_scene_uid = default_scene
+		current_scene_uid = default_scene
 		current_scene = load(default_scene).instantiate()
 		parent_node.add_child(current_scene)
 
@@ -46,7 +47,7 @@ func load_scene(new_scene_uid: String, anim: AnimationPlayer = default_animator)
 	if busy:
 		return
 	busy = true
-	#current_scene_uid = new_scene_uid
+	current_scene_uid = new_scene_uid
 	var next_scene: Node = load(new_scene_uid).instantiate()
 	next_scene.z_index = -1
 	
