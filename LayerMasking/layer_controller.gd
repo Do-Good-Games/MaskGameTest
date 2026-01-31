@@ -1,4 +1,4 @@
-extends Node2D
+class_name Level extends Node2D
 
 enum LayerName{
 	RED = 0,
