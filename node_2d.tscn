@@ -5,13 +5,13 @@
 
 [node name="Node2D" type="Node2D" unique_id=1359342505]
 
-[node name="TestMaskAlpha" type="Sprite2D" parent="." unique_id=1477833609 node_paths=PackedStringArray("body", "level_collision_polygons")]
+[node name="RED MASK" type="Sprite2D" parent="." unique_id=1477833609 node_paths=PackedStringArray("body", "level_collision_polygons")]
 position = Vector2(1056, 729)
 texture = ExtResource("1_wtcfe")
 script = ExtResource("2_0e48y")
 epsilon = 1.0
 body = NodePath("../StaticBody2D")
-level_collision_polygons = [NodePath("../LevelGeometry/CollisionPolygon2D"), NodePath("../LevelGeometry/CollisionPolygon2D2")]
+level_collision_polygons = [NodePath("../RED GEOMETRY!!!!!!!!!!!!!!!!!/CollisionPolygon2D"), NodePath("../RED GEOMETRY!!!!!!!!!!!!!!!!!/CollisionPolygon2D2")]
 rect_size = Vector2(400, 400)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=17673184]
@@ -21,12 +21,13 @@ position = Vector2(1056, 729)
 position = Vector2(1197, 635)
 zoom = Vector2(0.335, 0.335)
 
-[node name="LevelGeometry" type="StaticBody2D" parent="." unique_id=1895267930]
+[node name="RED GEOMETRY!!!!!!!!!!!!!!!!!" type="StaticBody2D" parent="." unique_id=1895267930]
+visible = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelGeometry" unique_id=1966463069]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RED GEOMETRY!!!!!!!!!!!!!!!!!" unique_id=1966463069]
 polygon = PackedVector2Array(45, 1531, 42, 891, 404, 891, 421, 1297, 713, 1295, 713, 1420, 1563, 1384, 1543, 378, 1727, 378, 1766, 1395)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelGeometry" unique_id=1541824931]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RED GEOMETRY!!!!!!!!!!!!!!!!!" unique_id=1541824931]
 position = Vector2(-740.213, 98.85295)
 scale = Vector2(1.729369, 1.1278888)
 polygon = PackedVector2Array(538, 33, 549, 462, 981, 426, 1053, -14)
