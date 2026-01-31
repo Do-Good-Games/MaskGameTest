@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://on8hdgpvq4sa"]
+
+[ext_resource type="Texture2D" uid="uid://7kdjj57fft6b" path="res://Ian Folder/Red example.png" id="1_esbpk"]
+[ext_resource type="Theme" uid="uid://cx3sm5oban123" path="res://Menus/Menu Button Theme.tres" id="3_fk2tn"]
+
+[sub_resource type="Theme" id="Theme_ntfyi"]
+RichTextLabel/font_sizes/normal_font_size = 30
+
+[node name="mainMenu" type="Control" unique_id=659569743]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="[PLACEHOLDER] BG" type="TextureRect" parent="." unique_id=1099719461]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -474.0
+offset_top = -426.0
+offset_right = 474.0
+offset_bottom = 426.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_esbpk")
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1641662757]
+
+[node name="Menu Title" type="RichTextLabel" parent="CanvasLayer" unique_id=325087173]
+anchors_preset = -1
+anchor_top = 0.080000006
+anchor_right = 1.0
+anchor_bottom = 0.34300002
+offset_top = -40.840004
+offset_bottom = -41.264023
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "Global Game Jam 2026
+[b]Meet the Team[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=492318322]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ntfyi")
+alignment = 1
+
+[node name="Duplicate for 2nd Row" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=1143003736]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name Here" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=396327381]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Fiona Bolen
+Did Things"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name Here2" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=81852651]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Fiona Bolen
+Did Things"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name Here3" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=1648646068]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Fiona Bolen
+Did Things"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=172132585]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name Here" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=1728236744]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Fiona Bolen
+Did Things"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name Here2" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=691331912]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Fiona Bolen
+Did Things"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name Here3" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=719381957]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Fiona Bolen
+Did Things"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button Container" type="HBoxContainer" parent="CanvasLayer" unique_id=1030332110]
+anchors_preset = -1
+anchor_top = 0.83800006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.024048
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme = ExtResource("3_fk2tn")
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Button Container" unique_id=1628258416]
+visible = false
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+
+[node name="Exit Button" type="Button" parent="CanvasLayer/Button Container" unique_id=393855208]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+text = "Exit
+"
