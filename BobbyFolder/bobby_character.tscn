@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b2aodyxg1wr0g"]
+
+[ext_resource type="Script" uid="uid://dgrhfdbhs3r0u" path="res://BobbyFolder/BobbyCharacter.gd" id="1_dmayn"]
+[ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="2_d5myv"]
+[ext_resource type="Script" uid="uid://bteqykmjtyfri" path="res://BobbyFolder/throwable.gd" id="3_djmro"]
+[ext_resource type="Texture2D" uid="uid://cv1u7cgehrkc0" path="res://StolenDDOTextures/Entities/bullet.png" id="3_tbytb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
+size = Vector2(123, 125)
+
+[node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883 groups=["Player"]]
+script = ExtResource("1_dmayn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=940279390]
+texture = ExtResource("2_d5myv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015673397]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_d5myv")
+
+[node name="Throwable" type="CharacterBody2D" parent="." unique_id=1203304330]
+script = ExtResource("3_djmro")
+
+[node name="ThrowableSprite" type="Sprite2D" parent="Throwable" unique_id=708165677]
+texture = ExtResource("3_tbytb")
