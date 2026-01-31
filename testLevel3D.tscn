@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cojn14f65cf6p"]
+
+[ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="1_hbpot"]
+[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Character/BobbyCollectable.tscn" id="2_47rdb"]
+[ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="3_47rdb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbpot"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hbpot"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbpot"]
+albedo_texture = ExtResource("3_47rdb")
+
+[node name="Node2D" type="Node3D" unique_id=1238478922]
+
+[node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("1_hbpot")]
+position = Vector2(461, 347)
+
+[node name="cube" type="MeshInstance3D" parent="BobbyCharacter" unique_id=706480845]
+transform = Transform3D(0.5643209, 0, 0, 0, 0.5643209, 0, 0, 0, 0.5643209, 0, 0.49, 0)
+mesh = SubResource("BoxMesh_hbpot")
+
+[node name="Camera3D" type="Camera3D" parent="BobbyCharacter" unique_id=63581725]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5838687, 0)
+current = true
+
+[node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_47rdb")]
+position = Vector2(74, 478)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1098657191]
+transform = Transform3D(1, 0, 0, 0, 0.96960783, -0.24466437, 0, 0.24466437, 0.96960783, 0, 0, 0)
+mesh = SubResource("PlaneMesh_hbpot")
+surface_material_override/0 = SubResource("StandardMaterial3D_hbpot")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1346799509]
+transform = Transform3D(1, 0, 0, 0, 0.9612136, 0.27580512, 0, -0.27580512, 0.9612136, 0, 1.3575441, 0.53342676)
+sky_mode = 1

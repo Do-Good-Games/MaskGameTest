@@ -20,11 +20,11 @@ func get_input():
 	if Input.is_action_pressed('up'):
 		input.y -= 1
 	if Input.is_action_pressed("click"):
-		throwSpeed += 1
+		throwSpeed += 3
 		
 	if Input.is_action_just_released("click"):
-		if(throwSpeed > 75):
-			throwSpeed = 75
+		if(throwSpeed > 200):
+			throwSpeed = 200
 			
 		print(throwSpeed)
 
