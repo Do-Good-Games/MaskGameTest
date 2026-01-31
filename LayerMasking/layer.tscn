@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="1_vm0sn"]
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
-[ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://Ian Folder/layer_mask.gd" id="3_gui4o"]
+[ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://LayerMasking/layer_mask.gd" id="3_gui4o"]
 [ext_resource type="Texture2D" uid="uid://7kdjj57fft6b" path="res://Ian Folder/Red example.png" id="4_k3wos"]
 
 [node name="Layer" type="StaticBody2D" unique_id=807261236]

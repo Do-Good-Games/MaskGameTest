@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b2aodyxg1wr0g"]
 
-[ext_resource type="Script" uid="uid://dgrhfdbhs3r0u" path="res://BobbyFolder/BobbyCharacter.gd" id="1_dmayn"]
+[ext_resource type="Script" uid="uid://dgrhfdbhs3r0u" path="res://Character/BobbyCharacter.gd" id="1_dmayn"]
 [ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="2_d5myv"]
-[ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://BobbyFolder/throwable.tscn" id="2_tbytb"]
+[ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Character/throwable.tscn" id="2_tbytb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
 size = Vector2(123, 125)
@@ -17,3 +17,5 @@ texture = ExtResource("2_d5myv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015673397]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_d5myv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=550504632]

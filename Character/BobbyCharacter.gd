@@ -3,7 +3,7 @@ extends CharacterBody2D
 #const Throwable: PackedScene = preload("res://BobbyFolder/throwable.tscn")
 @export var Throwable: PackedScene
 
-@export var speed = 200
+@export var max_vel = 200
 @export var friction = 0.01
 @export var acceleration = 0.1
 
@@ -39,7 +39,7 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position())
 	var direction = get_input()
 	if direction.length() > 0:
-		velocity = velocity.lerp(direction.normalized() * speed, acceleration)
+		velocity = velocity.lerp(direction.normalized() * max_vel, acceleration)
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, friction)
 	move_and_slide()

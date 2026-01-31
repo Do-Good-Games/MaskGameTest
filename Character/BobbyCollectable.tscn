@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f0giku20phl1"]
 
-[ext_resource type="Script" uid="uid://b6kfm4snx6edn" path="res://BobbyFolder/bobby_collectable.gd" id="1_awvcx"]
+[ext_resource type="Script" uid="uid://b6kfm4snx6edn" path="res://Character/bobby_collectable.gd" id="1_awvcx"]
 [ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="1_oemdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oemdl"]
