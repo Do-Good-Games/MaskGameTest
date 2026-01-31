@@ -11,6 +11,7 @@ class_name Layer extends Node2D
 @onready var unmasked_geometry: StaticBody2D = $UnmaskedGeometry
 @onready var masked_geometry: StaticBody2D = $MaskedGeometry
 
+var mask_bitmap: BitMap
 var level_collision_polygons: Array[CollisionPolygon2D]
 var regions: Dictionary[Rect2, Array] # {Region, Col. Polygons in region}
 
@@ -21,12 +22,12 @@ var regions: Dictionary[Rect2, Array] # {Region, Col. Polygons in region}
 func _ready() -> void:
 	var image := layer_mask.texture.get_image()
 	
-	var bitmap := BitMap.new()
-	bitmap.create_from_image_alpha(image)
+	mask_bitmap = BitMap.new()
+	mask_bitmap.create_from_image_alpha(image)
 	
 	_register_collision_polygons(unmasked_geometry)
 	_create_regions()
-	generate_collision(bitmap, regions.keys())
+	generate_collision(mask_bitmap, regions.keys())
 
 
 func generate_collision(bitmap: BitMap, region_rects: Array[Rect2]) -> void:
@@ -107,9 +108,19 @@ func _create_regions() -> void:
 
 
 func _on_layer_mask_img_updated(updated_region_rect: Rect2) -> void:
-	var bitmap := BitMap.new()
-	bitmap.create_from_image_alpha(layer_mask.texture.get_image())
+	var image: Image = layer_mask.texture.get_image()
+	var image_rect: Rect2 = image.get_used_rect()
+	
+	var x_start: int = max(updated_region_rect.position.x, image_rect.position.x)
+	var x_end: int = min(updated_region_rect.end.x, image_rect.end.x)
+	
+	var y_start: int = max(updated_region_rect.position.y, image_rect.position.y)
+	var y_end: int = min(updated_region_rect.end.y, image_rect.end.y)
+	
+	for x in range(x_start, x_end):
+		for y in range(y_start, y_end):
+			mask_bitmap.set_bit(x, y, image.get_pixel(x, y).a > 0)
 	
 	for region_rect: Rect2 in regions.keys():
 		if region_rect.intersection(updated_region_rect):
-			generate_collision_region(bitmap, region_rect)
+			generate_collision_region(mask_bitmap, region_rect)
