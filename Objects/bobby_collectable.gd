@@ -12,14 +12,14 @@ var goingToPlayer = false
 signal collected
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("click"):
+	if Input.is_action_pressed("left_click"):
 		if(inGravity):
 			activate_gravity(delta)
 		if(inGrab):
 			activate_grab()
 			#self.queue_free()
 			
-	if Input.is_action_just_released("click"):
+	if Input.is_action_just_released("left_click"):
 		goingToPlayer = false
 
 func deactivate():
