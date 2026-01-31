@@ -13,6 +13,12 @@ size = Vector2(307, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
 size = Vector2(587, 221)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qipl1"]
+albedo_color = Color(1, 0.3882353, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e68qv"]
+material = SubResource("StandardMaterial3D_qipl1")
+
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883 groups=["Player"]]
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
@@ -38,3 +44,23 @@ shape = SubResource("RectangleShape2D_ojdix")
 [node name="GravityArea" type="CollisionShape2D" parent="GravityArea" unique_id=35076230 groups=["Gravity"]]
 position = Vector2(283.5, -13.5)
 shape = SubResource("RectangleShape2D_scdtr")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=920639778]
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1354603031]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=423063041]
+transform = Transform3D(0.8488979, 0, -0.5285569, 0, 1, 0, 0.5285569, 0, 0.8488979, 0, 0, 0)
+mesh = SubResource("BoxMesh_e68qv")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1633752222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0849078)
+projection = 1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1773563866]
+transform = Transform3D(1, 0, 0, 0, 0.99457467, 0.10402508, 0, -0.10402508, 0.99457467, 0, 0.45505333, 0.5942402)
