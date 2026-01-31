@@ -18,6 +18,8 @@ func _ready() -> void:
 
 func paint_texture(brush_texture: Texture2D, brush_position: Vector2) -> void:
 	var brush := brush_texture.get_image()
+	var scale = 2
+	
 	img.blend_rect(brush, brush.get_used_rect(), brush_position - brush.get_used_rect().size /2.0)
 	image_texture.update(img)
 	img_updated.emit(Rect2(
@@ -29,6 +31,8 @@ func paint_texture(brush_texture: Texture2D, brush_position: Vector2) -> void:
 func erase_texture(brush_texture: Texture2D, brush_position: Vector2) -> void:
 	var brush := brush_texture.get_image()
 	var brush_rect := brush.get_used_rect()
+	var scale = 1
+	brush_rect.size = brush_rect.size * scale
 	var draw_pos := brush_position - brush_rect.size / 2.0
 
 	var img_size := img.get_size()

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d3x2yq2ogpn0o"]
+
+[ext_resource type="Script" uid="uid://bjxb5mh7wy8cc" path="res://lamp.gd" id="1_inuhc"]
+[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_30ch0"]
+[ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="3_ka7lb"]
+[ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="4_30ch0"]
+
+[node name="Lamp" type="Node2D" unique_id=272377283]
+script = ExtResource("1_inuhc")
+
+[node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_30ch0")]
+has_parent = true
+
+[node name="Throwable" parent="." unique_id=1897539501 instance=ExtResource("3_ka7lb")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=716510185]
+texture = ExtResource("4_30ch0")

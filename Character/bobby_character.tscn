@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgrhfdbhs3r0u" path="res://Character/BobbyCharacter.gd" id="1_dmayn"]
 [ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="2_d5myv"]
-[ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Character/throwable.tscn" id="2_tbytb"]
+[ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="2_tbytb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
 size = Vector2(123, 125)

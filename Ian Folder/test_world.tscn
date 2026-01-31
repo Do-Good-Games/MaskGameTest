@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bym1nxtie4254" path="res://LayerMasking/layer.tscn" id="1_1hawf"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="1_e4dru"]
-[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Character/BobbyCollectable.tscn" id="2_icfwp"]
+[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_icfwp"]
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="3_e4dru"]
 [ext_resource type="Texture2D" uid="uid://7kdjj57fft6b" path="res://Ian Folder/Red example.png" id="3_orqof"]
 [ext_resource type="Texture2D" uid="uid://d1pxvs8i5av8t" path="res://test_mask_alpha_negative.png" id="4_8wdvc"]
@@ -32,7 +32,6 @@ brush_texture = ExtResource("1_e4dru")
 [node name="RedLayer" parent="." unique_id=807261236 instance=ExtResource("1_1hawf")]
 z_index = -1
 position = Vector2(1047, 730)
-rect_size = Vector2(1000, 1000)
 
 [node name="LayerVisual" parent="RedLayer/LayerMask" parent_id_path=PackedInt32Array(807261236, 1379613557) index="0" unique_id=1234380076]
 position = Vector2(3.6502905, 4.9999886)

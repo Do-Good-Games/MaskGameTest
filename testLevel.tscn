@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wbxiup2snukg"]
 
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="1_8a0p6"]
-[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Character/BobbyCollectable.tscn" id="2_vgrmv"]
+[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_vgrmv"]
 
 [node name="Node2D" type="Node2D" unique_id=648198681]
 

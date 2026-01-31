@@ -1,10 +1,15 @@
-extends Area2D
+class_name BobbyCollectible extends Area2D
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+@export var has_parent: bool = false
 
 var inGravity = false
 var inGrab = false
 
 var goingToPlayer = false
 
+signal collected
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("click"):
@@ -16,15 +21,26 @@ func _process(delta: float) -> void:
 			
 	if Input.is_action_just_released("click"):
 		goingToPlayer = false
-			
+
+func deactivate():
+	print("object deactivated?")
+
 func _physics_process(delta: float) -> void:
 	if(goingToPlayer):
-		position += position.direction_to(Vector2(game_manager.playerx,game_manager.playery)) * 100 * delta
+		var object_to_repos
+		if has_parent:
+			object_to_repos =  get_parent()
+		else :
+			object_to_repos = self
+		object_to_repos.position += object_to_repos.position.direction_to(Vector2(game_manager.playerx,game_manager.playery)) * 100 * delta
+		
 
 func activate_grab() -> void:
 	print("active grab")
-	self.queue_free()
-	
+	collected.emit()
+	deactivate()
+
+
 func activate_gravity(delta: float) -> void:
 	print("active gravity")
 	print(game_manager.playerx)
@@ -45,7 +61,6 @@ func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("Grab")):
 		print("we are in grab")
 		inGrab = true
-
 
 func _on_area_exited(area: Area2D) -> void:
 	if(area.is_in_group("Gravity")):
