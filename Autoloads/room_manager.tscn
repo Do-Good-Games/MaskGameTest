@@ -8,79 +8,50 @@ script/source = "extends SceneManager
 @onready var level_exit_animator: AnimationPlayer = $LevelExitAnimator
 @onready var room_change_animator: AnimationPlayer = $RoomChangeAnimator
 
-signal room_entered(room: Room)
-
-var _level_exit_scene_uids: Array[String] = []
-var _level_exit_spawn_ids: Array[String] = []
+signal level_entered(level: Level)
 
 var current_level: Level
-var current_room: Room
 var can_player_reset: bool = true
 
 func _ready() -> void:
 	super._ready()
 	if current_scene != null and not current_scene.is_node_ready():
 		await current_scene.ready
-	#change_parent(UI.game_zone)
-	_register_scene_as_room(current_scene)
-	_enter_scene_as_room(current_scene)
+	_register_scene_as_level(current_scene)
+	#_enter_scene_as_room(current_scene)
 
 
-func enter_level(level: Level) -> void:
-	_level_exit_scene_uids.push_front(current_scene_uid)
-	if current_room:
-		_level_exit_spawn_ids.push_front(current_room.active_spawn_point)
-	else:
-		_level_exit_spawn_ids.push_front(\"\")
-	
-	current_level = level
-	await load_room(level.starting_room, \"\", level_enter_animator)
 
-
-func exit_level() -> void:
-	var exit_scene_uid: String = _level_exit_scene_uids.pop_front()
-	var spawn_id: String = _level_exit_spawn_ids.pop_front()
-	
-	await load_room(exit_scene_uid, \"\", level_exit_animator)
-
-
-func load_room(room_uid: String, spawn_point_id: String = \"\", 
-	anim: AnimationPlayer = default_animator) -> Room:
+func load_level(level_uid: String, anim: AnimationPlayer = default_animator) -> Level:
 	if busy:
 		return null
-	load_scene(room_uid, anim)
+	load_scene(level_uid, anim)
 	var loaded_scene: Node = await self.scene_ready
-	_register_scene_as_room(loaded_scene)
-	_enter_scene_as_room(loaded_scene, spawn_point_id)
-	return loaded_scene as Room
-
-
-func reset_current_room(spawn_point_id: String = current_room.active_spawn_point.id, 
-	anim: AnimationPlayer = default_animator, force_reset: bool = false) -> void:
+	_register_scene_as_level(loaded_scene)
+	#_enter_scene_as_room(loaded_scene, spawn_point_id)
 	
-	if can_player_reset or force_reset:
-		load_room(current_scene_uid, spawn_point_id, anim)
+	return loaded_scene as Level
 
 
-func _register_scene_as_room(scene: Node) -> void:
-	if not scene is Room:
-		current_room = null
+func _register_scene_as_level(scene: Node) -> void:
+	if not scene is Level:
+		current_level = null
 		return
-	var room := scene as Room
+	var level := scene as Level
 	
-	current_room = room
-	room.transition_triggered.connect(load_room)
+	current_level = level
+	#room.transition_triggered.connect(load_room)
 
 
-func _enter_scene_as_room(scene: Node, spawn_point_id: String = \"\") -> void:
-	if not scene is Room:
-		return
-	var room := scene as Room
-	
-	if not spawn_point_id == \"\":
-		room.set_spawn_point_by_id(spawn_point_id)
-	room_entered.emit(room)
-	room.spawn_player()
+#func _enter_scene_as_room(scene: Node, spawn_point_id: String = \"\") -> void:
+	#if not scene is Room:
+		#return
+	#var room := scene as Room
+	#
+	#if not spawn_point_id == \"\":
+		#room.set_spawn_point_by_id(spawn_point_id)
+	#room_entered.emit(room)
+	#room.spawn_player()
 "
 
 [sub_resource type="Animation" id="Animation_o8sae"]
