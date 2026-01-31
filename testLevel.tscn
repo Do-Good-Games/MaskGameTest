@@ -2,11 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://BobbyFolder/bobby_character.tscn" id="1_8a0p6"]
 [ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://BobbyFolder/BobbyCollectable.tscn" id="2_vgrmv"]
+[ext_resource type="PackedScene" uid="uid://bym1nxtie4254" path="res://Ian Folder/layer.tscn" id="3_aldhi"]
 
 [node name="Node2D" type="Node2D" unique_id=648198681]
+position = Vector2(-2, 0)
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("1_8a0p6")]
-position = Vector2(577, 301)
+position = Vector2(65, 321)
 
 [node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_vgrmv")]
 position = Vector2(74, 478)
+
+[node name="Layer" parent="." unique_id=807261236 instance=ExtResource("3_aldhi")]
+z_index = -1
+position = Vector2(593, 345)
+scale = Vector2(0.69015795, 0.69015795)

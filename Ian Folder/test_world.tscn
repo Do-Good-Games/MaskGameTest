@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bseoqe15ia0bb"]
+
+[ext_resource type="PackedScene" uid="uid://bym1nxtie4254" path="res://Ian Folder/layer.tscn" id="1_1hawf"]
+
+[node name="TestWorld" type="Node2D" unique_id=1058061648]
+
+[node name="Layer" parent="." unique_id=807261236 instance=ExtResource("1_1hawf")]
+position = Vector2(1100, 760)
