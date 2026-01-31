@@ -56,16 +56,22 @@ position = Vector2(-5.625332, -9.500088)
 scale = Vector2(0.9986907, 0.98199993)
 texture = ExtResource("5_orqof")
 
+[node name="LayerArea" parent="GreenLayer" index="1" unique_id=1061474882]
+visible = true
+
 [node name="UnmaskedGeometry" parent="GreenLayer" index="2" unique_id=2019776830]
 visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GreenLayer/UnmaskedGeometry" index="0" unique_id=1255001265]
+visible = false
 polygon = PackedVector2Array(-1032, -102, 653, -81, 692, -737, -1055, -756, -1052, -125)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="GreenLayer/UnmaskedGeometry" index="1" unique_id=398593457]
+visible = false
 polygon = PackedVector2Array(-1048, 515, 101, 508, 147, 719, -1069, 733)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="GreenLayer/UnmaskedGeometry" index="2" unique_id=702944521]
+visible = false
 polygon = PackedVector2Array(469, 284, 526, 561, 759, 618, 1047, 457, 1063, 317, 892, 123, 651, 137)
 
 [node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_icfwp")]
