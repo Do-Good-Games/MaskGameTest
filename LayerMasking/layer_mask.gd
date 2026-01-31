@@ -19,11 +19,11 @@ func _ready() -> void:
 func paint_texture(brush_texture: Texture2D, brush_position: Vector2) -> void:
 	var brush := brush_texture.get_image()
 	img.blend_rect(brush, brush.get_used_rect(), brush_position - brush.get_used_rect().size /2.0)
+	image_texture.update(img)
 	img_updated.emit(Rect2(
 		brush_position - brush.get_used_rect().size/2.0,
 		brush.get_used_rect().size
 	))
-	image_texture.update(img)
 
 # Make this better
 func erase_texture(brush_texture: Texture2D, brush_position: Vector2) -> void:

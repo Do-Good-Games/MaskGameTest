@@ -3,26 +3,26 @@
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="1_vm0sn"]
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
 [ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://LayerMasking/layer_mask.gd" id="3_gui4o"]
-[ext_resource type="Texture2D" uid="uid://7kdjj57fft6b" path="res://Ian Folder/Red example.png" id="4_k3wos"]
 
-[node name="Layer" type="StaticBody2D" unique_id=807261236]
+[node name="Layer" type="Node2D" unique_id=1461014223]
 script = ExtResource("2_gui4o")
+epsilon = 20.0
+rect_size = Vector2(1000, 1000)
 
 [node name="LayerMask" type="Sprite2D" parent="." unique_id=1379613557]
 clip_children = 2
-z_index = 1
+z_index = -1
 texture = ExtResource("1_vm0sn")
 script = ExtResource("3_gui4o")
 
 [node name="LayerVisual" type="Sprite2D" parent="LayerMask" unique_id=1234380076]
-position = Vector2(-835.7489, -204)
-scale = Vector2(1.6140466, 2.683331)
-texture = ExtResource("4_k3wos")
 
 [node name="LayerArea" type="Area2D" parent="." unique_id=1061474882]
 visible = false
 
 [node name="UnmaskedGeometry" type="StaticBody2D" parent="." unique_id=2019776830]
 collision_layer = 0
+
+[node name="MaskedGeometry" type="StaticBody2D" parent="." unique_id=211235266]
 
 [connection signal="img_updated" from="LayerMask" to="." method="_on_layer_mask_img_updated"]
