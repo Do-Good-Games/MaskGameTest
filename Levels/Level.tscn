@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b01gwbcmrrl47" path="res://LayerMasking/layer_controller.gd" id="1_hssr4"]
 [ext_resource type="Texture2D" uid="uid://dtovvpm7o8oas" path="res://new_gradient_texture_2d.tres" id="2_80o2m"]
-[ext_resource type="PackedScene" uid="uid://cpbird1x7ojdl" path="res://LayerMasking/layer_cleaned.tscn" id="2_plfr8"]
+[ext_resource type="PackedScene" uid="uid://coqhikko6ph8v" path="res://LayerMasking/layer_cleaned.tscn" id="2_plfr8"]
 [ext_resource type="Shader" uid="uid://d0hl15orlcdml" path="res://Shaders/the_maskerrrrrr.gdshader" id="3_f046f"]
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="5_vyu21"]
 [ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/less_evil_brush.tres" id="6_3wkli"]
@@ -228,9 +228,11 @@ func _on_body_entered(body: Node2D) -> void:
 		RoomManager.load_level(RoomManager.current_scene_uid)
 "
 
-[node name="Level" type="Node2D" unique_id=1171352334]
+[node name="Level" type="Node2D" unique_id=1171352334 node_paths=PackedStringArray("layers", "collision_types")]
 material = SubResource("ShaderMaterial_6hdhj")
 script = ExtResource("1_hssr4")
+layers = [null, NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
+collision_types = [NodePath("Collision"), NodePath("Hazard")]
 red_mask = ExtResource("14_xtlnx")
 green_mask = ExtResource("13_8b3wp")
 blue_mask = ExtResource("12_55ngp")
@@ -259,12 +261,6 @@ texture = ExtResource("7_rjnlo")
 
 [node name="TempMasks" parent="RedLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
-
-[node name="Use add_temp_mask()" type="Sprite2D" parent="RedLayer/TempMasks" index="0" unique_id=1932516081]
-visible = false
-position = Vector2(0, 160.19)
-texture = ExtResource("7_b6wxt")
-centered = false
 
 [node name="GreenLayer" parent="." unique_id=1876231418 instance=ExtResource("2_plfr8")]
 visible = false
@@ -298,6 +294,11 @@ texture = ExtResource("11_6dhlr")
 size = Vector2i(1510, 1080)
 render_target_update_mode = 4
 
+[node name="Use add_temp_mask()" type="Sprite2D" parent="BlueLayer/TempMasks" index="0" unique_id=1932516081]
+position = Vector2(0, 32.12)
+texture = ExtResource("7_b6wxt")
+centered = false
+
 [node name="CompositeVisuals" type="Sprite2D" parent="." unique_id=378184343]
 z_index = -1
 material = SubResource("ShaderMaterial_b8h2f")
@@ -305,7 +306,6 @@ texture = SubResource("GradientTexture2D_rwkd2")
 centered = false
 
 [node name="Collision" parent="." unique_id=1520539682 node_paths=PackedStringArray("collision_object") instance=ExtResource("12_v2lpe")]
-visible = false
 rect_size = Vector2(500, 500)
 collision_object = NodePath("StaticBody2D")
 
