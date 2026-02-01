@@ -10,6 +10,7 @@ var goingToPlayer = false
 
 signal collected(obj_ref : Node)
 
+
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("left_click"):
 		if(inGravity):

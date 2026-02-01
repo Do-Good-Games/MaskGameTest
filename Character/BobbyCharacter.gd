@@ -26,12 +26,18 @@ func get_input():
 		if(throwSpeed > 200):
 			throwSpeed = 200
 			
-
-		var createdThrowable = Throwable.instantiate()
-		get_tree().root.add_child(createdThrowable)
+		#var createdThrowable = Throwable.instantiate()
+		# change^ 
+		var lamp = game_manager.current_held._obj_ref
+		if lamp is Throwable: # < not working
+			print("fix that ^")
+			lamp.reactivate() #check that deactivate and reactivate work properly
+		
+		#get_tree().root.add_child(createdThrowable)
 		createdThrowable.global_transform = self.global_transform
 		createdThrowable.speed = throwSpeed
 		throwSpeed = 0
+	#bones your work is done here^
 	return input
 
 func _physics_process(delta):
