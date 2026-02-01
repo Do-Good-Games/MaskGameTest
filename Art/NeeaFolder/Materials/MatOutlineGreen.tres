@@ -5,7 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ag1xo"]
 render_priority = 0
 shader = ExtResource("1_q4nro")
-shader_parameter/outlineSize = 0.1
+shader_parameter/outlineSize = 0.05
 shader_parameter/colorOutline = Color(0, 0, 0, 1)
 
 [resource]

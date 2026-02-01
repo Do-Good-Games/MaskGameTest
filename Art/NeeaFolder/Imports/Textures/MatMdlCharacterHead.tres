@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://gxsawuhkq3js"]
+
+[ext_resource type="Texture2D" uid="uid://dve76ue2qp4rg" path="res://Art/NeeaFolder/Imports/Textures/CharacterHead.png" id="1_4yn6s"]
+[ext_resource type="Texture2D" uid="uid://cum6rgnyhrfth" path="res://Art/NeeaFolder/Imports/Textures/Metal_BronzeClean_1K_roughness.png" id="2_6a5t8"]
+
+[resource]
+albedo_color = Color(0.82947975, 0.8294798, 0.82947975, 1)
+roughness_texture = ExtResource("2_6a5t8")
+normal_enabled = true
+normal_texture = ExtResource("1_4yn6s")

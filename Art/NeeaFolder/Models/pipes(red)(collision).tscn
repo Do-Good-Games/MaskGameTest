@@ -1,5 +1,27 @@
 [gd_scene format=3 uid="uid://xi303uwgiu2t"]
 
 [ext_resource type="PackedScene" uid="uid://cq5a8ty1wuyny" path="res://Art/NeeaFolder/Imports/Models/Pipes(red)(collision).fbx" id="1_yctwu"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/MatMetalRed.tres" id="2_bbpoo"]
 
 [node name="Pipes(red)(collision)" unique_id=1736850951 instance=ExtResource("1_yctwu")]
+
+[node name="Torus" parent="." index="0" unique_id=1158277387]
+material_override = ExtResource("2_bbpoo")
+
+[node name="Torus_001" parent="." index="1" unique_id=1123258475]
+material_override = ExtResource("2_bbpoo")
+
+[node name="Torus_002" parent="." index="2" unique_id=529903728]
+material_override = ExtResource("2_bbpoo")
+
+[node name="Torus_003" parent="." index="3" unique_id=263281658]
+material_override = ExtResource("2_bbpoo")
+
+[node name="Torus_004" parent="." index="4" unique_id=149020921]
+material_override = ExtResource("2_bbpoo")
+
+[node name="Torus_005" parent="." index="5" unique_id=424183864]
+material_override = ExtResource("2_bbpoo")
+
+[node name="Torus_006" parent="." index="6" unique_id=1526125241]
+material_override = ExtResource("2_bbpoo")
