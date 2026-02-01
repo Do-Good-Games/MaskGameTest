@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bseoqe15ia0bb"]
 
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="1_e4dru"]
-[ext_resource type="PackedScene" uid="uid://cpbird1x7ojdl" path="res://LayerMasking/layer_cleaned.tscn" id="2_n12ks"]
+[ext_resource type="PackedScene" uid="uid://coqhikko6ph8v" path="res://LayerMasking/layer_cleaned.tscn" id="2_n12ks"]
 
 [sub_resource type="GDScript" id="GDScript_xny3m"]
 resource_name = "test_script"
@@ -20,17 +20,11 @@ func _input(event: InputEvent) -> void:
 			$GreenLayer.layer_mask.erase_texture(brush_texture, get_global_mouse_position())
 "
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_icfwp"]
-viewport_path = NodePath("MaskViewer")
-
 [node name="TestWorld2" type="Node2D" unique_id=1058061648]
 script = SubResource("GDScript_xny3m")
 brush_texture = ExtResource("1_e4dru")
 
 [node name="Layer" parent="." unique_id=1461014223 instance=ExtResource("2_n12ks")]
-
-[node name="Clipper" parent="Layer" index="0" unique_id=476506377]
-texture = SubResource("ViewportTexture_icfwp")
 
 [node name="Layer2" parent="." unique_id=1841236398 instance=ExtResource("2_n12ks")]
 

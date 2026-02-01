@@ -29,7 +29,7 @@ func _on_timer_timeout() -> void:
 	for collision_type: CollisionType in shapes_by_type.keys():
 		collision_type.do_color_cast(
 			global_position, 
-			direction,
+			direction.rotated(rotation),
 			length,
 			shapes_by_type[collision_type],
 			epsilon

@@ -13,13 +13,32 @@ uniform sampler2D blue_temp_masks;
 
 
 void fragment() {
-	if (texture(red_mask, UV).a > 0.0 || texture(red_temp_masks, UV).a > 0.0){
+	float red_bonus = texture(red_temp_masks, UV).a;
+	float green_bonus = texture(green_temp_masks, UV).a;
+	float blue_bonus = texture(blue_temp_masks, UV).a;
+	
+	float regular_red = texture(red_mask, UV).a;
+	float regular_green = texture(green_mask, UV).a;
+	float regular_blue = texture(blue_mask, UV).a;
+	
+	
+	COLOR = vec4(0.0);
+	if (red_bonus > 0.0){
 		COLOR = texture(red_texture, UV);
 	}
-	else if (texture(green_mask, UV).a > 0.0 || texture(green_temp_masks, UV).a > 0.0){
+	else if (green_bonus > 0.0){
 		COLOR = texture(green_texture, UV);
 	}
-	else if (texture(blue_mask, UV).a > 0.0 || texture(blue_temp_masks, UV).a > 0.0){
+	else if (blue_bonus > 0.0){
+		COLOR = texture(blue_texture, UV);
+	}
+	else if (regular_red > 0.0){
+		COLOR = texture(red_texture, UV);
+	}
+	else if (regular_green > 0.0){
+		COLOR = texture(green_texture, UV);
+	}
+	else {
 		COLOR = texture(blue_texture, UV);
 	}
 }
