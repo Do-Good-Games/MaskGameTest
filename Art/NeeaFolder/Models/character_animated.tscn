@@ -5,30 +5,30 @@
 
 [node name="Character_animated" unique_id=988495083 instance=ExtResource("1_hbkjc")]
 
-[node name="Lfoot_001" parent="." index="0" unique_id=1553147537]
+[node name="Lfoot_001" parent="." index="0" unique_id=1738382082]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 0.2807059, 2.2159917, 0.10321996)
 material_override = ExtResource("2_107mr")
 
-[node name="Lhand_001" parent="." index="1" unique_id=2021676081]
+[node name="Lhand_001" parent="." index="1" unique_id=1528838300]
 transform = Transform3D(18.078863, 0, 0, 0, -7.902521e-07, 18.078861, 0, -18.078861, -7.902521e-07, 0.7892201, 3.1732159, 0.10321979)
 material_override = ExtResource("2_107mr")
 
-[node name="Rarm_001" parent="." index="2" unique_id=1131227528]
+[node name="Rarm_001" parent="." index="2" unique_id=1619386065]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, -0.80376816, 3.158611, 0.13313583)
 material_override = ExtResource("2_107mr")
 
-[node name="Rlegs_001" parent="." index="3" unique_id=1393123034]
+[node name="Rlegs_001" parent="." index="3" unique_id=903279]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, -0.24732721, 2.215991, 0.10321996)
 material_override = ExtResource("2_107mr")
 
-[node name="body_001" parent="." index="5" unique_id=543770753]
+[node name="body_001" parent="." index="5" unique_id=1318844422]
 material_override = ExtResource("2_107mr")
 
-[node name="head_001" parent="." index="6" unique_id=1872136471]
+[node name="head_001" parent="." index="6" unique_id=1200134298]
 material_override = ExtResource("2_107mr")
 
-[node name="mask_001" parent="." index="7" unique_id=2137047642]
+[node name="mask_001" parent="." index="7" unique_id=2066328323]
 surface_material_override/0 = ExtResource("2_107mr")
 
-[node name="nose_001" parent="." index="8" unique_id=267042305]
+[node name="nose_001" parent="." index="8" unique_id=525234820]
 material_override = ExtResource("2_107mr")

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b2aodyxg1wr0g"]
 
 [ext_resource type="Script" uid="uid://dgrhfdbhs3r0u" path="res://Character/BobbyCharacter.gd" id="1_dmayn"]
-[ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="2_d5myv"]
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="2_tbytb"]
+[ext_resource type="PackedScene" uid="uid://din80lsrswumn" path="res://Art/NeeaFolder/Models/character_animated.tscn" id="4_af2uv"]
 [ext_resource type="Script" uid="uid://cme251y5q84v1" path="res://Character/CharacterCollision.gd" id="4_ojdix"]
+[ext_resource type="PackedScene" uid="uid://bd4yyf4mjg25c" path="res://Art/NeeaFolder/Models/character.tscn" id="5_af2uv"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="5_tmhds"]
 [ext_resource type="PackedScene" uid="uid://cg1hwhuut14st" path="res://Menus/inventoryUI.tscn" id="6_o5ivm"]
 
@@ -29,9 +30,6 @@ Throwable = ExtResource("2_tbytb")
 max_vel = 300.0
 friction = 0.15
 acceleration = 0.5
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=940279390]
-texture = ExtResource("2_d5myv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015673397]
 position = Vector2(-0.5, 0.5)
@@ -66,19 +64,28 @@ position = Vector2(283.5, -13.5)
 shape = SubResource("RectangleShape2D_scdtr")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=920639778]
-offset_left = -48.0
-offset_top = -52.0
-offset_right = 52.0
-offset_bottom = 48.0
+offset_left = -56.0
+offset_top = -74.0
+offset_right = 104.0
+offset_bottom = 74.0
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1354603031]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(100, 100)
+size = Vector2i(160, 148)
 render_target_update_mode = 4
+
+[node name="Character_animated" parent="SubViewportContainer/SubViewport" unique_id=988495083 instance=ExtResource("4_af2uv")]
+transform = Transform3D(6.95083e-16, 8.313233e-09, 0.34809288, 0.36378726, -8.313233e-09, 0, 1.5901644e-08, 0.1901846, -1.5215623e-08, -0.12246966, 0, 0)
+visible = false
+
+[node name="Character" parent="SubViewportContainer/SubViewport" unique_id=1152607547 instance=ExtResource("5_af2uv")]
+transform = Transform3D(-3.111038e-08, -1.684767e-08, 0.3734858, 0.35586125, 1.6847668e-08, 3.2651165e-08, -1.5555191e-08, 0.3854297, 1.6325583e-08, -0.14584541, -0.00809446, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=423063041]
 transform = Transform3D(0.8488979, 0, -0.5285569, 0, 1, 0, 0.5285569, 0, 0.8488979, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_e68qv")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1633752222]
