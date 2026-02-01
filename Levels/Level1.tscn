@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ej6046x42d0l"]
+[gd_scene format=3 uid="uid://br3o5hab1gkls"]
 
 [ext_resource type="Shader" uid="uid://d0hl15orlcdml" path="res://Shaders/the_maskerrrrrr.gdshader" id="1_pp47a"]
 [ext_resource type="Texture2D" uid="uid://dtovvpm7o8oas" path="res://new_gradient_texture_2d.tres" id="2_idi36"]
@@ -238,6 +238,7 @@ red_hazard = ExtResource("12_dk0xa")
 green_hazard = ExtResource("13_2s4ma")
 blue_hazard = ExtResource("14_vrgcg")
 debug_brush = ExtResource("15_vrgcg")
+debug_brush_scale = null
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("16_jtsmk")]
 position = Vector2(779, 936)

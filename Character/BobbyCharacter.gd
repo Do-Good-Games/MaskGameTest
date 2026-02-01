@@ -46,6 +46,9 @@ func process_throwing():
 			in_hand_obj_throwable.target_pos = tp * 100
 			print(mp)
 			in_hand_obj.reactivate()
+			if in_hand_obj is Lamp:
+				in_hand_obj.turn_on_lamp()
+			game_manager.remove_current_held()
 			throwing = false
 			throwSpeed = 0
 			# TODO reactive inventory switching?
@@ -71,6 +74,8 @@ func _physics_process(delta):
 
 		# Throwing Code
 	process_throwing()
+	if game_manager.current_held._item_type == game_manager.inventory_slot_type.LAMP:
+		game_manager.current_held._obj_ref.position = position
 
 	
 	

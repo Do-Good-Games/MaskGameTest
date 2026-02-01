@@ -41,6 +41,7 @@ func draw_lantern():
 	turn_on_lamp()
 
 func _physics_process(delta: float) -> void:
+	
 	if brush:
 		brush.position = position
 	move_and_slide()
@@ -59,7 +60,7 @@ func receive_collected(obj_ref: Node):
 func deactivate():
 	bobby_collectable.deactivate()
 	print("deac'd")
-	#sprite_2d.visible = false
+	sprite_2d.visible = false
 	#self.disabled = true
 
 func reactivate():
