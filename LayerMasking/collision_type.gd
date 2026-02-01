@@ -9,12 +9,17 @@ class_name CollisionType extends StaticBody2D
 var mask_bitmap: BitMap
 var regions: Dictionary[Rect2, Array] # {Region, Col. Polygons in region}
 var dirty_regions: Array[Rect2]
+var collision_thread: Thread
+
+
+func _ready() -> void:
+	collision_thread = Thread.new()
 
 
 func generate_collision_region(bitmap: BitMap, region_rect: Rect2) -> void:
 	var polys := bitmap.opaque_to_polygons(region_rect, epsilon);
 	
-	print(polys)
+	print(polys.size())
 	
 	if regions.has(region_rect):
 		_clear_collision_polys(regions[region_rect])
@@ -54,6 +59,10 @@ func _create_regions() -> void:
 
 
 func update_dirty_regions() -> void:
+	var this_thread: Thread = collision_thread
+	collision_thread = Thread.new()
+	
+	await RenderingServer.frame_post_draw 
 	await RenderingServer.frame_post_draw 
 	var viewport_image := sub_viewport.get_texture().get_image()
 	var image_rect: Rect2i = Rect2i(Vector2.ZERO, viewport_image.get_size())
@@ -71,10 +80,10 @@ func update_dirty_regions() -> void:
 		for x in range(x_start, x_end):
 			for y in range(y_start, y_end):
 				mask_bitmap.set_bit(x, y, viewport_image.get_pixel(x,y).a > 0)
-				if viewport_image.get_pixel(x,y).a > 0:
-					print("AAAAH")
 		generate_collision_region(mask_bitmap, region)
 	dirty_regions.clear()
+	
+	this_thread.wait_to_finish()
 	
 	#for region_rect: Rect2 in regions.keys():
 		#if region_rect.intersection(updated_region_rect):

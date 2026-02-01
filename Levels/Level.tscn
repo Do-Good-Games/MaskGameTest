@@ -98,13 +98,13 @@ gradient = SubResource("Gradient_b85kt")
 width = 2100
 height = 1500
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5fklp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_oqb7r"]
 viewport_path = NodePath("BlueLayer/TempMasks")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_oqb7r"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ysbpt"]
 viewport_path = NodePath("GreenLayer/TempMasks")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ysbpt"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5fklp"]
 viewport_path = NodePath("RedLayer/TempMasks")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irrfb"]
@@ -116,28 +116,28 @@ shader_parameter/green_texture = ExtResource("17_al8gi")
 shader_parameter/green_mask = ExtResource("13_8b3wp")
 shader_parameter/blue_texture = ExtResource("16_xtlnx")
 shader_parameter/blue_mask = ExtResource("12_55ngp")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_ysbpt")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_oqb7r")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_5fklp")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_5fklp")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_ysbpt")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_oqb7r")
 
 [sub_resource type="Gradient" id="Gradient_ir1ia"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_jpldl"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_ir1ia")
-width = 1510
-height = 1080
+width = 2100
+height = 1500
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jsskw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6aiv5"]
 viewport_path = NodePath("BlueLayer/TempMasks")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sdsxl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wjydf"]
 viewport_path = NodePath("GreenLayer/TempMasks")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3wkli"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8r2kf"]
 viewport_path = NodePath("RedLayer/TempMasks")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8r2kf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cs8j"]
 resource_local_to_scene = true
 shader = ExtResource("3_f046f")
 shader_parameter/red_texture = ExtResource("21_jsskw")
@@ -146,14 +146,42 @@ shader_parameter/green_texture = ExtResource("20_3wkli")
 shader_parameter/green_mask = ExtResource("13_8b3wp")
 shader_parameter/blue_texture = ExtResource("19_8mwr5")
 shader_parameter/blue_mask = ExtResource("12_55ngp")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_3wkli")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_sdsxl")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_jsskw")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_8r2kf")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_wjydf")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_6aiv5")
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cs8j"]
 gradient = SubResource("Gradient_ir1ia")
-width = 1510
-height = 1080
+width = 2100
+height = 1500
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_irrfb"]
+viewport_path = NodePath("BlueLayer/TempMasks")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jpldl"]
+viewport_path = NodePath("GreenLayer/TempMasks")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7ochp"]
+viewport_path = NodePath("RedLayer/TempMasks")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6aiv5"]
+resource_local_to_scene = true
+shader = ExtResource("3_f046f")
+shader_parameter/red_texture = ExtResource("18_wywvs")
+shader_parameter/red_mask = ExtResource("14_xtlnx")
+shader_parameter/green_texture = ExtResource("17_al8gi")
+shader_parameter/green_mask = ExtResource("13_8b3wp")
+shader_parameter/blue_texture = ExtResource("16_xtlnx")
+shader_parameter/blue_mask = ExtResource("12_55ngp")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_7ochp")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_jpldl")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_irrfb")
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wjydf"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ir1ia")
+width = 2100
+height = 1500
 
 [node name="Level" type="Node2D" unique_id=1171352334 node_paths=PackedStringArray("layers", "collision_types")]
 material = SubResource("ShaderMaterial_6hdhj")
@@ -223,10 +251,11 @@ texture = SubResource("GradientTexture2D_rwkd2")
 centered = false
 
 [node name="Collision" parent="." unique_id=1520539682 instance=ExtResource("12_v2lpe")]
-visible = false
+epsilon = 20.0
+rect_size = Vector2(100, 100)
 
 [node name="SubViewport" parent="Collision" index="0" unique_id=1472265480]
-size = Vector2i(1510, 1080)
+size = Vector2i(2100, 1500)
 
 [node name="CollisionMask" parent="Collision/SubViewport" index="0" unique_id=1243604259]
 material = SubResource("ShaderMaterial_irrfb")
@@ -234,16 +263,24 @@ texture = SubResource("GradientTexture2D_jpldl")
 
 [node name="Hazard" parent="." unique_id=2146344563 instance=ExtResource("12_v2lpe")]
 collision_layer = 2
+epsilon = 20.0
+rect_size = Vector2(100, 100)
 
 [node name="SubViewport" parent="Hazard" index="0" unique_id=1472265480]
-size = Vector2i(1510, 1080)
+size = Vector2i(2100, 1500)
 
 [node name="CollisionMask" parent="Hazard/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_8r2kf")
+material = SubResource("ShaderMaterial_8cs8j")
 texture = SubResource("GradientTexture2D_8cs8j")
 
 [node name="CollisionRedrawTimer" type="Timer" parent="." unique_id=707728349]
 autostart = true
+
+[node name="CollisionMask2" type="Sprite2D" parent="." unique_id=815951599]
+visible = false
+material = SubResource("ShaderMaterial_6aiv5")
+texture = SubResource("GradientTexture2D_wjydf")
+centered = false
 
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
 

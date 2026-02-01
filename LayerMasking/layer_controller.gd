@@ -48,4 +48,4 @@ func _input(event: InputEvent) -> void:
 func _on_collision_redraw_timer_timeout() -> void:
 	for collision_type in collision_types:
 		if not collision_type.dirty_regions.is_empty():
-			collision_type.update_dirty_regions()
+			collision_type.collision_thread.start(collision_type.update_dirty_regions)
