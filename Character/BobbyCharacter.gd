@@ -9,6 +9,11 @@ class_name BobbyCharacter extends CharacterBody2D
 
 var throwSpeed = 0
 
+@onready var _animated_sprite = $Sprite2D
+
+func _process(_delta):
+		_animated_sprite.play("run")
+
 func get_input():
 	var input = Vector2()
 	if Input.is_action_pressed('right'):
@@ -68,5 +73,6 @@ func draw_lantern():
 	
 	RoomManager.current_level.add_temp_mask(curr_held._color, sprite )
 
+		
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.

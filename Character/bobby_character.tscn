@@ -1,12 +1,80 @@
 [gd_scene format=3 uid="uid://b2aodyxg1wr0g"]
 
 [ext_resource type="Script" uid="uid://dgrhfdbhs3r0u" path="res://Character/BobbyCharacter.gd" id="1_dmayn"]
-[ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="2_d5myv"]
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="2_tbytb"]
+[ext_resource type="Texture2D" uid="uid://brwqh77240c24" path="res://Art/Fiona's 2D 3D Assets/Walking_Animate.png" id="3_af2uv"]
 [ext_resource type="Script" uid="uid://cme251y5q84v1" path="res://Character/CharacterCollision.gd" id="4_ojdix"]
-[ext_resource type="PackedScene" uid="uid://cvin4j0tq0guf" path="res://Art/NeeaFolder/Imports/Models/Character.fbx" id="5_af2uv"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="5_tmhds"]
 [ext_resource type="PackedScene" uid="uid://cg1hwhuut14st" path="res://Menus/inventoryUI.tscn" id="6_o5ivm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_571dv"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6kay"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7fgt"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hmwi"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apfki"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yemxu"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ebn2"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aaps"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_equ1u"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_571dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6kay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7fgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hmwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apfki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yemxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ebn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aaps")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
 size = Vector2(123, 125)
@@ -17,12 +85,6 @@ size = Vector2(131, 131)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
 size = Vector2(587, 221)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojdix"]
-albedo_color = Color(1, 0.3882353, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_e68qv"]
-material = SubResource("StandardMaterial3D_ojdix")
-
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_dmayn")
@@ -31,9 +93,10 @@ max_vel = 300.0
 friction = 0.15
 acceleration = 0.5
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=940279390]
-visible = false
-texture = ExtResource("2_d5myv")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1018378448]
+rotation = 3.1415927
+sprite_frames = SubResource("SpriteFrames_equ1u")
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015673397]
 position = Vector2(-0.5, 0.5)
@@ -66,39 +129,6 @@ visible = false
 [node name="GravityArea" type="CollisionShape2D" parent="GravityArea" unique_id=35076230 groups=["Gravity"]]
 position = Vector2(283.5, -13.5)
 shape = SubResource("RectangleShape2D_scdtr")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=920639778]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -68.0
-offset_top = -60.0
-offset_right = 68.0
-offset_bottom = 84.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1354603031]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(136, 144)
-render_target_update_mode = 4
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=423063041]
-transform = Transform3D(0.8488979, 0, -0.5285569, 0, 1.1838598, 0, 0.5285569, 0, 0.8488979, 0, 0.011543989, 0)
-visible = false
-mesh = SubResource("BoxMesh_e68qv")
-
-[node name="Character" parent="SubViewportContainer/SubViewport" unique_id=161290711 instance=ExtResource("5_af2uv")]
-transform = Transform3D(0.002093999, 0.005168311, 0.3691461, 0.40947232, -2.6430194e-05, -0.0018877746, 0, 0.395339, -0.0048260144, -0.13430047, 0.0065852404, -1.0001721)
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1633752222]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0849078)
-projection = 1
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1773563866]
-transform = Transform3D(1, 0, 0, 0, 0.99457467, 0.10402508, 0, -0.10402508, 0.99457467, 0, 0.45505333, 0.5942402)
 
 [node name="collisionCheckers" type="Node2D" parent="." unique_id=1757760017]
 
