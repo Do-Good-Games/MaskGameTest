@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://yrfhf5v03q3x"]
+
+[ext_resource type="PackedScene" uid="uid://b7ykygpuv3kaj" path="res://Art/NeeaFolder/Models/lampGreen.tscn" id="1_e4yk3"]
+
+[node name="Lamp" type="Node2D" unique_id=626498964]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=129985940]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1753485338]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=717998456]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0052046776, 2.6324763, 0.116374254)
+fov = 57.377117
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=225765189]
+transform = Transform3D(1, 0, 0, 0, 0.6648002, 0.7470212, 0, -0.7470212, 0.6648002, 0, 0, 0)
+
+[node name="Lamp" parent="SubViewportContainer/SubViewport" unique_id=104917581 instance=ExtResource("1_e4yk3")]
+transform = Transform3D(1, 0, 0, 0, 0.03245745, 0.9994731, 0, -0.9994731, 0.03245745, 0, 0, 1.0281982)

@@ -21,7 +21,7 @@ func _start() -> void:
 	print("Start Game")
 	
 	#CHANGE THIS TO THE REAL LEVEL 1 OR WHATEVER
-	get_tree().change_scene_to_file("res://Levels/UIHookupsTestLevel.tscn")
+	get_tree().change_scene_to_file("res://Levels/ryanLevel.tscn")
 	
 func _credits() -> void:
 	print("Opening Credits Menu")

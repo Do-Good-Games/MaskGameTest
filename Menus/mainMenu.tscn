@@ -4,6 +4,8 @@
 [ext_resource type="Theme" uid="uid://cx3sm5oban123" path="res://Menus/Menu Button Theme.tres" id="1_s4xto"]
 [ext_resource type="Texture2D" uid="uid://rw8d2f1wlin6" path="res://Ian Folder/Green_Example.png" id="1_yi1rc"]
 [ext_resource type="Texture2D" uid="uid://dwshjxg6laokl" path="res://Art/title logo placeholder.png" id="2_s8lr4"]
+[ext_resource type="Texture2D" uid="uid://jl6bdtk6amsd" path="res://Art/Fiona's 2D 3D Assets/guy transparent.png" id="3_fhsdm"]
+[ext_resource type="PackedScene" uid="uid://clbrr0rbsps05" path="res://Art/Fiona's 2D 3D Assets/animation_button.tscn" id="6_afcfs"]
 
 [node name="mainMenu" type="Control" unique_id=659569743]
 layout_mode = 3
@@ -15,7 +17,6 @@ grow_vertical = 2
 script = ExtResource("1_mhip1")
 
 [node name="[PLACEHOLDER] BG" type="TextureRect" parent="." unique_id=1099719461]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,9 +45,22 @@ theme_override_font_sizes/normal_font_size = 38
 theme_override_font_sizes/bold_font_size = 70
 bbcode_enabled = true
 text = "Global Game Jam 2026
-[b]NAME OF GAME[/b]"
+[b]LAYER MASKING GAME[/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="THE GUY" type="TextureRect" parent="CanvasLayer" unique_id=733076454]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 202.0
+offset_top = 119.0
+offset_right = -219.0
+offset_bottom = 349.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fhsdm")
+flip_h = true
 
 [node name="Image Based Title" type="TextureRect" parent="CanvasLayer" unique_id=1633808644]
 visible = false
@@ -88,8 +102,13 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "Begin Game"
 
+[node name="Animation_Button" parent="CanvasLayer/Button Container/Start Button" unique_id=684603435 instance=ExtResource("6_afcfs")]
+
 [node name="Credits Button" type="Button" parent="CanvasLayer/Button Container" unique_id=393855208]
 process_mode = 3
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "Credits"
+
+[node name="Animation_Button" parent="CanvasLayer/Button Container/Credits Button" unique_id=212708248 instance=ExtResource("6_afcfs")]
+counter_clockwise = true

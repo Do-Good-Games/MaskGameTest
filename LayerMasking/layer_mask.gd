@@ -18,9 +18,9 @@ func register_texture(new_texture: Texture2D) -> void:
 	#texture.upd
 
 
-func paint_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2i(1, 1)) -> Rect2i:
+func paint_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2(1, 1)) -> Rect2i:
 	var brush := brush_texture.get_image()
-	if brush_scale != Vector2i(1,1):
+	if brush_scale != Vector2(1,1):
 		brush.resize(brush.get_width() * brush_scale.x, brush.get_height() * brush_scale.y)
 	
 	var brush_rect := Rect2i(Vector2.ZERO, brush.get_size())
@@ -54,7 +54,7 @@ func paint_circle(radius: float, circle_pos: Vector2) -> void:
 
 
 # Make this better
-func erase_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2i(1, 1)) -> Rect2i:
+func erase_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2(1, 1)) -> Rect2i:
 	var brush := brush_texture.get_image()
 	brush.resize(brush.get_width() * brush_scale.x, brush.get_height() * brush_scale.y)
 	var brush_rect := brush.get_used_rect()
