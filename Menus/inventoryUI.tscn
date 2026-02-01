@@ -118,7 +118,6 @@ theme_override_constants/margin_bottom = 10
 [node name="Left Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Left Item/MarginContainer/Panel/MarginContainer" unique_id=1443927539]
 modulate = Color(1, 1, 1, 0.6392157)
 layout_mode = 2
-texture = ExtResource("2_rvqc1")
 expand_mode = 1
 stretch_mode = 4
 
@@ -157,7 +156,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Center Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Center Item/CenterItemPanel/MarginContainer" unique_id=2114746253]
 layout_mode = 2
-texture = ExtResource("2_rvqc1")
 expand_mode = 1
 stretch_mode = 4
 
@@ -189,6 +187,5 @@ theme_override_constants/margin_bottom = 10
 [node name="Right Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Right Item/MarginContainer/Panel/MarginContainer" unique_id=915753916]
 modulate = Color(1, 1, 1, 0.6392157)
 layout_mode = 2
-texture = ExtResource("3_24f0e")
 expand_mode = 1
 stretch_mode = 4

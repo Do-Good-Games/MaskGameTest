@@ -46,7 +46,7 @@ func _input(event:InputEvent):
 
 func set_held(idx : int ):
 	var lamp = current_held._obj_ref
-	#if lamp is Lamp:
+	#if lamp is Lamp:a
 		#lamp.turn_off_lamp()
 	current_held = collected_items[idx]
 	held_changed.emit(current_held._idx)
