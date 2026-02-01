@@ -11,11 +11,11 @@ enum inventory_slot_type{
 	NONE = 0, GRENADE=1, LAMP=2
 }
 class InventorySlot:
-	var _item : inventory_slot_type = inventory_slot_type.NONE
+	var _item_type : inventory_slot_type = inventory_slot_type.NONE
 	var _color : color_enum = color_enum.NONE
 	var _idx: int = 0
 	func _init(item:inventory_slot_type, color:color_enum, idx: int):
-		_item = item
+		_item_type = item
 		_color = color
 		_idx = idx
 
