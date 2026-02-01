@@ -8,7 +8,7 @@
 resource_local_to_scene = true
 gradient = SubResource("Gradient_ir1ia")
 
-[node name="CollisionType" type="StaticBody2D" unique_id=1520539682]
+[node name="CollisionType" type="Node2D" unique_id=932560002]
 script = ExtResource("1_smnno")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1472265480]

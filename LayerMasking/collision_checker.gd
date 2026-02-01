@@ -13,8 +13,10 @@ var length: int
 func _ready() -> void:
 	if RoomManager.current_level == null:
 		await RoomManager.level_ready
+	if RoomManager.busy:
+		await RoomManager.level_ready
 	for collision_type: CollisionType in RoomManager.current_level.collision_types:
-		shapes_by_type.set(collision_type, collision_type.get_shape(shape))
+		shapes_by_type.set(collision_type, collision_type.give_shape(shape))
 	timer.wait_time = frequency
 	
 	direction = target_position.normalized()
@@ -22,6 +24,8 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
+	if RoomManager.busy:
+		return
 	for collision_type: CollisionType in shapes_by_type.keys():
 		collision_type.do_color_cast(
 			global_position, 

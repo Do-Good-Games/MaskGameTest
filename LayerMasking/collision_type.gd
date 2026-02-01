@@ -1,7 +1,8 @@
-class_name CollisionType extends StaticBody2D
+class_name CollisionType extends Node2D
  
 @export var rect_size := Vector2(1000, 1000)
 @export var centered_visuals: bool = false
+@export var collision_object: CollisionObject2D
 
 @onready var sub_viewport: SubViewport = $SubViewport
 @onready var mask: Sprite2D = $SubViewport/CollisionMask
@@ -19,36 +20,28 @@ func _ready() -> void:
 
 
 func update_image() -> void:
-	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
-#
-	#await RenderingServer.frame_post_draw
-	#await RenderingServer.frame_post_draw  # <- REQUIRED
-	#await RenderingServer.frame_post_draw  # <- YES, REALLY
-
-	image = sub_viewport.get_texture().get_image()
-	$"../CollisionMask2".texture = ImageTexture.new()
-	($"../CollisionMask2".texture as ImageTexture).set_image(image)
-	($"../CollisionMask2".texture as ImageTexture).set_size_override(image.get_size())
-	($"../CollisionMask2".texture as ImageTexture).update(image)
+	
+	await RenderingServer.frame_post_draw
+	image = sub_viewport.get_texture().get_image() #EXPENSIVE!!
 
 
-func get_shape(shape: Shape2D = null) -> CollisionShape2D:
+func give_shape(shape_to_give: Shape2D = null) -> CollisionShape2D:
 	var new_shape := CollisionShape2D.new()
-	if shape == null:
-		shape = CircleShape2D.new()
-		(shape as CircleShape2D).radius = 1
-	new_shape.shape = shape
-	add_child(new_shape)
+	if shape_to_give == null:
+		shape_to_give = CircleShape2D.new()
+		(shape_to_give as CircleShape2D).radius = 1
+	new_shape.shape = shape_to_give
+	collision_object.add_child(new_shape)
 	return new_shape
 
 
 func do_color_cast(start_pos: Vector2, direction: Vector2, length: int, 
-		shape: CollisionShape2D, epsilon: int = 5) -> bool:
+		shape_to_spawn: CollisionShape2D, epsilon: int = 5) -> bool:
 	
 	var end_pos: Vector2 = start_pos + direction * length
 	var current_pos := start_pos
 	while current_pos != end_pos:
-		var blocked := check_color(current_pos, shape)
+		var blocked := check_color(current_pos, shape_to_spawn)
 		if blocked:
 			return true
 		else:
@@ -56,13 +49,13 @@ func do_color_cast(start_pos: Vector2, direction: Vector2, length: int,
 	return false
 
 
-func check_color(check_pos: Vector2i, shape: CollisionShape2D) -> bool:
+func check_color(check_pos: Vector2i, shape_to_spawn: CollisionShape2D) -> bool:
 	if image.get_pixelv(check_pos).a > 0:
-		if shape:
-			shape.global_position = check_pos
-			shape.disabled = false
+		if shape_to_spawn:
+			shape_to_spawn.global_position = check_pos
+			shape_to_spawn.disabled = false
 		return true
-	shape.disabled = true
+	shape_to_spawn.disabled = true
 	return false
 	
 

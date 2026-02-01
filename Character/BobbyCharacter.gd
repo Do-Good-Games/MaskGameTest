@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name BobbyCharacter extends CharacterBody2D
 
 #const Throwable: PackedScene = preload("res://BobbyFolder/throwable.tscn")
 @export var Throwable: PackedScene

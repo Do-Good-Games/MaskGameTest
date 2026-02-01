@@ -7,9 +7,9 @@ var img: Image
 var image_texture: ImageTexture
 var image_rect: Rect2i
 
-func _ready() -> void:
-	img = texture.get_image()
-	image_texture = ImageTexture.create_from_image(img) 
+func register_texture(new_texture: Texture2D) -> void:
+	img = new_texture.get_image()
+	image_texture = ImageTexture.create_from_image(img)
 	image_rect = Rect2i(Vector2.ZERO, img.get_size())
 	texture = image_texture
 
