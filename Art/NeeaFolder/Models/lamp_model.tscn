@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://c5e1xfigvf1kt"]
-
-[ext_resource type="PackedScene" uid="uid://c7831sboi7vgk" path="res://Art/NeeaFolder/Imports/Models/Lamp.fbx" id="1_1mna0"]
-
-[node name="Lamp" unique_id=104917581 instance=ExtResource("1_1mna0")]
