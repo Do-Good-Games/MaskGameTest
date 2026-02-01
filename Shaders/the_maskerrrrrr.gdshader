@@ -13,7 +13,7 @@ uniform sampler2D blue_temp_masks;
 
 
 void fragment() {
-	if (texture(red_mask, UV).a > 0.0){
+	if (texture(red_mask, UV).a > 0.0 || texture(red_temp_masks, UV).a > 0.0){
 		COLOR = texture(red_texture, UV);
 	}
 	else if (texture(green_mask, UV).a > 0.0 || texture(green_temp_masks, UV).a > 0.0){

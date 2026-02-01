@@ -14,8 +14,8 @@ func _ready() -> void:
 	update_image()
 
 
-func _process(delta: float) -> void:
-	update_image()
+#func _process(delta: float) -> void:
+	#update_image()
 
 
 func update_image() -> void:

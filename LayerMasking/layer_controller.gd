@@ -26,9 +26,9 @@ func _ready() -> void:
 
 
 func _set_shader_parameters(shader: ShaderMaterial) -> void:
-	shader.set_shader_parameter("red_mask", layers[0].layer_mask.image_texture)
-	shader.set_shader_parameter("green_mask", layers[1].layer_mask.image_texture)
-	shader.set_shader_parameter("blue_mask", layers[2].layer_mask.image_texture)
+	shader.set_shader_parameter("red_mask", layers[0].layer_mask.texture)
+	shader.set_shader_parameter("green_mask", layers[1].layer_mask.texture)
+	shader.set_shader_parameter("blue_mask", layers[2].layer_mask.texture)
 
 
 func paint_texture(layer_name: LayerName, brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2i(1,1)) -> void:
@@ -46,7 +46,10 @@ func paint_texture(layer_name: LayerName, brush_texture: Texture2D, brush_positi
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and debug_paint:
 		if event.pressed:
-			paint_texture(debug_selected_layer, debug_brush, get_local_mouse_position())
+			print(get_global_mouse_position())
+			paint_texture(debug_selected_layer, debug_brush, get_global_mouse_position())
+	if event is InputEventMouseMotion and debug_paint and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		paint_texture(debug_selected_layer, debug_brush, get_local_mouse_position())
 	if event is InputEventKey and debug_paint:
 		if event.keycode == KEY_1:
 			debug_selected_layer = LayerName.RED

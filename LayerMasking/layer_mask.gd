@@ -20,13 +20,16 @@ func _ready() -> void:
 
 func paint_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2i(1, 1)) -> Rect2i:
 	var brush := brush_texture.get_image()
-	brush.resize(brush.get_width() * brush_scale.x, brush.get_height() * brush_scale.y)
+	if brush_scale != Vector2i(1,1):
+		brush.resize(brush.get_width() * brush_scale.x, brush.get_height() * brush_scale.y)
 	
-	img.blend_rect(brush, brush.get_used_rect(), brush_position - brush.get_used_rect().size /2.0)
+	var brush_rect := Rect2i(Vector2.ZERO, brush.get_size())
+	
+	img.blend_rect(brush, brush_rect, brush_position - brush_rect.size /2.0)
 	image_texture.update(img)
 	var updated_rect := Rect2i(
-		brush_position - brush.get_used_rect().size/2.0,
-		brush.get_used_rect().size
+		brush_position - brush_rect.size/2.0,
+		brush_rect.size
 	)
 	img_updated.emit(updated_rect, img)
 	return updated_rect
