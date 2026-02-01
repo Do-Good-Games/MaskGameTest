@@ -229,7 +229,7 @@ func _on_body_entered(body: Node2D) -> void:
 		RoomManager.load_level(RoomManager.current_scene_uid)
 "
 
-[node name="Level" type="Node2D" unique_id=1171352334 node_paths=PackedStringArray("layers", "collision_types")]
+[node name="Level2" type="Node2D" unique_id=1171352334 node_paths=PackedStringArray("layers", "collision_types")]
 material = SubResource("ShaderMaterial_6hdhj")
 script = ExtResource("5_knhgl")
 layers = [null, NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
@@ -244,6 +244,7 @@ blue_collision = ExtResource("11_uf26f")
 red_hazard = ExtResource("12_83ckv")
 green_hazard = ExtResource("13_62lxw")
 blue_hazard = ExtResource("14_awgch")
+debug_paint = false
 debug_brush = ExtResource("15_4c05l")
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("1_lujd2")]

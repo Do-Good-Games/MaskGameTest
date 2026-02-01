@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="5_ka7lb"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="6_5ecer"]
 
-[node name="Lamp" type="Node2D" unique_id=272377283]
+[node name="Lamp" type="CharacterBody2D" unique_id=134255016]
 script = ExtResource("1_inuhc")
 
 [node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_30ch0")]

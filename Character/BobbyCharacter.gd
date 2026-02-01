@@ -6,8 +6,8 @@ class_name BobbyCharacter extends CharacterBody2D
 @export var max_vel := 200.0
 @export var friction := 0.01
 @export var acceleration := 0.1
-@export var throw_speed_scaling := 3
-@export var throw_speed_max := 200
+@export var throw_speed_scaling := 1
+@export var throw_speed_max := 100
 
 var throwing = false
 
@@ -25,13 +25,11 @@ func get_move_input():
 		input.y += 1
 	if Input.is_action_pressed('up'):
 		input.y -= 1
-	if Input.is_action_pressed("right_click"):
-		throwSpeed += 3
 	return input
 	
 func process_throwing():
 	var in_hand_obj = game_manager.current_held._obj_ref
-	var in_hand_obj_throwable = get_throwable_child(in_hand_obj)
+	var in_hand_obj_throwable :Throwable = get_throwable_child(in_hand_obj)
 	if(in_hand_obj_throwable != null):
 		if Input.is_action_just_pressed("left_click"):
 			throwing = true
@@ -40,14 +38,20 @@ func process_throwing():
 			throwSpeed += throw_speed_scaling
 			throwSpeed = min(throw_speed_max, throwSpeed)
 		if Input.is_action_just_released("left_click"):
-			in_hand_obj_throwable.speed = throwSpeed
+			print("releasing")
+			in_hand_obj_throwable.throwing = true
+			in_hand_obj_throwable.speed = throwSpeed / 5
+			var mp = get_global_mouse_position()
+			var tp = (mp - global_position)
+			in_hand_obj_throwable.target_pos = tp * 100
+			print(mp)
 			in_hand_obj.reactivate()
 			throwing = false
 			throwSpeed = 0
 			# TODO reactive inventory switching?
 	return
 	
-func get_throwable_child(parent):
+func get_throwable_child(parent) -> Throwable:
 	for n in parent.get_children():
 		if n is Throwable:
 			return n

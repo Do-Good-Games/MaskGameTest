@@ -1,4 +1,4 @@
-class_name Lamp extends Node2D
+class_name Lamp extends CharacterBody2D
 
 @export var color : game_manager.color_enum = GameManager.color_enum.RED
 @onready var bobby_collectable: BobbyCollectible = $BobbyCollectable
@@ -43,6 +43,7 @@ func draw_lantern():
 func _physics_process(delta: float) -> void:
 	if brush:
 		brush.position = position
+	move_and_slide()
 
 func turn_off_lamp():
 	brush.visible = false
@@ -58,7 +59,7 @@ func receive_collected(obj_ref: Node):
 func deactivate():
 	bobby_collectable.deactivate()
 	print("deac'd")
-	sprite_2d.visible = false
+	#sprite_2d.visible = false
 	#self.disabled = true
 
 func reactivate():
