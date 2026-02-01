@@ -10,9 +10,11 @@ func _ready() -> void:
 func _physics_process(delta):
 	
 	if(throwtime >= 0):
+		print("throwitme " , throwtime, " speed ", speed)
 		throwtime = throwtime - 1
 		velocity = transform.x * speed
 	else:
+		print("throwitme " , throwtime, " speed ", speed)
 		velocity = transform.x * 0
 	
 	move_and_slide()
@@ -22,5 +24,5 @@ func deactivate():
 	pass
 
 func reactivate():
-	#self.disabled = false
+	throwtime = 120
 	pass
