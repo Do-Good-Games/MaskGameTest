@@ -2,49 +2,42 @@
 
 [ext_resource type="PackedScene" uid="uid://cvin4j0tq0guf" path="res://Art/NeeaFolder/Imports/Models/Character.fbx" id="1_5i6dk"]
 [ext_resource type="Material" uid="uid://b8jvh42meneh3" path="res://Art/NeeaFolder/Materials/MatBasicWhite.tres" id="2_40km1"]
+[ext_resource type="Material" uid="uid://gxsawuhkq3js" path="res://Art/NeeaFolder/Imports/Textures/MatMdlCharacterHead.tres" id="3_2xn22"]
 
 [node name="Character" unique_id=1152607547 instance=ExtResource("1_5i6dk")]
 
-[node name="Camera" parent="." index="0" unique_id=2145563965]
-visible = false
-
-[node name="Lfoot_001" parent="." index="1" unique_id=1944902651]
+[node name="Lfoot_001" parent="." index="0" unique_id=38495234]
 transform = Transform3D(21.349077, -7.338275, 0, 0, 0, 22.575058, -7.338275, -21.349077, 0, 0.28871393, 0.14472562, 0.089577295)
 material_override = ExtResource("2_40km1")
 
-[node name="Lhand_001" parent="." index="2" unique_id=1797623276]
+[node name="Lhand_001" parent="." index="1" unique_id=1364872668]
 transform = Transform3D(18.078863, 0, 0, 0, -2.1551684e-06, 18.078861, 0, -18.078861, -2.1551684e-06, 0.73096174, 3.097646, 0.10321979)
 material_override = ExtResource("2_40km1")
 
-[node name="Light" parent="." index="3" unique_id=511118347]
-visible = false
-
-[node name="Rarm_001" parent="." index="4" unique_id=306220362]
+[node name="Rarm_001" parent="." index="2" unique_id=636064385]
 transform = Transform3D(23.770798, 0, 0, 0, -5.6674e-06, -60.933334, 0, 23.770796, -1.452764e-05, -0.69733596, 3.0976465, 0.10321981)
 material_override = ExtResource("2_40km1")
 
-[node name="Rlegs_001" parent="." index="5" unique_id=2118367917]
+[node name="Rlegs_001" parent="." index="3" unique_id=794209989]
 transform = Transform3D(23.770798, 0, 0, 0, -5.6674e-06, -101.16491, 0, 23.770796, -2.4119596e-05, -0.24732718, 1.1604419, 0.10321962)
 material_override = ExtResource("2_40km1")
 
-[node name="Torus_002" parent="." index="6" unique_id=4534082]
+[node name="Torus_002" parent="." index="4" unique_id=230684095]
 transform = Transform3D(78.45425, 0, 0, 0, -9.496844e-06, 83.53291, 0, -79.66529, -9.9579e-06, -0.0048689106, 4.387574, -0.00913465)
+surface_material_override/0 = ExtResource("2_40km1")
 
-[node name="body_001" parent="." index="7" unique_id=504749014]
+[node name="body_001" parent="." index="5" unique_id=734944092]
 transform = Transform3D(95.398094, 29.986727, 1.4901161e-06, 1.4901161e-06, -1.1920929e-05, 100, 29.986727, -95.3981, -1.1920929e-05, 0, 2.7825596, 0)
 material_override = ExtResource("2_40km1")
 
-[node name="eye_001" parent="." index="8" unique_id=1628419028]
-transform = Transform3D(16.167025, -1.4133661e-06, -7.490477e-14, 1.4133661e-06, 16.167025, 8.568107e-07, -3.4235006e-21, 7.06683e-07, -19.601545, 0.30441624, 4.585439, 0.75894785)
-visible = false
-
-[node name="head_001" parent="." index="9" unique_id=581506019]
+[node name="head_001" parent="." index="6" unique_id=1065611494]
 transform = Transform3D(94.73682, 32.014584, -1.4901161e-06, -1.490116e-06, 5.960464e-06, 100, 32.014584, -94.736824, 5.9604645e-06, 0, 4.292775, 0)
-material_override = ExtResource("2_40km1")
+material_override = ExtResource("3_2xn22")
 
-[node name="mask_001" parent="." index="10" unique_id=1071366767]
+[node name="mask_001" parent="." index="7" unique_id=980884537]
 transform = Transform3D(100, 0, 0, 0, -46.61463, 88.47076, 0, -88.47076, -46.61463, 0.011682365, 4.439422, 0.5875023)
+surface_material_override/0 = ExtResource("2_40km1")
 
-[node name="nose_001" parent="." index="12" unique_id=1113569375]
+[node name="nose_001" parent="." index="8" unique_id=693728977]
 transform = Transform3D(15.049678, 0, 0, 0, 13.314564, 7.0153546, 0, -7.0153546, 13.314564, 0.015709488, 4.5496154, 1.0391599)
 material_override = ExtResource("2_40km1")

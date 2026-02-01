@@ -1,6 +1,6 @@
 class_name BobbyCollectible extends Area2D
 
-
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @export var has_parent: bool = false
 
 var inGravity = false
@@ -8,7 +8,7 @@ var inGrab = false
 
 var goingToPlayer = false
 
-signal collected
+signal collected(obj_ref : Node)
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("left_click"):
@@ -22,7 +22,13 @@ func _process(delta: float) -> void:
 		goingToPlayer = false
 
 func deactivate():
+	collision_shape_2d.disabled = true
+	
 	print("object deactivated?")
+
+func reactivate():
+	collision_shape_2d.disabled = false
+	
 
 func _physics_process(delta: float) -> void:
 	if(goingToPlayer):
@@ -35,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		
 
 func activate_grab() -> void:
-	collected.emit()
+	collected.emit(get_parent())
 	deactivate()
 
 func activate_gravity(delta: float) -> void:

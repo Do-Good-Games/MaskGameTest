@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b4vfljr5w1ape"]
+
+[ext_resource type="PackedScene" uid="uid://p0rb0x0undtb" path="res://Art/NeeaFolder/Imports/Models/Hole CR.fbx" id="1_wsx2x"]
+[ext_resource type="Material" uid="uid://d3t5y1s0bkcod" path="res://Art/NeeaFolder/Materials/MatBasicBlueL.tres" id="2_hdpuq"]
+[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/MatBasicBlueD.tres" id="3_2esoo"]
+
+[node name="Hole CR" unique_id=1140112120 instance=ExtResource("1_wsx2x")]
+
+[node name="2-1" parent="." index="0" unique_id=569332718]
+surface_material_override/0 = ExtResource("2_hdpuq")
+
+[node name="2-1_001" parent="." index="1" unique_id=1101860692]
+material_override = ExtResource("3_2esoo")

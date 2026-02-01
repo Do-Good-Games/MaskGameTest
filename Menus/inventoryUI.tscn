@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cg1hwhuut14st"]
 
-[ext_resource type="Texture2D" uid="uid://uw3wthr2sko7" path="res://Art/lantern icon placeholder.png" id="2_rvqc1"]
+[ext_resource type="Script" uid="uid://b8o6x7rjq6mt2" path="res://Menus/inventory_ui.gd" id="1_24f0e"]
+[ext_resource type="Texture2D" uid="uid://c5reyqpee1krn" path="res://Art/lantern icon placeholder.png" id="2_rvqc1"]
 [ext_resource type="Texture2D" uid="uid://cxs1r26g7acy3" path="res://Art/hand icon placeholder.png" id="3_24f0e"]
 [ext_resource type="Theme" uid="uid://cx3sm5oban123" path="res://Menus/Menu Button Theme.tres" id="3_li7pg"]
+[ext_resource type="Texture2D" uid="uid://de2c8i0cq7rxv" path="res://Art/bomb icon placeholder.png" id="3_q1vtc"]
 
 [sub_resource type="Gradient" id="Gradient_4hwq1"]
 offsets = PackedFloat32Array(0, 0.148, 0.328, 0.688, 0.916, 1)
@@ -20,10 +22,10 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 0.6156863)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+corner_radius_top_left = 30
+corner_radius_top_right = 33
+corner_radius_bottom_right = 33
+corner_radius_bottom_left = 33
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_faip0"]
 bg_color = Color(0.23921569, 0.23921569, 0.23921569, 0.58431375)
@@ -37,13 +39,25 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[node name="mainMenu" type="Control" unique_id=659569743]
+[node name="InventoryUI" type="Control" unique_id=659569743]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_24f0e")
+imageMap = Dictionary[int, Texture2D]({
+0: ExtResource("3_24f0e"),
+1: ExtResource("3_q1vtc"),
+2: ExtResource("2_rvqc1")
+})
+colorMap = Dictionary[int, Color]({
+0: Color(0.8819366, 0.8819366, 0.88193655, 1),
+1: Color(0.85490197, 0, 0, 1),
+2: Color(0, 1, 0, 1),
+3: Color(0, 0, 1, 1)
+})
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1641662757]
 
@@ -64,7 +78,6 @@ texture = SubResource("GradientTexture2D_faip0")
 flip_h = true
 
 [node name="Inventory" type="HBoxContainer" parent="CanvasLayer" unique_id=1030332110]
-anchors_preset = -1
 offset_left = 20.0
 offset_top = 504.0
 offset_right = 1132.0
@@ -125,12 +138,12 @@ layout_mode = 2
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Inventory/Center Item" unique_id=1750302595]
+[node name="CenterItemPanel" type="Panel" parent="CanvasLayer/Inventory/Center Item" unique_id=1750302595]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_faip0")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Center Item/Panel" unique_id=747479688]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Center Item/CenterItemPanel" unique_id=747479688]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,7 +155,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Center Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Center Item/Panel/MarginContainer" unique_id=2114746253]
+[node name="Center Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Center Item/CenterItemPanel/MarginContainer" unique_id=2114746253]
 layout_mode = 2
 texture = ExtResource("2_rvqc1")
 expand_mode = 1

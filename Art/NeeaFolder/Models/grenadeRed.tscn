@@ -2,12 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bphf0vtseag5d" path="res://Art/NeeaFolder/Imports/Models/grenade.fbx" id="1_wc3ap"]
 [ext_resource type="Material" uid="uid://caam02qg0glui" path="res://Art/NeeaFolder/Materials/MatMetalGreen.tres" id="2_l0nvy"]
+[ext_resource type="Material" uid="uid://44ls0fj3tegi" path="res://Art/NeeaFolder/Materials/MatBasicGreenL.tres" id="2_ntqn4"]
 [ext_resource type="Material" uid="uid://fmg85vwwbgwt" path="res://Art/NeeaFolder/Materials/MatMetalYellow.tres" id="3_ntqn4"]
 
 [node name="grenade" unique_id=1128202371 instance=ExtResource("1_wc3ap")]
 
 [node name="Cylinder" parent="." index="0" unique_id=2112007672]
-surface_material_override/0 = ExtResource("2_l0nvy")
+surface_material_override/0 = ExtResource("2_ntqn4")
 
 [node name="Icosphere" parent="." index="1" unique_id=1454997478]
 material_override = ExtResource("2_l0nvy")

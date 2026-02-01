@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://blwvxjexc88mh"]
 
-[ext_resource type="Script" uid="uid://b7bc3xpun1sns" path="res://LayerMasking/collision_checker.gd" id="1_0gp0q"]
+[ext_resource type="Script" path="res://LayerMasking/collision_checker.gd" id="1_0gp0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gp0q"]
-radius = 5.0
 
 [node name="CollisionChecker" type="RayCast2D" unique_id=1169389816]
 script = ExtResource("1_0gp0q")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cx3sm5oban123" path="res://Menus/Menu Button Theme.tres" id="1_1syxi"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="1_3xx0a"]
+[ext_resource type="Script" uid="uid://c3y5d0iaftnam" path="res://Menus/pause_script.gd" id="1_jj4gp"]
 
 [node name="pauseMenu" type="Control" unique_id=659569743]
 layout_mode = 3
@@ -10,8 +11,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jj4gp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1641662757]
+visible = false
 
 [node name="[PLACEHOLDER] BG" type="TextureRect" parent="CanvasLayer" unique_id=1099719461]
 modulate = Color(0, 0, 0, 0.37254903)
@@ -67,12 +70,14 @@ visible = false
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 
-[node name="Start Button" type="Button" parent="CanvasLayer/Button Container" unique_id=1062910339]
+[node name="Resume Button" type="Button" parent="CanvasLayer/Button Container" unique_id=1062910339]
+process_mode = 3
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "Resume"
 
-[node name="Credits Button" type="Button" parent="CanvasLayer/Button Container" unique_id=393855208]
+[node name="MM Button" type="Button" parent="CanvasLayer/Button Container" unique_id=393855208]
+process_mode = 3
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "Back To MM"

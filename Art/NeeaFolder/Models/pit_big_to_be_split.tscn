@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://b3dqv10sh0hd4"]
-
-[ext_resource type="PackedScene" uid="uid://dbrjwevsih057" path="res://Art/NeeaFolder/Imports/Models/PitBig.fbx" id="1_cout3"]
-
-[node name="PitBig" unique_id=731826169 instance=ExtResource("1_cout3")]
