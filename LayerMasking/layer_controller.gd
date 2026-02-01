@@ -1,3 +1,4 @@
+@tool
 class_name Level extends Node2D
 
 enum LayerName{
@@ -8,6 +9,25 @@ enum LayerName{
 
 @export var layers: Array[Layer]
 @export var collision_types: Array[CollisionType]
+
+#region Tooltip
+## Ok everything you need is pretty much here, alpha values on all the textures determine collision and shit. Main annoying thing is the size, everything has to be the same size and you HAVE to change all the other textures/viewports to match. Annoying but dont have time to automate rn srry
+@export var read_my_tooltip: bool = true:
+	set(value):
+		read_my_tooltip = value
+		notify_property_list_changed()
+
+@export var ok_fine_dont_read_it_then: bool = false:
+	set(value):
+		read_my_tooltip = value
+
+func _validate_property(property: Dictionary) -> void:
+	if property.name == "read_my_tooltip" and not read_my_tooltip:
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+	if property.name == "ok_fine_dont_read_it_then" and read_my_tooltip:
+		property.usage = PROPERTY_USAGE_NO_EDITOR
+#endregion
+
 @export_category("Masks")
 @export var red_mask: Texture2D
 @export var green_mask: Texture2D
