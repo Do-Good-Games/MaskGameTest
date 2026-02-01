@@ -1,6 +1,6 @@
 class_name BobbyCollectible extends Area2D
 
-
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @export var has_parent: bool = false
 
 var inGravity = false
@@ -22,7 +22,13 @@ func _process(delta: float) -> void:
 		goingToPlayer = false
 
 func deactivate():
+	collision_shape_2d.disabled = true
+	
 	print("object deactivated?")
+
+func reactivate():
+	collision_shape_2d.disabled = false
+	
 
 func _physics_process(delta: float) -> void:
 	if(goingToPlayer):

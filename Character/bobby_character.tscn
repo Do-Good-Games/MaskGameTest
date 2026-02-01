@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="2_tbytb"]
 [ext_resource type="Script" uid="uid://cme251y5q84v1" path="res://Character/CharacterCollision.gd" id="4_ojdix"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="5_tmhds"]
+[ext_resource type="PackedScene" uid="uid://cg1hwhuut14st" path="res://Menus/inventoryUI.tscn" id="6_o5ivm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
 size = Vector2(123, 125)
@@ -79,74 +80,66 @@ projection = 1
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=1773563866]
 transform = Transform3D(1, 0, 0, 0, 0.99457467, 0.10402508, 0, -0.10402508, 0.99457467, 0, 0.45505333, 0.5942402)
 
-[node name="CollisionChecker" parent="." unique_id=1169389816 instance=ExtResource("5_tmhds")]
+[node name="collisionCheckers" type="Node2D" parent="." unique_id=1757760017]
+
+[node name="CollisionChecker" parent="collisionCheckers" unique_id=1169389816 instance=ExtResource("5_tmhds")]
 position = Vector2(-47, 67)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker2" parent="." unique_id=1334509179 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker2" parent="collisionCheckers" unique_id=1334509179 instance=ExtResource("5_tmhds")]
 position = Vector2(41, 66)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker3" parent="." unique_id=1367522241 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker3" parent="collisionCheckers" unique_id=1367522241 instance=ExtResource("5_tmhds")]
 position = Vector2(62, 45)
 target_position = Vector2(50, 0)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker4" parent="." unique_id=228661707 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker4" parent="collisionCheckers" unique_id=228661707 instance=ExtResource("5_tmhds")]
 position = Vector2(62, -37)
 target_position = Vector2(50, 0)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker5" parent="." unique_id=537755109 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker5" parent="collisionCheckers" unique_id=537755109 instance=ExtResource("5_tmhds")]
 position = Vector2(45, -61)
 target_position = Vector2(0, -50)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker6" parent="." unique_id=445551875 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker6" parent="collisionCheckers" unique_id=445551875 instance=ExtResource("5_tmhds")]
 position = Vector2(-50, -61)
 target_position = Vector2(0, -50)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker7" parent="." unique_id=1100153029 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker7" parent="collisionCheckers" unique_id=1100153029 instance=ExtResource("5_tmhds")]
 position = Vector2(-66, -48)
 target_position = Vector2(-50, 0)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker8" parent="." unique_id=1652113827 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker8" parent="collisionCheckers" unique_id=1652113827 instance=ExtResource("5_tmhds")]
 position = Vector2(-64, 32)
 target_position = Vector2(-50, 0)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker9" parent="." unique_id=1525908822 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker9" parent="collisionCheckers" unique_id=1525908822 instance=ExtResource("5_tmhds")]
 position = Vector2(-64, 64)
 target_position = Vector2(-50, 50)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker10" parent="." unique_id=1543843394 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker10" parent="collisionCheckers" unique_id=1543843394 instance=ExtResource("5_tmhds")]
 position = Vector2(65, 66)
 target_position = Vector2(50, 50)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker11" parent="." unique_id=1576603494 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker11" parent="collisionCheckers" unique_id=1576603494 instance=ExtResource("5_tmhds")]
 position = Vector2(64, -64)
 target_position = Vector2(50, -50)
-epsilon = 5
 frequency = 0.2
 
-[node name="CollisionChecker12" parent="." unique_id=1275890027 instance=ExtResource("5_tmhds")]
+[node name="CollisionChecker12" parent="collisionCheckers" unique_id=1275890027 instance=ExtResource("5_tmhds")]
 position = Vector2(-65, -65)
 target_position = Vector2(-50, -50)
-epsilon = 5
 frequency = 0.2
+
+[node name="mainMenu" parent="." unique_id=659569743 instance=ExtResource("6_o5ivm")]
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

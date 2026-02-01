@@ -11,7 +11,11 @@ enum LayerName{
 @export var collision_types: Array[CollisionType]
 
 #region Tooltip
-## Ok everything you need is pretty much here, alpha values on all the textures determine collision and shit. Main annoying thing is the size, everything has to be the same size and you HAVE to change all the other textures/viewports to match. Annoying but dont have time to automate rn srry
+# Ok everything you need is pretty much here, alpha values on all the 
+# textures determine collision and shit. Main annoying thing is the size, 
+# everything has to be the same size and you HAVE to change all the other 
+# textures/viewports to match. Annoying but dont have time to automate rn 
+# srry
 @export var read_my_tooltip: bool = true:
 	set(value):
 		read_my_tooltip = value
@@ -28,14 +32,24 @@ func _validate_property(property: Dictionary) -> void:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 #endregion
 
+class color_texture_map:
+	var map: Dictionary[String, Texture2D]
+	func _init(type :String, img : Texture2D):
+		map = {type: img}
+
+#@export var textures_map : Dictionary [String, Dictionary[game_manager.color_enum, Texture2D]]
+
+
 @export_category("Masks")
 @export var red_mask: Texture2D
 @export var green_mask: Texture2D
 @export var blue_mask: Texture2D
+#@export var mask_map: Dictionary [game_manager.lamp_color_enum, Texture2D]
 @export_category("Collision")
 @export var red_collision: Texture2D
 @export var green_collision: Texture2D
 @export var blue_collision: Texture2D
+#@export var mask_map: Dictionary [game_manager.lamp_color_enum, Texture2D]
 @export_category("Hazards")
 @export var red_hazard: Texture2D
 @export var green_hazard: Texture2D
@@ -47,9 +61,17 @@ var debug_selected_layer: LayerName
 
 @onready var composite_visuals: Sprite2D = $CompositeVisuals
 
+var textures_map : Dictionary[game_manager.color_enum, color_texture_map] ={
+	game_manager.color_enum.RED: color_texture_map.new("Masks", red_mask),
+	#game_manager.color_enum.RED: color_texture_map.new("Collision", red_collision),
+	#game_manager.color_enum.RED: color_texture_map.new("Hazards", red_hazard),
+}
+
 
 func _ready() -> void:
-	printerr("uwu")
+	
+	
+	
 	layers[0].layer_mask.register_texture(red_mask)
 	layers[1].layer_mask.register_texture(green_mask)
 	layers[2].layer_mask.register_texture(blue_mask)
@@ -79,7 +101,6 @@ func _set_collision_textures() -> void:
 	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
 		"blue_texture", blue_hazard
 	)
-
 
 func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("red_mask", layers[0].layer_mask.texture)

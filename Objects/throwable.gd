@@ -1,4 +1,5 @@
-extends CharacterBody2D
+class_name Throwable extends CharacterBody2D
+@onready var throwable: CharacterBody2D = $"."
 
 @export var speed = 60
 var throwtime = 120
@@ -15,3 +16,11 @@ func _physics_process(delta):
 		velocity = transform.x * 0
 	
 	move_and_slide()
+	
+func deactivate():
+	#self.disabled = true
+	pass
+
+func reactivate():
+	#self.disabled = false
+	pass

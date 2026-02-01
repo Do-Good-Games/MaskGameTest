@@ -18,6 +18,7 @@ func update_icons(new_index:int):
 		right_item_icon.visible = false
 	#one item, hide second slot
 	elif game_manager.collected_items.size() == 2:
+		# TODO FIONA: rather than always showing on right, have 
 		left_item_icon.visible = false
 		_set_icon(new_index, center_item_icon)
 		_set_icon((new_index +1 )%2, right_item_icon)
@@ -34,7 +35,7 @@ func update_icons(new_index:int):
 		
 	
 func _set_icon(new_index: int, icon: TextureRect):
-	var item : GameManager.InventorySlot = game_manager.collected_items[new_index]
-	icon.texture = imageMap.get(item.inventory_slot_type )
-	icon.modulate = colorMap.get(item.color_enum)
+	var item : game_manager.InventorySlot = game_manager.collected_items[new_index]
+	icon.texture = imageMap.get(item._item )
+	icon.modulate = colorMap.get(item._color) #error
 	
