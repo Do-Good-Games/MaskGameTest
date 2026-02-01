@@ -13,11 +13,18 @@ class_name Animation_Button extends Node
 @export var scale_min: float = 1
 @export var scale_max: float = 1.02
 
+@export_category("Text")
+@export var has_text: bool = false
+@export var original_text: String = ""
+@export var hover_text: String = ""
+
 var target: Control = null
+var parent: Control
 
 #~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 func _ready() -> void:
 	var parent_node: Node = get_parent()
+	parent = parent_node
 	if parent_node is Control:
 		target = parent_node as Control
 	else:
@@ -31,6 +38,9 @@ func _ready() -> void:
 	if enable_scale:
 		target.scale = Vector2(scale_min, scale_min)
 
+	if has_text:
+		original_text = parent_node.text
+	
 	target.mouse_entered.connect(_on_hover_enter)
 	target.mouse_exited.connect(_on_hover_exit)
 
@@ -38,9 +48,13 @@ func _ready() -> void:
 #~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
 
 func _on_hover_enter() -> void:
+	if has_text:
+		parent.text = hover_text
 	animate_hover(true)
 
 func _on_hover_exit() -> void:
+	if has_text:
+		parent.text = original_text
 	animate_hover(false)
 
 #~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-#
@@ -56,6 +70,7 @@ func animate_hover(is_enter: bool) -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_OUT)
 
+	
 	if enable_rotation:
 		var target_angle: float
 		if is_enter:
