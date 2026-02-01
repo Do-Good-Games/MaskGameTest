@@ -26,7 +26,6 @@ func get_input():
 		if(throwSpeed > 200):
 			throwSpeed = 200
 			
-		print(throwSpeed)
 
 		var createdThrowable = Throwable.instantiate()
 		get_tree().root.add_child(createdThrowable)

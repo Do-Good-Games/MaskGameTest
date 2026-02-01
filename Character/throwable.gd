@@ -4,7 +4,6 @@ extends CharacterBody2D
 var throwtime = 120
 
 func _ready() -> void:
-	print("i live")
 	move_toward(10, 20, 50)
 
 func _physics_process(delta):
