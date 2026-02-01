@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dx3g70xj8d2ic"]
+
+[ext_resource type="Shader" uid="uid://dsmtt0w6lgwm8" path="res://Art/NeeaFolder/Shader/NeeaShaderTestGraph.tres" id="1_q4nro"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ag1xo"]
+render_priority = 0
+shader = ExtResource("1_q4nro")
+shader_parameter/outlineSize = 0.1
+shader_parameter/colorOutline = Color(0, 0, 0, 1)
+
+[resource]
+next_pass = SubResource("ShaderMaterial_ag1xo")
+albedo_color = Color(0.30907837, 0.9105461, 0.3107874, 1)
+roughness = 0.74

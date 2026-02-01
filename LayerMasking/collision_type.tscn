@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://2jpgujndi0u3"]
+
+[ext_resource type="Script" uid="uid://dfcph3w00j7l6" path="res://LayerMasking/collision_type.gd" id="1_smnno"]
+
+[sub_resource type="Gradient" id="Gradient_ir1ia"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4segf"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ir1ia")
+
+[node name="CollisionType" type="Node2D" unique_id=932560002]
+script = ExtResource("1_smnno")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1472265480]
+transparent_bg = true
+render_target_update_mode = 4
+
+[node name="CollisionMask" type="Sprite2D" parent="SubViewport" unique_id=1243604259]
+texture = SubResource("GradientTexture2D_4segf")
+centered = false

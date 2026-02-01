@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cpbird1x7ojdl"]
+
+[ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
+[ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://LayerMasking/layer_mask.gd" id="3_gui4o"]
+
+[node name="Layer" type="Node2D" unique_id=1461014223]
+script = ExtResource("2_gui4o")
+
+[node name="LayerArea" type="Area2D" parent="." unique_id=1061474882]
+visible = false
+
+[node name="LayerMask" type="Sprite2D" parent="." unique_id=1379613557]
+clip_children = 2
+z_index = -1
+centered = false
+script = ExtResource("3_gui4o")
+
+[node name="LevelVisual" type="SubViewport" parent="." unique_id=1892075130]
+transparent_bg = true
+size = Vector2i(2100, 1500)
+
+[node name="3D Scene goes here!" type="Sprite2D" parent="LevelVisual" unique_id=642318865]
+centered = false
+
+[node name="TempMasks" type="SubViewport" parent="." unique_id=962696683]
+transparent_bg = true
+size = Vector2i(2100, 1500)
+
+[connection signal="img_updated" from="LayerMask" to="." method="_on_layer_mask_img_updated"]

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://ct5ax4ywifcqr"]
+
+[ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="1_1gfa7"]
+[ext_resource type="PackedScene" uid="uid://2wy3lf084bm7" path="res://Levels/Level.tscn" id="4_2s0yd"]
+[ext_resource type="Shader" uid="uid://d0hl15orlcdml" path="res://Shaders/the_maskerrrrrr.gdshader" id="5_1gfa7"]
+[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="6_mur5f"]
+[ext_resource type="Texture2D" uid="uid://d1pxvs8i5av8t" path="res://test_mask_alpha_negative.png" id="6_xxmfu"]
+[ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="7_dj1vn"]
+[ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="7_kwp58"]
+
+[sub_resource type="GDScript" id="GDScript_xny3m"]
+resource_name = "test_script"
+script/source = "extends Node2D
+
+@export var brush_texture: GradientTexture2D
+
+@onready var red_layer_mask: LayerMask = $RedLayer/LayerMask
+@onready var green_layer_mask: LayerMask = $GreenLayer/LayerMask
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			$RedLayer.layer_mask.paint_texture(brush_texture, get_global_mouse_position())
+			$GreenLayer.layer_mask.erase_texture(brush_texture, get_global_mouse_position())
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2x4gq"]
+viewport_path = NodePath("GreenLayer/LevelVisual")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k8rxq"]
+viewport_path = NodePath("RedLayer/BonusMask")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mur5f"]
+viewport_path = NodePath("RedLayer/LevelVisual")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kwp58"]
+resource_local_to_scene = true
+shader = ExtResource("5_1gfa7")
+shader_parameter/red_texture = SubResource("ViewportTexture_mur5f")
+shader_parameter/red_mask = ExtResource("7_dj1vn")
+shader_parameter/green_texture = SubResource("ViewportTexture_2x4gq")
+shader_parameter/green_mask = ExtResource("6_xxmfu")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_k8rxq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bbbq5"]
+resource_local_to_scene = true
+shader = ExtResource("5_1gfa7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37sbp"]
+resource_local_to_scene = true
+shader = ExtResource("5_1gfa7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m8f7s"]
+resource_local_to_scene = true
+shader = ExtResource("5_1gfa7")
+
+[node name="TestWorld" type="Node2D" unique_id=1058061648]
+script = SubResource("GDScript_xny3m")
+brush_texture = ExtResource("1_1gfa7")
+
+[node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("6_mur5f")]
+z_index = 1
+position = Vector2(299, 752)
+
+[node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("7_kwp58")]
+z_index = 1
+position = Vector2(991, 1087)
+
+[node name="Level" parent="." unique_id=1122606211 instance=ExtResource("4_2s0yd")]
+material = SubResource("ShaderMaterial_kwp58")
+
+[node name="CurrentMask" parent="Level/RedLayer" parent_id_path=PackedInt32Array(1122606211, 1461014223) index="6" unique_id=1937570593]
+material = SubResource("ShaderMaterial_bbbq5")
+
+[node name="CurrentMask" parent="Level/GreenLayer" parent_id_path=PackedInt32Array(1122606211, 1876231418) index="6" unique_id=1937570593]
+material = SubResource("ShaderMaterial_37sbp")
+
+[node name="CurrentMask" parent="Level/BlueLayer" parent_id_path=PackedInt32Array(1122606211, 1089670503) index="6" unique_id=1937570593]
+material = SubResource("ShaderMaterial_m8f7s")
+
+[editable path="Level"]
+[editable path="Level/RedLayer"]
+[editable path="Level/GreenLayer"]
+[editable path="Level/BlueLayer"]

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://2wy3lf084bm7"]
-
-[ext_resource type="Script" uid="uid://b01gwbcmrrl47" path="res://LayerMasking/layer_controller.gd" id="1_prpwt"]
-
-[node name="LayerController" type="Node2D" unique_id=1122606211]
-script = ExtResource("1_prpwt")

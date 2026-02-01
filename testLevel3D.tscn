@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cojn14f65cf6p"]
+
+[ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="1_hbpot"]
+[ext_resource type="Script" uid="uid://xdmw8tgs2l1r" path="res://Character/BobbyCharacter3D.gd" id="1_ufm50"]
+[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Character/BobbyCollectable.tscn" id="2_47rdb"]
+[ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="3_47rdb"]
+[ext_resource type="PackedScene" uid="uid://ppb1wm8ox853" path="res://Character/bobby_character3D.tscn" id="4_4xjwy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbpot"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hbpot"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbpot"]
+albedo_color = Color(0.824739, 0.9536645, 0.99790627, 1)
+albedo_texture = ExtResource("3_47rdb")
+
+[node name="Root" type="Node3D" unique_id=1238478922]
+
+[node name="Node3D" type="CharacterBody3D" parent="." unique_id=785718622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9106784, 0, 1.8085442)
+script = ExtResource("1_ufm50")
+
+[node name="BobbyCharacter" parent="Node3D" unique_id=1423288883 instance=ExtResource("1_hbpot")]
+max_vel = 0
+
+[node name="cube" type="MeshInstance3D" parent="Node3D" unique_id=706480845]
+transform = Transform3D(0.5643209, 0, 0, 0, 0.5643209, 0, 0, 0, 0.5643209, 0, 0, 0)
+mesh = SubResource("BoxMesh_hbpot")
+
+[node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_47rdb")]
+position = Vector2(74, 478)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1098657191]
+transform = Transform3D(81.92949, 0, 0, 0, 3.868094, -10.346501, 0, 0.97604895, 41.003307, 0, 0, 0)
+mesh = SubResource("PlaneMesh_hbpot")
+surface_material_override/0 = SubResource("StandardMaterial3D_hbpot")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1346799509]
+transform = Transform3D(1, 0, 0, 0, 0.9612136, 0.27580512, 0, -0.27580512, 0.9612136, 0, 1.3575441, 0.53342676)
+sky_mode = 1
+
+[node name="BobbyCharacter2" parent="." unique_id=848079437 instance=ExtResource("4_4xjwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6436291, 0.97490084, -0.09619737)
+
+[editable path="Node3D/BobbyCharacter"]

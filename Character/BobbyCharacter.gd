@@ -1,11 +1,11 @@
-extends CharacterBody2D
+class_name BobbyCharacter extends CharacterBody2D
 
 #const Throwable: PackedScene = preload("res://BobbyFolder/throwable.tscn")
 @export var Throwable: PackedScene
 
-@export var max_vel = 200
-@export var friction = 0.01
-@export var acceleration = 0.1
+@export var max_vel := 200.0
+@export var friction := 0.01
+@export var acceleration := 0.1
 
 var throwSpeed = 0
 
@@ -19,14 +19,13 @@ func get_input():
 		input.y += 1
 	if Input.is_action_pressed('up'):
 		input.y -= 1
-	if Input.is_action_pressed("click"):
-		throwSpeed += 1
+	if Input.is_action_pressed("right_click"):
+		throwSpeed += 3
 		
-	if Input.is_action_just_released("click"):
-		if(throwSpeed > 75):
-			throwSpeed = 75
+	if Input.is_action_just_released("right_click"):
+		if(throwSpeed > 200):
+			throwSpeed = 200
 			
-		print(throwSpeed)
 
 		var createdThrowable = Throwable.instantiate()
 		get_tree().root.add_child(createdThrowable)
@@ -43,3 +42,9 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, friction)
 	move_and_slide()
+	game_manager.playerx = self.position.x
+	game_manager.playery = self.position.y
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bym1nxtie4254"]
 
-[ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="1_vm0sn"]
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
 [ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://LayerMasking/layer_mask.gd" id="3_gui4o"]
 
@@ -12,7 +11,6 @@ rect_size = Vector2(1000, 1000)
 [node name="LayerMask" type="Sprite2D" parent="." unique_id=1379613557]
 clip_children = 2
 z_index = -1
-texture = ExtResource("1_vm0sn")
 script = ExtResource("3_gui4o")
 
 [node name="LayerVisual" type="Sprite2D" parent="LayerMask" unique_id=1234380076]

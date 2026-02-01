@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ppb1wm8ox853"]
+
+[ext_resource type="Script" uid="uid://xdmw8tgs2l1r" path="res://Character/BobbyCharacter3D.gd" id="1_qaifp"]
+[ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Character/throwable.tscn" id="2_rm7q5"]
+[ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="3_5ra8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
+size = Vector2(123, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdix"]
+size = Vector2(307, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
+size = Vector2(587, 221)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qaifp"]
+
+[node name="BobbyCharacter" type="CharacterBody3D" unique_id=848079437 groups=["Player"]]
+script = ExtResource("1_qaifp")
+Throwable = ExtResource("2_rm7q5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=940279390]
+texture = ExtResource("3_5ra8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015673397]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_d5myv")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="Camera2D" type="Camera3D" parent="." unique_id=1424879786]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.8035836, 0)
+
+[node name="GrabArea" type="Area2D" parent="." unique_id=896937632 groups=["Grab"]]
+
+[node name="GrabArea" type="CollisionShape2D" parent="GrabArea" unique_id=185887737 groups=["Grab"]]
+position = Vector2(143.5, -5)
+shape = SubResource("RectangleShape2D_ojdix")
+
+[node name="GravityArea" type="Area2D" parent="." unique_id=331957575 groups=["Gravity"]]
+
+[node name="GravityArea" type="CollisionShape2D" parent="GravityArea" unique_id=35076230 groups=["Gravity"]]
+position = Vector2(283.5, -13.5)
+shape = SubResource("RectangleShape2D_scdtr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1603869739]
+mesh = SubResource("CapsuleMesh_qaifp")

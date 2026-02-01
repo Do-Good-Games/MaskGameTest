@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://f0giku20phl1"]
+
+[ext_resource type="Script" uid="uid://b6kfm4snx6edn" path="res://Objects/bobby_collectable.gd" id="1_awvcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oemdl"]
+size = Vector2(128, 129)
+
+[node name="BobbyCollectable" type="Area2D" unique_id=2115636220]
+script = ExtResource("1_awvcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1540986855]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_oemdl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
