@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://coqhikko6ph8v"]
+[gd_scene format=3 uid="uid://cpbird1x7ojdl"]
 
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="2_loe50"]

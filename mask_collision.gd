@@ -20,7 +20,7 @@ var regions: Dictionary[Rect2, Array] # {Region, Col. Polygons in region}
 
 
 func _ready() -> void:
-	print("uwu")
+	printerr("uwu")
 	var image := layer_mask.texture.get_image()
 	
 	mask_bitmap = BitMap.new()
