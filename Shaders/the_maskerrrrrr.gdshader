@@ -1,32 +1,27 @@
 shader_type canvas_item;
-uniform sampler2D masks[5];
-uniform sampler2D evil_masks[3];
+uniform sampler2D red_texture;
+uniform sampler2D red_mask;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+uniform sampler2D green_texture;
+uniform sampler2D green_mask;
+
+uniform sampler2D blue_texture;
+uniform sampler2D blue_mask;
+
+uniform sampler2D red_temp_masks;
+uniform sampler2D green_temp_masks;
+uniform sampler2D blue_temp_masks;
 
 void fragment() {
-	COLOR = vec4(1,1,1,1);
-	// IDK man a for loop just doesnt work?? You get copy-pasted code
-	// Hours wasted: 2
-	float evil_alpha = 0.0;
-	evil_alpha += texture(evil_masks[0], UV).a;
-	evil_alpha += texture(evil_masks[1], UV).a;
-	evil_alpha += texture(evil_masks[2], UV).a;
-	//evil_alpha += texture(evil_masks[3], UV).a;
-	//evil_alpha += texture(evil_masks[4], UV).a;
-	
-	float alpha = 0.0;
-	alpha += texture(masks[0], UV).a;
-	alpha += texture(masks[1], UV).a;
-	alpha += texture(masks[2], UV).a;
-	alpha += texture(masks[3], UV).a;
-	alpha += texture(masks[4], UV).a;
-	alpha = clamp(alpha, 0, 1);
-
-	COLOR.a *= alpha;
-	COLOR.a *= 1.0-evil_alpha;
+	if (texture(red_mask, UV).a > 0.0 || texture(red_temp_masks, UV).a > 0.0){
+		COLOR = texture(red_texture, UV);
+	}
+	else if (texture(green_mask, UV).a > 0.0 || texture(green_temp_masks, UV).a > 0.0){
+		COLOR = texture(green_texture, UV);
+	}
+	else if (texture(blue_mask, UV).a > 0.0 || texture(blue_temp_masks, UV).a > 0.0){
+		COLOR = texture(blue_texture, UV);
+	}
 }
 
 //void light() {

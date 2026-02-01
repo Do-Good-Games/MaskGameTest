@@ -4,21 +4,10 @@
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="2_loe50"]
 [ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://LayerMasking/layer_mask.gd" id="3_gui4o"]
-[ext_resource type="Texture2D" uid="uid://dtovvpm7o8oas" path="res://new_gradient_texture_2d.tres" id="5_q72mc"]
-[ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="6_q72mc"]
-[ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="7_phspw"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_6pesf"]
-viewport_path = NodePath("MaskViewer")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_phspw"]
-viewport_path = NodePath("BonusMask")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8217w"]
 resource_local_to_scene = true
 shader = ExtResource("2_8217w")
-shader_parameter/masks = Array[Texture2D]([ExtResource("2_loe50"), SubResource("ViewportTexture_phspw")])
-shader_parameter/evil_masks = Array[Texture2D]([ExtResource("5_q72mc")])
 
 [sub_resource type="Gradient" id="Gradient_loe50"]
 
@@ -29,49 +18,33 @@ height = 1500
 
 [node name="Layer" type="Node2D" unique_id=1461014223]
 script = ExtResource("2_gui4o")
-epsilon = 20.0
-rect_size = Vector2(1000, 1000)
-
-[node name="Clipper" type="Sprite2D" parent="." unique_id=476506377]
-texture = SubResource("ViewportTexture_6pesf")
-
-[node name="LayerVisual" type="Sprite2D" parent="Clipper" unique_id=1234380076]
 
 [node name="LayerArea" type="Area2D" parent="." unique_id=1061474882]
 visible = false
-
-[node name="UnmaskedGeometry" type="StaticBody2D" parent="." unique_id=2019776830]
-collision_layer = 0
-
-[node name="MaskedGeometry" type="StaticBody2D" parent="." unique_id=211235266]
-z_index = 2
 
 [node name="LayerMask" type="Sprite2D" parent="." unique_id=1379613557]
 clip_children = 2
 z_index = -1
 texture = ExtResource("2_loe50")
+centered = false
 script = ExtResource("3_gui4o")
 
-[node name="BonusMask" type="SubViewport" parent="." unique_id=962696683]
+[node name="LevelVisual" type="SubViewport" parent="." unique_id=1892075130]
 transparent_bg = true
 size = Vector2i(2100, 1500)
 
-[node name="Sprite2D" type="Sprite2D" parent="BonusMask" unique_id=1756080613]
-position = Vector2(0, 500)
-texture = ExtResource("6_q72mc")
+[node name="Sprite2D" type="Sprite2D" parent="LevelVisual" unique_id=642318865]
 centered = false
 
-[node name="MaskViewer" type="SubViewport" parent="." unique_id=2031693440]
+[node name="TempMasks" type="SubViewport" parent="." unique_id=962696683]
 transparent_bg = true
 size = Vector2i(2100, 1500)
 
-[node name="CurrentMask" type="Sprite2D" parent="MaskViewer" unique_id=1937570593]
+[node name="CurrentMask" type="Sprite2D" parent="." unique_id=1937570593]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_8217w")
 texture = SubResource("GradientTexture2D_8217w")
 centered = false
-
-[node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("7_phspw")]
-position = Vector2(-701, 277)
 
 [connection signal="img_updated" from="LayerMask" to="." method="_on_layer_mask_img_updated"]

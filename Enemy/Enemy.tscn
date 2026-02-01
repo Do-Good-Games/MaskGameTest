@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://begce725f6irl"]
 
-[ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/evil_brush.tres" id="1_3o4wt"]
+[ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/less_evil_brush.tres" id="1_3o4wt"]
 [ext_resource type="Script" uid="uid://cud5efta6xo1e" path="res://Enemy/enemy.gd" id="1_epr5s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3o4wt"]
