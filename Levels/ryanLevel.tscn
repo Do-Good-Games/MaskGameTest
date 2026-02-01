@@ -10,4 +10,3 @@ position = Vector2(461, 347)
 
 [node name="Lamp" parent="." unique_id=272377283 instance=ExtResource("2_uimcf")]
 position = Vector2(132, 362)
-color = 1

@@ -3,28 +3,28 @@ var playerx
 var playery
 
 enum lamp_color_enum{
-	NONE, RED, GREEN, BLUE
+	NONE = 0, RED =1, GREEN=2, BLUE=3
 }
 
+var current_held : lamp_color_enum
 
 var collected_lamps: Dictionary[lamp_color_enum, bool]
 
-func get_input():
-	#
-	#if Input.is_action_pressed('inventory_slot_1'):
-		#print("inventory 1")
-	#if Input.is_action_pressed('inventory_slot_2'):
-		#input.x -= 1
-	#if Input.is_action_pressed('inventory_slot_3'):
-		#input.y += 1
-	#if Input.is_action_pressed('inventory_slot_4'):
-		#input.y -= 1
-	#if Input.is_action_pressed("right_click"):
-		#throwSpeed += 1
-	#if Input.is_action_pressed("right_click"):
-		#throwSpeed += 1
-		#
-	pass
+func _input(event:InputEvent):
+	
+	if event.is_action_pressed('inventory_slot_1'):
+		current_held = lamp_color_enum.RED
+	if event.is_action_pressed('inventory_slot_2'):
+		current_held = lamp_color_enum.GREEN
+	if event.is_action_pressed('inventory_slot_3'):
+		current_held = lamp_color_enum.BLUE
+	if event.is_action_pressed('inventory_slot_4'):
+		current_held = lamp_color_enum.NONE
+	if event.is_action_pressed("inventory_left"):
+		current_held= (current_held - 1 +4 )% 4
+		
+	if event.is_action_pressed("inventory_right"):
+		current_held =( current_held + 1) % 4
 
 func collect_lamp(color: lamp_color_enum):
 	if collected_lamps.has(color):
