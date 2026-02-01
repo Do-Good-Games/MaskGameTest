@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://2ff4ughxaybq"]
+
+[ext_resource type="PackedScene" uid="uid://cvin4j0tq0guf" path="res://Art/NeeaFolder/Imports/Character.fbx" id="1_5i6dk"]
+
+[node name="Character" unique_id=1921781665 instance=ExtResource("1_5i6dk")]
+
+[node name="Larm_001" parent="." index="0" unique_id=1522898897]
+transform = Transform3D(23.770798, 0, 0, 0, -5.6674e-06, -60.933334, 0, 23.770796, -1.452764e-05, 0.7309617, 2.5014842, 0.10321962)
+
+[node name="Lfoot_001" parent="." index="1" unique_id=1045307193]
+transform = Transform3D(21.349077, -7.338275, 0, 0, 0, 22.575058, -7.338275, -21.349077, 0, 0.28871393, 0.15789676, 0.089577295)
+
+[node name="Lhand_001" parent="." index="2" unique_id=467013585]
+transform = Transform3D(18.078863, 0, 0, 0, -2.1551684e-06, 18.078861, 0, -18.078861, -2.1551684e-06, 0.747431, 1.925133, 0.08957729)
+
+[node name="Lleg_001" parent="." index="3" unique_id=664677458]
+transform = Transform3D(23.770798, 0, 0, 0, -5.6674e-06, -101.16491, 0, 23.770796, -2.4119596e-05, 0.2807059, 1.1736131, 0.10321962)
+
+[node name="Rarm_001" parent="." index="4" unique_id=1263312166]
+transform = Transform3D(23.770798, 0, 0, 0, -5.6674e-06, -60.933334, 0, 23.770796, -1.452764e-05, -0.69733596, 2.5014842, 0.10321962)
+
+[node name="Rfoot_001" parent="." index="5" unique_id=2027921000]
+transform = Transform3D(21.349077, -7.338275, 0, 0, 0, 22.575058, -7.338275, -21.349077, 0, -0.24540865, 0.15789676, 0.089577295)
+
+[node name="Rhand_001" parent="." index="6" unique_id=1511434118]
+transform = Transform3D(18.078863, 0, 0, 0, -2.1551684e-06, 18.078861, 0, -18.078861, -2.1551684e-06, -0.6995586, 1.925133, 0.08957729)
+
+[node name="Rlegs_001" parent="." index="7" unique_id=1484192242]
+transform = Transform3D(23.770798, 0, 0, 0, -5.6674e-06, -101.16491, 0, 23.770796, -2.4119596e-05, -0.24732718, 1.1736131, 0.10321962)
+
+[node name="Torus_002" parent="." index="8" unique_id=78924785]
+transform = Transform3D(78.45425, 0, 0, 0, -9.496844e-06, 83.53291, 0, -79.66529, -9.9579e-06, -0.0048689106, 4.4007454, -0.00913465)
+
+[node name="body_001" parent="." index="9" unique_id=1848042987]
+transform = Transform3D(95.398094, 29.986727, 1.4901161e-06, 1.4901161e-06, -1.1920929e-05, 100, 29.986727, -95.3981, -1.1920929e-05, 0, 2.7957308, 0)
+
+[node name="eye_001" parent="." index="10" unique_id=19532867]
+visible = false
+
+[node name="head_001" parent="." index="11" unique_id=2031065109]
+transform = Transform3D(94.73682, 32.014584, -1.4901161e-06, -1.490116e-06, 5.960464e-06, 100, 32.014584, -94.736824, 5.9604645e-06, 0, 4.3059464, 0)
+
+[node name="mask_001" parent="." index="12" unique_id=1439807819]
+transform = Transform3D(100, 0, 0, 0, -46.61463, 88.47076, 0, -88.47076, -46.61463, 0.011682365, 4.4525933, 0.5875023)
+
+[node name="nose_001" parent="." index="13" unique_id=670827247]
+transform = Transform3D(15.049678, 0, 0, 0, 13.314564, 7.0153546, 0, -7.0153546, 13.314564, 0.015709488, 4.5627866, 1.0391599)
