@@ -74,20 +74,10 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 bbcode_enabled = true
-text = "Fiona Bolen
+text = "Ian Warren
 Did Things"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Animation_Button" type="Node" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row/Name Here" unique_id=993863165]
-script = ExtResource("4_ugyuf")
-enable_rotation = false
-rotation_deg = 180.0
-enable_scale = false
-scale_max = 1.05
-has_text = true
-hover_text = "Fiona Bolen[br]IS SO COOl"
-metadata/_custom_type_script = "uid://ccqxdoheyp6n"
 
 [node name="Name Here2" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=81852651]
 custom_minimum_size = Vector2(0, 100)
@@ -98,11 +88,30 @@ Did Things"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Animation_Button" type="Node" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row/Name Here2" unique_id=993863165]
+script = ExtResource("4_ugyuf")
+enable_rotation = false
+rotation_deg = 180.0
+enable_scale = false
+scale_max = 1.05
+has_text = true
+hover_text = "I have gone[br]mad with power"
+metadata/_custom_type_script = "uid://ccqxdoheyp6n"
+
 [node name="Name Here3" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=1648646068]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 bbcode_enabled = true
-text = "Fiona Bolen
+text = "Neea
+Did Things"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name Here4" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=1131945235]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "Travis Cole
 Did Things"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -115,16 +124,24 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 bbcode_enabled = true
-text = "Fiona Bolen
+text = "Ryan Davidson
 Did Things"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation_Button" type="Node" parent="CanvasLayer/HBoxContainer/VBoxContainer2/Name Here" unique_id=250048370]
+script = ExtResource("4_ugyuf")
+enable_rotation = false
+enable_scale = false
+has_text = true
+hover_text = "Ryan \"Harley\" Davidson[br]Git Wizard"
+metadata/_custom_type_script = "uid://ccqxdoheyp6n"
 
 [node name="Name Here2" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=691331912]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 bbcode_enabled = true
-text = "Fiona Bolen
+text = "Alex Bones
 Did Things"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -133,7 +150,16 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 bbcode_enabled = true
-text = "Fiona Bolen
+text = "Eric
+Did Things"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name Here4" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=1422915484]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "Bobby Breglio
 Did Things"
 horizontal_alignment = 1
 vertical_alignment = 1
