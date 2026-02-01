@@ -3,26 +3,40 @@
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="1_vm0sn"]
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
 [ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://Ian Folder/layer_mask.gd" id="3_gui4o"]
-[ext_resource type="Texture2D" uid="uid://7kdjj57fft6b" path="res://Ian Folder/Red example.png" id="4_k3wos"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gui4o"]
+viewport_path = NodePath("LayerMask/SubViewport")
 
 [node name="Layer" type="StaticBody2D" unique_id=807261236]
 script = ExtResource("2_gui4o")
 
 [node name="LayerMask" type="Sprite2D" parent="." unique_id=1379613557]
-clip_children = 2
+clip_children = 1
 z_index = 1
 texture = ExtResource("1_vm0sn")
 script = ExtResource("3_gui4o")
 
 [node name="LayerVisual" type="Sprite2D" parent="LayerMask" unique_id=1234380076]
-position = Vector2(-835.7489, -204)
-scale = Vector2(1.6140466, 2.683331)
-texture = ExtResource("4_k3wos")
+position = Vector2(-11, 4)
+texture = SubResource("ViewportTexture_gui4o")
+
+[node name="SubViewport" type="SubViewport" parent="LayerMask" unique_id=224541156]
+size = Vector2i(1920, 1080)
+
+[node name="Node3D" type="Node3D" parent="LayerMask/SubViewport" unique_id=1942203619]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LayerMask/SubViewport/Node3D" unique_id=1462726986]
+transform = Transform3D(1, 0, 0, 0, 0.9270007, 0.37505966, 0, -0.37505966, 0.9270007, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="LayerMask/SubViewport/Node3D" unique_id=1156397039]
+transform = Transform3D(1, 0, 0, 0, 0.31458896, 0.949228, 0, -0.949228, 0.31458896, 0, 1.5357482, 0.49282122)
 
 [node name="LayerArea" type="Area2D" parent="." unique_id=1061474882]
 visible = false
 
 [node name="UnmaskedGeometry" type="StaticBody2D" parent="." unique_id=2019776830]
 collision_layer = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1517179556]
 
 [connection signal="img_updated" from="LayerMask" to="." method="_on_layer_mask_img_updated"]
