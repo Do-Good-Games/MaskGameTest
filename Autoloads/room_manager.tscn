@@ -1,0 +1,293 @@
+[gd_scene format=3 uid="uid://jk3f57j8pjdb"]
+
+[sub_resource type="GDScript" id="GDScript_s3fwq"]
+resource_name = "room_manager"
+script/source = "extends SceneManager
+
+@onready var level_enter_animator: AnimationPlayer = $LevelEnterAnimator
+@onready var level_exit_animator: AnimationPlayer = $LevelExitAnimator
+@onready var room_change_animator: AnimationPlayer = $RoomChangeAnimator
+
+signal level_entered(level: Level)
+
+var current_level: Level
+var can_player_reset: bool = true
+
+func _ready() -> void:
+	super._ready()
+	if current_scene != null and not current_scene.is_node_ready():
+		await current_scene.ready
+	_register_scene_as_level(current_scene)
+	#_enter_scene_as_room(current_scene)
+
+
+
+func load_level(level_uid: String, anim: AnimationPlayer = default_animator) -> Level:
+	if busy:
+		return null
+	load_scene(level_uid, anim)
+	var loaded_scene: Node = await self.scene_ready
+	_register_scene_as_level(loaded_scene)
+	#_enter_scene_as_room(loaded_scene, spawn_point_id)
+	
+	return loaded_scene as Level
+
+
+func _register_scene_as_level(scene: Node) -> void:
+	if not scene is Level:
+		current_level = null
+		return
+	var level := scene as Level
+	
+	current_level = level
+	#room.transition_triggered.connect(load_room)
+
+
+#func _enter_scene_as_room(scene: Node, spawn_point_id: String = \"\") -> void:
+	#if not scene is Room:
+		#return
+	#var room := scene as Room
+	#
+	#if not spawn_point_id == \"\":
+		#room.set_spawn_point_by_id(spawn_point_id)
+	#room_entered.emit(room)
+	#room.spawn_player()
+"
+
+[sub_resource type="Animation" id="Animation_o8sae"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer/ColorRect/LevelNameDisplay:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yqqjy"]
+resource_name = "from_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer/ColorRect/LevelNameDisplay:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c4cs7"]
+resource_name = "to_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer/ColorRect/LevelNameDisplay:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ilfj"]
+_data = {
+&"RESET": SubResource("Animation_o8sae"),
+&"from_black": SubResource("Animation_yqqjy"),
+&"to_black": SubResource("Animation_c4cs7")
+}
+
+[sub_resource type="Animation" id="Animation_xrxn6"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jsv2d"]
+resource_name = "from_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3jjf7"]
+resource_name = "to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1rt8"]
+_data = {
+&"RESET": SubResource("Animation_xrxn6"),
+&"from_black": SubResource("Animation_jsv2d"),
+&"to_black": SubResource("Animation_3jjf7")
+}
+
+[sub_resource type="Animation" id="Animation_jjfuj"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nl6ui"]
+resource_name = "from_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6jxuk"]
+resource_name = "to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjuve"]
+_data = {
+&"RESET": SubResource("Animation_jjfuj"),
+&"from_black": SubResource("Animation_nl6ui"),
+&"to_black": SubResource("Animation_6jxuk")
+}
+
+[node name="RoomManager" type="Node2D" unique_id=64994727 node_paths=PackedStringArray("default_animator")]
+position = Vector2(0, 2)
+script = SubResource("GDScript_s3fwq")
+default_animator = NodePath("RoomChangeAnimator")
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1531510680]
+
+[node name="ColorRect" type="ColorRect" parent="TransitionLayer" unique_id=1884721813]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="LevelNameDisplay" type="RichTextLabel" parent="TransitionLayer/ColorRect" unique_id=774586101]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -15.0
+offset_right = 52.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 0)
+text = "Demo Start!"
+fit_content = true
+
+[node name="LevelEnterAnimator" type="AnimationPlayer" parent="." unique_id=1713926409]
+libraries/ = SubResource("AnimationLibrary_1ilfj")
+
+[node name="LevelExitAnimator" type="AnimationPlayer" parent="." unique_id=1212601638]
+libraries/ = SubResource("AnimationLibrary_b1rt8")
+
+[node name="RoomChangeAnimator" type="AnimationPlayer" parent="." unique_id=1509899823]
+libraries/ = SubResource("AnimationLibrary_sjuve")

@@ -1,11 +1,12 @@
-[gd_scene format=3 uid="uid://b2mlptpn7ve6x"]
+[gd_scene format=3 uid="uid://2wy3lf084bm7"]
 
 [ext_resource type="Script" uid="uid://b01gwbcmrrl47" path="res://LayerMasking/layer_controller.gd" id="1_hssr4"]
-[ext_resource type="PackedScene" uid="uid://bym1nxtie4254" path="res://LayerMasking/layer.tscn" id="2_dsr7o"]
+[ext_resource type="PackedScene" uid="uid://c0cnbnjpw1gn3" path="res://Ian Folder/layer.tscn" id="2_dsr7o"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="3_f046f"]
 
-[node name="Level" type="Node2D" unique_id=1122606211]
+[node name="Level" type="Node2D" unique_id=1122606211 node_paths=PackedStringArray("layers")]
 script = ExtResource("1_hssr4")
+layers = [NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
 
 [node name="RedLayer" parent="." unique_id=1461014223 instance=ExtResource("2_dsr7o")]
 
