@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://cg1hwhuut14st"]
+
+[ext_resource type="Texture2D" uid="uid://uw3wthr2sko7" path="res://Art/lantern icon placeholder.png" id="2_rvqc1"]
+[ext_resource type="Texture2D" uid="uid://cxs1r26g7acy3" path="res://Art/hand icon placeholder.png" id="3_24f0e"]
+[ext_resource type="Theme" uid="uid://cx3sm5oban123" path="res://Menus/Menu Button Theme.tres" id="3_li7pg"]
+
+[sub_resource type="Gradient" id="Gradient_4hwq1"]
+offsets = PackedFloat32Array(0, 0.148, 0.328, 0.688, 0.916, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_faip0"]
+gradient = SubResource("Gradient_4hwq1")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li7pg"]
+bg_color = Color(0.23921569, 0.23921569, 0.23921569, 0.58431375)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0.6156863)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_faip0"]
+bg_color = Color(0.23921569, 0.23921569, 0.23921569, 0.58431375)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="mainMenu" type="Control" unique_id=659569743]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1641662757]
+
+[node name="[PLACEHOLDER] BG" type="TextureRect" parent="CanvasLayer" unique_id=1099719461]
+visible = false
+modulate = Color(1, 1, 1, 0.39607844)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -98.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_faip0")
+flip_h = true
+
+[node name="Inventory" type="HBoxContainer" parent="CanvasLayer" unique_id=1030332110]
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 504.0
+offset_right = 1132.0
+offset_bottom = 618.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_li7pg")
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Left Item" type="VBoxContainer" parent="CanvasLayer/Inventory" unique_id=1468087297]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Left Item" unique_id=1510656034]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Inventory/Left Item/MarginContainer" unique_id=810299216]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_li7pg")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Left Item/MarginContainer/Panel" unique_id=1440477177]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Left Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Left Item/MarginContainer/Panel/MarginContainer" unique_id=1443927539]
+modulate = Color(1, 1, 1, 0.6392157)
+layout_mode = 2
+texture = ExtResource("2_rvqc1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Center Item" type="VBoxContainer" parent="CanvasLayer/Inventory" unique_id=1766033837]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Center Item" unique_id=1800213086]
+layout_mode = 2
+theme_override_constants/margin_left = -15
+theme_override_constants/margin_right = -15
+theme_override_constants/margin_bottom = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Inventory/Center Item/MarginContainer" unique_id=516916005]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Inventory/Center Item" unique_id=1750302595]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_faip0")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Center Item/Panel" unique_id=747479688]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Center Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Center Item/Panel/MarginContainer" unique_id=2114746253]
+layout_mode = 2
+texture = ExtResource("2_rvqc1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Right Item" type="VBoxContainer" parent="CanvasLayer/Inventory" unique_id=476109490]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Right Item" unique_id=279852928]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Inventory/Right Item/MarginContainer" unique_id=1280420585]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_li7pg")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Right Item/MarginContainer/Panel" unique_id=652137550]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Right Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Right Item/MarginContainer/Panel/MarginContainer" unique_id=915753916]
+modulate = Color(1, 1, 1, 0.6392157)
+layout_mode = 2
+texture = ExtResource("3_24f0e")
+expand_mode = 1
+stretch_mode = 4
