@@ -1,6 +1,5 @@
 class_name BobbyCollectible extends Area2D
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var has_parent: bool = false
 

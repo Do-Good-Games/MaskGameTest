@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://ct5ax4ywifcqr"]
+
+[ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="1_1gfa7"]
+[ext_resource type="PackedScene" uid="uid://coqhikko6ph8v" path="res://LayerMasking/layer_cleaned.tscn" id="2_xxmfu"]
+[ext_resource type="Texture2D" uid="uid://7kdjj57fft6b" path="res://Ian Folder/Red example.png" id="3_dj1vn"]
+[ext_resource type="Texture2D" uid="uid://d1pxvs8i5av8t" path="res://test_mask_alpha_negative.png" id="4_2x4gq"]
+[ext_resource type="Texture2D" uid="uid://rw8d2f1wlin6" path="res://Ian Folder/Green_Example.png" id="5_k8rxq"]
+[ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="6_mur5f"]
+[ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="7_kwp58"]
+
+[sub_resource type="GDScript" id="GDScript_xny3m"]
+resource_name = "test_script"
+script/source = "extends Node2D
+
+@export var brush_texture: GradientTexture2D
+
+@onready var red_layer_mask: LayerMask = $RedLayer/LayerMask
+@onready var green_layer_mask: LayerMask = $GreenLayer/LayerMask
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			$RedLayer.layer_mask.paint_texture(brush_texture, get_global_mouse_position())
+			$GreenLayer.layer_mask.erase_texture(brush_texture, get_global_mouse_position())
+"
+
+[node name="TestWorld" type="Node2D" unique_id=1058061648]
+script = SubResource("GDScript_xny3m")
+brush_texture = ExtResource("1_1gfa7")
+
+[node name="RedLayer" parent="." unique_id=807261236 instance=ExtResource("2_xxmfu")]
+z_index = -1
+position = Vector2(1047, 730)
+rect_size = Vector2(1000, 1000)
+
+[node name="LayerVisual" parent="RedLayer/LayerMask" parent_id_path=PackedInt32Array(807261236, 1379613557) index="0" unique_id=1234380076]
+position = Vector2(3.6502905, 4.9999886)
+scale = Vector2(1.0003328, 0.9873325)
+texture = ExtResource("3_dj1vn")
+
+[node name="UnmaskedGeometry" parent="RedLayer" index="2" unique_id=2019776830]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RedLayer/UnmaskedGeometry" index="0" unique_id=380637324]
+polygon = PackedVector2Array(-1048, -397, -731, -346, -770, 496, -427, 540, -418, 744, -1053, 749)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RedLayer/UnmaskedGeometry" index="1" unique_id=675728479]
+polygon = PackedVector2Array(204, -540, 185, -40, 924, -17, 885, -517)
+
+[node name="MaskedGeometry" parent="RedLayer" index="3" unique_id=211235266]
+z_index = 1
+
+[node name="GreenLayer" parent="." unique_id=1595783365 instance=ExtResource("2_xxmfu")]
+position = Vector2(1047, 730)
+
+[node name="LayerMask" parent="GreenLayer" index="0" unique_id=1379613557]
+texture = ExtResource("4_2x4gq")
+
+[node name="LayerVisual" parent="GreenLayer/LayerMask" index="0" unique_id=1234380076]
+position = Vector2(-5.625332, -9.500088)
+scale = Vector2(0.9986907, 0.98199993)
+texture = ExtResource("5_k8rxq")
+
+[node name="UnmaskedGeometry" parent="GreenLayer" index="2" unique_id=2019776830]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GreenLayer/UnmaskedGeometry" index="0" unique_id=1255001265]
+polygon = PackedVector2Array(-1032, -102, 653, -81, 692, -737, -1055, -756, -1052, -125)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="GreenLayer/UnmaskedGeometry" index="1" unique_id=398593457]
+polygon = PackedVector2Array(-1048, 515, 101, 508, 147, 719, -1069, 733)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="GreenLayer/UnmaskedGeometry" index="2" unique_id=702944521]
+polygon = PackedVector2Array(469, 284, 526, 561, 759, 618, 1047, 457, 1063, 317, 892, 123, 651, 137)
+
+[node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("6_mur5f")]
+z_index = 1
+position = Vector2(299, 752)
+
+[node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("7_kwp58")]
+z_index = 1
+position = Vector2(991, 1087)
+
+[editable path="RedLayer"]
+[editable path="GreenLayer"]
