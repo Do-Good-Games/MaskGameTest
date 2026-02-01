@@ -24,21 +24,24 @@ func update_icons(new_index:int):
 	elif game_manager.collected_items.size() == 2:
 		# TODO FIONA: rather than always showing on right, have 
 		left_item_icon.visible = false
-		_set_icon(new_index, center_item_icon)
+		_set_icon(new_index, center_item_icon, false)
 		_set_icon((new_index +1 )%2, right_item_icon)
 	# 2 or more items, show one above and one below and current item 
 	elif game_manager.collected_items.size() >=3:
+		if game_manager.collected_items.size() ==3:
+			left_item_icon.visible = true
 		var size : int = game_manager.collected_items.size()
-		_set_icon(((new_index-1)+size)%size, left_item_icon)
+		var lsize  = ((new_index-1)+size)%size
+		_set_icon(lsize, left_item_icon)
 		#TODO FIONA: currently I'm setting the color on the center icon exactly the same as the other two. I'll let you figure out how to highlight
-		_set_icon(new_index, center_item_icon)
+		_set_icon(new_index, center_item_icon, false)
 		_set_icon((new_index+1)%size, right_item_icon)
 	elif game_manager.collected_items.size() <=0:
 		push_error("ERROR: you somehow have an inventory less than or equal to zero. did you somehow throw away your hand?")
 		#this shouldn't happen
 		
 	
-func _set_icon(new_index: int, icon: TextureRect):
+func _set_icon(new_index: int, icon: TextureRect, is_center : bool = false):
 	var item : game_manager.InventorySlot = game_manager.collected_items[new_index]
 	icon.texture = imageMap.get(item._item_type )
 	icon.modulate = colorMap.get(item._color) #error

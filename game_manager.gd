@@ -13,6 +13,7 @@ enum inventory_slot_type{
 class InventorySlot:
 	var _item_type : inventory_slot_type = inventory_slot_type.NONE
 	var _color : color_enum = color_enum.NONE
+	#index of the InventorySlot within GameMan's current_array
 	var _idx: int = 0
 	var _obj_ref : Node
 	func _init(item:inventory_slot_type, color:color_enum, idx: int, obj_ref :Node):
