@@ -9,6 +9,7 @@ script/source = "extends SceneManager
 @onready var room_change_animator: AnimationPlayer = $RoomChangeAnimator
 
 signal level_entered(level: Level)
+signal level_ready(level: Level)
 
 var current_level: Level
 var can_player_reset: bool = true
@@ -40,6 +41,7 @@ func _register_scene_as_level(scene: Node) -> void:
 	var level := scene as Level
 	
 	current_level = level
+	level_ready.emit(current_level)
 	#room.transition_triggered.connect(load_room)
 
 

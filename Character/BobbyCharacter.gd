@@ -3,9 +3,9 @@ extends CharacterBody2D
 #const Throwable: PackedScene = preload("res://BobbyFolder/throwable.tscn")
 @export var Throwable: PackedScene
 
-@export var max_vel = 200
-@export var friction = 0.01
-@export var acceleration = 0.1
+@export var max_vel := 200.0
+@export var friction := 0.01
+@export var acceleration := 0.1
 
 var throwSpeed = 0
 
