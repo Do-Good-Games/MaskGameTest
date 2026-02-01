@@ -14,14 +14,18 @@ class InventorySlot:
 	var _item_type : inventory_slot_type = inventory_slot_type.NONE
 	var _color : color_enum = color_enum.NONE
 	var _idx: int = 0
-	func _init(item:inventory_slot_type, color:color_enum, idx: int):
+	var _obj_ref : Node
+	func _init(item:inventory_slot_type, color:color_enum, idx: int, obj_ref :Node):
 		_item_type = item
 		_color = color
 		_idx = idx
+		_obj_ref = obj_ref
 
 signal held_changed(new_index : int)
 
-var current_held : InventorySlot = InventorySlot.new(inventory_slot_type.NONE, color_enum.NONE, 0)
+var current_held : InventorySlot = InventorySlot.new(inventory_slot_type.NONE, color_enum.NONE, 0, Node.new())
+
+
 
 var collected_items: Array[InventorySlot] = [current_held]
 
@@ -41,9 +45,9 @@ func set_held(idx : int ):
 	current_held = collected_items[idx]
 	held_changed.emit(current_held._idx)
 
-func collect_item(item_type: inventory_slot_type, color: color_enum):
+func collect_item(item_type: inventory_slot_type, color: color_enum, obj_ref: Node):
 	
-	var new_slot : InventorySlot = InventorySlot.new(item_type, color, collected_items.size())
+	var new_slot : InventorySlot = InventorySlot.new(item_type, color, collected_items.size(), obj_ref)
 	#new_slot._init(item_type, color)
 	collected_items.push_back(new_slot)
 	set_held(new_slot._idx)

@@ -23,8 +23,12 @@ albedo_color = Color(1, 0.3882353, 1, 1)
 material = SubResource("StandardMaterial3D_ojdix")
 
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
+max_vel = 300.0
+friction = 0.15
+acceleration = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=940279390]
 texture = ExtResource("2_d5myv")
@@ -35,6 +39,10 @@ shape = SubResource("RectangleShape2D_d5myv")
 debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=550504632]
+limit_left = 0
+limit_top = 0
+limit_right = 1510
+limit_bottom = 1080
 
 [node name="GrabArea" type="Area2D" parent="." unique_id=896937632 groups=["Grab"]]
 visible = false

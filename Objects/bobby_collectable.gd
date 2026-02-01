@@ -8,7 +8,7 @@ var inGrab = false
 
 var goingToPlayer = false
 
-signal collected
+signal collected(obj_ref : Node)
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("left_click"):
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		
 
 func activate_grab() -> void:
-	collected.emit()
+	collected.emit(get_parent())
 	deactivate()
 
 func activate_gravity(delta: float) -> void:

@@ -228,11 +228,9 @@ func _on_body_entered(body: Node2D) -> void:
 		RoomManager.load_level(RoomManager.current_scene_uid)
 "
 
-[node name="Level" type="Node2D" unique_id=1171352334 node_paths=PackedStringArray("layers", "collision_types")]
+[node name="Level" type="Node2D" unique_id=1171352334]
 material = SubResource("ShaderMaterial_6hdhj")
 script = ExtResource("1_hssr4")
-layers = [NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
-collision_types = [NodePath("Collision"), NodePath("Hazard")]
 red_mask = ExtResource("14_xtlnx")
 green_mask = ExtResource("13_8b3wp")
 blue_mask = ExtResource("12_55ngp")

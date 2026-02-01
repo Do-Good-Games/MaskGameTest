@@ -1,11 +1,6 @@
 @tool
 class_name Level extends Node2D
 
-enum LayerName{
-	RED = 0,
-	GREEN = 1,
-	BLUE = 2,
-}
 
 @export var layers: Array[Layer]
 @export var collision_types: Array[CollisionType]
@@ -57,7 +52,7 @@ class color_texture_map:
 @export_group("Debug")
 @export var debug_paint: bool = true
 @export var debug_brush: Texture2D
-var debug_selected_layer: LayerName
+var debug_selected_layer: game_manager.color_enum
 
 @onready var composite_visuals: Sprite2D = $CompositeVisuals
 
@@ -69,8 +64,6 @@ var textures_map : Dictionary[game_manager.color_enum, color_texture_map] ={
 
 
 func _ready() -> void:
-	
-	
 	
 	layers[0].layer_mask.register_texture(red_mask)
 	layers[1].layer_mask.register_texture(green_mask)
@@ -111,7 +104,7 @@ func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("blue_temp_masks", $BlueLayer/TempMasks.get_texture())
 
 
-func paint_texture(layer_name: LayerName, brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2i(1,1)) -> void:
+func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2, brush_texture: Texture2D, brush_scale := Vector2i(1,1)) -> void:
 	var updated_rect: Rect2
 	for i in layers.size():
 		if i == layer_name:
@@ -123,7 +116,7 @@ func paint_texture(layer_name: LayerName, brush_texture: Texture2D, brush_positi
 		#collision_type.handle_rect_update(updated_rect)
 
 
-func add_temp_mask(layer_name: LayerName, mask: Node2D) -> Node2D:
+func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D , scale: float = 1) -> Node2D:
 	var layer: Layer = layers[layer_name]
 	
 	if mask.get_parent() != null:
@@ -136,16 +129,16 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and debug_paint:
 		if event.pressed:
 			print(get_global_mouse_position())
-			paint_texture(debug_selected_layer, debug_brush, get_global_mouse_position())
+			paint_texture(debug_selected_layer, get_global_mouse_position(), debug_brush)
 	if event is InputEventMouseMotion and debug_paint and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		paint_texture(debug_selected_layer, debug_brush, get_local_mouse_position())
+		paint_texture(debug_selected_layer, get_local_mouse_position(), debug_brush)
 	if event is InputEventKey and debug_paint:
 		if event.keycode == KEY_1:
-			debug_selected_layer = LayerName.RED
+			debug_selected_layer = game_manager.color_enum.RED
 		if event.keycode == KEY_2:
-			debug_selected_layer = LayerName.GREEN
+			debug_selected_layer = game_manager.color_enum.GREEN
 		if event.keycode == KEY_3:
-			debug_selected_layer = LayerName.BLUE
+			debug_selected_layer = game_manager.color_enum.BLUE
 
 
 func _on_collision_redraw_timer_timeout() -> void:
