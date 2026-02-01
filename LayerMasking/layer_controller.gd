@@ -82,6 +82,15 @@ func paint_texture(layer_name: LayerName, brush_texture: Texture2D, brush_positi
 		#collision_type.handle_rect_update(updated_rect)
 
 
+func add_temp_mask(layer_name: LayerName, mask: Node2D) -> Node2D:
+	var layer: Layer = layers[layer_name]
+	
+	if mask.get_parent() != null:
+		mask.get_parent().remove_child(mask)
+	layer.add_child(mask)
+	return mask
+
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and debug_paint:
 		if event.pressed:
