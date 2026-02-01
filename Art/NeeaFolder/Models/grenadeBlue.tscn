@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://kubeeoaksear"]
+
+[ext_resource type="PackedScene" uid="uid://bphf0vtseag5d" path="res://Art/NeeaFolder/Imports/Models/grenade.fbx" id="1_egf7m"]
+[ext_resource type="Material" uid="uid://c4pl4e7mqvesn" path="res://Art/NeeaFolder/Materials/MatMetalBlue.tres" id="2_egf7m"]
+[ext_resource type="Material" uid="uid://fmg85vwwbgwt" path="res://Art/NeeaFolder/Materials/MatMetalYellow.tres" id="3_k6kri"]
+
+[node name="grenade" unique_id=1128202371 instance=ExtResource("1_egf7m")]
+
+[node name="Cylinder" parent="." index="0" unique_id=2112007672]
+surface_material_override/0 = ExtResource("2_egf7m")
+
+[node name="Icosphere" parent="." index="1" unique_id=1454997478]
+material_override = ExtResource("2_egf7m")
+
+[node name="Torus" parent="." index="2" unique_id=948627584]
+material_override = ExtResource("3_k6kri")

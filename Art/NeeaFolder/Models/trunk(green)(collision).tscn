@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dvilvoaymmhu4"]
+
+[ext_resource type="PackedScene" uid="uid://wtrury10duvv" path="res://Art/NeeaFolder/Imports/Models/Trunk(Green)(collision).fbx" id="1_hp27v"]
+
+[node name="Trunk(Green)(collision)" unique_id=602442271 instance=ExtResource("1_hp27v")]

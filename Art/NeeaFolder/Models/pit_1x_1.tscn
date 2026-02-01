@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://oxt0fcrxmy17"]
+
+[ext_resource type="PackedScene" uid="uid://cwhlje8aiyfl0" path="res://Art/NeeaFolder/Imports/Models/pit1x1.fbx" id="1_rth0j"]
+
+[node name="pit1x1" unique_id=732336331 instance=ExtResource("1_rth0j")]
