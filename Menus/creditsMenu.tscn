@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://7kdjj57fft6b" path="res://Ian Folder/Red example.png" id="1_esbpk"]
 [ext_resource type="Script" uid="uid://byl1isbtwqf06" path="res://Menus/credits_menu_script.gd" id="1_ntfyi"]
 [ext_resource type="Theme" uid="uid://cx3sm5oban123" path="res://Menus/Menu Button Theme.tres" id="3_fk2tn"]
+[ext_resource type="Script" uid="uid://ccqxdoheyp6n" path="res://Menus/button_animation.gd" id="4_ugyuf"]
 
 [sub_resource type="Theme" id="Theme_ntfyi"]
 RichTextLabel/font_sizes/normal_font_size = 30
@@ -136,3 +137,9 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "Exit
 "
+
+[node name="Animation_Button" type="Node" parent="CanvasLayer/Button Container/Exit Button" unique_id=1568482089]
+script = ExtResource("4_ugyuf")
+hover_duration = 0.5
+rotation_deg = 360.0
+metadata/_custom_type_script = "uid://ccqxdoheyp6n"
