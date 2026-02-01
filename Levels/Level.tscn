@@ -262,7 +262,8 @@ texture = ExtResource("7_rjnlo")
 [node name="TempMasks" parent="RedLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
 
-[node name="Draw Lantern Shapes Here" type="Sprite2D" parent="RedLayer/TempMasks" index="0" unique_id=1932516081]
+[node name="Use add_temp_mask()" type="Sprite2D" parent="RedLayer/TempMasks" index="0" unique_id=1932516081]
+visible = false
 position = Vector2(0, 160.19)
 texture = ExtResource("7_b6wxt")
 centered = false
