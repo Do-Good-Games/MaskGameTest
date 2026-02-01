@@ -4,24 +4,30 @@
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="2_loe50"]
 [ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://LayerMasking/layer_mask.gd" id="3_gui4o"]
+[ext_resource type="Texture2D" uid="uid://dtovvpm7o8oas" path="res://new_gradient_texture_2d.tres" id="5_q72mc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pesf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q72mc"]
 shader = ExtResource("2_8217w")
-shader_parameter/bonusMasks = null
+shader_parameter/masks = Array[Texture2D]([ExtResource("2_loe50")])
+shader_parameter/evil_masks = Array[Texture2D]([ExtResource("5_q72mc"), ExtResource("5_q72mc"), ExtResource("5_q72mc")])
+
+[sub_resource type="Gradient" id="Gradient_8217w"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6pesf"]
+gradient = SubResource("Gradient_8217w")
+width = 2150
+height = 1500
 
 [node name="Layer" type="Node2D" unique_id=1461014223]
 script = ExtResource("2_gui4o")
 epsilon = 20.0
 rect_size = Vector2(1000, 1000)
 
-[node name="LayerMask" type="Sprite2D" parent="." unique_id=1379613557]
-clip_children = 2
-z_index = -1
-material = SubResource("ShaderMaterial_6pesf")
-texture = ExtResource("2_loe50")
-script = ExtResource("3_gui4o")
+[node name="CurrentMask" type="Sprite2D" parent="." unique_id=476506377]
+material = SubResource("ShaderMaterial_q72mc")
+texture = SubResource("GradientTexture2D_6pesf")
 
-[node name="LayerVisual" type="Sprite2D" parent="LayerMask" unique_id=1234380076]
+[node name="LayerVisual" type="Sprite2D" parent="CurrentMask" unique_id=1234380076]
 
 [node name="LayerArea" type="Area2D" parent="." unique_id=1061474882]
 visible = false
@@ -30,5 +36,14 @@ visible = false
 collision_layer = 0
 
 [node name="MaskedGeometry" type="StaticBody2D" parent="." unique_id=211235266]
+
+[node name="LayerMask" type="Sprite2D" parent="." unique_id=1379613557]
+visible = false
+clip_children = 2
+z_index = -1
+texture = ExtResource("2_loe50")
+script = ExtResource("3_gui4o")
+
+[node name="BonusMask" type="SubViewport" parent="." unique_id=962696683]
 
 [connection signal="img_updated" from="LayerMask" to="." method="_on_layer_mask_img_updated"]
