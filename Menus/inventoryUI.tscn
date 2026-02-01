@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dv5y3vrwmluyh"]
+[gd_scene format=3 uid="uid://cg1hwhuut14st"]
 
 [ext_resource type="Script" uid="uid://b8o6x7rjq6mt2" path="res://Menus/inventory_ui.gd" id="1_24f0e"]
 [ext_resource type="Texture2D" uid="uid://c5reyqpee1krn" path="res://Art/lantern icon placeholder.png" id="2_rvqc1"]
@@ -46,6 +46,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_24f0e")
+imageMap = Dictionary[int, Texture2D]({
+2: ExtResource("2_rvqc1")
+})
+colorMap = Dictionary[int, Color]({
+1: Color(0.85490197, 0, 0, 1),
+2: Color(0, 1, 0, 1),
+3: Color(0, 0, 1, 1)
+})
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1641662757]
 
