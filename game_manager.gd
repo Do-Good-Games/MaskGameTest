@@ -2,6 +2,7 @@ class_name GameManager extends Node
 var playerx
 var playery
 
+signal removed_held
 
 enum color_enum{
 	NONE = 0, RED =1, GREEN=2, BLUE=3
@@ -13,6 +14,7 @@ enum inventory_slot_type{
 class InventorySlot:
 	var _item_type : inventory_slot_type = inventory_slot_type.NONE
 	var _color : color_enum = color_enum.NONE
+	#index of the InventorySlot within GameMan's current_array
 	var _idx: int = 0
 	var _obj_ref : Node
 	func _init(item:inventory_slot_type, color:color_enum, idx: int, obj_ref :Node):
@@ -42,8 +44,15 @@ func _input(event:InputEvent):
 		set_held(new_idx)
 
 func set_held(idx : int ):
+	var lamp = current_held._obj_ref
+	if lamp is Lamp:
+		lamp.turn_off_lamp()
 	current_held = collected_items[idx]
 	held_changed.emit(current_held._idx)
+	
+	lamp = current_held._obj_ref
+	if lamp is Lamp:
+		lamp.turn_off_lamp()
 
 func collect_item(item_type: inventory_slot_type, color: color_enum, obj_ref: Node):
 	
@@ -57,6 +66,7 @@ func collect_item(item_type: inventory_slot_type, color: color_enum, obj_ref: No
 func remove_current_held():
 	_remove_item(current_held._idx)
 	set_held(0)
+	
 
 func _remove_item(idx: int):
 	collected_items.remove_at(idx)

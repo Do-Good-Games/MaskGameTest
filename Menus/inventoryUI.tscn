@@ -22,10 +22,10 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 0.6156863)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+corner_radius_top_left = 30
+corner_radius_top_right = 33
+corner_radius_bottom_right = 33
+corner_radius_bottom_left = 33
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_faip0"]
 bg_color = Color(0.23921569, 0.23921569, 0.23921569, 0.58431375)
@@ -138,12 +138,12 @@ layout_mode = 2
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Inventory/Center Item" unique_id=1750302595]
+[node name="CenterItemPanel" type="Panel" parent="CanvasLayer/Inventory/Center Item" unique_id=1750302595]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_faip0")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Center Item/Panel" unique_id=747479688]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/Center Item/CenterItemPanel" unique_id=747479688]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -155,7 +155,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Center Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Center Item/Panel/MarginContainer" unique_id=2114746253]
+[node name="Center Item Icon" type="TextureRect" parent="CanvasLayer/Inventory/Center Item/CenterItemPanel/MarginContainer" unique_id=2114746253]
 layout_mode = 2
 texture = ExtResource("2_rvqc1")
 expand_mode = 1

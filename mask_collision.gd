@@ -7,6 +7,7 @@ class_name Layer extends Node2D
 #
 #@onready var clipper: Sprite2D = $Clipper
 @onready var layer_mask: LayerMask = $LayerMask
+@onready var temp_masks: SubViewport = $TempMasks
 #@onready var mask_viewer: SubViewport = $MaskViewer
 #@onready var current_mask: Sprite2D = %CurrentMask
 #

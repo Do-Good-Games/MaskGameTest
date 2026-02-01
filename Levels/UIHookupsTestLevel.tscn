@@ -233,7 +233,7 @@ func _on_body_entered(body: Node2D) -> void:
 [node name="Level" type="Node2D" unique_id=1171352334 node_paths=PackedStringArray("layers", "collision_types")]
 material = SubResource("ShaderMaterial_6hdhj")
 script = ExtResource("5_erks1")
-layers = [NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
+layers = [null, NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
 collision_types = [NodePath("Collision"), NodePath("Hazard")]
 read_my_tooltip = false
 red_mask = ExtResource("6_58u1o")

@@ -124,7 +124,7 @@ func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D , scale: fl
 	
 	if mask.get_parent() != null:
 		mask.get_parent().remove_child(mask)
-	layer.add_child(mask)
+	layer.temp_masks.add_child(mask)
 	return mask
 
 
