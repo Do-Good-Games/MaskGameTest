@@ -347,6 +347,9 @@ autostart = true
 position = Vector2(388, 553)
 color = 3
 
+[node name="Lamp2" parent="." unique_id=1861344315 instance=ExtResource("2_uimcf")]
+position = Vector2(190, 887)
+
 [connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="Collision" method="update_image"]

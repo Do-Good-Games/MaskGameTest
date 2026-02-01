@@ -1,7 +1,11 @@
 extends Control
 @onready var left_item_icon: TextureRect = $"CanvasLayer/Inventory/Left Item/MarginContainer/Panel/MarginContainer/Left Item Icon"
-@onready var center_item_icon: TextureRect = $"CanvasLayer/Inventory/Center Item/Panel/MarginContainer/Center Item Icon"
+@onready var center_item_icon :TextureRect = $"CanvasLayer/Inventory/Center Item/CenterItemPanel/MarginContainer/Center Item Icon"
 @onready var right_item_icon: TextureRect = $"CanvasLayer/Inventory/Right Item/MarginContainer/Panel/MarginContainer/Right Item Icon"
+
+#these will be used for border color highlights down the line
+@onready var center_item_border : Panel = $"CanvasLayer/Inventory/Center Item/CenterItemPanel"
+#var center_item_style_box: StyleBoxFlat = center_item_border.get_theme_stylebox("panel")
 
 @export var imageMap :Dictionary[GameManager.inventory_slot_type, Texture2D]
 @export var colorMap :Dictionary[GameManager.color_enum, Color]
@@ -38,4 +42,6 @@ func _set_icon(new_index: int, icon: TextureRect):
 	var item : game_manager.InventorySlot = game_manager.collected_items[new_index]
 	icon.texture = imageMap.get(item._item_type )
 	icon.modulate = colorMap.get(item._color) #error
+	
+	
 	
