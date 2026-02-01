@@ -36,6 +36,6 @@ func update_icons(new_index:int):
 	
 func _set_icon(new_index: int, icon: TextureRect):
 	var item : game_manager.InventorySlot = game_manager.collected_items[new_index]
-s	icon.texture = imageMap.get(item._item )
+	icon.texture = imageMap.get(item._item_type )
 	icon.modulate = colorMap.get(item._color) #error
 	
