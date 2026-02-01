@@ -29,6 +29,9 @@ func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("red_mask", layers[0].layer_mask.texture)
 	shader.set_shader_parameter("green_mask", layers[1].layer_mask.texture)
 	shader.set_shader_parameter("blue_mask", layers[2].layer_mask.texture)
+	shader.set_shader_parameter("red_temp_masks", $RedLayer/TempMasks.get_texture())
+	shader.set_shader_parameter("green_temp_masks", $GreenLayer/TempMasks.get_texture())
+	shader.set_shader_parameter("blue_temp_masks", $BlueLayer/TempMasks.get_texture())
 
 
 func paint_texture(layer_name: LayerName, brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2i(1,1)) -> void:
