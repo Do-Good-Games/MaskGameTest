@@ -7,6 +7,7 @@ void vertex() {
 }
 
 void fragment() {
+	COLOR = vec4(1,1,1,1);
 	// IDK man a for loop just doesnt work?? You get copy-pasted code
 	// Hours wasted: 2
 	float evil_alpha = 0.0;

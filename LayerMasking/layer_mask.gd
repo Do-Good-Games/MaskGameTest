@@ -54,8 +54,7 @@ func erase_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scal
 	var brush := brush_texture.get_image()
 	brush.resize(brush.get_width() * brush_scale.x, brush.get_height() * brush_scale.y)
 	var brush_rect := brush.get_used_rect()
-	var scale = 1
-	brush_rect.size = brush_rect.size * scale
+	
 	var draw_pos := brush_position - brush_rect.size / 2.0
 	
 	var img_size := img.get_size()
