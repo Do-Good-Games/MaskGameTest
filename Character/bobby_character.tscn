@@ -14,11 +14,11 @@ size = Vector2(131, 131)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
 size = Vector2(587, 221)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qipl1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojdix"]
 albedo_color = Color(1, 0.3882353, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e68qv"]
-material = SubResource("StandardMaterial3D_qipl1")
+material = SubResource("StandardMaterial3D_ojdix")
 
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
 script = ExtResource("1_dmayn")
