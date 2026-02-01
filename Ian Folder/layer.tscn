@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwgq1lmjusrgc" path="res://test_mask_alpha.png" id="1_vm0sn"]
 [ext_resource type="Script" uid="uid://bxui4dd18e7gy" path="res://mask_collision.gd" id="2_gui4o"]
-[ext_resource type="Script" path="res://Ian Folder/layer_mask.gd" id="3_gui4o"]
+[ext_resource type="Script" uid="uid://dklvrnohgflnj" path="res://LayerMasking/layer_mask.gd" id="3_k3wos"]
 [ext_resource type="Texture2D" uid="uid://dk4dlumhs07ha" path="res://Ian Folder/red.png" id="4_k3wos"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k3wos"]
@@ -15,7 +15,7 @@ script = ExtResource("2_gui4o")
 z_index = 1
 material = SubResource("CanvasItemMaterial_k3wos")
 texture = ExtResource("1_vm0sn")
-script = ExtResource("3_gui4o")
+script = ExtResource("3_k3wos")
 
 [node name="LayerArea" type="Area2D" parent="." unique_id=1061474882]
 visible = false
@@ -35,5 +35,3 @@ polygon = PackedVector2Array(538, 33, 549, 462, 981, 426, 1053, -14)
 [node name="LayerVisual" type="Sprite2D" parent="." unique_id=1234380076]
 scale = Vector2(27.399996, 27.399996)
 texture = ExtResource("4_k3wos")
-
-[connection signal="img_updated" from="LayerMask" to="." method="_on_layer_mask_img_updated"]
