@@ -65,9 +65,9 @@ var textures_map : Dictionary[game_manager.color_enum, color_texture_map] ={
 
 func _ready() -> void:
 	
-	layers[0].layer_mask.register_texture(red_mask)
-	layers[1].layer_mask.register_texture(green_mask)
-	layers[2].layer_mask.register_texture(blue_mask)
+	layers[1].layer_mask.register_texture(red_mask)
+	layers[2].layer_mask.register_texture(green_mask)
+	layers[3].layer_mask.register_texture(blue_mask)
 	_set_shader_parameters(composite_visuals.material)
 	for collision_type in collision_types:
 		_set_shader_parameters(collision_type.mask.material)
@@ -96,9 +96,9 @@ func _set_collision_textures() -> void:
 	)
 
 func _set_shader_parameters(shader: ShaderMaterial) -> void:
-	shader.set_shader_parameter("red_mask", layers[0].layer_mask.texture)
-	shader.set_shader_parameter("green_mask", layers[1].layer_mask.texture)
-	shader.set_shader_parameter("blue_mask", layers[2].layer_mask.texture)
+	shader.set_shader_parameter("red_mask", layers[1].layer_mask.texture)
+	shader.set_shader_parameter("green_mask", layers[2].layer_mask.texture)
+	shader.set_shader_parameter("blue_mask", layers[3].layer_mask.texture)
 	shader.set_shader_parameter("red_temp_masks", $RedLayer/TempMasks.get_texture())
 	shader.set_shader_parameter("green_temp_masks", $GreenLayer/TempMasks.get_texture())
 	shader.set_shader_parameter("blue_temp_masks", $BlueLayer/TempMasks.get_texture())
@@ -107,6 +107,8 @@ func _set_shader_parameters(shader: ShaderMaterial) -> void:
 func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2, brush_texture: Texture2D, brush_scale := Vector2i(1,1)) -> void:
 	var updated_rect: Rect2
 	for i in layers.size():
+		if i == 0:
+			continue
 		if i == layer_name:
 			updated_rect = layers[i].layer_mask.paint_texture(brush_texture, brush_position, brush_scale)
 		else:
@@ -117,6 +119,7 @@ func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2,
 
 
 func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D , scale: float = 1) -> Node2D:
+	
 	var layer: Layer = layers[layer_name]
 	
 	if mask.get_parent() != null:

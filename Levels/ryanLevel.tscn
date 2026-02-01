@@ -232,7 +232,7 @@ func _on_body_entered(body: Node2D) -> void:
 [node name="Level" type="Node2D" unique_id=1171352334 node_paths=PackedStringArray("layers", "collision_types")]
 material = SubResource("ShaderMaterial_6hdhj")
 script = ExtResource("5_knhgl")
-layers = [NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
+layers = [null, NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
 collision_types = [NodePath("Collision"), NodePath("Hazard")]
 read_my_tooltip = false
 red_mask = ExtResource("6_erief")
@@ -345,7 +345,7 @@ autostart = true
 
 [node name="Lamp" parent="." unique_id=272377283 instance=ExtResource("2_uimcf")]
 position = Vector2(388, 553)
-color = 2
+color = 3
 
 [connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
