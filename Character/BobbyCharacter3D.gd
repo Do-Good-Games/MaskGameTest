@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody3D
 
 #const Throwable: PackedScene = preload("res://BobbyFolder/throwable.tscn")
 @export var Throwable: PackedScene
@@ -10,22 +10,24 @@ extends CharacterBody2D
 var throwSpeed = 0
 
 func get_input():
-	var input = Vector2()
+	var input = Vector3()
+	input.y = 0
 	if Input.is_action_pressed('right'):
 		input.x += 1
 	if Input.is_action_pressed('left'):
 		input.x -= 1
 	if Input.is_action_pressed('down'):
-		input.y += 1
+		input.z += 1
 	if Input.is_action_pressed('up'):
-		input.y -= 1
-	if Input.is_action_pressed("right_click"):
+		input.z -= 1
+	if Input.is_action_pressed("click"):
 		throwSpeed += 3
 		
-	if Input.is_action_just_released("right_click"):
+	if Input.is_action_just_released("click"):
 		if(throwSpeed > 200):
 			throwSpeed = 200
 			
+		print(throwSpeed)
 
 		var createdThrowable = Throwable.instantiate()
 		get_tree().root.add_child(createdThrowable)
@@ -35,16 +37,12 @@ func get_input():
 	return input
 
 func _physics_process(delta):
-	look_at(get_global_mouse_position())
+	#look_at(get_global_mouse_position())
 	var direction = get_input()
 	if direction.length() > 0:
 		velocity = velocity.lerp(direction.normalized() * max_vel, acceleration)
 	else:
-		velocity = velocity.lerp(Vector2.ZERO, friction)
+		velocity = velocity.lerp(Vector3.ZERO, friction)
 	move_and_slide()
 	game_manager.playerx = self.position.x
 	game_manager.playery = self.position.y
-
-
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

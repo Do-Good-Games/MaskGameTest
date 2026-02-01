@@ -20,12 +20,13 @@ var regions: Dictionary[Rect2, Array] # {Region, Col. Polygons in region}
 
 
 func _ready() -> void:
-	print(layer_mask)
+	print("uwu")
 	var image := layer_mask.texture.get_image()
 	
 	mask_bitmap = BitMap.new()
 	mask_bitmap.create_from_image_alpha(image)
 	
+	print(mask_bitmap.get_size(), " parent ", name)
 	_register_collision_polygons(unmasked_geometry)
 	_create_regions()
 	generate_collision(mask_bitmap, regions.keys())

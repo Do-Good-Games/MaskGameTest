@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="1_8a0p6"]
 [ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_vgrmv"]
+[ext_resource type="PackedScene" uid="uid://begce725f6irl" path="res://Enemy/Enemy.tscn" id="3_aldhi"]
 
 [node name="Node2D" type="Node2D" unique_id=648198681]
 
@@ -10,3 +11,6 @@ position = Vector2(461, 347)
 
 [node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_vgrmv")]
 position = Vector2(74, 478)
+
+[node name="Enemy" parent="." unique_id=1176380468 instance=ExtResource("3_aldhi")]
+position = Vector2(120, 199)

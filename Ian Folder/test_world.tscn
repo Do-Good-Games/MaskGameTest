@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 			$GreenLayer.layer_mask.erase_texture(brush_texture, get_global_mouse_position())
 "
 
-[node name="TestWorld" type="Node2D" unique_id=1058061648]
+[node name="TestWorld2" type="Node2D" unique_id=1058061648]
 script = SubResource("GDScript_xny3m")
 brush_texture = ExtResource("1_e4dru")
 
@@ -45,6 +45,9 @@ polygon = PackedVector2Array(204, -540, 185, -40, 924, -17, 885, -517)
 position = Vector2(3.6502905, 4.9999886)
 scale = Vector2(1.0003328, 0.9873325)
 texture = ExtResource("3_orqof")
+
+[node name="MaskedGeometry" type="StaticBody2D" parent="RedLayer" unique_id=1080079157]
+z_index = 1
 
 [node name="GreenLayer" parent="." unique_id=1595783365 instance=ExtResource("1_1hawf")]
 position = Vector2(1047, 730)
@@ -68,6 +71,8 @@ polygon = PackedVector2Array(469, 284, 526, 561, 759, 618, 1047, 457, 1063, 317,
 position = Vector2(-5.625332, -9.500088)
 scale = Vector2(0.9986907, 0.98199993)
 texture = ExtResource("5_orqof")
+
+[node name="MaskedGeometry" type="StaticBody2D" parent="GreenLayer" unique_id=1801727104]
 
 [editable path="RedLayer"]
 [editable path="GreenLayer"]

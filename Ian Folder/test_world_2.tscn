@@ -32,7 +32,6 @@ brush_texture = ExtResource("1_1gfa7")
 [node name="RedLayer" parent="." unique_id=807261236 instance=ExtResource("2_xxmfu")]
 z_index = -1
 position = Vector2(1047, 730)
-rect_size = Vector2(1000, 1000)
 
 [node name="LayerVisual" parent="RedLayer/LayerMask" parent_id_path=PackedInt32Array(807261236, 1379613557) index="0" unique_id=1234380076]
 position = Vector2(3.6502905, 4.9999886)

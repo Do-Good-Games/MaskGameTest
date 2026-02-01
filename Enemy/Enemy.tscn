@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://begce725f6irl"]
+
+[ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/evil_brush.tres" id="1_3o4wt"]
+[ext_resource type="Script" uid="uid://cud5efta6xo1e" path="res://Enemy/enemy.gd" id="1_epr5s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3o4wt"]
+radius = 205.03963
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oemdl"]
+size = Vector2(203, 200)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_epr5s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vonkd"]
+
+[node name="Enemy" type="Area2D" unique_id=2115636220]
+script = ExtResource("1_epr5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=9926488]
+modulate = Color(1, 0.2, 0.20392157, 1)
+texture = ExtResource("1_3o4wt")
+
+[node name="LineOfSight" type="CollisionShape2D" parent="." unique_id=1051441687]
+position = Vector2(0.5, 0)
+scale = Vector2(1.865, 1.865)
+shape = SubResource("CircleShape2D_3o4wt")
+
+[node name="DamageBox" type="Area2D" parent="." unique_id=563277183 groups=["Enemy"]]
+
+[node name="DamageBox" type="CollisionShape2D" parent="DamageBox" unique_id=1540986855 groups=["Enemy"]]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_oemdl")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1119076021]
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 52.0
+offset_bottom = 48.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1619329256]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(100, 100)
+render_target_update_mode = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=1746020056]
+transform = Transform3D(0.99944556, 0, -0.033294737, 0, 1, 0, 0.033294737, 0, 0.99944556, 0, -0.24266994, -0.4980482)
+mesh = SubResource("CapsuleMesh_epr5s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/MeshInstance3D" unique_id=116863821]
+transform = Transform3D(0.7475383, 0, 0, 0, 0.16714734, 0, 0, 0, 0.5945296, 0.023949564, 0.5062069, 0.41950017)
+mesh = SubResource("BoxMesh_vonkd")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1775135748]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.11273569, 1.9673477, -0.27693892)
+projection = 1
+size = 2.5
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=353596244]
+transform = Transform3D(1, 0, 0, 0, 0.99457467, 0.10402508, 0, -0.10402508, 0.99457467, 0, 0.45505333, 0.5942402)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
