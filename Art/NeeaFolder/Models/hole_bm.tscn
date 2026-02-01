@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dv4krfxhmqwmi"]
+
+[ext_resource type="PackedScene" uid="uid://gbdmolrkgoda" path="res://Art/NeeaFolder/Imports/Models/Hole BM.fbx" id="1_u5yqi"]
+[ext_resource type="Material" uid="uid://d3t5y1s0bkcod" path="res://Art/NeeaFolder/Materials/MatBasicBlueL.tres" id="2_ykwkb"]
+[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/MatBasicBlueD.tres" id="3_c3jm1"]
+
+[node name="Hole BM" unique_id=1781421968 instance=ExtResource("1_u5yqi")]
+
+[node name="1-2" parent="." index="0" unique_id=1618494490]
+surface_material_override/0 = ExtResource("2_ykwkb")
+
+[node name="1-2_001" parent="." index="1" unique_id=1741836354]
+material_override = ExtResource("3_c3jm1")
