@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://iq0r6oog18mc" path="res://Levels/Level1/lvl1_green.png" id="20_ih64f"]
 [ext_resource type="Texture2D" uid="uid://3g22y8fc62kk" path="res://Levels/Level1/lvl1_blue.png" id="21_jqkmy"]
 [ext_resource type="PackedScene" uid="uid://2jpgujndi0u3" path="res://LayerMasking/collision_type.tscn" id="22_7b4vm"]
+[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp.tscn" id="29_2pfgx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwkd2"]
 
@@ -95,7 +96,7 @@ height = 1080
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3wkli"]
 load_path = "res://.godot/imported/Lvl0_blue_mask.png-f889f6d64c45ade2cfca199b538316ff.ctex"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0cfxs"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jd565"]
 viewport_path = NodePath("BlueLayer/TempMasks")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sdsxl"]
@@ -104,7 +105,7 @@ load_path = "res://.godot/imported/Lvl0_blue_col.png-13ab681ceca001b7761fc48b279
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oqb7r"]
 load_path = "res://.godot/imported/Lvl0_green_mask.png-f2791553c6b72f191252b857ddb14641.ctex"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2pfgx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ruoxf"]
 viewport_path = NodePath("GreenLayer/TempMasks")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ysbpt"]
@@ -113,13 +114,13 @@ load_path = "res://.godot/imported/Lvl0_green_col.png-a05b2a1dc02479958cbebcb362
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5fklp"]
 load_path = "res://.godot/imported/Lvl0_red_mask.png-e7dfd2b036206ebfce7f2945aa388bb4.ctex"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jd565"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sfcom"]
 viewport_path = NodePath("RedLayer/TempMasks")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_irrfb"]
 load_path = "res://.godot/imported/Lvl0_red_col.png-59fc904a44126b6134852610c0b61fe9.ctex"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruoxf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmfp7"]
 resource_local_to_scene = true
 shader = ExtResource("1_pp47a")
 shader_parameter/red_texture = SubResource("CompressedTexture2D_irrfb")
@@ -128,19 +129,19 @@ shader_parameter/green_texture = SubResource("CompressedTexture2D_ysbpt")
 shader_parameter/green_mask = SubResource("CompressedTexture2D_oqb7r")
 shader_parameter/blue_texture = SubResource("CompressedTexture2D_sdsxl")
 shader_parameter/blue_mask = SubResource("CompressedTexture2D_3wkli")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_jd565")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_2pfgx")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_0cfxs")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_sfcom")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_ruoxf")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_jd565")
 
 [sub_resource type="Gradient" id="Gradient_ir1ia"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sfcom"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dk0xa"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_ir1ia")
 width = 1510
 height = 1080
 
-[sub_resource type="Shader" id="Shader_cmfp7"]
+[sub_resource type="Shader" id="Shader_2s4ma"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 uniform sampler2D red_texture;
@@ -177,33 +178,33 @@ void fragment() {
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wywvs"]
 load_path = "res://.godot/imported/Lvl0_blue_mask.png-f889f6d64c45ade2cfca199b538316ff.ctex"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dk0xa"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vrgcg"]
 viewport_path = NodePath("BlueLayer/TempMasks")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jsskw"]
 load_path = "res://.godot/imported/Lvl0_green_mask.png-f2791553c6b72f191252b857ddb14641.ctex"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2s4ma"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jtsmk"]
 viewport_path = NodePath("GreenLayer/TempMasks")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ochp"]
 load_path = "res://.godot/imported/Lvl0_red_mask.png-e7dfd2b036206ebfce7f2945aa388bb4.ctex"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vrgcg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ih64f"]
 viewport_path = NodePath("RedLayer/TempMasks")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtsmk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jqkmy"]
 resource_local_to_scene = true
-shader = SubResource("Shader_cmfp7")
+shader = SubResource("Shader_2s4ma")
 shader_parameter/red_texture = ExtResource("12_cmfp7")
 shader_parameter/red_mask = SubResource("CompressedTexture2D_7ochp")
 shader_parameter/green_texture = ExtResource("13_dk0xa")
 shader_parameter/green_mask = SubResource("CompressedTexture2D_jsskw")
 shader_parameter/blue_texture = ExtResource("14_2s4ma")
 shader_parameter/blue_mask = SubResource("CompressedTexture2D_wywvs")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_vrgcg")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_2s4ma")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_dk0xa")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_ih64f")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_jtsmk")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_vrgcg")
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cs8j"]
 gradient = SubResource("Gradient_ir1ia")
@@ -238,7 +239,6 @@ red_hazard = ExtResource("12_dk0xa")
 green_hazard = ExtResource("13_2s4ma")
 blue_hazard = ExtResource("14_vrgcg")
 debug_brush = ExtResource("15_vrgcg")
-debug_brush_scale = null
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("16_jtsmk")]
 position = Vector2(779, 936)
@@ -311,8 +311,8 @@ collision_object = NodePath("StaticBody2D")
 size = Vector2i(1510, 1080)
 
 [node name="CollisionMask" parent="Collision/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_ruoxf")
-texture = SubResource("GradientTexture2D_sfcom")
+material = SubResource("ShaderMaterial_cmfp7")
+texture = SubResource("GradientTexture2D_dk0xa")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collision" unique_id=1968060419]
 
@@ -324,7 +324,7 @@ collision_object = NodePath("Area2D")
 size = Vector2i(1510, 1080)
 
 [node name="CollisionMask" parent="Hazard/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_jtsmk")
+material = SubResource("ShaderMaterial_jqkmy")
 texture = SubResource("GradientTexture2D_8cs8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1040300366]
@@ -336,6 +336,14 @@ script = SubResource("GDScript_3wkli")
 [node name="CollisionRedrawTimer" type="Timer" parent="." unique_id=707728349]
 process_callback = 0
 autostart = true
+
+[node name="Lamp" parent="." unique_id=134255016 instance=ExtResource("29_2pfgx")]
+position = Vector2(154, 127)
+color = 2
+
+[node name="Lamp2" parent="." unique_id=1135403456 instance=ExtResource("29_2pfgx")]
+position = Vector2(1364, 921)
+color = 3
 
 [connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
