@@ -1,7 +1,6 @@
 @tool
 class_name Level extends Node2D
 
-
 var layers: Array[Layer] = [null, null, null, null]
 
 @onready var red_layer: Layer = $RedLayer
