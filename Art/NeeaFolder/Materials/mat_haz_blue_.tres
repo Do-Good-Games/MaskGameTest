@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bh2sf6awsmat7"]
+
+[ext_resource type="Shader" uid="uid://cth0g2qf05mwf" path="res://Art/NeeaFolder/Shaders/shd_haz_blue.gdshader" id="1_k80gy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k80gy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w58cu"]
+noise = SubResource("FastNoiseLite_k80gy")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_k80gy")
+shader_parameter/color = Color(0.076058246, 0.1632109, 0.49664378, 1)
+shader_parameter/rough = 0.22800001083
+shader_parameter/noise_size = 10.0
+shader_parameter/wave_freq = 0.5
+shader_parameter/wave_height = 0.214
+shader_parameter/foam = 8.0
+shader_parameter/noise = SubResource("NoiseTexture2D_w58cu")

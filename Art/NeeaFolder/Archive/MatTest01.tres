@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cl1qb4ekwhlmp"]
 
-[ext_resource type="Shader" uid="uid://doumvqsalodhq" path="res://Art/NeeaFolder/Shader/ShdTest01.tres" id="1_5um3m"]
+[ext_resource type="Shader" uid="uid://doumvqsalodhq" path="res://Art/NeeaFolder/Archive/ShdTest01.tres" id="1_5um3m"]
 
 [resource]
 render_priority = 0

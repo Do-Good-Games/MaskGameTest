@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://c22ojnd41hevc"]
+[gd_scene format=3 uid="uid://ojh70jrq1c6"]
 
 [ext_resource type="PackedScene" uid="uid://cbfrqwbbjj5f2" path="res://Art/NeeaFolder/Imports/Models/Hole TR.fbx" id="1_qtn8r"]
-[ext_resource type="Material" uid="uid://d3t5y1s0bkcod" path="res://Art/NeeaFolder/Materials/MatBasicBlueL.tres" id="2_5iv5b"]
+[ext_resource type="Material" uid="uid://dpnribk1ygfc4" path="res://Art/NeeaFolder/Materials/MatBasicBlue.tres" id="2_qtn8r"]
 [ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/MatBasicBlueD.tres" id="3_6tdd0"]
 
 [node name="Hole TR" unique_id=2125467519 instance=ExtResource("1_qtn8r")]
 
-[node name="3-1" parent="." index="0" unique_id=1133450724]
-surface_material_override/0 = ExtResource("2_5iv5b")
+[node name="3-1" parent="." index="0" unique_id=23063344]
+surface_material_override/0 = ExtResource("2_qtn8r")
 
-[node name="3-1_001" parent="." index="1" unique_id=1296602984]
+[node name="3-1_001" parent="." index="1" unique_id=2078380209]
 material_override = ExtResource("3_6tdd0")

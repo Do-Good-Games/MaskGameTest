@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://dos5kr43biaui"]
-
-[ext_resource type="PackedScene" uid="uid://ddnc7msm7bfvs" path="res://Art/NeeaFolder/Imports/Models/Hole Floor.fbx" id="1_0h07j"]
-[ext_resource type="Material" uid="uid://dpnribk1ygfc4" path="res://Art/NeeaFolder/Materials/MatBasicBlue.tres" id="2_f8ufo"]
-
-[node name="Hole Floor" unique_id=1183401974 instance=ExtResource("1_0h07j")]
-
-[node name="FLOOR" parent="." index="0" unique_id=47632261]
-surface_material_override/0 = ExtResource("2_f8ufo")
