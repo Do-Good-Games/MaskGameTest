@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://dswtdfj7n24q6"]
-
-[ext_resource type="PackedScene" uid="uid://ve243a0gk8qa" path="res://Art/NeeaFolder/Imports/Models/ROCK(green)(Boundingwall).fbx" id="1_27wr3"]
-[ext_resource type="Material" uid="uid://cijre13ia8dtb" path="res://Art/NeeaFolder/Materials/MatBasicGreen.tres" id="2_7pd21"]
-
-[node name="ROCK(green)(Boundingwall)" unique_id=1730882216 instance=ExtResource("1_27wr3")]
-
-[node name="Icosphere" parent="." index="0" unique_id=1837665784]
-material_override = ExtResource("2_7pd21")

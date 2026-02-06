@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://biigrjd7xaeu1"]
+
+[ext_resource type="PackedScene" uid="uid://cbquokjrpyfcs" path="res://Art/NeeaFolder/Imports/hole_cm.fbx" id="1_uho7a"]
+[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/mat_blue_haz_hole.tres" id="2_yv8qv"]
+[ext_resource type="Material" uid="uid://dpnribk1ygfc4" path="res://Art/NeeaFolder/Materials/mat_blue_haz_edge.tres" id="3_t2o8i"]
+
+[node name="hole_cm" unique_id=1915368093 instance=ExtResource("1_uho7a")]
+
+[node name="Cube" parent="." index="0" unique_id=775564275]
+material_override = ExtResource("2_yv8qv")
+
+[node name="Plane" parent="." index="1" unique_id=1612091911]
+surface_material_override/0 = ExtResource("3_t2o8i")

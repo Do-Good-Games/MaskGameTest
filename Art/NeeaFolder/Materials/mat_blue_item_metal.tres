@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c4pl4e7mqvesn"]
+
+[ext_resource type="Texture2D" uid="uid://cum6rgnyhrfth" path="res://Art/NeeaFolder/Textures/Metal_BronzeClean_1K_roughness.png" id="1_32pgp"]
+
+[resource]
+albedo_color = Color(0.17254902, 0.2627451, 0.9490196, 1)
+metallic = 1.0
+roughness_texture = ExtResource("1_32pgp")
+normal_enabled = true

@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://bfh7qwkxovodx"]
-
-[ext_resource type="PackedScene" uid="uid://bjc5btkgma2ui" path="res://Art/NeeaFolder/Imports/Models/Concrete(blue)(collision).fbx" id="1_0km6f"]
-[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/MatBasicBlueD.tres" id="2_0km6f"]
-
-[node name="Concrete(blue)(collision)" unique_id=764950301 instance=ExtResource("1_0km6f")]
-
-[node name="Cube" parent="." index="0" unique_id=2034708976]
-material_override = ExtResource("2_0km6f")

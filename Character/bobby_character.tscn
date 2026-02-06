@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="2_d5myv"]
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="2_tbytb"]
 [ext_resource type="Script" uid="uid://cme251y5q84v1" path="res://Character/CharacterCollision.gd" id="4_ojdix"]
-[ext_resource type="PackedScene" uid="uid://cvin4j0tq0guf" path="res://Art/NeeaFolder/Imports/Models/Character.fbx" id="5_af2uv"]
+[ext_resource type="PackedScene" uid="uid://cvin4j0tq0guf" path="res://Art/NeeaFolder/Imports/Character.fbx" id="5_af2uv"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="5_tmhds"]
 [ext_resource type="PackedScene" uid="uid://cg1hwhuut14st" path="res://Menus/inventoryUI.tscn" id="6_o5ivm"]
 

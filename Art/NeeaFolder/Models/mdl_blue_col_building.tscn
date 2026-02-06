@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://h5sjsoh8nvhy"]
+
+[ext_resource type="PackedScene" uid="uid://capppgspmndu2" path="res://Art/NeeaFolder/Imports/Building(blue)(Boundingwall).fbx" id="1_b1wv6"]
+[ext_resource type="Material" uid="uid://biierehwvv5wu" path="res://Art/NeeaFolder/Materials/mat_blue_col_building.tres" id="2_y7cpw"]
+
+[node name="Building(blue)(Boundingwall)" unique_id=778263062 instance=ExtResource("1_b1wv6")]
+
+[node name="building" parent="." index="0" unique_id=192321322]
+material_override = ExtResource("2_y7cpw")
+
+[node name="roof" parent="." index="1" unique_id=1736261459]
+material_override = ExtResource("2_y7cpw")

@@ -2,11 +2,11 @@
 
 [ext_resource type="Shader" uid="uid://bt0pwfql00fu5" path="res://Art/NeeaFolder/Archive/Neeatest.gdshader" id="1_o5uol"]
 [ext_resource type="Material" path="res://Art/NeeaFolder/Materials/MatBasicGreenD.tres" id="2_vkxjp"]
-[ext_resource type="Material" uid="uid://cijre13ia8dtb" path="res://Art/NeeaFolder/Materials/MatBasicGreen.tres" id="3_pxc2k"]
+[ext_resource type="Material" uid="uid://cijre13ia8dtb" path="res://Art/NeeaFolder/Materials/mat_green_col_trunk_d.tres" id="3_pxc2k"]
 [ext_resource type="Material" path="res://Art/NeeaFolder/Materials/MatBasicGreenL.tres" id="4_5q756"]
 [ext_resource type="PackedScene" uid="uid://bd4yyf4mjg25c" path="res://Art/NeeaFolder/Models/character.tscn" id="4_gi0lp"]
 [ext_resource type="Shader" uid="uid://bk0xejuxiesoc" path="res://Art/NeeaFolder/Archive/ShdScreenTest01.gdshader" id="4_j88yc"]
-[ext_resource type="Texture2D" uid="uid://c432soe84oh1e" path="res://Art/NeeaFolder/Imports/Textures/MaskTest.png" id="5_gi0lp"]
+[ext_resource type="Texture2D" uid="uid://c432soe84oh1e" path="res://Art/NeeaFolder/Archive/MaskTest.png" id="5_gi0lp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_prls3"]
 render_priority = 0

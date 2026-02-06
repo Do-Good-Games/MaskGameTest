@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://din80lsrswumn"]
 
-[ext_resource type="PackedScene" uid="uid://c13bxgr5cgola" path="res://Art/NeeaFolder/Imports/Models/Character_animated.fbx" id="1_hbkjc"]
+[ext_resource type="PackedScene" uid="uid://c13bxgr5cgola" path="res://Art/NeeaFolder/Imports/Character_animated.fbx" id="1_hbkjc"]
 [ext_resource type="Material" uid="uid://b8jvh42meneh3" path="res://Art/NeeaFolder/Archive/mat_basic_white.tres" id="2_107mr"]
 
 [node name="Character_animated" unique_id=988495083 instance=ExtResource("1_hbkjc")]

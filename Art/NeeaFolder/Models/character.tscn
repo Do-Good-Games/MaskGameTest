@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bd4yyf4mjg25c"]
 
-[ext_resource type="PackedScene" uid="uid://cvin4j0tq0guf" path="res://Art/NeeaFolder/Imports/Models/Character.fbx" id="1_5i6dk"]
+[ext_resource type="PackedScene" uid="uid://cvin4j0tq0guf" path="res://Art/NeeaFolder/Imports/Character.fbx" id="1_5i6dk"]
 [ext_resource type="Material" uid="uid://b8jvh42meneh3" path="res://Art/NeeaFolder/Archive/mat_basic_white.tres" id="2_40km1"]
-[ext_resource type="Material" path="res://Art/NeeaFolder/Imports/Textures/MatMdlCharacterHead.tres" id="3_2xn22"]
+[ext_resource type="Material" uid="uid://gxsawuhkq3js" path="res://Art/NeeaFolder/Textures/MatMdlCharacterHead.tres" id="3_2xn22"]
 
 [node name="Character" unique_id=1152607547 instance=ExtResource("1_5i6dk")]
 

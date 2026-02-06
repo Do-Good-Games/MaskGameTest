@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://rrgcdwg7dbn5"]
+
+[ext_resource type="PackedScene" uid="uid://ckxdivj4aww7x" path="res://Art/NeeaFolder/Imports/Hole TM.fbx" id="1_jb466"]
+[ext_resource type="Material" uid="uid://dpnribk1ygfc4" path="res://Art/NeeaFolder/Materials/mat_blue_haz_edge.tres" id="2_jb466"]
+[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/mat_blue_haz_hole.tres" id="3_0gx27"]
+
+[node name="Hole TM" unique_id=1407180144 instance=ExtResource("1_jb466")]
+
+[node name="3-2" parent="." index="0" unique_id=222631216]
+surface_material_override/0 = ExtResource("2_jb466")
+
+[node name="3-2_001" parent="." index="1" unique_id=330906764]
+material_override = ExtResource("3_0gx27")
