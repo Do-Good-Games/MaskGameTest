@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dcyd544lshha7" path="res://Art/NeeaFolder/Models/mdl_hole_br.tscn" id="9_83eqr"]
 [ext_resource type="PackedScene" uid="uid://cvkq48acwj3cy" path="res://Art/NeeaFolder/Models/mdl_hole_cl.tscn" id="10_ntk1x"]
 [ext_resource type="PackedScene" uid="uid://cmikywv5wii23" path="res://Art/NeeaFolder/Models/mdl_hole_cr.tscn" id="11_sche7"]
-[ext_resource type="PackedScene" path="res://Art/NeeaFolder/Models/mdl_blue_haz.tscn" id="12_rhpwh"]
+[ext_resource type="PackedScene" uid="uid://c1lfg28rrayrk" path="res://Art/NeeaFolder/Models/mdl_blue_haz.tscn" id="12_rhpwh"]
 [ext_resource type="PackedScene" uid="uid://biigrjd7xaeu1" path="res://Art/NeeaFolder/Models/mdl_hole_cm.tscn" id="13_tl4en"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rx72a"]

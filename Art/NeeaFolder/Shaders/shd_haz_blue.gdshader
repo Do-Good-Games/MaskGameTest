@@ -20,9 +20,9 @@ float wave(vec2 pos)
 	return pow(1.0 - pow(st.x * st.y, 0.65), 4.0);
 }
 
-float height(vec2 pos, float time)
+float height(vec2 pos)
 {
-	//vec2 off = 0.01 * cos(pos + time);
+	//vec2 off = 0.01 * cos(pos + TIME);
 	//return texture(noise, (pos / noise_size) + off).x;
 	float adj = 0.8;
 	float k = 0.0;
@@ -30,7 +30,7 @@ float height(vec2 pos, float time)
 	float wh = wave_height;
 	for(int i = 0; i < 4; ++i)
 	{
-		k += wave((pos + time * float((i & 1) * 2 - 1) * wf)) * wh;
+		k += wave(pos + TIME * float((i & 1) * 2 - 1) * wf) * wh;
 		wf /= adj;
 		wh *= adj;
 	}
@@ -45,11 +45,20 @@ void vertex() {
 	//VERTEX.y += height;
 	
 	vec2 pos = VERTEX.xz;
-	float k = height(pos, TIME);
+	//pos = (MODEL_MATRIX * vec4(VERTEX, 0.0)).xz; // another way to get world coordinates
+	float k = height(pos);
 	VERTEX.y += k;
-	//NORMAL = normalize(vec3(k));
-	NORMAL = normalize(vec3(k - height(pos + vec2(0.1, 0.0), TIME), 0.1, k - height(pos + vec2(0.0, 0.1), TIME)));
-	_height = k;
+	
+	// Vertex Interpolated Normals
+	// not able to create a function with a function parameter in gls
+	vec2 off = vec2(0.05, 0.0);
+	float normStrength = 1.0;
+	NORMAL = normalize(
+		vec3((height(pos - off) - height(pos + off)) * normStrength,
+		2.0 * off.x,
+		(height(pos - off.yx) - height(pos + off.yx)) * normStrength));
+	
+	_height = k; // interpolate between verticies to get values per pixel
 }
 
 void fragment() {
