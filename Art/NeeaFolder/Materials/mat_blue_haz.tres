@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bh2sf6awsmat7"]
 
 [ext_resource type="Shader" uid="uid://cth0g2qf05mwf" path="res://Art/NeeaFolder/Shaders/shd_haz_blue.gdshader" id="1_keers"]
-[ext_resource type="Texture2D" uid="uid://tt0f0a83wmvl" path="res://Art/NeeaFolder/Textures/tn2_water.tres" id="2_aouvl"]
+[ext_resource type="Texture2D" uid="uid://tt0f0a83wmvl" path="res://Art/NeeaFolder/Textures/tn2_waves.tres" id="2_aouvl"]
 
 [resource]
 render_priority = 0

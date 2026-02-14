@@ -11,7 +11,7 @@ uniform float wave_height = 0.3;
 uniform float foam = 5.0;
 uniform sampler2D noise;
 
-varying float _height;
+varying float vert_height;
 
 float wave(vec2 pos)
 {
@@ -37,7 +37,8 @@ float height(vec2 pos)
 	return k;
 }
 
-void vertex() {
+void vertex()
+{
 	// Called for every vertex the material is visible on.
 	//VERTEX.y += cos(TIME * 5.0 + VERTEX.x * TAU * 2.0) * 0.2;
 	
@@ -58,13 +59,14 @@ void vertex() {
 		2.0 * off.x,
 		(height(pos - off.yx) - height(pos + off.yx)) * normStrength));
 	
-	_height = k; // interpolate between verticies to get values per pixel
+	vert_height = k; // interpolate between verticies to get values per pixel
 }
 
-void fragment() {
+void fragment()
+{
 	// Called for every pixel the material is visible on.
 	//vec3 col = vec3(cos(UV.x * TAU * 5.0));
-	ALBEDO = color.rgb + pow(_height, foam) * foam;
+	ALBEDO = color.rgb + pow(vert_height, foam) * foam;
 	//METALLIC = 0.0;
 	ROUGHNESS = rough;
 	//RIM = rim; // not seeing any affect
