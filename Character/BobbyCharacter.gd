@@ -15,6 +15,11 @@ var curr_held_lamp
 
 var throwSpeed = 0
 
+@onready var _animated_sprite = $Sprite2D
+
+func _process(_delta):
+		_animated_sprite.play("run")
+
 func get_move_input():
 	var input = Vector2()
 	if Input.is_action_pressed('right'):
@@ -85,5 +90,6 @@ func _physics_process(delta):
 	game_manager.playery = self.position.y
 
 
+		
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.

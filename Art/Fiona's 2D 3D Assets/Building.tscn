@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dd63fyatmr26f"]
 
 [ext_resource type="PackedScene" uid="uid://h5sjsoh8nvhy" path="res://Art/NeeaFolder/Models/building(blue)(boundingwall).tscn" id="1_pywxv"]
+[ext_resource type="PackedScene" uid="uid://bty7hdci5wdai" path="res://Art/NeeaFolder/Models/tire_blue_collision.tscn" id="2_3y3cc"]
 
 [node name="Building" type="Node2D" unique_id=626498964]
 
@@ -17,10 +18,13 @@ handle_input_locally = false
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=717998456]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.02546835, 5.4347224, 0.017211914)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.02546835, 3.2728572, 0.017211914)
 fov = 57.377117
 
 [node name="Building(blue)(Boundingwall)" parent="SubViewportContainer/SubViewport" unique_id=778263062 instance=ExtResource("1_pywxv")]
+visible = false
+
+[node name="Tire Blue Collision" parent="SubViewportContainer/SubViewport" unique_id=100063008 instance=ExtResource("2_3y3cc")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=225765189]
 transform = Transform3D(1, 0, 0, 0, 0.6648002, 0.7470212, 0, -0.7470212, 0.6648002, 0, 0, 0)
