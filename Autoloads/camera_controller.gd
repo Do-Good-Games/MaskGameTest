@@ -13,12 +13,14 @@ func set_camera(color : GameManager.color_enum, camera :Camera3D):
 	
 
 func update_cameras_v2(new_pos_v2: Vector2):
+	new_pos_v2.
 	update_cameras_v3(Vector3(new_pos_v2.x, camera_depth , new_pos_v2.y))
 	#update_cameras_v3(Vector3(new_pos_v2.x, new_pos_v2.y, camera_depth))
 
 func update_cameras_v3(new_pos_v3: Vector3):
 	print("updatingcameras to pos ", str(new_pos_v3))
 	for key in Cameras.keys():
+		new_pos_v3
 		print("pos ", str(Cameras[key].global_position))
 		pass
 		Cameras[key].global_position.x = new_pos_v3.x
