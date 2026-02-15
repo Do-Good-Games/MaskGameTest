@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2xu730ltbvrs"]
 
 [ext_resource type="PackedScene" uid="uid://caf12x4jflx3p" path="res://Art/NeeaFolder/Models/blue_floor.tscn" id="1_c7egl"]
+[ext_resource type="Script" uid="uid://ccub7xvhhv1dt" path="res://Levels/Level13D/follow_camera.gd" id="1_soul4"]
 [ext_resource type="PackedScene" uid="uid://u2kwybx1wjdi" path="res://Art/NeeaFolder/Prefabs/light_blue_omni_l.tscn" id="1_wjl6x"]
 [ext_resource type="PackedScene" uid="uid://bfh7qwkxovodx" path="res://Art/NeeaFolder/Models/mdl_blue_col_concrete.tscn" id="2_wjl6x"]
 [ext_resource type="PackedScene" uid="uid://h5sjsoh8nvhy" path="res://Art/NeeaFolder/Models/mdl_blue_col_building.tscn" id="3_tl4en"]
@@ -36,6 +37,8 @@ keep_aspect = 0
 projection = 1
 size = 32.0
 far = 100.0
+script = ExtResource("1_soul4")
+color = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=638297069]
 environment = SubResource("Environment_hecsm")

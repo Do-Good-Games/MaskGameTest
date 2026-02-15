@@ -78,15 +78,13 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	#TODO: stop animation
-
 		# Throwing Code
 	process_throwing()
 	if game_manager.current_held._item_type == game_manager.inventory_slot_type.LAMP:
 		game_manager.current_held._obj_ref.position = position
-
 	
+	CameraController.update_cameras_v2(global_position)
 	
-		
 	
 	game_manager.playerx = self.position.x
 	game_manager.playery = self.position.y
