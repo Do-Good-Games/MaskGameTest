@@ -12,6 +12,7 @@ var collision_types: Array[CollisionType] = [null, null]
 @onready var collision: CollisionType = $Collision
 @onready var hazard: CollisionType = $Hazard
 
+@onready var Camera: Camera3D = $Camera3D
 
 #region Tooltip
 # Ok everything you need is pretty much here, alpha values on all the 
@@ -78,6 +79,8 @@ func _ready() -> void:
 	#var brush_image_texture: ImageTexture = ImageTexture.new()
 	#brush_image_texture.create_from_image(brush_image)
 	#debug_brush = brush_image_texture
+	
+	
 	layers[0] = null
 	layers[1] = red_layer
 	layers[2] = green_layer
