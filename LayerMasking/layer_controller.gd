@@ -12,7 +12,7 @@ var collision_types: Array[CollisionType] = [null, null]
 @onready var collision: CollisionType = $Collision
 @onready var hazard: CollisionType = $Hazard
 
-@onready var Camera: Camera3D = $Camera3D
+#@onready var Camera: Camera3D = $Camera3D
 
 #region Tooltip
 # Ok everything you need is pretty much here, alpha values on all the 
