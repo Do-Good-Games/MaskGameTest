@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cheqlfccopaa2"]
+
+[ext_resource type="Shader" uid="uid://bj4a8vg7vvmlw" path="res://Art/NeeaFolder/Shaders/shd_haz_green.gdshader" id="1_beksl"]
+[ext_resource type="Texture2D" uid="uid://cipgtei2uumbd" path="res://Art/NeeaFolder/Textures/tn2_bubbles.tres" id="2_x02o2"]
+[ext_resource type="Texture2D" uid="uid://chbtnf3bptqgy" path="res://Art/NeeaFolder/Textures/tn2_cells.tres" id="3_xxar3"]
+[ext_resource type="Texture2D" uid="uid://tt0f0a83wmvl" path="res://Art/NeeaFolder/Textures/tn2_waves.tres" id="4_xxar3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_beksl")
+shader_parameter/color = Color(0.19712, 0.56, 0.15679999, 1)
+shader_parameter/bubble_scale = PackedFloat32Array(0.1, 0.11, 0.15)
+shader_parameter/bubble_off = PackedVector2Array(0.117, 0.204, -0.31, -0.064, -0.526, 0.004)
+shader_parameter/bubble_speed = 1.4
+shader_parameter/time_scrub = 0.0
+shader_parameter/tex_bubbles = ExtResource("2_x02o2")
+shader_parameter/tex_cells = ExtResource("3_xxar3")
+shader_parameter/tex_waves = ExtResource("4_xxar3")

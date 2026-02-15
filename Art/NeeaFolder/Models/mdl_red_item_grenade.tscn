@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dr478evhofqki"]
+
+[ext_resource type="PackedScene" uid="uid://bphf0vtseag5d" path="res://Art/NeeaFolder/Imports/grenade.fbx" id="1_3o0rd"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_3o0rd"]
+[ext_resource type="Material" uid="uid://be4dse11wqv6a" path="res://Art/NeeaFolder/Materials/mat_red_item_d.tres" id="2_jm4uj"]
+[ext_resource type="Material" uid="uid://fmg85vwwbgwt" path="res://Art/NeeaFolder/Materials/mat_yellow_item_metal.tres" id="3_ck28q"]
+
+[node name="grenade" unique_id=1128202371 instance=ExtResource("1_3o0rd")]
+
+[node name="Cylinder" parent="." index="0" unique_id=594414051]
+surface_material_override/0 = ExtResource("2_jm4uj")
+
+[node name="Icosphere" parent="." index="1" unique_id=1790729806]
+material_override = ExtResource("2_3o0rd")
+
+[node name="Torus" parent="." index="2" unique_id=444934842]
+material_override = ExtResource("3_ck28q")

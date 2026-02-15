@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cvkq48acwj3cy"]
+
+[ext_resource type="PackedScene" uid="uid://df8xbulgeg3v6" path="res://Art/NeeaFolder/Imports/Hole CL.fbx" id="1_42ja0"]
+[ext_resource type="Material" uid="uid://dpnribk1ygfc4" path="res://Art/NeeaFolder/Materials/mat_blue_haz_edge.tres" id="2_42ja0"]
+[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/mat_blue_haz_hole.tres" id="3_fayne"]
+
+[node name="Hole CL" unique_id=1297461308 instance=ExtResource("1_42ja0")]
+
+[node name="2-3" parent="." index="0" unique_id=489683671]
+surface_material_override/0 = ExtResource("2_42ja0")
+
+[node name="2-3_001" parent="." index="1" unique_id=34534309]
+material_override = ExtResource("3_fayne")

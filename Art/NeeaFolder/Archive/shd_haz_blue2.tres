@@ -1,0 +1,39 @@
+[gd_resource type="VisualShader" format=3 uid="uid://csb7atnbhbe3c"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_of1kv"]
+parameter_name = "Color"
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_y2e4e"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+function = 26
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_5y34q"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_cripf"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_kqm8f"]
+constant = 0.1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_62p7w"]
+input_name = "vertex"
+
+[resource]
+nodes/vertex/2/node = SubResource("VisualShaderNodeVectorFunc_y2e4e")
+nodes/vertex/2/position = Vector2(-336, 128)
+nodes/vertex/4/node = SubResource("VisualShaderNodeInput_5y34q")
+nodes/vertex/4/position = Vector2(-672, 160)
+nodes/vertex/5/node = SubResource("VisualShaderNodeVectorOp_cripf")
+nodes/vertex/5/position = Vector2(-41.863758, 257.51993)
+nodes/vertex/6/node = SubResource("VisualShaderNodeFloatConstant_kqm8f")
+nodes/vertex/6/position = Vector2(-368, 368)
+nodes/vertex/7/node = SubResource("VisualShaderNodeInput_62p7w")
+nodes/vertex/7/position = Vector2(-1040, 272)
+nodes/vertex/connections = PackedInt32Array(4, 0, 2, 0, 2, 0, 0, 0, 2, 0, 5, 0, 6, 0, 5, 1)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_of1kv")
+nodes/fragment/3/position = Vector2(-288, 160)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0)
