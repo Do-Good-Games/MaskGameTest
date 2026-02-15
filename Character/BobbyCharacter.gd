@@ -17,8 +17,11 @@ var throwSpeed = 0
 
 @onready var _animated_sprite = $Sprite2D
 
-func _process(_delta):
-		_animated_sprite.play("run")
+#func _process(_delta):
+	#if velocity.abs().x + velocity.abs().y > 0.05:
+		#_animated_sprite.play("run")
+	#else:
+		#_animated_sprite.play("idle")
 
 func get_move_input():
 	var input = Vector2()
@@ -30,6 +33,12 @@ func get_move_input():
 		input.y += 1
 	if Input.is_action_pressed('up'):
 		input.y -= 1
+	
+	if input == Vector2.ZERO:
+		_animated_sprite.play("idle_start")
+	else:
+		_animated_sprite.play("run")
+
 	return input
 	
 func process_throwing():
