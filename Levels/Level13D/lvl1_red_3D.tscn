@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cpxqdmooq1pxw" path="res://Autoloads/follow_camera.gd" id="1_oeiuo"]
 [ext_resource type="PackedScene" uid="uid://caf12x4jflx3p" path="res://Art/NeeaFolder/Models/blue_floor.tscn" id="2_oeiuo"]
 [ext_resource type="PackedScene" uid="uid://bfh7qwkxovodx" path="res://Art/NeeaFolder/Models/mdl_blue_col_concrete.tscn" id="3_lv41d"]
-[ext_resource type="PackedScene" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="3_oeiuo"]
+[ext_resource type="PackedScene" uid="uid://btiubomn4v830" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="3_oeiuo"]
 [ext_resource type="PackedScene" uid="uid://h5sjsoh8nvhy" path="res://Art/NeeaFolder/Models/mdl_blue_col_building.tscn" id="4_q0eml"]
 [ext_resource type="PackedScene" uid="uid://fo05go88fmde" path="res://Art/NeeaFolder/Models/mdl_hole_bl.tscn" id="5_dk48g"]
 [ext_resource type="PackedScene" uid="uid://itywfqlbahh5" path="res://Art/NeeaFolder/Models/mdl_hole_bm.tscn" id="6_wxlah"]
@@ -35,7 +35,6 @@ reflected_light_source = 2
 [node name="Camera3D" type="Camera3D" parent="." unique_id=481541051]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 13, 0)
 keep_aspect = 0
-projection = 1
 size = 32.0
 far = 100.0
 script = ExtResource("1_oeiuo")

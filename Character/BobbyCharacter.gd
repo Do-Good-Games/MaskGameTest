@@ -17,6 +17,9 @@ var throwSpeed = 0
 
 @onready var _animated_sprite = $Sprite2D
 
+func ready():
+	CameraController.set_camera_pos_init(global_position)
+
 func _process(_delta):
 		_animated_sprite.play("run")
 
