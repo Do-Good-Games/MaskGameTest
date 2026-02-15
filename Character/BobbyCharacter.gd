@@ -76,6 +76,8 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, friction)
 	move_and_slide()
+	
+	#TODO: stop animation
 
 		# Throwing Code
 	process_throwing()

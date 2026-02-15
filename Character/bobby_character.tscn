@@ -76,9 +76,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
-size = Vector2(123, 125)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdix"]
 size = Vector2(131, 131)
 
@@ -87,6 +84,8 @@ radius = 60.502068
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
 size = Vector2(587, 221)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_af2uv"]
 
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
 scale = Vector2(0.5, 0.5)
@@ -100,10 +99,6 @@ acceleration = 0.5
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_equ1u")
 animation = &"run"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015673397]
-shape = SubResource("CircleShape2D_tmhds")
-debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=550504632]
 limit_left = 0
@@ -192,5 +187,9 @@ target_position = Vector2(-50, -50)
 frequency = 0.2
 
 [node name="mainMenu" parent="." unique_id=659569743 instance=ExtResource("6_o5ivm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=775134738]
+scale = Vector2(5.36, 5.36)
+shape = SubResource("CircleShape2D_af2uv")
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
