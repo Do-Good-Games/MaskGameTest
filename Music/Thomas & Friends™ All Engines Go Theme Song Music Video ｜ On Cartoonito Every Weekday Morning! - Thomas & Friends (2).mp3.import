@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3g675epp16ab"
+path="res://.godot/imported/Thomas & Friends™ All Engines Go Theme Song Music Video ｜ On Cartoonito Every Weekday Morning! - Thomas & Friends (2).mp3-496d881959bcc6752c06d7443f7424c4.mp3str"
+
+[deps]
+
+source_file="res://Music/Thomas & Friends™ All Engines Go Theme Song Music Video ｜ On Cartoonito Every Weekday Morning! - Thomas & Friends (2).mp3"
+dest_files=["res://.godot/imported/Thomas & Friends™ All Engines Go Theme Song Music Video ｜ On Cartoonito Every Weekday Morning! - Thomas & Friends (2).mp3-496d881959bcc6752c06d7443f7424c4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -18,6 +18,10 @@ func register_texture(new_texture: Texture2D) -> void:
 	#texture.upd
 
 
+func contains_point(point: Vector2) -> bool:
+	return img.get_pixelv(point).a > 0
+
+
 func paint_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scale := Vector2(1, 1)) -> Rect2i:
 	var brush := brush_texture.get_image()
 	if brush_scale != Vector2(1,1):

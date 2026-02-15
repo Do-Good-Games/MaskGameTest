@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://bxioucw8hjd07" path="res://Levels/Level0/Lvl0_blue_haz.png" id="19_8mwr5"]
 [ext_resource type="Texture2D" uid="uid://dftlb7hd1a6sr" path="res://Levels/Level0/Lvl0_green_haz.png" id="20_3wkli"]
 [ext_resource type="Texture2D" uid="uid://30g3jfqlgi88" path="res://Levels/Level0/Lvl0_red_haz.png" id="21_jsskw"]
+[ext_resource type="AudioStream" uid="uid://3g675epp16ab" path="res://Music/Thomas & Friends™ All Engines Go Theme Song Music Video ｜ On Cartoonito Every Weekday Morning! - Thomas & Friends (2).mp3" id="23_oqb7r"]
+[ext_resource type="AudioStream" uid="uid://3g675epp16ab" path="res://Music/Thomas & Friends™ All Engines Go Theme Song Music Video ｜ On Cartoonito Every Weekday Morning! - Thomas & Friends (2).mp3" id="24_ysbpt"]
+[ext_resource type="AudioStream" uid="uid://3g675epp16ab" path="res://Music/Thomas & Friends™ All Engines Go Theme Song Music Video ｜ On Cartoonito Every Weekday Morning! - Thomas & Friends (2).mp3" id="25_5fklp"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwkd2"]
 
@@ -220,19 +223,36 @@ radius = 1.0
 resource_name = "hazard_zone"
 script/source = "extends Area2D
 
-
-
 func _on_body_entered(body: Node2D) -> void:
 	if body is BobbyCharacter:
-		#YOU ARE DEAD
-		RoomManager.load_level(RoomManager.current_scene_uid)
+		$KillTimer.start()
+		
+
+
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is BobbyCharacter:
+		$KillTimer.stop()
+
+
+func _on_kill_timer_timeout() -> void:
+	#DIE
+	RoomManager.load_level(RoomManager.current_scene_uid)
 "
 
-[node name="Level" type="Node2D" unique_id=1171352334 node_paths=PackedStringArray("layers", "collision_types")]
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_irrfb"]
+stream_count = 3
+stream_0/stream = ExtResource("23_oqb7r")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("24_ysbpt")
+stream_1/volume = -30.0
+stream_2/stream = ExtResource("25_5fklp")
+stream_2/volume = -30.0
+
+[node name="Level" type="Node2D" unique_id=1171352334]
 material = SubResource("ShaderMaterial_6hdhj")
 script = ExtResource("1_hssr4")
-layers = [null, NodePath("RedLayer"), NodePath("GreenLayer"), NodePath("BlueLayer")]
-collision_types = [NodePath("Collision"), NodePath("Hazard")]
 red_mask = ExtResource("14_xtlnx")
 green_mask = ExtResource("13_8b3wp")
 blue_mask = ExtResource("12_55ngp")
@@ -243,6 +263,7 @@ red_hazard = ExtResource("21_jsskw")
 green_hazard = ExtResource("20_3wkli")
 blue_hazard = ExtResource("19_8mwr5")
 debug_brush = ExtResource("6_3wkli")
+debug_brush_scale = null
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("9_ubcdo")]
 position = Vector2(679, 854)
@@ -335,11 +356,20 @@ shape = SubResource("CircleShape2D_3wkli")
 [node name="Area2D" type="Area2D" parent="Hazard" unique_id=543164836]
 script = SubResource("GDScript_3wkli")
 
+[node name="KillTimer" type="Timer" parent="Hazard/Area2D" unique_id=445669097]
+one_shot = true
+
 [node name="CollisionRedrawTimer" type="Timer" parent="." unique_id=707728349]
 process_callback = 0
 autostart = true
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1741105215]
+stream = SubResource("AudioStreamSynchronized_irrfb")
+autoplay = true
+
 [connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_exited"]
+[connection signal="timeout" from="Hazard/Area2D/KillTimer" to="Hazard/Area2D" method="_on_kill_timer_timeout"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="Collision" method="update_image"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="Hazard" method="update_image"]

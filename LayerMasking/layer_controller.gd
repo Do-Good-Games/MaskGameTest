@@ -12,7 +12,9 @@ var collision_types: Array[CollisionType] = [null, null]
 
 @onready var collision: CollisionType = $Collision
 @onready var hazard: CollisionType = $Hazard
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 
+var song_index: int = 0
 
 #region Tooltip
 # Ok everything you need is pretty much here, alpha values on all the 
@@ -140,6 +142,15 @@ func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2,
 		#collision_type.handle_rect_update(updated_rect)
 
 
+func choose_song_by_position(pos: Vector2) -> void:
+	for i in range(1,4):
+		var stream: AudioStreamSynchronized = music_player.stream
+		if not stream:
+			return
+		if layers[i].layer_mask.contains_point(pos):
+			song_index = i-1
+
+
 func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D , scale: float = 1) -> Node2D:
 	var layer: Layer = layers[layer_name]
 	
@@ -147,6 +158,19 @@ func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D , scale: fl
 		mask.get_parent().remove_child(mask)
 	layer.add_child(mask)
 	return mask
+
+
+func _physics_process(delta: float) -> void:
+	choose_song_by_position($BobbyCharacter.global_position)
+	var sync_stream: AudioStreamSynchronized = music_player.stream
+	for i in range(3):
+		var volume: float = sync_stream.get_sync_stream_volume(i)
+		if i == song_index:
+			var new_volume = move_toward(volume, 0.0, 1.0)
+			sync_stream.set_sync_stream_volume(i, new_volume)
+		else:
+			var new_volume = move_toward(volume, -30.0, 1.0)
+			sync_stream.set_sync_stream_volume(i, new_volume)
 
 
 func _input(event: InputEvent) -> void:
