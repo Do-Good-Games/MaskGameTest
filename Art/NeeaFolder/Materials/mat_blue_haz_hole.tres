@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://lug5rpskn34d"]
+
+[ext_resource type="Texture2D" uid="uid://sjtxa4m1aqnk" path="res://Art/NeeaFolder/Textures/Paint_Rough_1K_normal.png" id="1_l86hd"]
+[ext_resource type="Texture2D" uid="uid://bucf75dtnmcd1" path="res://Art/NeeaFolder/Textures/Paint_Rough_1K_roughness.png" id="2_3xjld"]
+
+[resource]
+albedo_color = Color(0.17398888, 0.5843228, 0.7801442, 1)
+roughness_texture = ExtResource("2_3xjld")
+normal_enabled = true
+normal_texture = ExtResource("1_l86hd")

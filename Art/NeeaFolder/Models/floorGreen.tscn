@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://cvodyg7rys17g"]
-
-[ext_resource type="PackedScene" uid="uid://og37qbtfh5p7" path="res://Art/NeeaFolder/Imports/Models/Floor.fbx" id="1_hblrv"]
-[ext_resource type="Material" uid="uid://cijre13ia8dtb" path="res://Art/NeeaFolder/Materials/MatBasicGreen.tres" id="2_w76cr"]
-
-[node name="Floor" unique_id=1356236973 instance=ExtResource("1_hblrv")]
-
-[node name="Plane_002" parent="." index="0" unique_id=429351298]
-material_override = ExtResource("2_w76cr")

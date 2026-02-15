@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://caf12x4jflx3p"]
+
+[ext_resource type="PackedScene" uid="uid://og37qbtfh5p7" path="res://Art/NeeaFolder/Imports/Floor.fbx" id="1_krymc"]
+[ext_resource type="Material" uid="uid://d3t5y1s0bkcod" path="res://Art/NeeaFolder/Materials/mat_blue_floor.tres" id="2_37cit"]
+
+[node name="Floor" unique_id=1356236973 instance=ExtResource("1_krymc")]
+
+[node name="Plane_002" parent="." index="0" unique_id=1909451556]
+material_override = ExtResource("2_37cit")

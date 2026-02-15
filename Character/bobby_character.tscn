@@ -76,14 +76,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5myv"]
-size = Vector2(123, 125)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdix"]
 size = Vector2(131, 131)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5ivm"]
+radius = 60.502068
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
 size = Vector2(587, 221)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_af2uv"]
 
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
 scale = Vector2(0.5, 0.5)
@@ -97,11 +99,6 @@ acceleration = 0.5
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_equ1u")
 animation = &"run"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2015673397]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_d5myv")
-debug_color = Color(1, 1, 1, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=550504632]
 limit_left = 0
@@ -120,8 +117,7 @@ shape = SubResource("RectangleShape2D_ojdix")
 script = ExtResource("4_ojdix")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=162888254 groups=["Player"]]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_ojdix")
+shape = SubResource("CircleShape2D_o5ivm")
 
 [node name="GravityArea" type="Area2D" parent="." unique_id=331957575 groups=["Gravity"]]
 visible = false
@@ -133,63 +129,67 @@ shape = SubResource("RectangleShape2D_scdtr")
 [node name="collisionCheckers" type="Node2D" parent="." unique_id=1757760017]
 
 [node name="CollisionChecker" parent="collisionCheckers" unique_id=1169389816 instance=ExtResource("5_tmhds")]
-position = Vector2(-47, 67)
+position = Vector2(-16, 58)
 frequency = 0.2
 
 [node name="CollisionChecker2" parent="collisionCheckers" unique_id=1334509179 instance=ExtResource("5_tmhds")]
-position = Vector2(41, 66)
+position = Vector2(16, 58)
 frequency = 0.2
 
 [node name="CollisionChecker3" parent="collisionCheckers" unique_id=1367522241 instance=ExtResource("5_tmhds")]
-position = Vector2(62, 45)
+position = Vector2(58, 18)
 target_position = Vector2(50, 0)
 frequency = 0.2
 
 [node name="CollisionChecker4" parent="collisionCheckers" unique_id=228661707 instance=ExtResource("5_tmhds")]
-position = Vector2(62, -37)
+position = Vector2(58, -16)
 target_position = Vector2(50, 0)
 frequency = 0.2
 
 [node name="CollisionChecker5" parent="collisionCheckers" unique_id=537755109 instance=ExtResource("5_tmhds")]
-position = Vector2(45, -61)
+position = Vector2(16, -58)
 target_position = Vector2(0, -50)
 frequency = 0.2
 
 [node name="CollisionChecker6" parent="collisionCheckers" unique_id=445551875 instance=ExtResource("5_tmhds")]
-position = Vector2(-50, -61)
+position = Vector2(-16, -58)
 target_position = Vector2(0, -50)
 frequency = 0.2
 
 [node name="CollisionChecker7" parent="collisionCheckers" unique_id=1100153029 instance=ExtResource("5_tmhds")]
-position = Vector2(-66, -48)
+position = Vector2(-58, -16)
 target_position = Vector2(-50, 0)
 frequency = 0.2
 
 [node name="CollisionChecker8" parent="collisionCheckers" unique_id=1652113827 instance=ExtResource("5_tmhds")]
-position = Vector2(-64, 32)
+position = Vector2(-58, 16)
 target_position = Vector2(-50, 0)
 frequency = 0.2
 
 [node name="CollisionChecker9" parent="collisionCheckers" unique_id=1525908822 instance=ExtResource("5_tmhds")]
-position = Vector2(-64, 64)
+position = Vector2(-41, 41)
 target_position = Vector2(-50, 50)
 frequency = 0.2
 
 [node name="CollisionChecker10" parent="collisionCheckers" unique_id=1543843394 instance=ExtResource("5_tmhds")]
-position = Vector2(65, 66)
+position = Vector2(41, 41)
 target_position = Vector2(50, 50)
 frequency = 0.2
 
 [node name="CollisionChecker11" parent="collisionCheckers" unique_id=1576603494 instance=ExtResource("5_tmhds")]
-position = Vector2(64, -64)
+position = Vector2(41, -41)
 target_position = Vector2(50, -50)
 frequency = 0.2
 
 [node name="CollisionChecker12" parent="collisionCheckers" unique_id=1275890027 instance=ExtResource("5_tmhds")]
-position = Vector2(-65, -65)
+position = Vector2(-41, -41)
 target_position = Vector2(-50, -50)
 frequency = 0.2
 
 [node name="mainMenu" parent="." unique_id=659569743 instance=ExtResource("6_o5ivm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=775134738]
+scale = Vector2(5.36, 5.36)
+shape = SubResource("CircleShape2D_af2uv")
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

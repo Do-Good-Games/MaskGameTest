@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dycmislw43bk0"]
+
+[ext_resource type="PackedScene" uid="uid://c7831sboi7vgk" path="res://Art/NeeaFolder/Models/Imports/Lamp.fbx" id="1_f73s1"]
+[ext_resource type="Material" uid="uid://bx436juq7jofh" path="res://Art/NeeaFolder/Materials/mat_glow_blue.tres" id="2_f73s1"]
+[ext_resource type="Material" uid="uid://c4pl4e7mqvesn" path="res://Art/NeeaFolder/Materials/mat_metal_blue.tres" id="3_saukc"]
+[ext_resource type="Material" uid="uid://u7gur2k8eelf" path="res://Art/NeeaFolder/Materials/mat_metal_gray.tres" id="4_ldxx4"]
+
+[node name="Lamp" unique_id=104917581 instance=ExtResource("1_f73s1")]
+
+[node name="Cylinder" parent="." index="0" unique_id=764827295]
+material_override = ExtResource("2_f73s1")
+
+[node name="Cylinder_001" parent="." index="1" unique_id=791294761]
+material_override = ExtResource("3_saukc")
+
+[node name="Cylinder_002" parent="." index="2" unique_id=1316614549]
+material_override = ExtResource("3_saukc")
+
+[node name="Torus" parent="." index="3" unique_id=1381564434]
+surface_material_override/0 = ExtResource("3_saukc")
+
+[node name="Torus_001" parent="." index="4" unique_id=72566964]
+surface_material_override/0 = ExtResource("4_ldxx4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="5" unique_id=1561826526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721547, 0)
+light_color = Color(0.067899995, 0.1881799, 0.97, 1)
+omni_range = 3.646738

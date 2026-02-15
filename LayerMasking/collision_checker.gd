@@ -27,9 +27,11 @@ func _on_timer_timeout() -> void:
 	if RoomManager.busy:
 		return
 	for collision_type: CollisionType in shapes_by_type.keys():
+		print("collision "+ str(global_rotation))
+		
 		collision_type.do_color_cast(
 			global_position, 
-			direction.rotated(rotation),
+			direction.rotated(global_rotation),
 			length,
 			shapes_by_type[collision_type],
 			epsilon
