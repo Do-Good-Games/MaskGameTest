@@ -125,13 +125,22 @@ func _set_collision_textures() -> void:
 	)
 
 func _set_shader_parameters_per_frame(shader: ShaderMaterial) -> void:
-	#var cam : Camera2D = game_manager.player.camera
-	var cam_pos : Vector2 = get_viewport().get_visible_rect().position / Vector2(level_size.size)
-	var cam_size : Vector2 = get_viewport().get_visible_rect().size / Vector2(level_size.size)
-	shader.set_shader_parameter("cam_pos", cam_pos)
-	shader.set_shader_parameter("cam_size", cam_size)
-	print("cam_pos", cam_pos)
-	print("cam_size", cam_size)
+	#var cam_pos : Vector2 = get_viewport().get_visible_rect().position / Vector2(level_size.size)
+	#var cam_size : Vector2 = get_viewport().get_visible_rect().size / Vector2(level_size.size)
+	var cam : Camera2D = get_viewport().get_camera_2d()
+	
+	var cam_size : Vector2 =  Vector2(cam.limit_right - cam.limit_left, cam.limit_bottom - cam.limit_top)
+	#var cam_pos : Vector2 = game_manager.player.global_position - cam_size / 2
+	var cam_pos : Vector2 = cam.global_position - cam_size / 2
+	var cam_pos_normalized : Vector2 = cam_pos / Vector2(level_size.size)
+	var cam_size_normalized : Vector2 = cam_size / Vector2(level_size.size)
+	shader.set_shader_parameter("cam_pos", cam_pos_normalized)
+	shader.set_shader_parameter("cam_size", cam_size_normalized)
+	#print("level_size.size", level_size.size)
+	#print("cam_pos", cam_pos)
+	#print("cam_size", cam_size)
+	#print("cam_pos_normalized", cam_pos_normalized)
+	#print("cam_size_normalized", cam_size_normalized)
 
 func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("red_mask", layers[1].layer_mask.texture)

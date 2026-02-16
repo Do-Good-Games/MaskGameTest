@@ -11,8 +11,8 @@ uniform sampler2D red_temp_masks;
 uniform sampler2D green_temp_masks;
 uniform sampler2D blue_temp_masks;
 
-uniform vec2 cam_pos;
-uniform vec2 cam_size;
+uniform vec2 cam_pos = vec2(0.18146, 0.3492);
+uniform vec2 cam_size = vec2(0.762914, 0.6);
 
 void fragment() {
 	float red_bonus = texture(red_temp_masks, UV).a;
@@ -23,7 +23,10 @@ void fragment() {
 	float regular_green = texture(green_mask, UV).a;
 	float regular_blue = texture(blue_mask, UV).a;
 	
-	vec2 uv_cam = (UV - cam_pos) * cam_size;
+	//vec2 cam_pos = vec2(0.944371, 0.958643);
+	//vec2 cam_size = vec2(0.762914, 0.6);
+
+	vec2 uv_cam = (UV - cam_pos) / cam_size;
 	uv_cam = UV;
 	//uv_cam = (UV - vec2(0.2, 0.32)) * 1.4;
 	

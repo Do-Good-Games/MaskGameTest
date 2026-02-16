@@ -65,8 +65,49 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	vec2 pos = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xz * scale + offset;
 	
+	////////////////////////////////////////////////////////////////// Flow Map
+	//////////////// uniforms
+	float blend_cycle = 1.0;
+	float flow_noise_size = 0.1;
+	float flow_noise_influence = 0.5;
+	float cycle_speed = 1.0;
+	float flow_speed =  0.5;
+	vec2 channel_flow_direction = vec2(1.0, -1.0);
+	//////////////// uniforms
+	
+	float half_cycle = blend_cycle * 0.5;
+
+	// Use noise texture for offset to reduce pulsing effect
+	float offset = texture(tex_waves, pos * flow_noise_size).r * flow_noise_influence;
+
+	float phase1 = mod(offset + TIME * cycle_speed, blend_cycle);
+	float phase2 = mod(offset + TIME * cycle_speed + half_cycle, blend_cycle);
+
+	vec2 flow_tex = texture(tex_lava_flow, pos * lava_scale + lava_offset).rg;
+	vec2 flow;
+	flow.x = flow_tex.r * 2.0 - 1.0;
+	flow.y = flow_tex.g * 2.0 - 1.0;
+	flow *= normalize(channel_flow_direction);
+
+	// Make flow incluence on the normalmap strenght adjustable (optional)
+	float normal_influence = mix(1.0, dot(abs(flow), vec2(1.0, 1.0)) * 0.5, flow_normal_influence);
+
+	// Blend factor to mix the two layers
+	float blend_factor = abs(half_cycle - phase1)/half_cycle;
+
+	// Offset by halfCycle to improve the animation for color (for normalmap not absolutely necessary)
+	phase1 -= half_cycle;
+	phase2 -= half_cycle;
+
+	// Multiply with scale to make flow speed independent from the uv scaling
+	flow *= flow_speed * uv_scale;
+
+	vec2 layer1 = flow * phase1 + base_uv;
+	vec2 layer2 = flow * phase2 + base_uv;
+	////////////////////////////////////////////////////////////////// Flow Map
+	
 	//float off = min(1.0, pow(texture(tex_waves, pos * 0.2).r, 1.5)) * TAU;
-	float off = (1.0 - vert_height) * TAU;
+	//float off = (1.0 - vert_height) * TAU;
 	//float cooling = sin(TIME + off) * 0.5 + 0.5;
 	float cooling = clamp((1.0 - vert_height) * 2.0, 0.0, 1.0);
 	vec3 col = mix(color_cold, color_hot, cooling);
