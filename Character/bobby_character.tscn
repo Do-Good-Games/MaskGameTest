@@ -76,52 +76,46 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdix"]
-size = Vector2(131, 131)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5ivm"]
 radius = 60.502068
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_scdtr"]
-size = Vector2(587, 221)
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5ivm"]
+size = Vector3(1, 2.640625, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_af2uv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o5ivm"]
 
-[node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
+[sub_resource type="BoxShape3D" id="BoxShape3D_af2uv"]
+size = Vector3(1, 2, 1.7336426)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_571dv"]
+size = Vector3(1.9931641, 2.144043, 2.7642822)
+
+[node name="Node3D" type="Node3D" unique_id=1793623406]
+
+[node name="BobbyCharacter" type="CharacterBody3D" parent="." unique_id=2032448319]
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
 max_vel = 300.0
 friction = 0.15
 acceleration = 0.5
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1018378448]
-rotation = 3.1415927
+[node name="Sprite2D" type="AnimatedSprite3D" parent="." unique_id=627592787]
 sprite_frames = SubResource("SpriteFrames_equ1u")
 animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1449370918]
 
-[node name="GrabArea" type="Area2D" parent="." unique_id=896937632 groups=["Grab"]]
-visible = false
-
-[node name="GrabArea" type="CollisionShape2D" parent="GrabArea" unique_id=185887737 groups=["Grab"]]
-position = Vector2(143.5, -5)
-shape = SubResource("RectangleShape2D_ojdix")
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=149410858 groups=["Player"]]
+[node name="Hitbox" type="Area3D" parent="." unique_id=75335726 groups=["Player"]]
 script = ExtResource("4_ojdix")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=162888254 groups=["Player"]]
 shape = SubResource("CircleShape2D_o5ivm")
 
-[node name="GravityArea" type="Area2D" parent="." unique_id=331957575 groups=["Gravity"]]
-visible = false
-
-[node name="GravityArea" type="CollisionShape2D" parent="GravityArea" unique_id=35076230 groups=["Gravity"]]
-position = Vector2(283.5, -13.5)
-shape = SubResource("RectangleShape2D_scdtr")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1168801338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8203125, 0)
+shape = SubResource("BoxShape3D_o5ivm")
 
 [node name="collisionCheckers" type="Node2D" parent="." unique_id=1757760017]
 
@@ -190,7 +184,18 @@ scale = Vector2(5.36, 5.36)
 shape = SubResource("CircleShape2D_af2uv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1114114554]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 mesh = SubResource("CapsuleMesh_o5ivm")
+
+[node name="GrabArea" type="Area3D" parent="." unique_id=324415229 groups=["Grab"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrabArea" unique_id=1958967978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5809326)
+shape = SubResource("BoxShape3D_af2uv")
+
+[node name="GravityArea" type="Area3D" parent="." unique_id=1859159874 groups=["Gravity"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GravityArea" unique_id=1136676331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059570074, 0.61604214, 2.8699691)
+shape = SubResource("BoxShape3D_571dv")
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
