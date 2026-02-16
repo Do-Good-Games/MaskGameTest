@@ -87,8 +87,9 @@ size = Vector2(587, 221)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_af2uv"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o5ivm"]
+
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
 max_vel = 300.0
@@ -185,5 +186,9 @@ frequency = 0.2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=775134738]
 scale = Vector2(5.36, 5.36)
 shape = SubResource("CircleShape2D_af2uv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1114114554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("CapsuleMesh_o5ivm")
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

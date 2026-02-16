@@ -1,6 +1,6 @@
 extends Node
 
-@export var camera_depth: float  = 13
+@export var camera_depth: float  = 13*2
 
 var scale = .01
 var Cameras : Dictionary[GameManager.color_enum, Camera3D]
@@ -35,8 +35,12 @@ func update_cameras_v2(new_pos_v2: Vector2):
 func update_cameras_v3(new_pos_v3: Vector3):
 	print("updatingcameras to pos ", str(new_pos_v3))
 	for key in Cameras.keys():
+		if not Cameras[key].enabled:
+			continue
+		Cameras[key].h_offset = new_pos_v3.x
+		Cameras[key].v_offset = -new_pos_v3.z
 		print("pos ", str(Cameras[key].global_position))
-		Cameras[key].global_position = new_pos_v3
+		#Cameras[key].global_position = new_pos_v3
 		#Cameras[key].global_position.x = new_pos_v3.x
 		#Cameras[key].global_position.z = new_pos_v3.z
 		pass

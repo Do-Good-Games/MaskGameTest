@@ -9,6 +9,8 @@ class_name BobbyCharacter extends CharacterBody2D
 @export var throw_speed_scaling := 1
 @export var throw_speed_max := 100
 
+@export var camera : Camera3D
+
 var throwing = false
 
 var curr_held_lamp
@@ -16,9 +18,11 @@ var curr_held_lamp
 var throwSpeed = 0
 
 @onready var _animated_sprite = $Sprite2D
+@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 
 func ready():
 	CameraController.set_camera_pos_init(global_position)
+	camera.rect
 
 func _process(_delta):
 		_animated_sprite.play("run")
@@ -87,7 +91,7 @@ func _physics_process(delta):
 		game_manager.current_held._obj_ref.position = position
 	
 	CameraController.update_cameras_v2(global_position)
-	
+	mesh_instance_3d.global_position = Vector3( global_position.x * .01, 3, global_position.y * .01)
 	
 	game_manager.playerx = self.position.x
 	game_manager.playery = self.position.y
