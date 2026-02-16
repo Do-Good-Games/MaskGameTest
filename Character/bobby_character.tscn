@@ -76,6 +76,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o5ivm"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdix"]
 size = Vector2(131, 131)
 
@@ -87,18 +89,27 @@ size = Vector2(587, 221)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_af2uv"]
 
-[node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
-scale = Vector2(0.5, 0.5)
+[node name="BobbyCharacter" type="CharacterBody3D" unique_id=1904464385]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0)
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
 max_vel = 300.0
 friction = 0.15
 acceleration = 0.5
+throw_speed_scaling = null
+throw_speed_max = null
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=958281808]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.8018962, 0)
+current = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1018378448]
-rotation = 3.1415927
+rotation = -3.1415925
 sprite_frames = SubResource("SpriteFrames_equ1u")
 animation = &"run"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2104783317]
+mesh = SubResource("CapsuleMesh_o5ivm")
 
 [node name="GrabArea" type="Area2D" parent="." unique_id=896937632 groups=["Grab"]]
 visible = false
@@ -108,6 +119,7 @@ position = Vector2(143.5, -5)
 shape = SubResource("RectangleShape2D_ojdix")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=149410858 groups=["Player"]]
+visible = false
 script = ExtResource("4_ojdix")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=162888254 groups=["Player"]]
@@ -183,6 +195,7 @@ frequency = 0.2
 [node name="mainMenu" parent="." unique_id=659569743 instance=ExtResource("6_o5ivm")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=775134738]
+visible = false
 scale = Vector2(5.36, 5.36)
 shape = SubResource("CircleShape2D_af2uv")
 
