@@ -9,7 +9,7 @@ class_name BobbyCharacter extends CharacterBody2D
 @export var throw_speed_scaling := 1
 @export var throw_speed_max := 100
 
-@export var camera : Camera3D
+#@export var camera : Camera2D
 
 var throwing = false
 
@@ -22,7 +22,7 @@ var throwSpeed = 0
 
 func ready():
 	CameraController.set_camera_pos_init(global_position)
-	camera.rect
+	#game_manager.player = self
 
 func _process(_delta):
 		_animated_sprite.play("run")
