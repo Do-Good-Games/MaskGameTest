@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7uekrr0aq381"
-path.s3tc="res://.godot/imported/lava_flowmap_01.png-2dc90960cbc1ac5ae8d6f61c839be136.s3tc.ctex"
+uid="uid://dxuviarpy2gi3"
+path.s3tc="res://.godot/imported/flow_whirlpool.png-414cc83065d3c94825d9eebda793fbd0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/NeeaFolder/Textures/Lava/lava_flowmap_01.png"
-dest_files=["res://.godot/imported/lava_flowmap_01.png-2dc90960cbc1ac5ae8d6f61c839be136.s3tc.ctex"]
+source_file="res://Art/NeeaFolder/Textures/flow_whirlpool.png"
+dest_files=["res://.godot/imported/flow_whirlpool.png-414cc83065d3c94825d9eebda793fbd0.s3tc.ctex"]
 
 [params]
 

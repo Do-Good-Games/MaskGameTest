@@ -3,8 +3,8 @@
 [ext_resource type="Material" uid="uid://ip7511ri067f" path="res://Art/NeeaFolder/Materials/mat_red_haz.tres" id="1_cm411"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_c6y0q"]
-subdivide_width = 32
-subdivide_depth = 32
+subdivide_width = 28
+subdivide_depth = 28
 
 [node name="HazRed" type="Node3D" unique_id=153197729]
 

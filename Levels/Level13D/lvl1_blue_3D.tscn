@@ -663,6 +663,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2, 12)
 [node name="HazBlue17" parent="Hazards" unique_id=985425932 instance=ExtResource("12_rhpwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -2, 12)
 
+[node name="HazBlue21" parent="Hazards" unique_id=1288290472 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2, 12)
+
+[node name="HazBlue22" parent="Hazards" unique_id=476117532 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -2, 12)
+
+[node name="HazBlue23" parent="Hazards" unique_id=1959075880 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2, 12)
+
+[node name="HazBlue24" parent="Hazards" unique_id=2069796501 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -2, 12)
+
+[node name="HazBlue25" parent="Hazards" unique_id=647898550 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2, 14)
+
+[node name="HazBlue26" parent="Hazards" unique_id=304471203 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -2, 14)
+
+[node name="HazBlue27" parent="Hazards" unique_id=338124013 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2, 14)
+
+[node name="HazBlue28" parent="Hazards" unique_id=456540929 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -2, 14)
+
+[node name="HazBlue29" parent="Hazards" unique_id=1318403716 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2, 16)
+
+[node name="HazBlue30" parent="Hazards" unique_id=1922018764 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -2, 16)
+
+[node name="HazBlue31" parent="Hazards" unique_id=1059001344 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2, 16)
+
+[node name="HazBlue32" parent="Hazards" unique_id=1574827109 instance=ExtResource("12_rhpwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -2, 16)
+
 [node name="HazBlue5" parent="Hazards" unique_id=335667125 instance=ExtResource("12_rhpwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2, 2)
 
