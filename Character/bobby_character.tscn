@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="5_tmhds"]
 [ext_resource type="PackedScene" uid="uid://cg1hwhuut14st" path="res://Menus/inventoryUI.tscn" id="6_o5ivm"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_af2uv"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_571dv"]
 atlas = ExtResource("3_af2uv")
 region = Rect2(0, 0, 512, 512)
@@ -82,40 +84,19 @@ radius = 60.502068
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5ivm"]
 size = Vector3(1, 2.640625, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_af2uv"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_o5ivm"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_af2uv"]
 size = Vector3(1, 2, 1.7336426)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_571dv"]
 size = Vector3(1.9931641, 2.144043, 2.7642822)
 
-[node name="Node3D" type="Node3D" unique_id=1793623406]
-
-[node name="BobbyCharacter" type="CharacterBody3D" parent="." unique_id=2032448319]
+[node name="BobbyCharacter" type="CharacterBody3D" unique_id=2032448319 node_paths=PackedStringArray("camera")]
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
-max_vel = 300.0
+max_vel = 15.0
 friction = 0.15
-acceleration = 0.5
-
-[node name="Sprite2D" type="AnimatedSprite3D" parent="." unique_id=627592787]
-sprite_frames = SubResource("SpriteFrames_equ1u")
-animation = &"run"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1449370918]
-
-[node name="Hitbox" type="Area3D" parent="." unique_id=75335726 groups=["Player"]]
-script = ExtResource("4_ojdix")
-
-[node name="Hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=162888254 groups=["Player"]]
-shape = SubResource("CircleShape2D_o5ivm")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1168801338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8203125, 0)
-shape = SubResource("BoxShape3D_o5ivm")
+acceleration = 0.05
+camera = NodePath("Camera3D")
 
 [node name="collisionCheckers" type="Node2D" parent="." unique_id=1757760017]
 
@@ -183,19 +164,40 @@ frequency = 0.2
 scale = Vector2(5.36, 5.36)
 shape = SubResource("CircleShape2D_af2uv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1114114554]
-mesh = SubResource("CapsuleMesh_o5ivm")
+[node name="Camera3D" type="Camera3D" parent="." unique_id=226470505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+current = true
+
+[node name="BobbyCharacterRoot" type="Node3D" parent="." unique_id=1793623406]
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=627592787]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.0034172398, -0.0027941596, -0.007847786)
+sprite_frames = SubResource("SpriteFrames_equ1u")
+animation = &"run"
+
+[node name="Hitbox" type="Area3D" parent="." unique_id=75335726 groups=["Player"]]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.00045447005, 0.0018355493, 0)
+script = ExtResource("4_ojdix")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox" unique_id=162888254 groups=["Player"]]
+shape = SubResource("CircleShape2D_o5ivm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1168801338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8203125, 0)
+shape = SubResource("BoxShape3D_o5ivm")
 
 [node name="GrabArea" type="Area3D" parent="." unique_id=324415229 groups=["Grab"]]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.00045447005, 0.0018355493, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GrabArea" unique_id=1958967978]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5809326)
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -1.1856543, 0.5, -0.04638493)
 shape = SubResource("BoxShape3D_af2uv")
 
 [node name="GravityArea" type="Area3D" parent="." unique_id=1859159874 groups=["Gravity"]]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.00045447005, 0.0018355493, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GravityArea" unique_id=1136676331]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059570074, 0.61604214, 2.8699691)
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -3.4470997, 0.61604214, 0.0002872944)
 shape = SubResource("BoxShape3D_571dv")
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

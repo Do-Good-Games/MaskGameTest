@@ -9,7 +9,7 @@ class_name BobbyCharacter extends CharacterBody3D
 @export var throw_speed_scaling := 1
 @export var throw_speed_max := 100
 
-#@export var camera : Camera2D
+@export var camera : Camera3D
 
 var throwing = false
 
@@ -17,8 +17,7 @@ var curr_held_lamp
 
 var throwSpeed = 0
 
-@onready var _animated_sprite = $Sprite2D
-@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var _animated_sprite = $"Sprite3D"
 
 func ready():
 	#CameraController.set_camera_pos_init(global_position)
@@ -27,8 +26,8 @@ func ready():
 func _process(_delta):
 		_animated_sprite.play("run")
 
-func get_move_input():
-	var input = Vector2()
+func get_move_input() -> Vector3:
+	var input = Vector3()
 	if Input.is_action_pressed('right'):
 		input.x += 1
 	if Input.is_action_pressed('left'):
@@ -53,7 +52,9 @@ func process_throwing():
 			print("releasing")
 			in_hand_obj_throwable.throwing = true
 			in_hand_obj_throwable.speed = throwSpeed / 5
-			var mp = get_global_mouse_position()
+			var mp = camera.project_position(get_viewport().get_mouse_position(), 0)
+			var mybody : CharacterBody2D
+			mybody.get_global_mouse_position()
 			var tp = (mp - global_position)
 			in_hand_obj_throwable.target_pos = tp * 100
 			print(mp)
@@ -73,8 +74,9 @@ func get_throwable_child(parent) -> Throwable:
 	return null
 
 func _physics_process(delta):
-	#look_at(get_global_mouse_position())
-	var direction = get_input()
+	look_at(camera.project_position(get_viewport().get_mouse_position(), 0))
+	var direction = get_move_input()
+	get
 	if direction.length() > 0:
 		velocity = velocity.lerp(direction.normalized() * max_vel, acceleration)
 	else:
@@ -90,8 +92,7 @@ func _physics_process(delta):
 	if game_manager.current_held._item_type == game_manager.inventory_slot_type.LAMP:
 		game_manager.current_held._obj_ref.position = position
 	
-	CameraController.update_cameras_v2(global_position)
-	mesh_instance_3d.global_position = Vector3( global_position.x * .01, 3, global_position.y * .01)
+	CameraController.update_cameras_v3(global_position)
 	
 	game_manager.playerx = self.position.x
 	game_manager.playery = self.position.y

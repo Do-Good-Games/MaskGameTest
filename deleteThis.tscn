@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ctiimxmjvydgm"]
+
+[ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="2_17bsj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_17bsj"]
+
+[node name="Node3D" type="Node3D" unique_id=1894845208]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1695662442]
+light_size = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="OmniLight3D" unique_id=317109719]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.3257856, 0)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=569988337]
+transform = Transform3D(5.47, 0, 0, 0, 5.47, 0, 0, 0, 5.47, 0, 0, 0)
+mesh = SubResource("PlaneMesh_17bsj")
+
+[node name="Node3D" parent="." unique_id=1793623406 node_paths=PackedStringArray("camera") instance=ExtResource("2_17bsj")]
+transform = Transform3D(1, 0, 0, 0, 0.021413554, 0.9997707, 0, -0.9997707, 0.021413554, 2.533846, 1.1672542, -0.7221451)
+camera = NodePath("../OmniLight3D/Camera3D")
