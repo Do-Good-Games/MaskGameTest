@@ -100,6 +100,8 @@ rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_equ1u")
 animation = &"run"
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1449370918]
+
 [node name="GrabArea" type="Area2D" parent="." unique_id=896937632 groups=["Grab"]]
 visible = false
 

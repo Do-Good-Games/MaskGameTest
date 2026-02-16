@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cgl4q6cocsnv2"]
 
 [ext_resource type="PackedScene" uid="uid://u2kwybx1wjdi" path="res://Art/NeeaFolder/Prefabs/light_blue_omni_l.tscn" id="1_nl70c"]
-[ext_resource type="Script" uid="uid://cpxqdmooq1pxw" path="res://Autoloads/follow_camera.gd" id="1_oeiuo"]
+[ext_resource type="Script" path="res://Autoloads/follow_camera.gd" id="1_oeiuo"]
 [ext_resource type="PackedScene" uid="uid://caf12x4jflx3p" path="res://Art/NeeaFolder/Models/blue_floor.tscn" id="2_oeiuo"]
 [ext_resource type="PackedScene" uid="uid://bfh7qwkxovodx" path="res://Art/NeeaFolder/Models/mdl_blue_col_concrete.tscn" id="3_lv41d"]
-[ext_resource type="PackedScene" uid="uid://btiubomn4v830" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="3_oeiuo"]
+[ext_resource type="PackedScene" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="3_oeiuo"]
 [ext_resource type="PackedScene" uid="uid://h5sjsoh8nvhy" path="res://Art/NeeaFolder/Models/mdl_blue_col_building.tscn" id="4_q0eml"]
 [ext_resource type="PackedScene" uid="uid://fo05go88fmde" path="res://Art/NeeaFolder/Models/mdl_hole_bl.tscn" id="5_dk48g"]
 [ext_resource type="PackedScene" uid="uid://itywfqlbahh5" path="res://Art/NeeaFolder/Models/mdl_hole_bm.tscn" id="6_wxlah"]

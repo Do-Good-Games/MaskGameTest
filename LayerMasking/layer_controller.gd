@@ -14,6 +14,8 @@ var collision_types: Array[CollisionType] = [null, null]
 
 #@onready var Camera: Camera3D = $Camera3D
 
+@onready var level_size : SubViewport = $RedLayer/LevelVisual
+
 #region Tooltip
 # Ok everything you need is pretty much here, alpha values on all the 
 # textures determine collision and shit. Main annoying thing is the size, 
@@ -98,6 +100,9 @@ func _ready() -> void:
 	
 	_set_collision_textures()
 
+func _process(delta: float) -> void:
+	_set_shader_parameters_per_frame(composite_visuals.material)
+
 func _set_collision_textures() -> void:
 	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
 		"red_texture", red_collision
@@ -119,6 +124,15 @@ func _set_collision_textures() -> void:
 		"blue_texture", blue_hazard
 	)
 
+func _set_shader_parameters_per_frame(shader: ShaderMaterial) -> void:
+	#var cam : Camera2D = game_manager.player.camera
+	var cam_pos : Vector2 = get_viewport().get_visible_rect().position / Vector2(level_size.size)
+	var cam_size : Vector2 = get_viewport().get_visible_rect().size / Vector2(level_size.size)
+	shader.set_shader_parameter("cam_pos", cam_pos)
+	shader.set_shader_parameter("cam_size", cam_size)
+	print("cam_pos", cam_pos)
+	print("cam_size", cam_size)
+
 func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("red_mask", layers[1].layer_mask.texture)
 	shader.set_shader_parameter("green_mask", layers[2].layer_mask.texture)
@@ -126,7 +140,6 @@ func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("red_temp_masks", $RedLayer/TempMasks.get_texture())
 	shader.set_shader_parameter("green_temp_masks", $GreenLayer/TempMasks.get_texture())
 	shader.set_shader_parameter("blue_temp_masks", $BlueLayer/TempMasks.get_texture())
-
 
 func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2, brush_texture: Texture2D, brush_scale := Vector2(0.5,0.5)) -> void:
 	var updated_rect: Rect2

@@ -8,12 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rq1k2dujdtm6" path="res://Levels/Level1/lvl1_red_mask.png" id="6_nplaj"]
 [ext_resource type="Texture2D" uid="uid://717lpahwjqyi" path="res://Levels/Level1/lvl1_green_mask.png" id="7_0m4bb"]
 [ext_resource type="Texture2D" uid="uid://n2npv1l7ospx" path="res://Levels/Level1/lvl1_blue_mask.png" id="8_o6qit"]
-[ext_resource type="Texture2D" uid="uid://cvdfnfly2m5bj" path="res://Levels/Level1/lvl1_red_col.png" id="9_1k1g5"]
-[ext_resource type="Texture2D" uid="uid://dg213ggqj5guy" path="res://Levels/Level1/lvl1_green_col.png" id="10_sbtpj"]
-[ext_resource type="Texture2D" uid="uid://lo55aevilck7" path="res://Levels/Level1/lvl1_blue_col.png" id="11_cot6j"]
 [ext_resource type="Texture2D" uid="uid://d37h2kyha17p4" path="res://Levels/Level1/lvl1_red_haz.png" id="12_ubq2l"]
-[ext_resource type="Texture2D" uid="uid://dv1304j0ywq8" path="res://Levels/Level1/lvl1_green_haz.png" id="13_lqpna"]
-[ext_resource type="Texture2D" uid="uid://da5d877rsrsl" path="res://Levels/Level1/lvl1_blue_haz.png" id="14_t5e0b"]
 [ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/less_evil_brush.tres" id="15_hlseg"]
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="16_3nsc0"]
 [ext_resource type="PackedScene" uid="uid://cpbird1x7ojdl" path="res://LayerMasking/layer_cleaned.tscn" id="17_a38lc"]
@@ -28,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bxioucw8hjd07" path="res://Levels/Level0/Lvl0_blue_haz.png" id="26_5hhh5"]
 [ext_resource type="Texture2D" uid="uid://dftlb7hd1a6sr" path="res://Levels/Level0/Lvl0_green_haz.png" id="27_xghli"]
 [ext_resource type="Texture2D" uid="uid://30g3jfqlgi88" path="res://Levels/Level0/Lvl0_red_haz.png" id="28_gaiqt"]
-[ext_resource type="Script" uid="uid://cpxqdmooq1pxw" path="res://Autoloads/follow_camera.gd" id="29_hbkoq"]
+[ext_resource type="Script" path="res://Autoloads/follow_camera.gd" id="29_hbkoq"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwkd2"]
 
@@ -54,6 +49,8 @@ shader_parameter/blue_mask = ExtResource("2_hbkoq")
 shader_parameter/red_temp_masks = SubResource("ViewportTexture_vyu21")
 shader_parameter/green_temp_masks = SubResource("ViewportTexture_80o2m")
 shader_parameter/blue_temp_masks = SubResource("ViewportTexture_rwkd2")
+shader_parameter/cam_pos = Vector2(0, 0)
+shader_parameter/cam_size = Vector2(0, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hbkoq"]
 viewport_path = NodePath("LevelVisual")
@@ -94,6 +91,8 @@ shader_parameter/blue_mask = ExtResource("22_1m5w8")
 shader_parameter/red_temp_masks = SubResource("ViewportTexture_hb0ab")
 shader_parameter/green_temp_masks = SubResource("ViewportTexture_0ywjp")
 shader_parameter/blue_temp_masks = SubResource("ViewportTexture_jb1lb")
+shader_parameter/cam_pos = Vector2(0, 0)
+shader_parameter/cam_size = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_b85kt"]
 
@@ -141,6 +140,8 @@ shader_parameter/blue_mask = SubResource("CompressedTexture2D_3wkli")
 shader_parameter/red_temp_masks = SubResource("ViewportTexture_0m4bb")
 shader_parameter/green_temp_masks = SubResource("ViewportTexture_nplaj")
 shader_parameter/blue_temp_masks = SubResource("ViewportTexture_n8vq3")
+shader_parameter/cam_pos = Vector2(0, 0)
+shader_parameter/cam_size = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_ir1ia"]
 
@@ -241,17 +242,17 @@ script = ExtResource("5_n8vq3")
 red_mask = ExtResource("6_nplaj")
 green_mask = ExtResource("7_0m4bb")
 blue_mask = ExtResource("8_o6qit")
-red_collision = ExtResource("9_1k1g5")
-green_collision = ExtResource("10_sbtpj")
-blue_collision = ExtResource("11_cot6j")
+red_collision = ExtResource("12_ubq2l")
+green_collision = ExtResource("12_ubq2l")
+blue_collision = ExtResource("12_ubq2l")
 red_hazard = ExtResource("12_ubq2l")
-green_hazard = ExtResource("13_lqpna")
-blue_hazard = ExtResource("14_t5e0b")
+green_hazard = ExtResource("12_ubq2l")
+blue_hazard = ExtResource("12_ubq2l")
 debug_brush = ExtResource("15_hlseg")
 metadata/_edit_lock_ = true
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("16_3nsc0")]
-position = Vector2(850, 1050)
+position = Vector2(850, 711.335)
 
 [node name="RedLayer" parent="." unique_id=1461014223 instance=ExtResource("17_a38lc")]
 visible = false

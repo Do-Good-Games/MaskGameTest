@@ -11,6 +11,8 @@ uniform sampler2D red_temp_masks;
 uniform sampler2D green_temp_masks;
 uniform sampler2D blue_temp_masks;
 
+uniform vec2 cam_pos;
+uniform vec2 cam_size;
 
 void fragment() {
 	float red_bonus = texture(red_temp_masks, UV).a;
@@ -21,26 +23,48 @@ void fragment() {
 	float regular_green = texture(green_mask, UV).a;
 	float regular_blue = texture(blue_mask, UV).a;
 	
+	vec2 uv_cam = (UV - cam_pos) * cam_size;
+	uv_cam = UV;
+	//uv_cam = (UV - vec2(0.2, 0.32)) * 1.4;
 	
 	COLOR = vec4(0.0);
 	if (red_bonus > 0.0){
-		COLOR = texture(red_texture, UV);
+		COLOR = texture(red_texture, uv_cam);
 	}
 	else if (green_bonus > 0.0){
-		COLOR = texture(green_texture, UV);
+		COLOR = texture(green_texture, uv_cam);
 	}
 	else if (blue_bonus > 0.0){
-		COLOR = texture(blue_texture, UV);
+		COLOR = texture(blue_texture, uv_cam);
 	}
 	else if (regular_red > 0.0){
-		COLOR = texture(red_texture, UV);
+		COLOR = texture(red_texture, uv_cam);
 	}
 	else if (regular_green > 0.0){
-		COLOR = texture(green_texture, UV);
+		COLOR = texture(green_texture, uv_cam);
 	}
 	else {
-		COLOR = texture(blue_texture, UV);
+		COLOR = texture(blue_texture, uv_cam);
 	}
+	
+	//if (red_bonus > 0.0){
+		//COLOR = texture(red_texture, UV);
+	//}
+	//else if (green_bonus > 0.0){
+		//COLOR = texture(green_texture, UV);
+	//}
+	//else if (blue_bonus > 0.0){
+		//COLOR = texture(blue_texture, UV);
+	//}
+	//else if (regular_red > 0.0){
+		//COLOR = texture(red_texture, UV);
+	//}
+	//else if (regular_green > 0.0){
+		//COLOR = texture(green_texture, UV);
+	//}
+	//else {
+		//COLOR = texture(blue_texture, UV);
+	//}
 }
 
 //void light() {
