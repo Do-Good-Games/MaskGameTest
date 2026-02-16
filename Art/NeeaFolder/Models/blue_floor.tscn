@@ -5,5 +5,5 @@
 
 [node name="Floor" unique_id=1356236973 instance=ExtResource("1_krymc")]
 
-[node name="Plane_002" parent="." index="0" unique_id=1909451556]
+[node name="Plane_002" parent="." index="0" unique_id=956002620]
 material_override = ExtResource("2_37cit")

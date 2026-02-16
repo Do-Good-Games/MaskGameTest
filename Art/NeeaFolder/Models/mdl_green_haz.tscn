@@ -1,13 +1,22 @@
 [gd_scene format=3 uid="uid://bqvqhftbp41bl"]
 
 [ext_resource type="Material" uid="uid://cheqlfccopaa2" path="res://Art/NeeaFolder/Materials/mat_green_haz.tres" id="1_u7hl4"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="2_53fji"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_c6y0q"]
 subdivide_width = 50
 subdivide_depth = 50
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2oxe6"]
 
 [node name="HazGreen" type="Node3D" unique_id=153197729]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1986375065]
 material_override = ExtResource("1_u7hl4")
 mesh = SubResource("PlaneMesh_c6y0q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1108526853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 4
+material_override = ExtResource("2_53fji")
+mesh = SubResource("PlaneMesh_2oxe6")

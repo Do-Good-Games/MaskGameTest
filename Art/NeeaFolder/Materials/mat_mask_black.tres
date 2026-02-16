@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://v4pr0muyjo2h"]
+
+[ext_resource type="Shader" uid="uid://pt43dytax1jl" path="res://Art/NeeaFolder/Shaders/shd_mask_marker.gdshader" id="1_0phkh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0phkh")
+shader_parameter/color = Color(0, 0, 0, 1)

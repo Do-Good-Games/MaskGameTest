@@ -1,13 +1,25 @@
 [gd_scene format=3 uid="uid://bty7hdci5wdai"]
 
 [ext_resource type="PackedScene" uid="uid://b0cufiucbgt2e" path="res://Art/NeeaFolder/Imports/Tire Blue Collision.fbx" id="1_ke70d"]
-[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/mat_blue_haz_hole.tres" id="2_k6w52"]
+[ext_resource type="Material" uid="uid://dajwo2d5fcvc4" path="res://Art/NeeaFolder/Materials/mat_blue_col_concrete.tres" id="2_b2ofw"]
 [ext_resource type="Material" uid="uid://c4pl4e7mqvesn" path="res://Art/NeeaFolder/Materials/mat_blue_item_metal.tres" id="3_71l86"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_tj6ae"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tj6ae"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 1.0
 
 [node name="Tire Blue Collision" unique_id=100063008 instance=ExtResource("1_ke70d")]
 
-[node name="Circle_001" parent="." index="0" unique_id=1577760197]
-material_override = ExtResource("2_k6w52")
+[node name="Circle_001" parent="." index="0" unique_id=2081387729]
+material_override = ExtResource("2_b2ofw")
 
-[node name="Circle_005" parent="." index="1" unique_id=1171262513]
+[node name="Circle_005" parent="." index="1" unique_id=1573381681]
 surface_material_override/0 = ExtResource("3_71l86")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=303582713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 2
+material_override = ExtResource("4_tj6ae")
+mesh = SubResource("CylinderMesh_tj6ae")
