@@ -1,4 +1,4 @@
-class_name BobbyCharacter extends CharacterBody2D
+class_name BobbyCharacter extends CharacterBody3D
 
 #const Throwable: PackedScene = preload("res://BobbyFolder/throwable.tscn")
 @export var Throwable: PackedScene
@@ -21,8 +21,8 @@ var throwSpeed = 0
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 
 func ready():
-	CameraController.set_camera_pos_init(global_position)
-	#game_manager.player = self
+	#CameraController.set_camera_pos_init(global_position)
+	pass
 
 func _process(_delta):
 		_animated_sprite.play("run")
@@ -34,9 +34,9 @@ func get_move_input():
 	if Input.is_action_pressed('left'):
 		input.x -= 1
 	if Input.is_action_pressed('down'):
-		input.y += 1
+		input.z += 1
 	if Input.is_action_pressed('up'):
-		input.y -= 1
+		input.z -= 1
 	return input
 	
 func process_throwing():
@@ -73,16 +73,16 @@ func get_throwable_child(parent) -> Throwable:
 	return null
 
 func _physics_process(delta):
-	# Looking Code
-	look_at(get_global_mouse_position())
-	# Movement Code
-	#TODO Remove the throwing from get_input()
-	var direction = get_move_input()
+	#look_at(get_global_mouse_position())
+	var direction = get_input()
 	if direction.length() > 0:
 		velocity = velocity.lerp(direction.normalized() * max_vel, acceleration)
 	else:
-		velocity = velocity.lerp(Vector2.ZERO, friction)
+		velocity = velocity.lerp(Vector3.ZERO, friction)
 	move_and_slide()
+	game_manager.playerx = self.position.x
+	game_manager.playery = self.position.y
+	
 	
 	#TODO: stop animation
 		# Throwing Code
