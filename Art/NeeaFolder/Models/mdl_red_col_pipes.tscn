@@ -1,27 +1,39 @@
-[gd_scene format=3 uid="uid://xi303uwgiu2t"]
+[gd_scene format=3 uid="uid://dhv5i7ehu1lv3"]
 
-[ext_resource type="PackedScene" uid="uid://cq5a8ty1wuyny" path="res://Art/NeeaFolder/Models/Imports/Pipes(red)(collision).fbx" id="1_yctwu"]
-[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_metal_red.tres" id="2_bbpoo"]
+[ext_resource type="PackedScene" uid="uid://cq5a8ty1wuyny" path="res://Art/NeeaFolder/Imports/Pipes(red)(collision).fbx" id="1_yctwu"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_bbpoo"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="3_xk8la"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k1wcl"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 1.0
 
 [node name="Pipes(red)(collision)" unique_id=1736850951 instance=ExtResource("1_yctwu")]
 
-[node name="Torus" parent="." index="0" unique_id=1158277387]
+[node name="Torus" parent="." index="0" unique_id=607086206]
 material_override = ExtResource("2_bbpoo")
 
-[node name="Torus_001" parent="." index="1" unique_id=1123258475]
+[node name="Torus_001" parent="." index="1" unique_id=583215237]
 material_override = ExtResource("2_bbpoo")
 
-[node name="Torus_002" parent="." index="2" unique_id=529903728]
+[node name="Torus_002" parent="." index="2" unique_id=700580546]
 material_override = ExtResource("2_bbpoo")
 
-[node name="Torus_003" parent="." index="3" unique_id=263281658]
+[node name="Torus_003" parent="." index="3" unique_id=1190678417]
 material_override = ExtResource("2_bbpoo")
 
-[node name="Torus_004" parent="." index="4" unique_id=149020921]
+[node name="Torus_004" parent="." index="4" unique_id=2077479274]
 material_override = ExtResource("2_bbpoo")
 
-[node name="Torus_005" parent="." index="5" unique_id=424183864]
+[node name="Torus_005" parent="." index="5" unique_id=1312366743]
 material_override = ExtResource("2_bbpoo")
 
-[node name="Torus_006" parent="." index="6" unique_id=1526125241]
+[node name="Torus_006" parent="." index="6" unique_id=813665483]
 material_override = ExtResource("2_bbpoo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="7" unique_id=794154183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 2
+material_override = ExtResource("3_xk8la")
+mesh = SubResource("CylinderMesh_k1wcl")

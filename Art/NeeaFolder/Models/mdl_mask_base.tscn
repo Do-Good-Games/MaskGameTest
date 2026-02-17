@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://db1x5evw5l7xn"]
+
+[ext_resource type="Material" uid="uid://v4pr0muyjo2h" path="res://Art/NeeaFolder/Materials/mat_mask_black.tres" id="1_r7kw0"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3if5a"]
+
+[node name="MaskBase" type="MeshInstance3D" unique_id=1841915221]
+transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, 0, -5, 0)
+layers = 6
+material_override = ExtResource("1_r7kw0")
+mesh = SubResource("PlaneMesh_3if5a")

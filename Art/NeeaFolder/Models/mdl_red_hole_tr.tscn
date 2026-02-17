@@ -1,0 +1,60 @@
+[gd_scene format=4 uid="uid://cw106l1fs4bq1"]
+
+[ext_resource type="PackedScene" uid="uid://cbfrqwbbjj5f2" path="res://Art/NeeaFolder/Imports/Hole TR.fbx" id="1_5adsj"]
+[ext_resource type="Material" uid="uid://c1gofb1p36xob" path="res://Art/NeeaFolder/Materials/mat_red_haz_edge.tres" id="2_5adsj"]
+[ext_resource type="Material" uid="uid://twlrng0b5v2c" path="res://Art/NeeaFolder/Materials/mat_red_haz_hole.tres" id="3_e4eri"]
+[ext_resource type="Material" uid="uid://v4pr0muyjo2h" path="res://Art/NeeaFolder/Materials/mat_mask_black.tres" id="4_1eox3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2o1mt"]
+resource_name = "Material.001"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7rjoe"]
+_surfaces = [{
+"aabb": AABB(-0.0027587432, -0.002758746, -3.5783647e-05, 0.0055174856, 0.0055174874, 0.005517486),
+"format": 34359742465,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAADAAIAAgAFAAQA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("Bcw0OxHMNLvan7M7+/KGOhTMNLtmFha4+/KGOvHyhjpmFha4Bcw0OwDMNDvan7M7CMw0uwDMNDvan7M7CMw0u/HyhjpmFha4")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5liu8"]
+resource_name = "Plane_010"
+_surfaces = [{
+"aabb": AABB(-0.0027587432, -0.002758746, -3.5783647e-05, 0.0055174856, 0.0055174874, 0.005517486),
+"attribute_data": PackedByteArray("7uETP9StTT6O938/0mWjPkGtbD+CsRk/UAftPoOxGT9BrWw/grEZP4/3fz8YsGE/7+ETP4/3fz9QB+0+g7EZPw=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQA"),
+"material": SubResource("StandardMaterial3D_2o1mt"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("Bcw0OxHMNLvan7M7+/KGOhTMNLtmFha4+/KGOvHyhjpmFha4Bcw0OwDMNDvan7M7+/KGOvHyhjpmFha4CMw0u/HyhjpmFha4CMw0uwDMNDvan7M7Bcw0OwDMNDvan7M7ih7/fxMYZYyKHv9/EReEjIoe/3/RF22Mih7/f6gYU4z/f4oe2xjoi/9/ih4JGYiL/3+KHswYCYz/f4oeqBhTjA==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7rjoe")
+
+[node name="Hole TR" unique_id=2125467519 instance=ExtResource("1_5adsj")]
+
+[node name="3-1" parent="." index="0" unique_id=345195694]
+surface_material_override/0 = ExtResource("2_5adsj")
+
+[node name="3-1_001" parent="." index="1" unique_id=1632367608]
+material_override = ExtResource("3_e4eri")
+
+[node name="3-1_002" type="MeshInstance3D" parent="." index="2" unique_id=2105197814]
+transform = Transform3D(362.48392, 0, 0, 0, -8.64229e-05, 362.4839, 0, -362.4839, -8.64229e-05, 0, -1, 0)
+layers = 4
+material_override = ExtResource("4_1eox3")
+mesh = SubResource("ArrayMesh_5liu8")

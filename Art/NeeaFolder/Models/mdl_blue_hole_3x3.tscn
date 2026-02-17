@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dprj56hvnosh5"]
+
+[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/mat_blue_haz_hole.tres" id="1_a4r6f"]
+[ext_resource type="Material" uid="uid://v4pr0muyjo2h" path="res://Art/NeeaFolder/Materials/mat_mask_black.tres" id="2_fjpd6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a4r6f"]
+top_radius = 4.275
+bottom_radius = 8.7
+height = 10.0
+radial_segments = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vq8k4"]
+top_radius = 4.275
+bottom_radius = 8.7
+height = 10.0
+radial_segments = 4
+
+[node name="Hole3x3" type="MeshInstance3D" unique_id=637128496]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, -5.1000004, 0)
+material_override = ExtResource("1_a4r6f")
+mesh = SubResource("CylinderMesh_a4r6f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1681968186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 4
+material_override = ExtResource("2_fjpd6")
+mesh = SubResource("CylinderMesh_vq8k4")

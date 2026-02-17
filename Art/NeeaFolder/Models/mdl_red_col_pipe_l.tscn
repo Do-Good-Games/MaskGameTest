@@ -1,13 +1,23 @@
-[gd_scene format=3 uid="uid://diblbgxmr44b6"]
+[gd_scene format=3 uid="uid://cf8tqf06r5yt8"]
 
-[ext_resource type="PackedScene" uid="uid://clx1hqwjdfeor" path="res://Art/NeeaFolder/Models/Imports/Pipe Red Collision L.fbx" id="1_7jnvb"]
-[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_metal_red.tres" id="2_7jnvb"]
-[ext_resource type="Material" uid="uid://plxyfmpwe2s8" path="res://Art/NeeaFolder/Materials/mat_basic_red_d.tres" id="3_g0j0v"]
+[ext_resource type="PackedScene" uid="uid://clx1hqwjdfeor" path="res://Art/NeeaFolder/Imports/Pipe Red Collision L.fbx" id="1_7jnvb"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_7jnvb"]
+[ext_resource type="Material" uid="uid://plxyfmpwe2s8" path="res://Art/NeeaFolder/Materials/mat_red_col_pipe_d.tres" id="3_g0j0v"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_4duca"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fsf2g"]
+size = Vector2(1.5, 1.2)
 
 [node name="Pipe Red Collision L" unique_id=1831991670 instance=ExtResource("1_7jnvb")]
 
-[node name="Circle_003" parent="." index="0" unique_id=782544555]
+[node name="Circle_003" parent="." index="0" unique_id=904604781]
 material_override = ExtResource("2_7jnvb")
 
-[node name="Circle_009" parent="." index="1" unique_id=2006843056]
+[node name="Circle_009" parent="." index="1" unique_id=2141488549]
 material_override = ExtResource("3_g0j0v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1004267771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.1, 0)
+layers = 2
+material_override = ExtResource("4_4duca")
+mesh = SubResource("PlaneMesh_fsf2g")

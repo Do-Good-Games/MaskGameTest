@@ -86,6 +86,7 @@ void fragment()
 	/////////// Edge Depth Foam
 	//// doesn't work with an orthogonal camera :(
 	//// must raise the water tiles up 1 so the edge can fade completely
+	//// make a wind waker style effect by obtaining a threshold of a single noise sample, instead of two
 	//// set edge near/far to your camera near/far - TODO convert to uniform
 	//float z_depth = edge(depth_near, depth_far, texture(depth_texture, SCREEN_UV).x); // depth texture
 	//float z_pos = edge(depth_near, depth_far, FRAGCOORD.z); // from position

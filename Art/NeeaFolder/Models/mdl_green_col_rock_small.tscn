@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dwbsoc0b1ic62"]
+
+[ext_resource type="PackedScene" uid="uid://ct8xnmlvr5jcd" path="res://Art/NeeaFolder/Imports/Rock Small.fbx" id="1_42u8v"]
+[ext_resource type="Material" uid="uid://dbu6uqd5jilhs" path="res://Art/NeeaFolder/Materials/mat_green_col_rock_small.tres" id="2_2frho"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="3_2frho"]
+[ext_resource type="PackedScene" uid="uid://hxuk2f6yrb6i" path="res://Art/NeeaFolder/Models/mdl_green_floor.tscn" id="4_vtqio"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vtqio"]
+
+[node name="RockSmall" unique_id=837398278 instance=ExtResource("1_42u8v")]
+
+[node name="Rock Small" parent="." index="0" unique_id=220588216]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 144, 0, -99.99999, -1.716614e-05, 0, 0, 0)
+material_override = ExtResource("2_2frho")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1167688447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+layers = 2
+material_override = ExtResource("3_2frho")
+mesh = SubResource("PlaneMesh_vtqio")
+
+[node name="Floor" parent="." index="2" unique_id=1356236973 instance=ExtResource("4_vtqio")]

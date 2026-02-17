@@ -92,7 +92,7 @@ void fragment() {
 	float emit_mask = mix(texture(tex_lava_emit, pos1), texture(tex_lava_emit, pos2), flow_blend).r;
 	
 	//vec3 albedo_col = cooling_col * albedo_mask;
-	vec3 emit_col = cooling_col * pow(emit_mask, 2.5) * emit_strength * min(1.0, cooling_blend + 0.4);
+	vec3 emit_col = cooling_col * pow(emit_mask, 2.5) * emit_strength * min(1.0, cooling_blend + (0.7 - emit_strength * 0.1));
 	float rough_col = mix(texture(tex_lava_roughness, pos1), texture(tex_lava_roughness, pos2), flow_blend).r;
 	vec3 normal_col = mix(texture(tex_lava_normal, pos1), texture(tex_lava_normal, pos2), flow_blend).rgb;
 	
