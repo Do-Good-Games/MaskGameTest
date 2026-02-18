@@ -89,6 +89,8 @@ size = Vector2(587, 221)
 
 [node name="BobbyCharacter" type="CharacterBody2D" unique_id=1423288883]
 scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_dmayn")
 Throwable = ExtResource("2_tbytb")
 max_vel = 300.0

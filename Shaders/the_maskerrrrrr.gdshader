@@ -27,7 +27,7 @@ void fragment() {
 	//vec2 cam_size = vec2(0.762914, 0.6);
 
 	vec2 uv_cam = (UV - cam_pos) / cam_size;
-	uv_cam = UV;
+	//uv_cam = UV;
 	//uv_cam = (UV - vec2(0.2, 0.32)) * 1.4;
 	
 	COLOR = vec4(0.0);

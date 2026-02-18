@@ -101,7 +101,8 @@ func _ready() -> void:
 	_set_collision_textures()
 
 func _process(delta: float) -> void:
-	_set_shader_parameters_per_frame(composite_visuals.material)
+	if not Engine.is_editor_hint():
+		_set_shader_parameters_per_frame(composite_visuals.material)
 
 func _set_collision_textures() -> void:
 	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
