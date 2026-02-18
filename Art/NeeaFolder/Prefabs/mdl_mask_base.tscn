@@ -5,7 +5,7 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_3if5a"]
 
 [node name="MaskBase" type="MeshInstance3D" unique_id=1841915221]
-transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, 0, -5, 0)
+transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, 0, -20, 0)
 layers = 6
 material_override = ExtResource("1_r7kw0")
 mesh = SubResource("PlaneMesh_3if5a")

@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_md6iv"]
 [ext_resource type="Material" uid="uid://plxyfmpwe2s8" path="res://Art/NeeaFolder/Materials/mat_red_col_pipe_d.tres" id="3_prrin"]
 [ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_436bu"]
+[ext_resource type="PackedScene" uid="uid://1pmpk0u4fafv" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="5_6ujk4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6ujk4"]
 size = Vector2(2, 1)
@@ -21,3 +22,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 layers = 2
 material_override = ExtResource("4_436bu")
 mesh = SubResource("PlaneMesh_6ujk4")
+
+[node name="Floor" parent="." index="3" unique_id=1356236973 instance=ExtResource("5_6ujk4")]

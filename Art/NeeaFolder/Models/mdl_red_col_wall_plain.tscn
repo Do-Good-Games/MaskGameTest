@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d35gff21u44bm" path="res://Art/NeeaFolder/Imports/wall(red)(Boundingwall).fbx" id="1_t17oe"]
 [ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_s04lu"]
-[ext_resource type="Material" uid="uid://b5qrwuukkjsid" path="res://Art/NeeaFolder/Materials/mat_red_col_wall.tres" id="3_elxhx"]
+[ext_resource type="Material" uid="uid://cl13jf4we0ahx" path="res://Art/NeeaFolder/Materials/mat_red_col_wall_plain.tres" id="3_t17oe"]
 [ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_asvv3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xc2aw"]
@@ -18,7 +18,7 @@ visible = false
 surface_material_override/0 = ExtResource("2_s04lu")
 
 [node name="building" parent="." index="2" unique_id=1896547328]
-material_override = ExtResource("3_elxhx")
+material_override = ExtResource("3_t17oe")
 
 [node name="ligh3" parent="." index="3" unique_id=1330035628]
 visible = false

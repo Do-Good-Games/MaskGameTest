@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c33f34kti1m2m"]
+
+[ext_resource type="PackedScene" uid="uid://clx1hqwjdfeor" path="res://Art/NeeaFolder/Imports/Pipe Red Collision L.fbx" id="1_u0yp2"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_uasaw"]
+[ext_resource type="Material" uid="uid://plxyfmpwe2s8" path="res://Art/NeeaFolder/Materials/mat_red_col_pipe_d.tres" id="3_mdo2k"]
+
+[node name="Pipe Red Collision L" unique_id=1831991670 instance=ExtResource("1_u0yp2")]
+
+[node name="Circle_003" parent="." index="0" unique_id=904604781]
+material_override = ExtResource("2_uasaw")
+
+[node name="Circle_009" parent="." index="1" unique_id=2141488549]
+material_override = ExtResource("3_mdo2k")

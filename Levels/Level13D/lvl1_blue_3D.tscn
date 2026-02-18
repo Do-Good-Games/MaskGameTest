@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c2xu730ltbvrs"]
 
-[ext_resource type="PackedScene" uid="uid://hqpboj0traq5" path="res://Art/NeeaFolder/Prefabs/camera_level_3D.tscn" id="1_1j14u"]
+[ext_resource type="PackedScene" uid="uid://hqpboj0traq5" path="res://Art/NeeaFolder/Prefabs/camera_level_mask.tscn" id="1_1j14u"]
 [ext_resource type="PackedScene" uid="uid://caf12x4jflx3p" path="res://Art/NeeaFolder/Models/blue_floor.tscn" id="1_c7egl"]
 [ext_resource type="PackedScene" uid="uid://u2kwybx1wjdi" path="res://Art/NeeaFolder/Prefabs/light_blue_omni_l.tscn" id="1_wjl6x"]
 [ext_resource type="PackedScene" uid="uid://cnf554rbpoig4" path="res://Art/NeeaFolder/Prefabs/light_direction_day.tscn" id="2_nxt5v"]
 [ext_resource type="PackedScene" uid="uid://bfh7qwkxovodx" path="res://Art/NeeaFolder/Models/mdl_blue_col_concrete.tscn" id="2_wjl6x"]
 [ext_resource type="PackedScene" uid="uid://h5sjsoh8nvhy" path="res://Art/NeeaFolder/Models/mdl_blue_col_building.tscn" id="3_tl4en"]
-[ext_resource type="PackedScene" uid="uid://db1x5evw5l7xn" path="res://Art/NeeaFolder/Models/mdl_mask_base.tscn" id="3_yr7rl"]
+[ext_resource type="PackedScene" uid="uid://db1x5evw5l7xn" path="res://Art/NeeaFolder/Prefabs/mdl_mask_base.tscn" id="3_yr7rl"]
 [ext_resource type="PackedScene" uid="uid://fo05go88fmde" path="res://Art/NeeaFolder/Models/mdl_blue_hole_bl.tscn" id="4_soul4"]
 [ext_resource type="PackedScene" uid="uid://itywfqlbahh5" path="res://Art/NeeaFolder/Models/mdl_blue_hole_bm.tscn" id="5_1j14u"]
 [ext_resource type="PackedScene" uid="uid://bty7hdci5wdai" path="res://Art/NeeaFolder/Models/mdl_blue_col_tire.tscn" id="5_nxt5v"]
@@ -33,9 +33,9 @@ ambient_light_source = 3
 ambient_light_color = Color(0.16338933, 0.3780322, 0.40522474, 1)
 reflected_light_source = 2
 
-[node name="Lvl1Blue3D" type="Node3D" unique_id=2100347933]
+[node name="Level13D_blue" type="Node3D" unique_id=2100347933]
 
-[node name="Camera3D" parent="." unique_id=731256093 instance=ExtResource("1_1j14u")]
+[node name="Camera3DMask" parent="." unique_id=731256093 instance=ExtResource("1_1j14u")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=638297069]
 environment = SubResource("Environment_hecsm")
@@ -757,6 +757,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -2, -2)
 
 [node name="Hole TL" parent="Holes" unique_id=2056346515 instance=ExtResource("8_3if5a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -2, -19)
+
+[node name="Hole TL2" parent="Holes" unique_id=550059343 instance=ExtResource("8_3if5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -2, -2)
 
 [node name="Hole BR2" parent="Holes" unique_id=134887958 instance=ExtResource("9_83eqr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, -2, -11)

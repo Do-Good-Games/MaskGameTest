@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://dajwo2d5fcvc4" path="res://Art/NeeaFolder/Materials/mat_blue_col_concrete.tres" id="2_b2ofw"]
 [ext_resource type="Material" uid="uid://c4pl4e7mqvesn" path="res://Art/NeeaFolder/Materials/mat_blue_item_metal.tres" id="3_71l86"]
 [ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_tj6ae"]
-[ext_resource type="PackedScene" uid="uid://dghqpedcnglvt" path="res://Art/NeeaFolder/Models/mdl_blue_floor.tscn" id="5_m5jrp"]
+[ext_resource type="PackedScene" uid="uid://caf12x4jflx3p" path="res://Art/NeeaFolder/Models/blue_floor.tscn" id="5_m5jrp"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tj6ae"]
 top_radius = 1.0

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cq5a8ty1wuyny" path="res://Art/NeeaFolder/Imports/Pipes(red)(collision).fbx" id="1_yctwu"]
 [ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_bbpoo"]
 [ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="3_xk8la"]
+[ext_resource type="PackedScene" uid="uid://1pmpk0u4fafv" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="4_k1wcl"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_k1wcl"]
 top_radius = 1.0
@@ -37,3 +38,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 layers = 2
 material_override = ExtResource("3_xk8la")
 mesh = SubResource("CylinderMesh_k1wcl")
+
+[node name="Floor" parent="." index="8" unique_id=1356236973 instance=ExtResource("4_k1wcl")]

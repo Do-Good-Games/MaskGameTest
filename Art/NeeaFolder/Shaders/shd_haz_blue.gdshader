@@ -26,7 +26,7 @@ float wave(vec2 pos)
 	//vec2 st = 1.0 - abs(sin(pos));
 	//return pow(1.0 - pow(st.x * st.y, 0.65), 4.0);
 	pos += texture(tex_waves, pos / noise_size * 0.2).r * TAU;
-	vec2 st = 1.0 - abs(sin(pos * 1.2));
+	vec2 st = (1.0 - abs(sin(pos * 1.2))) * 0.9;
 	return pow(1.0 - pow(st.x * st.y, 0.65), 4.0);
 }
 

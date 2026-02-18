@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bb6dyrn0ct6oq"]
+
+[node name="OmniLight3D" type="OmniLight3D" unique_id=1565327773]
+omni_range = 11.0
