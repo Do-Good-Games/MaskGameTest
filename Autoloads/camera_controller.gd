@@ -31,6 +31,7 @@ func update_cameras_v2(new_pos_v2: Vector2):
 	#new_pos_v2.
 	update_cameras_v3(Vector3(new_pos_v2.x * scale_mtp, camera_depth , new_pos_v2.y * scale_mtp))
 	#update_cameras_v3(Vector3(new_pos_v2.x, new_pos_v2.y, camera_depth))
+	pass
 
 func update_cameras_v3(new_pos_v3: Vector3):
 	print("updatingcameras to pos ", str(new_pos_v3))
