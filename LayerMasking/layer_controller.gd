@@ -3,18 +3,18 @@ class_name Level extends Node2D
 
 var layers: Array[Layer] = [null, null, null, null]
 
-@onready var red_layer: Layer = $RedLayer
-@onready var green_layer: Layer = $GreenLayer
-@onready var blue_layer: Layer = $BlueLayer
+@onready var red_layer: Layer = $"./RedLayer"
+@onready var green_layer: Layer = $"./GreenLayer"
+@onready var blue_layer: Layer = $"./BlueLayer"
 
 var collision_types: Array[CollisionType] = [null, null]
 
-@onready var collision: CollisionType = $Collision
-@onready var hazard: CollisionType = $Hazard
+@onready var collision: CollisionType = $"./Collision"
+@onready var hazard: CollisionType = $"./Hazard"
 
 #@onready var Camera: Camera3D = $Camera3D
 
-@onready var level_size : SubViewport = $RedLayer/LevelVisual
+@onready var level_size : SubViewport = $"./RedLayer/LevelVisual"
 
 #region Tooltip
 # Ok everything you need is pretty much here, alpha values on all the 
@@ -66,7 +66,7 @@ class color_texture_map:
 @export var debug_brush_scale := Vector2(0.5, 0.5)
 var debug_selected_layer: game_manager.color_enum
 
-@onready var composite_visuals: Sprite2D = $CompositeVisuals
+@onready var composite_visuals: Sprite2D = $"./CompositeVisuals"
 
 var textures_map : Dictionary[game_manager.color_enum, color_texture_map] ={
 	game_manager.color_enum.RED: color_texture_map.new("Masks", red_mask),
@@ -147,9 +147,9 @@ func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("red_mask", layers[1].layer_mask.texture)
 	shader.set_shader_parameter("green_mask", layers[2].layer_mask.texture)
 	shader.set_shader_parameter("blue_mask", layers[3].layer_mask.texture)
-	shader.set_shader_parameter("red_temp_masks", $RedLayer/TempMasks.get_texture())
-	shader.set_shader_parameter("green_temp_masks", $GreenLayer/TempMasks.get_texture())
-	shader.set_shader_parameter("blue_temp_masks", $BlueLayer/TempMasks.get_texture())
+	shader.set_shader_parameter("red_temp_masks", $"./RedLayer/TempMasks".get_texture())
+	shader.set_shader_parameter("green_temp_masks", $"./GreenLayer/TempMasks".get_texture())
+	shader.set_shader_parameter("blue_temp_masks", $"./BlueLayer/TempMasks".get_texture())
 
 func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2, brush_texture: Texture2D, brush_scale := Vector2(0.5,0.5)) -> void:
 	var updated_rect: Rect2

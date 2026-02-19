@@ -34,11 +34,17 @@ ambient_light_source = 3
 ambient_light_color = Color(0.16338933, 0.3780322, 0.40522474, 1)
 reflected_light_source = 2
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_d2mp8"]
+size = Vector2(44, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d2mp8"]
+
 [node name="Lvl1Green3D" type="Node3D" unique_id=2100347933]
 
 [node name="Camera3DMask" parent="." unique_id=731256093 instance=ExtResource("1_hi14c")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 26, 0)
 projection = 0
+fov = 81.7
 script = ExtResource("2_d2mp8")
 color = 2
 
@@ -1456,3 +1462,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -2, -10)
 
 [node name="HazGreen52" parent="Hazards" unique_id=464162277 instance=ExtResource("11_67trf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -2, -10)
+
+[node name="worldSizeIndic_plane" type="MeshInstance3D" parent="." unique_id=912895985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("PlaneMesh_d2mp8")
+
+[node name="worldSizeIndic_cube" type="MeshInstance3D" parent="." unique_id=427434222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.84, 15.81)
+visible = false
+mesh = SubResource("BoxMesh_d2mp8")
