@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://twogt3u4ss88" path="res://Levels/Level13D/lvl1_green_mask_3D.png" id="7_n8vq3"]
 [ext_resource type="Texture2D" uid="uid://by1qtq3ansbj5" path="res://Levels/Level13D/lvl1_blue_mask_3D.png" id="8_nplaj"]
 [ext_resource type="Texture2D" uid="uid://n2npv1l7ospx" path="res://Levels/Level1/lvl1_blue_mask.png" id="8_o6qit"]
-[ext_resource type="Texture2D" uid="uid://cjodtli5vb50u" path="res://Levels/Level13D/lvl1_red_col_3D.png" id="9_0m4bb"]
+[ext_resource type="Texture2D" uid="uid://bux7d254lnnsa" path="res://Levels/Level13D/lvl1_red_col_3D.png" id="9_t46fu"]
 [ext_resource type="Texture2D" uid="uid://jg2t52rbn40o" path="res://Levels/Level13D/lvl1_green_col_3D.png" id="10_o6qit"]
 [ext_resource type="Texture2D" uid="uid://b4nrdv3im4iyx" path="res://Levels/Level13D/lvl1_blue_col_3D.png" id="11_1k1g5"]
 [ext_resource type="Texture2D" uid="uid://dwer5703yknvj" path="res://Levels/Level13D/lvl1_red_haz_3D.png" id="12_sbtpj"]
@@ -243,7 +243,7 @@ script = ExtResource("5_n8vq3")
 red_mask = ExtResource("6_t46fu")
 green_mask = ExtResource("7_n8vq3")
 blue_mask = ExtResource("8_nplaj")
-red_collision = ExtResource("9_0m4bb")
+red_collision = ExtResource("9_t46fu")
 green_collision = ExtResource("10_o6qit")
 blue_collision = ExtResource("11_1k1g5")
 red_hazard = ExtResource("12_sbtpj")
