@@ -1,6 +1,7 @@
 extends Node
 
-@export var camera_depth: float  = 13
+@export var camera_depth: float  = 26
+
 
 var scale_mtp = .01
 var Cameras : Dictionary[GameManager.color_enum, Camera3D]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://hqpboj0traq5" path="res://Art/NeeaFolder/Prefabs/camera_level_mask.tscn" id="1_1j14u"]
 [ext_resource type="PackedScene" uid="uid://caf12x4jflx3p" path="res://Art/NeeaFolder/Models/blue_floor.tscn" id="1_c7egl"]
 [ext_resource type="PackedScene" uid="uid://u2kwybx1wjdi" path="res://Art/NeeaFolder/Prefabs/light_blue_omni_l.tscn" id="1_wjl6x"]
-[ext_resource type="PackedScene" uid="uid://cnf554rbpoig4" path="res://Art/NeeaFolder/Prefabs/light_direction_day.tscn" id="2_nxt5v"]
+[ext_resource type="Script" path="res://Autoloads/follow_camera.gd" id="2_83eqr"]
 [ext_resource type="PackedScene" uid="uid://bfh7qwkxovodx" path="res://Art/NeeaFolder/Models/mdl_blue_col_concrete.tscn" id="2_wjl6x"]
 [ext_resource type="PackedScene" uid="uid://h5sjsoh8nvhy" path="res://Art/NeeaFolder/Models/mdl_blue_col_building.tscn" id="3_tl4en"]
 [ext_resource type="PackedScene" uid="uid://db1x5evw5l7xn" path="res://Art/NeeaFolder/Prefabs/mdl_mask_base.tscn" id="3_yr7rl"]
@@ -36,12 +36,13 @@ reflected_light_source = 2
 [node name="Level13D_blue" type="Node3D" unique_id=2100347933]
 
 [node name="Camera3DMask" parent="." unique_id=731256093 instance=ExtResource("1_1j14u")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 26, 0)
+projection = 0
+script = ExtResource("2_83eqr")
+color = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=638297069]
 environment = SubResource("Environment_hecsm")
-
-[node name="DirectionalLight3D" parent="." unique_id=1162740729 instance=ExtResource("2_nxt5v")]
-transform = Transform3D(-0.1438494, 0.94975823, 0.27796882, 0.16484381, -0.25396857, 0.95306164, 0.97577345, 0.18291879, -0.12002855, 0, 10, 0)
 
 [node name="MaskBase" parent="." unique_id=1841915221 instance=ExtResource("3_yr7rl")]
 

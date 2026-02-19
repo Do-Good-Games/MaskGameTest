@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bp5fcp1pyrcu"]
 
 [ext_resource type="PackedScene" uid="uid://hqpboj0traq5" path="res://Art/NeeaFolder/Prefabs/camera_level_mask.tscn" id="1_hi14c"]
+[ext_resource type="Script" path="res://Autoloads/follow_camera.gd" id="2_d2mp8"]
 [ext_resource type="PackedScene" uid="uid://cnf554rbpoig4" path="res://Art/NeeaFolder/Prefabs/light_direction_day.tscn" id="2_xbb10"]
 [ext_resource type="PackedScene" uid="uid://db1x5evw5l7xn" path="res://Art/NeeaFolder/Prefabs/mdl_mask_base.tscn" id="3_iqli8"]
 [ext_resource type="PackedScene" uid="uid://hxuk2f6yrb6i" path="res://Art/NeeaFolder/Models/mdl_green_floor.tscn" id="3_jm1o7"]
@@ -36,6 +37,10 @@ reflected_light_source = 2
 [node name="Lvl1Green3D" type="Node3D" unique_id=2100347933]
 
 [node name="Camera3DMask" parent="." unique_id=731256093 instance=ExtResource("1_hi14c")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 26, 0)
+projection = 0
+script = ExtResource("2_d2mp8")
+color = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=638297069]
 environment = SubResource("Environment_hecsm")
