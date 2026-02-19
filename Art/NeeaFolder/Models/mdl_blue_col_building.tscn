@@ -2,11 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://capppgspmndu2" path="res://Art/NeeaFolder/Imports/Building(blue)(Boundingwall).fbx" id="1_b1wv6"]
 [ext_resource type="Material" uid="uid://biierehwvv5wu" path="res://Art/NeeaFolder/Materials/mat_blue_col_building.tres" id="2_y7cpw"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="3_uvqfp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ctqyg"]
 
 [node name="Building(blue)(Boundingwall)" unique_id=778263062 instance=ExtResource("1_b1wv6")]
 
-[node name="building" parent="." index="0" unique_id=192321322]
+[node name="building" parent="." index="0" unique_id=915228024]
 material_override = ExtResource("2_y7cpw")
 
-[node name="roof" parent="." index="1" unique_id=1736261459]
+[node name="roof" parent="." index="1" unique_id=1056106078]
 material_override = ExtResource("2_y7cpw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1530733351]
+layers = 2
+material_override = ExtResource("3_uvqfp")
+mesh = SubResource("PlaneMesh_ctqyg")

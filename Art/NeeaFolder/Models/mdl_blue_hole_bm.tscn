@@ -1,0 +1,60 @@
+[gd_scene format=4 uid="uid://itywfqlbahh5"]
+
+[ext_resource type="PackedScene" uid="uid://gbdmolrkgoda" path="res://Art/NeeaFolder/Imports/Hole BM.fbx" id="1_u5yqi"]
+[ext_resource type="Material" uid="uid://dpnribk1ygfc4" path="res://Art/NeeaFolder/Materials/mat_blue_haz_edge.tres" id="2_u5yqi"]
+[ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/mat_blue_haz_hole.tres" id="3_c3jm1"]
+[ext_resource type="Material" uid="uid://v4pr0muyjo2h" path="res://Art/NeeaFolder/Materials/mat_mask_black.tres" id="4_dmbcr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elwtt"]
+resource_name = "Material.001"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aahmb"]
+_surfaces = [{
+"aabb": AABB(-0.0027587435, -0.0027587437, -3.5781264e-05, 0.0055174856, 0.0017291623, 0.005517486),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("CMw0uwrMNLvfn7M7Ccw0uwXzhrrXExa4BMw0OwXzhrrXExa4BMw0OwrMNLvfn7M7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2k2wk"]
+resource_name = "Plane_007"
+_surfaces = [{
+"aabb": AABB(-0.0027587435, -0.0027587437, -3.5781264e-05, 0.0055174856, 0.0017291623, 0.005517486),
+"attribute_data": PackedByteArray("Wvh/P5z5oT5b+H8/Wvh/P6n9sT5a+H8/qf2xPp75oT4="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"material": SubResource("StandardMaterial3D_elwtt"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("CMw0uwrMNLvfn7M7Ccw0uwXzhrrXExa4BMw0OwXzhrrXExa4BMw0OwrMNLvfn7M7/3904QAA/7//f3ThAAD/v/9/dOEAAP+//3904QAA/78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_aahmb")
+
+[node name="Hole BM" unique_id=1781421968 instance=ExtResource("1_u5yqi")]
+
+[node name="1-2" parent="." index="0" unique_id=684383253]
+surface_material_override/0 = ExtResource("2_u5yqi")
+
+[node name="1-2_001" parent="." index="1" unique_id=319728348]
+material_override = ExtResource("3_c3jm1")
+
+[node name="1-2_002" type="MeshInstance3D" parent="." index="2" unique_id=249454315]
+transform = Transform3D(362.48392, 0, 0, 0, -8.64229e-05, 362.4839, 0, -362.4839, -8.64229e-05, 0, -1, 0)
+layers = 4
+material_override = ExtResource("4_dmbcr")
+mesh = SubResource("ArrayMesh_2k2wk")

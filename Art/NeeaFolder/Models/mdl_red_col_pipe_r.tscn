@@ -1,17 +1,30 @@
-[gd_scene format=3 uid="uid://bmude6tyhheip"]
+[gd_scene format=3 uid="uid://fah1yfhu6ms5"]
 
-[ext_resource type="PackedScene" uid="uid://dwvk5jfepnund" path="res://Art/NeeaFolder/Models/Imports/Pipe Red Collision R.fbx" id="1_1s1da"]
-[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_metal_red.tres" id="2_awie5"]
-[ext_resource type="Material" uid="uid://plxyfmpwe2s8" path="res://Art/NeeaFolder/Materials/mat_basic_red_d.tres" id="3_m4i8g"]
-[ext_resource type="Material" uid="uid://cejgqh8pgirnu" path="res://Art/NeeaFolder/Materials/mat_basic_red_l.tres" id="4_de6e1"]
+[ext_resource type="PackedScene" uid="uid://dwvk5jfepnund" path="res://Art/NeeaFolder/Imports/Pipe Red Collision R.fbx" id="1_1s1da"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_awie5"]
+[ext_resource type="Material" uid="uid://plxyfmpwe2s8" path="res://Art/NeeaFolder/Materials/mat_red_col_pipe_d.tres" id="3_m4i8g"]
+[ext_resource type="Material" uid="uid://cyw1pbis0t7an" path="res://Art/NeeaFolder/Materials/mat_red_col_pipe_l.tres" id="4_q12j0"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="5_q12j0"]
+[ext_resource type="PackedScene" uid="uid://1pmpk0u4fafv" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="6_s2u8c"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s2u8c"]
+size = Vector2(1.5, 1.2)
 
 [node name="Pipe Red Collision R" unique_id=676214377 instance=ExtResource("1_1s1da")]
 
-[node name="Circle_002" parent="." index="0" unique_id=1042458033]
+[node name="Circle_002" parent="." index="0" unique_id=557686608]
 material_override = ExtResource("2_awie5")
 
-[node name="Circle_006" parent="." index="1" unique_id=277331257]
+[node name="Circle_006" parent="." index="1" unique_id=1437829813]
 material_override = ExtResource("3_m4i8g")
 
-[node name="Circle_007" parent="." index="2" unique_id=1520191519]
-surface_material_override/0 = ExtResource("4_de6e1")
+[node name="Circle_007" parent="." index="2" unique_id=650903076]
+surface_material_override/0 = ExtResource("4_q12j0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3" unique_id=363616816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.1, 0)
+layers = 2
+material_override = ExtResource("5_q12j0")
+mesh = SubResource("PlaneMesh_s2u8c")
+
+[node name="Floor" parent="." index="4" unique_id=1356236973 instance=ExtResource("6_s2u8c")]

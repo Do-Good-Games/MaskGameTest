@@ -1,29 +1,35 @@
 shader_type spatial;
 
-render_mode world_vertex_coords;//, shadows_disabled;
+#include "res://Art/NeeaFolder/Shaders/shd_inc_flowmap.gdshaderinc"
 
-uniform vec2 offset;
-uniform float scale = 0.2;
+render_mode world_vertex_coords, shadows_disabled;
+
+uniform vec2 lava_offset;
+uniform float lava_scale = 0.2;
 
 uniform vec3 color_hot : source_color; //f55516
 uniform vec3 color_cold : source_color; //940909
-uniform float emit_strength = 2.0;
-uniform float wave_speed = 0.5;
+uniform float emit_strength = 3.0;
+uniform float wave_speed = 0.7;
+uniform float wave_height = 1.8;
+uniform float flow_scale = 1.5;
+uniform float flow_cycle_speed = 0.3;
+uniform float flow_speed =  5.0;
 
-uniform sampler2D tex_waves;
-uniform sampler2D tex_lava_albedo : hint_default_white;
+//uniform sampler2D tex_lava_albedo : hint_default_white;
 uniform sampler2D tex_lava_roughness : hint_roughness_r;
 uniform sampler2D tex_lava_normal : hint_normal;
 uniform sampler2D tex_lava_emit;
-uniform sampler2D tex_lava_height;
+//uniform sampler2D tex_lava_height;
 uniform sampler2D tex_lava_flow : hint_anisotropy;
+uniform sampler2D tex_waves;
 
 varying float vert_height;
 
 float height_waves(vec2 pos, float time)
 {
 	vec2 uv = pos * 0.03;
-	float wave_amp = 1.5;
+	float wave_amp = wave_height;
 	wave_amp /= 2.0;
 	float wave_base = texture(tex_waves, uv + time / 300.0).r * 2.0 - 1.0;
 	//float wave_wobble = texture(tex_waves, uv * 0.5 + vec2(2.5, 0.6)).r * TAU;
@@ -48,7 +54,7 @@ void vertex() {
 	
 	VERTEX += NORMAL * k;
 	
-	// not needed for this material
+	// too subtle because of the emission
 	// Vertex Interpolated Normals
 	// not able to create a function with a function parameter in gls
 	//vec2 off = vec2(0.05, 0.0);
@@ -63,66 +69,40 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	vec2 pos = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xz * scale + offset;
+	vec2 pos = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xz * lava_scale + lava_offset;
 	
-	////////////////////////////////////////////////////////////////// Flow Map
-	//////////////// uniforms
-	float blend_cycle = 1.0;
-	float flow_noise_size = 0.1;
-	float flow_noise_influence = 0.5;
-	float cycle_speed = 1.0;
-	float flow_speed =  0.5;
-	vec2 channel_flow_direction = vec2(1.0, -1.0);
-	//////////////// uniforms
-	
-	float half_cycle = blend_cycle * 0.5;
+	// flow map
+	float blend_duration = 1.0;
+	float noise_scale = 0.3;
+	float noise_strength = 1.0;
+	float flow_blend;
+	vec2 pos1, pos2;
+	flow_blend = flowmapBlend(pos1, pos2, pos, tex_lava_flow, tex_waves, lava_scale,
+	blend_duration, noise_scale, noise_strength, flow_scale, flow_cycle_speed, flow_speed);
 
-	// Use noise texture for offset to reduce pulsing effect
-	float offset = texture(tex_waves, pos * flow_noise_size).r * flow_noise_influence;
-
-	float phase1 = mod(offset + TIME * cycle_speed, blend_cycle);
-	float phase2 = mod(offset + TIME * cycle_speed + half_cycle, blend_cycle);
-
-	vec2 flow_tex = texture(tex_lava_flow, pos * lava_scale + lava_offset).rg;
-	vec2 flow;
-	flow.x = flow_tex.r * 2.0 - 1.0;
-	flow.y = flow_tex.g * 2.0 - 1.0;
-	flow *= normalize(channel_flow_direction);
-
-	// Make flow incluence on the normalmap strenght adjustable (optional)
-	float normal_influence = mix(1.0, dot(abs(flow), vec2(1.0, 1.0)) * 0.5, flow_normal_influence);
-
-	// Blend factor to mix the two layers
-	float blend_factor = abs(half_cycle - phase1)/half_cycle;
-
-	// Offset by halfCycle to improve the animation for color (for normalmap not absolutely necessary)
-	phase1 -= half_cycle;
-	phase2 -= half_cycle;
-
-	// Multiply with scale to make flow speed independent from the uv scaling
-	flow *= flow_speed * uv_scale;
-
-	vec2 layer1 = flow * phase1 + base_uv;
-	vec2 layer2 = flow * phase2 + base_uv;
-	////////////////////////////////////////////////////////////////// Flow Map
-	
+	// cooling color
 	//float off = min(1.0, pow(texture(tex_waves, pos * 0.2).r, 1.5)) * TAU;
 	//float off = (1.0 - vert_height) * TAU;
 	//float cooling = sin(TIME + off) * 0.5 + 0.5;
-	float cooling = clamp((1.0 - vert_height) * 2.0, 0.0, 1.0);
-	vec3 col = mix(color_cold, color_hot, cooling);
+	float cooling_blend = clamp((1.0 - pow(vert_height, 1.5)) * 2.0, 0.0, 1.0);
+	//cooling_blend = 0.5;
+	vec3 cooling_col = mix(color_cold, color_hot, cooling_blend);
 	
-	vec3 col_emit = col * pow(texture(tex_lava_emit, pos).r, 2.5) * emit_strength * min(1.0, cooling + 0.4);
-	vec3 col_albedo = col * texture(tex_lava_albedo, pos).r;
+	//float albedo_mask = mix(texture(tex_lava_albedo, pos1), texture(tex_lava_albedo, pos2), flow_blend).r;
+	float emit_mask = mix(texture(tex_lava_emit, pos1), texture(tex_lava_emit, pos2), flow_blend).r;
 	
-	//col_emit = vec3(col_off);
-	//col_emit = col;
+	//vec3 albedo_col = cooling_col * albedo_mask;
+	vec3 emit_col = cooling_col * pow(emit_mask, 2.5) * emit_strength * min(1.0, cooling_blend + (0.7 - emit_strength * 0.1));
+	float rough_col = mix(texture(tex_lava_roughness, pos1), texture(tex_lava_roughness, pos2), flow_blend).r;
+	vec3 normal_col = mix(texture(tex_lava_normal, pos1), texture(tex_lava_normal, pos2), flow_blend).rgb;
 	
-	ALBEDO = col_emit;
-	ROUGHNESS = texture(tex_lava_roughness, pos).r;
-	NORMAL_MAP = texture(tex_lava_normal, pos).rgb;
+	//emit_col = col;
+	//emit_col = texture(tex_waves, pos * noise_scale).rgb;
 	
-	EMISSION = col_emit;
+	ALBEDO = emit_col;
+	EMISSION = emit_col;
+	ROUGHNESS = rough_col;
+	NORMAL_MAP = normal_col;
 	
 	// unused texture channels
 	//METALLIC = 0.0;

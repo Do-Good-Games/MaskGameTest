@@ -1,5 +1,56 @@
-[gd_scene format=3 uid="uid://dvilvoaymmhu4"]
+[gd_scene format=3 uid="uid://85tyorlw1rca"]
 
-[ext_resource type="PackedScene" uid="uid://wtrury10duvv" path="res://Art/NeeaFolder/Models/Imports/Trunk(Green)(collision).fbx" id="1_hp27v"]
+[ext_resource type="PackedScene" uid="uid://wtrury10duvv" path="res://Art/NeeaFolder/Imports/Trunk(Green)(collision).fbx" id="1_hp27v"]
+[ext_resource type="Material" uid="uid://kkmk146i7ib1" path="res://Art/NeeaFolder/Materials/mat_green_col_trunk_l.tres" id="2_xd3n8"]
+[ext_resource type="Material" uid="uid://cijre13ia8dtb" path="res://Art/NeeaFolder/Materials/mat_green_col_trunk_d.tres" id="3_qlm7u"]
+[ext_resource type="Material" uid="uid://44ls0fj3tegi" path="res://Art/NeeaFolder/Materials/mat_green_floor.tres" id="4_qlm7u"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_y58i5"]
+[ext_resource type="PackedScene" uid="uid://hxuk2f6yrb6i" path="res://Art/NeeaFolder/Models/mdl_green_floor.tscn" id="6_y58i5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y58i5"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 1.0
 
 [node name="Trunk(Green)(collision)" unique_id=602442271 instance=ExtResource("1_hp27v")]
+
+[node name="Circle" parent="." index="0" unique_id=133648680]
+transform = Transform3D(-96.80559, -25.07349, -1.8929958e-06, -1.0959972e-06, -3.318285e-06, 100.00001, -25.073492, 96.80558, 2.9374796e-06, -0.0075377226, 1.1162897, -0.007737279)
+surface_material_override/0 = ExtResource("2_xd3n8")
+
+[node name="Circle_001" parent="." index="1" unique_id=1086647337]
+transform = Transform3D(-63.974697, -16.570004, -1.2510006e-06, -7.24298e-07, -2.1929145e-06, 66.085754, -16.570007, 63.974697, 1.9412569e-06, -0.0075377226, 1.1162897, -0.007737279)
+surface_material_override/0 = ExtResource("2_xd3n8")
+
+[node name="Circle_002" parent="." index="2" unique_id=1272630268]
+transform = Transform3D(-28.505466, -7.383164, -5.5741344e-07, -3.227284e-07, -9.771056e-07, 29.4461, -7.3831654, 28.505468, 8.649736e-07, -0.0075377226, 1.1162897, -0.007737279)
+surface_material_override/0 = ExtResource("2_xd3n8")
+
+[node name="Cube" parent="." index="3" unique_id=1473359446]
+transform = Transform3D(-16.107044, -0.0532791, -1.5919272, -1.6627289, 0.6521899, 14.896685, -0.141891, -1.594519, 6.1462317, -1.0330421, 0.26397276, -0.4914307)
+material_override = ExtResource("2_xd3n8")
+
+[node name="Cylinder" parent="." index="4" unique_id=1146046148]
+transform = Transform3D(-96.80559, -25.07349, -1.892996e-06, -1.095997e-06, -3.318285e-06, 99.999985, -25.07349, 96.80557, 2.9374805e-06, -0.0075377226, 0.05731547, -0.0077372193)
+material_override = ExtResource("3_qlm7u")
+
+[node name="Cylinder_001" parent="." index="5" unique_id=446615098]
+transform = Transform3D(3.0813771e-06, -10.002459, -15.008624, -14.509467, 1.152688e-06, -4.9595883e-06, 2.5341744e-06, 12.124895, -12.381395, -0.8985193, 0.28254232, -0.65980166)
+material_override = ExtResource("3_qlm7u")
+
+[node name="Cylinder_002" parent="." index="6" unique_id=359123823]
+transform = Transform3D(-9.039392e-07, -5.745405, 5.2016225, -6.5707603, 5.500198e-07, -1.3252964e-06, 6.532123e-07, -4.202192, -7.111866, -0.7623062, 0.2634848, -0.78774434)
+material_override = ExtResource("3_qlm7u")
+
+[node name="Plane" parent="." index="7" unique_id=1225890044]
+transform = Transform3D(-96.80559, -25.07349, -1.8929958e-06, -1.0959972e-06, -3.318285e-06, 100.00001, -25.073492, 96.80558, 2.9374796e-06, -0.0075377226, -0.9613446, -0.0077371)
+visible = false
+material_override = ExtResource("4_qlm7u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="8" unique_id=903478640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 2
+material_override = ExtResource("4_y58i5")
+mesh = SubResource("CylinderMesh_y58i5")
+
+[node name="Floor" parent="." index="9" unique_id=1356236973 instance=ExtResource("6_y58i5")]

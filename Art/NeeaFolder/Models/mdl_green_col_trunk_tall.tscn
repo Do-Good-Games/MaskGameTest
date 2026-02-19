@@ -1,5 +1,36 @@
-[gd_scene format=3 uid="uid://cng68qy2qfcnx"]
+[gd_scene format=3 uid="uid://b54cf2vl6du04"]
 
-[ext_resource type="PackedScene" uid="uid://dlg18mr2p1hrv" path="res://Art/NeeaFolder/Models/Imports/TrunkTall(Green)(collision).fbx" id="1_vl6q7"]
+[ext_resource type="PackedScene" uid="uid://dlg18mr2p1hrv" path="res://Art/NeeaFolder/Imports/TrunkTall(Green)(collision).fbx" id="1_vl6q7"]
+[ext_resource type="Material" uid="uid://44ls0fj3tegi" path="res://Art/NeeaFolder/Materials/mat_green_floor.tres" id="2_7d7g6"]
+[ext_resource type="Material" uid="uid://kkmk146i7ib1" path="res://Art/NeeaFolder/Materials/mat_green_col_trunk_l.tres" id="3_p86q0"]
+[ext_resource type="Material" uid="uid://cijre13ia8dtb" path="res://Art/NeeaFolder/Materials/mat_green_col_trunk_d.tres" id="4_q5bjw"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="5_flyot"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u5u7f"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 1.0
 
 [node name="TrunkTall(Green)(collision)" unique_id=1629884835 instance=ExtResource("1_vl6q7")]
+
+[node name="Plane" parent="." index="0" unique_id=445243502]
+visible = false
+material_override = ExtResource("2_7d7g6")
+
+[node name="inner most ring" parent="." index="1" unique_id=1341282389]
+surface_material_override/0 = ExtResource("3_p86q0")
+
+[node name="inner ring" parent="." index="2" unique_id=1262436527]
+surface_material_override/0 = ExtResource("3_p86q0")
+
+[node name="ring" parent="." index="3" unique_id=1289803051]
+surface_material_override/0 = ExtResource("3_p86q0")
+
+[node name="stump" parent="." index="4" unique_id=2015887492]
+material_override = ExtResource("4_q5bjw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="5" unique_id=838841708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 2
+material_override = ExtResource("5_flyot")
+mesh = SubResource("CylinderMesh_u5u7f")

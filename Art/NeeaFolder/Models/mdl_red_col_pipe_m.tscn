@@ -1,13 +1,26 @@
-[gd_scene format=3 uid="uid://dnfdi5vgjdq44"]
+[gd_scene format=3 uid="uid://c6nfwfrjlf356"]
 
-[ext_resource type="PackedScene" uid="uid://0euc2ysxv14o" path="res://Art/NeeaFolder/Models/Imports/Pipe Red Collision M.fbx" id="1_xhcqk"]
-[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_metal_red.tres" id="2_md6iv"]
-[ext_resource type="Material" uid="uid://plxyfmpwe2s8" path="res://Art/NeeaFolder/Materials/mat_basic_red_d.tres" id="3_prrin"]
+[ext_resource type="PackedScene" uid="uid://0euc2ysxv14o" path="res://Art/NeeaFolder/Imports/Pipe Red Collision M.fbx" id="1_xhcqk"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_md6iv"]
+[ext_resource type="Material" uid="uid://plxyfmpwe2s8" path="res://Art/NeeaFolder/Materials/mat_red_col_pipe_d.tres" id="3_prrin"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_436bu"]
+[ext_resource type="PackedScene" uid="uid://1pmpk0u4fafv" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="5_6ujk4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ujk4"]
+size = Vector2(2, 1)
 
 [node name="Pipe Red Collision M" unique_id=1209431851 instance=ExtResource("1_xhcqk")]
 
-[node name="Circle_004" parent="." index="0" unique_id=1536825703]
+[node name="Circle_004" parent="." index="0" unique_id=1908139232]
 material_override = ExtResource("2_md6iv")
 
-[node name="Circle_008" parent="." index="1" unique_id=268403924]
+[node name="Circle_008" parent="." index="1" unique_id=1316356600]
 material_override = ExtResource("3_prrin")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1545492705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+layers = 2
+material_override = ExtResource("4_436bu")
+mesh = SubResource("PlaneMesh_6ujk4")
+
+[node name="Floor" parent="." index="3" unique_id=1356236973 instance=ExtResource("5_6ujk4")]

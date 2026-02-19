@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cipwvha8xkqh3"]
+
+[ext_resource type="PackedScene" uid="uid://d35gff21u44bm" path="res://Art/NeeaFolder/Imports/wall(red)(Boundingwall).fbx" id="1_t17oe"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_s04lu"]
+[ext_resource type="Material" uid="uid://cl13jf4we0ahx" path="res://Art/NeeaFolder/Materials/mat_red_col_wall_plain.tres" id="3_t17oe"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_asvv3"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xc2aw"]
+
+[node name="wall(red)(Boundingwall)" unique_id=247367718 instance=ExtResource("1_t17oe")]
+
+[node name="altsidepipe2" parent="." index="0" unique_id=770225898]
+visible = false
+surface_material_override/0 = ExtResource("2_s04lu")
+
+[node name="altsisepipe" parent="." index="1" unique_id=885009484]
+visible = false
+surface_material_override/0 = ExtResource("2_s04lu")
+
+[node name="building" parent="." index="2" unique_id=1896547328]
+material_override = ExtResource("3_t17oe")
+
+[node name="ligh3" parent="." index="3" unique_id=1330035628]
+visible = false
+material_override = ExtResource("2_s04lu")
+
+[node name="light" parent="." index="4" unique_id=29477977]
+visible = false
+material_override = ExtResource("2_s04lu")
+
+[node name="light2" parent="." index="5" unique_id=1998134728]
+visible = false
+material_override = ExtResource("2_s04lu")
+
+[node name="light4" parent="." index="6" unique_id=1900391459]
+visible = false
+material_override = ExtResource("2_s04lu")
+
+[node name="light5" parent="." index="7" unique_id=1529333701]
+visible = false
+material_override = ExtResource("2_s04lu")
+
+[node name="sidepipe1" parent="." index="8" unique_id=464828776]
+visible = false
+surface_material_override/0 = ExtResource("2_s04lu")
+
+[node name="sidepipe2" parent="." index="9" unique_id=1588036868]
+visible = false
+material_override = ExtResource("2_s04lu")
+
+[node name="toppipe" parent="." index="10" unique_id=1341589675]
+visible = false
+material_override = ExtResource("2_s04lu")
+
+[node name="toppipie2" parent="." index="11" unique_id=456379510]
+visible = false
+material_override = ExtResource("2_s04lu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="12" unique_id=778782901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+layers = 2
+material_override = ExtResource("4_asvv3")
+mesh = SubResource("PlaneMesh_xc2aw")

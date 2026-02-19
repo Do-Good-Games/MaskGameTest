@@ -1,10 +1,8 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://ip7511ri067f"]
 
 [ext_resource type="Shader" uid="uid://ro41l5rcn4w0" path="res://Art/NeeaFolder/Shaders/shd_haz_red.gdshader" id="1_1b52q"]
-[ext_resource type="Texture2D" uid="uid://b31qlu5qtyoa5" path="res://Art/NeeaFolder/Textures/Lava/lava_9_basecolor-1K.png" id="2_pn1in"]
 [ext_resource type="Texture2D" uid="uid://cnu2a3p7b54v5" path="res://Art/NeeaFolder/Textures/Lava/lava_9_emissive-1K.png" id="3_4jd83"]
-[ext_resource type="Texture2D" uid="uid://dht1gf22u8baq" path="res://Art/NeeaFolder/Textures/Lava/lava_9_height-1K.png" id="4_6rlyf"]
-[ext_resource type="Texture2D" uid="uid://7uekrr0aq381" path="res://Art/NeeaFolder/Textures/Lava/lava_flowmap_01.png" id="4_h5c2x"]
+[ext_resource type="Texture2D" uid="uid://bs5meofxpud2d" path="res://Art/NeeaFolder/Textures/Lava/lava_flowmap_03.png" id="4_h5c2x"]
 [ext_resource type="Texture2D" uid="uid://bwp2mvat1l4i2" path="res://Art/NeeaFolder/Textures/Lava/lava_9_normal-1K.png" id="5_h5c2x"]
 [ext_resource type="Texture2D" uid="uid://d4hfn2rrj1e31" path="res://Art/NeeaFolder/Textures/Lava/lava_9_roughness-1K.png" id="6_e6a7p"]
 [ext_resource type="Texture2D" uid="uid://tt0f0a83wmvl" path="res://Art/NeeaFolder/Textures/tn2_waves.tres" id="7_4jd83"]
@@ -12,16 +10,18 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_1b52q")
-shader_parameter/offset = Vector2(0, 0)
-shader_parameter/scale = 0.2
+shader_parameter/lava_offset = Vector2(0, 0)
+shader_parameter/lava_scale = 0.2
 shader_parameter/color_hot = Color(0.9607843, 0.33333334, 0.08627451, 1)
 shader_parameter/color_cold = Color(0.5803922, 0.03529412, 0.03529412, 1)
 shader_parameter/emit_strength = 3.0
-shader_parameter/wave_speed = 0.5
-shader_parameter/tex_waves = ExtResource("7_4jd83")
-shader_parameter/tex_lava_albedo = ExtResource("2_pn1in")
+shader_parameter/wave_speed = 0.7
+shader_parameter/wave_height = 1.8
+shader_parameter/flow_scale = 1.5
+shader_parameter/flow_cycle_speed = 0.3
+shader_parameter/flow_speed = 5.0
 shader_parameter/tex_lava_roughness = ExtResource("6_e6a7p")
 shader_parameter/tex_lava_normal = ExtResource("5_h5c2x")
 shader_parameter/tex_lava_emit = ExtResource("3_4jd83")
-shader_parameter/tex_lava_height = ExtResource("4_6rlyf")
 shader_parameter/tex_lava_flow = ExtResource("4_h5c2x")
+shader_parameter/tex_waves = ExtResource("7_4jd83")

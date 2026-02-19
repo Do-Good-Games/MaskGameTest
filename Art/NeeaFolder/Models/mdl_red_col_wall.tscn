@@ -1,43 +1,52 @@
-[gd_scene format=3 uid="uid://ce0tv0v2o20d4"]
+[gd_scene format=3 uid="uid://d3cpieywp3hun"]
 
-[ext_resource type="PackedScene" uid="uid://d35gff21u44bm" path="res://Art/NeeaFolder/Models/Imports/wall(red)(Boundingwall).fbx" id="1_ere6m"]
-[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_metal_red.tres" id="2_wksdf"]
-[ext_resource type="Material" uid="uid://cyw1pbis0t7an" path="res://Art/NeeaFolder/Materials/mat_basic_red.tres" id="3_jvn23"]
+[ext_resource type="PackedScene" uid="uid://d35gff21u44bm" path="res://Art/NeeaFolder/Imports/wall(red)(Boundingwall).fbx" id="1_ere6m"]
+[ext_resource type="Material" uid="uid://h2rafikt7ggs" path="res://Art/NeeaFolder/Materials/mat_red_item_metal.tres" id="2_wksdf"]
+[ext_resource type="Material" uid="uid://b5qrwuukkjsid" path="res://Art/NeeaFolder/Materials/mat_red_col_wall.tres" id="3_qshni"]
+[ext_resource type="Material" uid="uid://cxan2l3y5xwnn" path="res://Art/NeeaFolder/Materials/mat_mask_white.tres" id="4_24bmv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xc2aw"]
 
 [node name="wall(red)(Boundingwall)" unique_id=247367718 instance=ExtResource("1_ere6m")]
 
-[node name="altsidepipe2" parent="." index="0" unique_id=469903877]
+[node name="altsidepipe2" parent="." index="0" unique_id=770225898]
 surface_material_override/0 = ExtResource("2_wksdf")
 
-[node name="altsisepipe" parent="." index="1" unique_id=566756135]
+[node name="altsisepipe" parent="." index="1" unique_id=885009484]
 surface_material_override/0 = ExtResource("2_wksdf")
 
-[node name="building" parent="." index="2" unique_id=522080174]
-material_override = ExtResource("3_jvn23")
+[node name="building" parent="." index="2" unique_id=1896547328]
+material_override = ExtResource("3_qshni")
 
-[node name="ligh3" parent="." index="3" unique_id=257723726]
+[node name="ligh3" parent="." index="3" unique_id=1330035628]
 material_override = ExtResource("2_wksdf")
 
-[node name="light" parent="." index="4" unique_id=1821686408]
+[node name="light" parent="." index="4" unique_id=29477977]
 material_override = ExtResource("2_wksdf")
 
-[node name="light2" parent="." index="5" unique_id=830044466]
+[node name="light2" parent="." index="5" unique_id=1998134728]
 material_override = ExtResource("2_wksdf")
 
-[node name="light4" parent="." index="6" unique_id=854111742]
+[node name="light4" parent="." index="6" unique_id=1900391459]
 material_override = ExtResource("2_wksdf")
 
-[node name="light5" parent="." index="7" unique_id=508842341]
+[node name="light5" parent="." index="7" unique_id=1529333701]
 material_override = ExtResource("2_wksdf")
 
-[node name="sidepipe1" parent="." index="8" unique_id=1124603914]
+[node name="sidepipe1" parent="." index="8" unique_id=464828776]
 surface_material_override/0 = ExtResource("2_wksdf")
 
-[node name="sidepipe2" parent="." index="9" unique_id=1666341130]
+[node name="sidepipe2" parent="." index="9" unique_id=1588036868]
 material_override = ExtResource("2_wksdf")
 
-[node name="toppipe" parent="." index="10" unique_id=2051818372]
+[node name="toppipe" parent="." index="10" unique_id=1341589675]
 material_override = ExtResource("2_wksdf")
 
-[node name="toppipie2" parent="." index="11" unique_id=594785622]
+[node name="toppipie2" parent="." index="11" unique_id=456379510]
 material_override = ExtResource("2_wksdf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="12" unique_id=778782901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+layers = 2
+material_override = ExtResource("4_24bmv")
+mesh = SubResource("PlaneMesh_xc2aw")

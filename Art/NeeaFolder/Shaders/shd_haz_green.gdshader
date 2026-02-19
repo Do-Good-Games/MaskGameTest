@@ -2,7 +2,7 @@ shader_type spatial;
 
 #include "res://Art/NeeaFolder/Shaders/shd_inc_height_to_normal.gdshaderinc"
 
-render_mode world_vertex_coords;//, shadows_disabled;
+render_mode world_vertex_coords, shadows_disabled;
 
 uniform vec3 color : source_color = vec3(1.0);
 // setting default values to uniform arrays is not supported
@@ -10,6 +10,7 @@ uniform float bubble_scale[3]; //0.1, 0.11, 0.15
 uniform vec2 bubble_off[3]; //(0.12, 0.2), (-0.31, -0.064), (-0.526, 0.0)
 uniform float bubble_speed = 1.4;
 uniform float time_scrub;
+
 uniform sampler2D tex_bubbles;
 uniform sampler2D tex_cells;
 uniform sampler2D tex_waves;
@@ -110,16 +111,15 @@ void vertex()
 void fragment()
 {
 	// Called for every pixel the material is visible on.
-	vec3 col = color * mix(min(1.0, vert_height * 0.9 + 0.7), 1.4, vert_bubbles * 1.0);
+	vec3 albedo_col = color * mix(min(1.0, vert_height * 0.9 + 0.7), 1.4, vert_bubbles * 1.0);
 	
 	// more color options 
 	//vec2 pos = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xz;
-	//col *= min(1.0, texture(tex_waves, pos * 0.1 + vert_height).r + 0.5 + vert_bubbles);
-	//col = col + texture(tex_waves, pos * 0.1 + vert_height).r * 0.1 + 0.1 + vert_bubbles * 0.4;
+	//albedo_col *= min(1.0, texture(tex_waves, pos * 0.1 + vert_height).r + 0.5 + vert_bubbles);
+	//albedo_col = albedo_col + texture(tex_waves, pos * 0.1 + vert_height).r * 0.1 + 0.1 + vert_bubbles * 0.4;
 	// invert color: 1.0 - color
 	
-	ALBEDO = col;
-	
+	ALBEDO = albedo_col;
 	//ROUGHNESS = clamp(pow(1.0 - vert_height * 5.0, 4.0), 0.0, 1.0);
 	ROUGHNESS = clamp((0.5 - vert_height) * 0.5, 0.0, 1.0); // good one
 	

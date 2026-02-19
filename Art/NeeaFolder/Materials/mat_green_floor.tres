@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bucf75dtnmcd1" path="res://Art/NeeaFolder/Textures/Paint_Rough_1K_roughness.png" id="2_x6mt8"]
 
 [resource]
-albedo_color = Color(0.64853334, 0.95, 0.41799998, 1)
+albedo_color = Color(0.51648337, 0.95, 0.247, 1)
 roughness_texture = ExtResource("2_x6mt8")
 normal_enabled = true
 normal_texture = ExtResource("1_kwreg")
