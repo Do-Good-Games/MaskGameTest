@@ -1,6 +1,7 @@
 class_name GameManager extends Node
 var playerx
 var playery
+var player : BobbyCharacter
 
 signal removed_held
 

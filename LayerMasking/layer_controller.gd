@@ -12,6 +12,9 @@ var collision_types: Array[CollisionType] = [null, null]
 @onready var collision: CollisionType = $Collision
 @onready var hazard: CollisionType = $Hazard
 
+#@onready var Camera: Camera3D = $Camera3D
+
+@onready var level_size : SubViewport = $RedLayer/LevelVisual
 
 #region Tooltip
 # Ok everything you need is pretty much here, alpha values on all the 
@@ -78,6 +81,8 @@ func _ready() -> void:
 	#var brush_image_texture: ImageTexture = ImageTexture.new()
 	#brush_image_texture.create_from_image(brush_image)
 	#debug_brush = brush_image_texture
+	
+	
 	layers[0] = null
 	layers[1] = red_layer
 	layers[2] = green_layer
@@ -94,6 +99,10 @@ func _ready() -> void:
 		_set_shader_parameters(collision_type.mask.material)
 	
 	_set_collision_textures()
+
+func _process(delta: float) -> void:
+	if not Engine.is_editor_hint():
+		_set_shader_parameters_per_frame(composite_visuals.material)
 
 func _set_collision_textures() -> void:
 	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
@@ -116,6 +125,24 @@ func _set_collision_textures() -> void:
 		"blue_texture", blue_hazard
 	)
 
+func _set_shader_parameters_per_frame(shader: ShaderMaterial) -> void:
+	#var cam_pos : Vector2 = get_viewport().get_visible_rect().position / Vector2(level_size.size)
+	#var cam_size : Vector2 = get_viewport().get_visible_rect().size / Vector2(level_size.size)
+	var cam : Camera2D = get_viewport().get_camera_2d()
+	
+	var cam_size : Vector2 =  Vector2(cam.limit_right - cam.limit_left, cam.limit_bottom - cam.limit_top)
+	#var cam_pos : Vector2 = game_manager.player.global_position - cam_size / 2
+	var cam_pos : Vector2 = cam.global_position - cam_size / 2
+	var cam_pos_normalized : Vector2 = cam_pos / Vector2(level_size.size)
+	var cam_size_normalized : Vector2 = cam_size / Vector2(level_size.size)
+	shader.set_shader_parameter("cam_pos", cam_pos_normalized)
+	shader.set_shader_parameter("cam_size", cam_size_normalized)
+	#print("level_size.size", level_size.size)
+	#print("cam_pos", cam_pos)
+	#print("cam_size", cam_size)
+	#print("cam_pos_normalized", cam_pos_normalized)
+	#print("cam_size_normalized", cam_size_normalized)
+
 func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("red_mask", layers[1].layer_mask.texture)
 	shader.set_shader_parameter("green_mask", layers[2].layer_mask.texture)
@@ -123,7 +150,6 @@ func _set_shader_parameters(shader: ShaderMaterial) -> void:
 	shader.set_shader_parameter("red_temp_masks", $RedLayer/TempMasks.get_texture())
 	shader.set_shader_parameter("green_temp_masks", $GreenLayer/TempMasks.get_texture())
 	shader.set_shader_parameter("blue_temp_masks", $BlueLayer/TempMasks.get_texture())
-
 
 func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2, brush_texture: Texture2D, brush_scale := Vector2(0.5,0.5)) -> void:
 	var updated_rect: Rect2

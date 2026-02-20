@@ -17,6 +17,10 @@ var throwSpeed = 0
 
 @onready var _animated_sprite = $Sprite2D
 
+func ready():
+	CameraController.set_camera_pos_init(global_position)
+	game_manager.player = self
+
 func _process(_delta):
 		_animated_sprite.play("run")
 
@@ -78,15 +82,13 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	#TODO: stop animation
-
 		# Throwing Code
 	process_throwing()
 	if game_manager.current_held._item_type == game_manager.inventory_slot_type.LAMP:
 		game_manager.current_held._obj_ref.position = position
-
 	
+	CameraController.update_cameras_v2(global_position)
 	
-		
 	
 	game_manager.playerx = self.position.x
 	game_manager.playery = self.position.y

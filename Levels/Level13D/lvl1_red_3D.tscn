@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cgl4q6cocsnv2"]
 
-[ext_resource type="PackedScene" uid="uid://bptelscfs2uki" path="res://Art/NeeaFolder/Prefabs/camera_level_player.tscn" id="1_4r1lq"]
+[ext_resource type="PackedScene" uid="uid://5kdxlstoatri" path="res://Art/NeeaFolder/Prefabs/camera_level_player.tscn" id="1_4r1lq"]
 [ext_resource type="PackedScene" uid="uid://cnf554rbpoig4" path="res://Art/NeeaFolder/Prefabs/light_direction_day.tscn" id="1_lv41d"]
-[ext_resource type="PackedScene" uid="uid://hqpboj0traq5" path="res://Art/NeeaFolder/Prefabs/camera_level_mask.tscn" id="1_q0eml"]
 [ext_resource type="PackedScene" uid="uid://1pmpk0u4fafv" path="res://Art/NeeaFolder/Models/mdl_red_floor.tscn" id="3_oeiuo"]
 [ext_resource type="PackedScene" uid="uid://ctplcn6xkth5r" path="res://Art/NeeaFolder/Prefabs/light_red_omni_l.tscn" id="4_4r1lq"]
 [ext_resource type="PackedScene" uid="uid://dhv5i7ehu1lv3" path="res://Art/NeeaFolder/Models/mdl_red_col_pipes.tscn" id="5_nl70c"]
@@ -41,10 +40,9 @@ reflected_light_source = 2
 
 [node name="lvl1_red_3D" type="Node3D" unique_id=2100347933]
 
-[node name="Camera3DMask" parent="." unique_id=731256093 instance=ExtResource("1_q0eml")]
-
 [node name="Camera3DPlayer" parent="." unique_id=673532735 instance=ExtResource("1_4r1lq")]
-visible = false
+keep_aspect = 0
+color = 1
 
 [node name="DirectionalLight3DSun" parent="." unique_id=1162740729 instance=ExtResource("1_lv41d")]
 

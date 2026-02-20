@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://v4pr0muyjo2h"]
 
-[ext_resource type="Shader" uid="uid://c8bo1phlx7wrg" path="res://Art/NeeaFolder/Shaders/shd_mask_erase.gdshader" id="1_0phkh"]
+[ext_resource type="Shader" path="res://Art/NeeaFolder/Shaders/shd_mask_erase.gdshader" id="1_0phkh"]
 
 [resource]
 render_priority = 0
