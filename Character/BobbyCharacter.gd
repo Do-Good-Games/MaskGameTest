@@ -21,8 +21,14 @@ func ready():
 	CameraController.set_camera_pos_init(global_position)
 	game_manager.player = self
 
+
 func _process(_delta):
-		_animated_sprite.play("run")
+	pass
+	#previously we told the anim to play every frame. no longer doing that as Alex added some logic to stop the anim when the player is not moving
+	#if velocity.abs().x + velocity.abs().y > 0.05:
+		#_animated_sprite.play("run")
+	#else:
+		#_animated_sprite.play("idle")
 
 func get_move_input():
 	var input = Vector2()
@@ -34,6 +40,12 @@ func get_move_input():
 		input.y += 1
 	if Input.is_action_pressed('up'):
 		input.y -= 1
+	
+	if input == Vector2.ZERO:
+		_animated_sprite.play("idle_start")
+	else:
+		_animated_sprite.play("run")
+
 	return input
 	
 func process_throwing():

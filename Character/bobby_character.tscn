@@ -7,9 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="5_tmhds"]
 [ext_resource type="PackedScene" uid="uid://cg1hwhuut14st" path="res://Menus/inventoryUI.tscn" id="6_o5ivm"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hmwi"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(0, 512, 512, 512)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_571dv"]
 atlas = ExtResource("3_af2uv")
 region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apfki"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(512, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6kay"]
 atlas = ExtResource("3_af2uv")
@@ -18,14 +26,6 @@ region = Rect2(512, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7fgt"]
 atlas = ExtResource("3_af2uv")
 region = Rect2(1024, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1hmwi"]
-atlas = ExtResource("3_af2uv")
-region = Rect2(0, 512, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apfki"]
-atlas = ExtResource("3_af2uv")
-region = Rect2(512, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yemxu"]
 atlas = ExtResource("3_af2uv")
@@ -41,6 +41,31 @@ region = Rect2(512, 1024, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_equ1u"]
 animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_1hmwi")
+}],
+"loop": true,
+"name": &"idle_frozen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_1hmwi")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_571dv")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_1hmwi")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_apfki")
+}],
+"loop": true,
+"name": &"idle_start",
+"speed": 5.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"new_animation",
@@ -100,7 +125,7 @@ acceleration = 0.5
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1018378448]
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_equ1u")
-animation = &"run"
+animation = &"idle_frozen"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1796897032]
 limit_left = 0
