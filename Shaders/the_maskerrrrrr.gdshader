@@ -15,18 +15,16 @@ uniform vec2 cam_pos = vec2(0.18146, 0.3492);
 uniform vec2 cam_size = vec2(0.762914, 0.6);
 
 void fragment() {
-	//vec2 uv_cam = UV + cam_pos;
-	vec2 uv_cam = UV + cam_pos + (0.5 * cam_size);
-	//vec2 uv_cam = (UV - cam_pos) / cam_size; // moves with player
+	vec2 uv_cam = UV + cam_pos;
 	
 	bool use_cam = false;
 	float red_bonus;
-	float green_bonus;
-	float blue_bonus ;
-	
-	float regular_red;
-	float regular_green;
-	float regular_blue;
+		float green_bonus;
+		float blue_bonus ;
+		
+		float regular_red;
+		float regular_green;
+		float regular_blue;
 	
 	if(true){ //use camera
 		red_bonus = texture(red_temp_masks, uv_cam).a;
@@ -47,14 +45,12 @@ void fragment() {
 		regular_blue = texture(blue_mask, UV).a;
 	}
 	
+	
 	//vec2 cam_pos = vec2(0.944371, 0.958643);
 	//vec2 cam_size = vec2(0.762914, 0.6);
-	
-	//uv_cam = (UV - cam_pos) / cam_size;
-	//uv_cam = UV - cam_pos;
-	//uv_cam = (UV - vec2(0.2, 0.32)) * 1.4;
+
 	//uv_cam = UV;
-	//uv_cam = (UV + cam_pos) * cam_size;
+	//uv_cam = (UV - vec2(0.2, 0.32)) * 1.4;
 	
 	if(false){ // use camera
 		COLOR = vec4(0.0);
