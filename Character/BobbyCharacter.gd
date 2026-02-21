@@ -15,6 +15,11 @@ var curr_held_lamp
 
 var throwSpeed = 0
 
+var _prev_input :Vector2 = Vector2.ZERO
+
+enum anim_state {IDLE, RUNNING, STOPPING, STARTING}
+var _curr_anim_state : anim_state = anim_state.IDLE
+
 @onready var _animated_sprite = $Sprite2D
 
 func ready():
@@ -22,14 +27,20 @@ func ready():
 	game_manager.player = self
 
 
+func play_anim(anim_name: String):
+	print("play_anim() called, animation is", anim_name)
+
+	
+
+var lambda
 func _process(_delta):
+	print(" process ",_animated_sprite.animation, _animated_sprite.is_playing(), _animated_sprite.frame)
 	pass
 	#previously we told the anim to play every frame. no longer doing that as Alex added some logic to stop the anim when the player is not moving
 	#if velocity.abs().x + velocity.abs().y > 0.05:
 		#_animated_sprite.play("run")
 	#else:
 		#_animated_sprite.play("idle")
-
 func get_move_input():
 	var input = Vector2()
 	if Input.is_action_pressed('right'):
@@ -41,11 +52,88 @@ func get_move_input():
 	if Input.is_action_pressed('up'):
 		input.y -= 1
 	
-	if input == Vector2.ZERO:
-		_animated_sprite.play("idle_start")
-	else:
-		_animated_sprite.play("run")
+	# if we're moving
+	if input != Vector2.ZERO:
+		# "but we weren't previously"
+		if _curr_anim_state == anim_state.IDLE or _curr_anim_state == anim_state.STOPPING:
+			print("anim ")
+			print("anim start run", Time.get_ticks_usec())
+			_curr_anim_state = anim_state.STARTING
+			_animated_sprite.play("start_run")
+			_animated_sprite.animation_finished.connect(func(): 
+				print("anim run")
+				_animated_sprite.play(("run"))
+				_curr_anim_state = anim_state.RUNNING
+				, CONNECT_ONE_SHOT)
+				
+	#if we're not moving, but we were previously 
+	elif _prev_input != Vector2.ZERO :
+		print ("anim stop")
+		assert(_curr_anim_state != anim_state.IDLE, "somehow the player stopped moving, but was in idle state")
+		
+		if _curr_anim_state == anim_state.STOPPING:
+			print("anim stopped but in stopping/starting state. stopping anim and breaking immediately")
+			# if we haven't gotten into the full run anim, just cut it off here
+			_animated_sprite.stop()
+			_curr_anim_state = anim_state.IDLE
+			
+		
+		
+		# if the right hand is fully outstretched 
+		if _animated_sprite.frame == 1:
+			print("anim right arm, playing stop anim")
+			#when the current frame changes, switch over to the stop anim
+			_animated_sprite.frame_changed.connect( func(): 
+				print("anim stop anim frame changed")
+				_animated_sprite.stop()
+				_animated_sprite.play("stop_run_right_hand_forward")
+				_curr_anim_state = anim_state.STOPPING
+				_animated_sprite.animation_finished.connect(func():
+					if _curr_anim_state == anim_state.STOPPING:
+						print("anim stop finished, state set to idle")
+						_curr_anim_state = anim_state.IDLE
+					else :
+						print("anim interrupted, state was ", _curr_anim_state)
+					, CONNECT_ONE_SHOT)
+				, CONNECT_ONE_SHOT)
+				
+		# if the left hand is fully outstretched 
+		elif _animated_sprite.frame == 5:
+			print("anim left arm, playing stop anim")
+			_animated_sprite.frame_changed.connect( func(): 
+				_animated_sprite.stop()
+				_animated_sprite.play("stop_run_right_hand_forward")
+				_curr_anim_state = anim_state.STOPPING
+				_animated_sprite.animation_finished.connect(func():
+					if _curr_anim_state == anim_state.STOPPING:
+						print("anim stop finished, state set to idle")
+						_curr_anim_state = anim_state.IDLE
+					else :
+						print("anim interrupted, state was ", _curr_anim_state)
+					, CONNECT_ONE_SHOT)
+				, CONNECT_ONE_SHOT)
+		else:
+			print("anim stopping (most frames)")
+			if _curr_anim_state != anim_state.IDLE:
 
+				#every other frame the run is only partway through or standing still
+				# so in my (Ryan) opinion, it makes more sense to just cut the animation immediately
+				_animated_sprite.frame_changed.connect( func(): 
+					print("anim fully finished stopping")
+					_curr_anim_state = anim_state.IDLE
+					_animated_sprite.stop()
+					_animated_sprite.play("idle_frozen")
+					, CONNECT_ONE_SHOT)
+	
+	_prev_input = input
+		
+		#"and we're not moving now"
+		# but we were previ
+		#print("stop animations")
+		#_animated_sprite.play("stop_run")
+		#_animated_sprite.stop()
+	
+	
 	return input
 	
 func process_throwing():

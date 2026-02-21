@@ -15,10 +15,6 @@ region = Rect2(0, 512, 512, 512)
 atlas = ExtResource("3_af2uv")
 region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_apfki"]
-atlas = ExtResource("3_af2uv")
-region = Rect2(512, 512, 512, 512)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6kay"]
 atlas = ExtResource("3_af2uv")
 region = Rect2(512, 0, 512, 512)
@@ -26,6 +22,10 @@ region = Rect2(512, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7fgt"]
 atlas = ExtResource("3_af2uv")
 region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apfki"]
+atlas = ExtResource("3_af2uv")
+region = Rect2(512, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yemxu"]
 atlas = ExtResource("3_af2uv")
@@ -42,33 +42,11 @@ region = Rect2(512, 1024, 512, 512)
 [sub_resource type="SpriteFrames" id="SpriteFrames_equ1u"]
 animations = [{
 "frames": [{
-"duration": 4.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1hmwi")
 }],
 "loop": true,
 "name": &"idle_frozen",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 4.0,
-"texture": SubResource("AtlasTexture_1hmwi")
-}, {
-"duration": 4.0,
-"texture": SubResource("AtlasTexture_571dv")
-}, {
-"duration": 4.0,
-"texture": SubResource("AtlasTexture_1hmwi")
-}, {
-"duration": 4.0,
-"texture": SubResource("AtlasTexture_apfki")
-}],
-"loop": true,
-"name": &"idle_start",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
 "speed": 5.0
 }, {
 "frames": [{
@@ -99,6 +77,42 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_571dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hmwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apfki")
+}],
+"loop": false,
+"name": &"start_run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apfki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hmwi")
+}],
+"loop": false,
+"name": &"stop_run_left_hand_forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apfki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hmwi")
+}],
+"loop": false,
+"name": &"stop_run_right_hand_forward",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdix"]
@@ -125,7 +139,7 @@ acceleration = 0.5
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1018378448]
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_equ1u")
-animation = &"idle_frozen"
+animation = &"start_run"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1796897032]
 limit_left = 0
