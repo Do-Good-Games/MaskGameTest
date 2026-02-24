@@ -34,21 +34,47 @@ func usePlayer(player:BobbyCharacter):
 	pass
 	
 
-func update_cameras_v2(new_pos_v2: Vector2):
+func update_cameras_v2(new_pos_v2: Vector2,  look_at_target_v2: Vector2 ):
+	
+	#CameraController.update_cameras_v2(camera_2d.offset)
+	
+	var new_pos_v3 : Vector3 = Vector3(new_pos_v2.x * scale_mtp, camera_depth , new_pos_v2.y * scale_mtp)
+	#var look_at
+	var look_at_target_v3 : Vector3 = new_pos_v3
+	look_at_target_v3 =  Vector3(look_at_target_v2.x * scale_mtp, 0 , look_at_target_v2.y * scale_mtp)
+	if look_at_target_v2 != new_pos_v2:
+		print("different")
+	
+	update_cameras_v3(new_pos_v3, look_at_target_v3)
+		
+	#if rect.has_point(new_pos_v2):
+		#print(" found")
+		#CameraController.update_cameras_v2(global_position)
+	#else :
+		#print ("no")
+		
+		
 	#new_pos_v2.
-	update_cameras_v3(Vector3(new_pos_v2.x * scale_mtp, camera_depth , new_pos_v2.y * scale_mtp))
 	#update_cameras_v3(Vector3(new_pos_v2.x * scale_mtp + offset_mtp.x, camera_depth , new_pos_v2.y * scale_mtp + offset_mtp.y))
 	#update_cameras_v3(Vector3(new_pos_v2.x, new_pos_v2.y, camera_depth))
 	pass
 
-func update_cameras_v3(new_pos_v3: Vector3):
+func update_cameras_v3(new_pos_v3: Vector3, look_at_target: Vector3):
 	print("updatingcameras to pos ", str(new_pos_v3))
 	for key in Cameras.keys():
-		print("pos ", str(Cameras[key].global_position))
 		
-		Cameras[key].h_offset = new_pos_v3.x
-		Cameras[key].v_offset = -new_pos_v3.z
 		
+		#if look_at_target != new_pos_v3
+		
+		if new_pos_v3.x != look_at_target.x and new_pos_v3.y != look_at_target.y:
+			print("different")
+			Cameras[key].look_at_from_position( new_pos_v3,look_at_target)
+			#print ("difference ", new_pos_v3, " ", look_at_target)
+			#pass
+		else:
+			print
+			Cameras[key].h_offset = new_pos_v3.x
+			Cameras[key].v_offset = -new_pos_v3.z
 		#RoomManager.current_level.red_mask.
 		
 		#Cameras[key].global_position = new_pos_v3

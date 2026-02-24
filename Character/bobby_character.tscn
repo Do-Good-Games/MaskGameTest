@@ -103,10 +103,10 @@ sprite_frames = SubResource("SpriteFrames_equ1u")
 animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1796897032]
-limit_left = 0
-limit_top = 0
-limit_right = 1152
-limit_bottom = 648
+limit_left = -864
+limit_top = -486
+limit_right = 864
+limit_bottom = 486
 
 [node name="GrabArea" type="Area2D" parent="." unique_id=896937632 groups=["Grab"]]
 visible = false

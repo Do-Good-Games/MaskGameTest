@@ -104,7 +104,10 @@ func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
 		_set_shader_parameters_per_frame(composite_visuals.material)
 		composite_visuals.global_rotation = 0
-		composite_visuals.position = $BobbyCharacter.position
+		#var offset : Vector2 = Vector2(get_viewport().get_visible_rect().size.x , get_viewport().get_visible_rect().size.y)
+		var offset : Vector2 = Vector2.ZERO
+		#print("offset is ", offset)
+		composite_visuals.position = $BobbyCharacter.position - offset /2
 
 
 func _set_collision_textures() -> void:

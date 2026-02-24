@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d37h2kyha17p4" path="res://Levels/Level1/lvl1_red_haz.png" id="12_ubq2l"]
 [ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/less_evil_brush.tres" id="15_hlseg"]
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="16_3nsc0"]
-[ext_resource type="PackedScene" uid="uid://coqhikko6ph8v" path="res://LayerMasking/layer_cleaned.tscn" id="17_a38lc"]
+[ext_resource type="PackedScene" uid="uid://cpbird1x7ojdl" path="res://LayerMasking/layer_cleaned.tscn" id="17_a38lc"]
 [ext_resource type="PackedScene" uid="uid://cgl4q6cocsnv2" path="res://Levels/Level13D/lvl1_red_3D.tscn" id="18_uneus"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="19_sy5k4"]
 [ext_resource type="PackedScene" uid="uid://c2xu730ltbvrs" path="res://Levels/Level13D/lvl1_blue_3D.tscn" id="21_ge1o1"]
@@ -253,7 +253,7 @@ debug_brush = ExtResource("15_hlseg")
 metadata/_edit_lock_ = true
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("16_3nsc0")]
-position = Vector2(2, 5)
+position = Vector2(72, 240)
 
 [node name="RedLayer" parent="." unique_id=1461014223 instance=ExtResource("17_a38lc")]
 visible = false
@@ -334,6 +334,7 @@ texture = SubResource("GradientTexture2D_nplaj")
 [node name="Hazard" parent="." unique_id=2146344563 node_paths=PackedStringArray("collision_object") instance=ExtResource("25_2mw4j")]
 rect_size = Vector2(500, 500)
 collision_object = NodePath("Area2D")
+metadata/_edit_lock_ = true
 
 [node name="SubViewport" parent="Hazard" index="0" unique_id=1472265480]
 size = Vector2i(1510, 1080)
@@ -344,9 +345,11 @@ texture = SubResource("GradientTexture2D_8cs8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1040300366]
 shape = SubResource("CircleShape2D_3wkli")
+metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="Hazard" unique_id=543164836]
 script = SubResource("GDScript_3wkli")
+metadata/_edit_lock_ = true
 
 [node name="CollisionRedrawTimer" type="Timer" parent="." unique_id=707728349]
 process_callback = 0

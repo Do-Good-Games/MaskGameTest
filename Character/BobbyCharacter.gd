@@ -16,6 +16,7 @@ var curr_held_lamp
 var throwSpeed = 0
 
 @onready var _animated_sprite = $Sprite2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 func ready():
 	CameraController.set_camera_pos_init(global_position)
@@ -87,7 +88,20 @@ func _physics_process(delta):
 	if game_manager.current_held._item_type == game_manager.inventory_slot_type.LAMP:
 		game_manager.current_held._obj_ref.position = position
 	
-	CameraController.update_cameras_v2(global_position)
+	var rect = Rect2(0,0, camera_2d.limit_right * 2, camera_2d.limit_bottom * 2)
+	#CameraController.update_cameras_v2(camera_2d.offset)
+	var look_at : Vector2 = position
+	look_at.x = clamp(position.x, camera_2d.limit_left, camera_2d.limit_right)
+	#print(" pos", position.x," ", camera_2d.limit_left," ", camera_2d.limit_right)
+	look_at.y = clamp(position.y, camera_2d.limit_top, camera_2d.limit_bottom)
+	
+	CameraController.update_cameras_v2(global_position, look_at)
+	#
+	#if rect.has_point(position):
+		#print(" found")
+	#else :
+		#print ("no")
+		
 	
 	
 	game_manager.playerx = self.position.x
