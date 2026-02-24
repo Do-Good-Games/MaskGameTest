@@ -66,7 +66,7 @@ class color_texture_map:
 @export var debug_brush_scale := Vector2(0.5, 0.5)
 var debug_selected_layer: game_manager.color_enum
 
-@onready var composite_visuals: Sprite2D = $CompositeVisuals
+@onready var composite_visuals: Sprite2D = %CompositeVisuals
 
 var textures_map : Dictionary[game_manager.color_enum, color_texture_map] ={
 	game_manager.color_enum.RED: color_texture_map.new("Masks", red_mask),
@@ -103,6 +103,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
 		_set_shader_parameters_per_frame(composite_visuals.material)
+		composite_visuals.global_rotation = 0
+		composite_visuals.position = $BobbyCharacter.position
+
 
 func _set_collision_textures() -> void:
 	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
