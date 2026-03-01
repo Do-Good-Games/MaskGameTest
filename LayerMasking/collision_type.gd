@@ -1,3 +1,4 @@
+@tool
 class_name CollisionType extends Node2D
  
 @export var rect_size := Vector2(1000, 1000)
@@ -10,6 +11,8 @@ class_name CollisionType extends Node2D
 var image: Image
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
 	await RenderingServer.frame_post_draw 
 	await RenderingServer.frame_post_draw 
 	update_image()

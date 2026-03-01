@@ -45,7 +45,7 @@ class color_texture_map:
 
 #@export var textures_map : Dictionary [String, Dictionary[game_manager.color_enum, Texture2D]]
 
-
+@export_tool_button("Update Preview") var preview_updater := _setup_references
 @export_category("Masks")
 @export var red_mask: Texture2D
 @export var green_mask: Texture2D
@@ -66,6 +66,7 @@ class color_texture_map:
 @export var debug_brush_scale := Vector2(0.5, 0.5)
 var debug_selected_layer: game_manager.color_enum
 
+
 @onready var composite_visuals: Sprite2D = %CompositeVisuals
 
 var textures_map : Dictionary[game_manager.color_enum, color_texture_map] ={
@@ -81,24 +82,27 @@ func _ready() -> void:
 	#var brush_image_texture: ImageTexture = ImageTexture.new()
 	#brush_image_texture.create_from_image(brush_image)
 	#debug_brush = brush_image_texture
+	_setup_references()
 	
+
+func _setup_references() -> void:
+	_set_collision_textures()
+	_set_shader_parameters(composite_visuals.material)
+	for collision_type in collision_types:
+		_set_shader_parameters(collision_type.mask.material)
+	print("hello")
 	
 	layers[0] = null
 	layers[1] = red_layer
 	layers[2] = green_layer
 	layers[3] = blue_layer
+
 	layers[1].layer_mask.register_texture(red_mask)
 	layers[2].layer_mask.register_texture(green_mask)
 	layers[3].layer_mask.register_texture(blue_mask)
-	
+
 	collision_types[0] = collision
 	collision_types[1] = hazard
-	
-	_set_shader_parameters(composite_visuals.material)
-	for collision_type in collision_types:
-		_set_shader_parameters(collision_type.mask.material)
-	
-	_set_collision_textures()
 
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
@@ -111,6 +115,7 @@ func _process(delta: float) -> void:
 
 
 func _set_collision_textures() -> void:
+	print($Collision.mask)
 	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
 		"red_texture", red_collision
 	)
@@ -121,14 +126,36 @@ func _set_collision_textures() -> void:
 		"blue_texture", blue_collision
 	)
 	
+	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
+		"red_mask", red_mask
+	)
+	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
+		"green_mask", green_mask
+	)
+	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
+		"blue_mask", blue_mask
+	)
+	
+	print($Hazard.mask.material)
 	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
 		"red_texture", red_hazard
 	)
+	print($Hazard.mask.material.get_shader_parameter("red_texture"))
 	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
 		"green_texture", green_hazard
 	)
 	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
 		"blue_texture", blue_hazard
+	)
+	
+	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
+		"red_mask", red_mask
+	)
+	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
+		"green_mask", green_mask
+	)
+	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
+		"blue_mask", blue_mask
 	)
 
 func _set_shader_parameters_per_frame(shader: ShaderMaterial) -> void:

@@ -1,3 +1,4 @@
+@tool
 class_name LayerMask extends Sprite2D
 
 
