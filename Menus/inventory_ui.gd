@@ -45,6 +45,7 @@ func _set_icon(new_index: int, icon: TextureRect, is_center : bool = false):
 	var item : game_manager.InventorySlot = game_manager.collected_items[new_index]
 	icon.texture = imageMap.get(item._item_type )
 	icon.modulate = colorMap.get(item._color) #error
+	icon.visible = true
 	
 	
 	
