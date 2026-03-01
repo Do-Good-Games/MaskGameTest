@@ -15,6 +15,9 @@ var collision_types: Array[CollisionType] = [null, null]
 #@onready var Camera: Camera3D = $Camera3D
 
 @onready var level_size : SubViewport = $RedLayer/LevelVisual
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
+
+var song_index: int = 0
 
 #region Tooltip
 # Ok everything you need is pretty much here, alpha values on all the 
@@ -93,8 +96,6 @@ func _setup_references() -> void:
 	layers[2] = green_layer
 	layers[3] = blue_layer
 	
-	
-	
 	if not Engine.is_editor_hint():
 		layers[1].layer_mask.register_texture(red_mask)
 		layers[2].layer_mask.register_texture(green_mask)
@@ -106,6 +107,29 @@ func _setup_references() -> void:
 	
 	for collision_type in collision_types:
 		_set_shader_parameters(collision_type.mask.material)
+
+
+func choose_song_by_position(pos: Vector2) -> void:
+	for i in range(1,4):
+		var stream: AudioStreamSynchronized = music_player.stream
+		if not stream:
+			return
+		if layers[i].layer_mask.contains_point(pos):
+			song_index = i-1
+
+
+func _physics_process(delta: float) -> void:
+	choose_song_by_position($BobbyCharacter.global_position)
+	var sync_stream: AudioStreamSynchronized = music_player.stream
+	for i in range(3):
+		var volume: float = sync_stream.get_sync_stream_volume(i)
+		if i == song_index:
+			var new_volume := move_toward(volume, 0.0, 1.0)
+			sync_stream.set_sync_stream_volume(i, new_volume)
+		else:
+			var new_volume := move_toward(volume, -30.0, 1.0)
+			sync_stream.set_sync_stream_volume(i, new_volume)
+
 
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
