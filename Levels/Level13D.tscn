@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ihvarnr3wy2m" path="res://Levels/Level13D/lvl1_blue_haz_3D.png" id="14_nplaj"]
 [ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/less_evil_brush.tres" id="15_hlseg"]
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="16_3nsc0"]
-[ext_resource type="PackedScene" uid="uid://coqhikko6ph8v" path="res://LayerMasking/layer_cleaned.tscn" id="17_a38lc"]
+[ext_resource type="PackedScene" uid="uid://cpbird1x7ojdl" path="res://LayerMasking/layer_cleaned.tscn" id="17_a38lc"]
 [ext_resource type="PackedScene" uid="uid://cgl4q6cocsnv2" path="res://Levels/Level13D/lvl1_red_3D.tscn" id="18_uneus"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="19_sy5k4"]
 [ext_resource type="PackedScene" uid="uid://c2xu730ltbvrs" path="res://Levels/Level13D/lvl1_blue_3D.tscn" id="21_ge1o1"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bd8f2de4rd08m" path="res://Levels/Level0/Lvl0_green_mask.png" id="23_hpsve"]
 [ext_resource type="Texture2D" uid="uid://cg12j6qoyk4gg" path="res://Levels/Level0/Lvl0_red_mask.png" id="24_wha8l"]
 [ext_resource type="PackedScene" uid="uid://2jpgujndi0u3" path="res://LayerMasking/collision_type.tscn" id="25_2mw4j"]
+[ext_resource type="AudioStream" uid="uid://bhyghsfbq5m18" path="res://Audio/Music/SyncedMusic.tres" id="29_hbkoq"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwkd2"]
 
@@ -56,25 +57,25 @@ shader_parameter/blue_temp_masks = SubResource("ViewportTexture_rwkd2")
 shader_parameter/cam_pos = Vector2(0, 0)
 shader_parameter/cam_size = Vector2(0, 0)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ge1o1"]
-viewport_path = NodePath("LevelVisual")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_hbkoq"]
-viewport_path = NodePath("LevelVisual")
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_uneus"]
 viewport_path = NodePath("LevelVisual")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_t46fu"]
-viewport_path = NodePath("BlueLayer/TempMasks")
+viewport_path = NodePath("LevelVisual")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n8vq3"]
-viewport_path = NodePath("GreenLayer/TempMasks")
+viewport_path = NodePath("LevelVisual")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_nplaj"]
+viewport_path = NodePath("BlueLayer/TempMasks")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0m4bb"]
+viewport_path = NodePath("GreenLayer/TempMasks")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o6qit"]
 viewport_path = NodePath("RedLayer/TempMasks")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0m4bb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1k1g5"]
 resource_local_to_scene = true
 shader = ExtResource("1_ge1o1")
 shader_parameter/red_texture = ExtResource("9_ge1o1")
@@ -83,21 +84,21 @@ shader_parameter/green_texture = ExtResource("10_hbkoq")
 shader_parameter/green_mask = ExtResource("7_0m4bb")
 shader_parameter/blue_texture = ExtResource("11_uneus")
 shader_parameter/blue_mask = ExtResource("8_o6qit")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_nplaj")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_n8vq3")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_t46fu")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_o6qit")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_0m4bb")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_nplaj")
 shader_parameter/cam_pos = Vector2(0, 0)
 shader_parameter/cam_size = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_ir1ia"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_o6qit"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sbtpj"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_ir1ia")
 width = 1510
 height = 1080
 
-[sub_resource type="Shader" id="Shader_1k1g5"]
+[sub_resource type="Shader" id="Shader_cot6j"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 uniform sampler2D red_texture;
@@ -131,18 +132,18 @@ void fragment() {
 //}
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbtpj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubq2l"]
 resource_local_to_scene = true
-shader = SubResource("Shader_1k1g5")
+shader = SubResource("Shader_cot6j")
 shader_parameter/red_texture = ExtResource("12_t46fu")
 shader_parameter/red_mask = ExtResource("6_nplaj")
 shader_parameter/green_texture = ExtResource("13_n8vq3")
 shader_parameter/green_mask = ExtResource("7_0m4bb")
 shader_parameter/blue_texture = ExtResource("14_nplaj")
 shader_parameter/blue_mask = ExtResource("8_o6qit")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_nplaj")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_n8vq3")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_t46fu")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_o6qit")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_0m4bb")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_nplaj")
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cs8j"]
 gradient = SubResource("Gradient_ir1ia")
@@ -245,7 +246,7 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Red3D" parent="RedLayer/LevelVisual" index="0" unique_id=2100347933 instance=ExtResource("18_uneus")]
 
 [node name="3D Scene goes here!" parent="RedLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_ge1o1")
+texture = SubResource("ViewportTexture_uneus")
 
 [node name="TempMasks" parent="RedLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
@@ -269,7 +270,7 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Green3D" parent="GreenLayer/LevelVisual" index="0" unique_id=1579892656 instance=ExtResource("21_t46fu")]
 
 [node name="3D Scene goes here!" parent="GreenLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_hbkoq")
+texture = SubResource("ViewportTexture_t46fu")
 
 [node name="TempMasks" parent="GreenLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
@@ -288,7 +289,7 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Blue3D" parent="BlueLayer/LevelVisual" index="0" unique_id=1544323911 instance=ExtResource("21_ge1o1")]
 
 [node name="3D Scene goes here!" parent="BlueLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_uneus")
+texture = SubResource("ViewportTexture_n8vq3")
 
 [node name="TempMasks" parent="BlueLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
@@ -302,8 +303,8 @@ collision_object = NodePath("StaticBody2D")
 size = Vector2i(1510, 1080)
 
 [node name="CollisionMask" parent="Collision/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_0m4bb")
-texture = SubResource("GradientTexture2D_o6qit")
+material = SubResource("ShaderMaterial_1k1g5")
+texture = SubResource("GradientTexture2D_sbtpj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collision" unique_id=1968060419]
 
@@ -316,7 +317,7 @@ metadata/_edit_lock_ = true
 size = Vector2i(1510, 1080)
 
 [node name="CollisionMask" parent="Hazard/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_sbtpj")
+material = SubResource("ShaderMaterial_ubq2l")
 texture = SubResource("GradientTexture2D_8cs8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1040300366]
@@ -348,6 +349,10 @@ modulate = Color(0.8413499, 0, 0.21577135, 1)
 self_modulate = Color(1, 1, 1, 0.80784315)
 texture = SubResource("ViewportTexture_a38lc")
 metadata/_edit_lock_ = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1836167931]
+stream = ExtResource("29_hbkoq")
+autoplay = true
 
 [connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]

@@ -125,6 +125,7 @@ func _physics_process(delta: float) -> void:
 		var volume: float = sync_stream.get_sync_stream_volume(i)
 		if i == song_index:
 			var new_volume := move_toward(volume, 0.0, 1.0)
+			print(new_volume)
 			sync_stream.set_sync_stream_volume(i, new_volume)
 		else:
 			var new_volume := move_toward(volume, -30.0, 1.0)

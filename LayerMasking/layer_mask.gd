@@ -93,4 +93,4 @@ func erase_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scal
 
 
 func contains_point(point: Vector2) -> bool:
-	return img.get_pixelv(point).a > 0
+	return img.get_pixelv(point + img.get_size()/2.0).a > 0
