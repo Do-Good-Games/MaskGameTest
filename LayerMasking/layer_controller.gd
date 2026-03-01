@@ -87,7 +87,6 @@ func _ready() -> void:
 	#brush_image_texture.create_from_image(brush_image)
 	#debug_brush = brush_image_texture
 	_setup_references()
-	add_temp_mask(GameManager.color_enum.RED, $RedLayer/TempMasks/Sprite2D)
 	
 
 func _setup_references() -> void:

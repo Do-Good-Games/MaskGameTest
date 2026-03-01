@@ -11,6 +11,15 @@ var scale_mtp = 40.0 / 1510.0 # convert 2D pixel to 3D world coordinates
 
 var Cameras : Dictionary[GameManager.color_enum, Camera3D]
 
+
+func _ready() -> void:
+	RoomManager.scene_freed.connect(_on_scene_freed.unbind(1))
+
+
+func _on_scene_freed() -> void:
+	Cameras.clear()
+
+
 func set_camera_pos_init(new_pos_v2: Vector2):
 	
 	var new_pos_v3 = (Vector3(new_pos_v2.x * scale_mtp, camera_depth , new_pos_v2.y * scale_mtp))
@@ -56,7 +65,8 @@ func update_cameras_v2(new_pos_v2: Vector2,  look_at_target_v2: Vector2 ):
 func update_cameras_v3(new_pos_v3: Vector3, look_at_target: Vector3):
 	#print("updatingcameras to pos ", str(new_pos_v3))
 	for key in Cameras.keys():
-		
+		if not is_instance_valid(Cameras[key]):
+			continue
 		
 		#if look_at_target != new_pos_v3
 		Cameras[key].h_offset = new_pos_v3.x
