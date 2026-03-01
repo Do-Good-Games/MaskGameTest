@@ -47,6 +47,10 @@ func activate_grab() -> void:
 	deactivate()
 
 func activate_gravity(delta: float) -> void:
+	var parent = get_parent()
+	if parent is Lamp2D:
+		if parent.fresh_lantern:
+			return
 	goingToPlayer = true
 
 func _on_body_entered(body: Node2D) -> void:
