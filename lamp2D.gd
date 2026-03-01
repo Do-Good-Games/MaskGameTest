@@ -6,6 +6,8 @@ class_name Lamp2D extends CharacterBody2D
 @onready var throwable: CharacterBody2D = $Throwable
 @onready var brush_template: Sprite2D = $Brush
 @onready var brush_scale : float = 2
+@onready var light_range: CollisionShape2D = %LightRange
+
 
 ##Fiona Lantern Logic Tweaks
 @onready var fresh_lantern = true
@@ -43,13 +45,15 @@ func draw_lantern():
 	var sprite : Sprite2D = self.brush_template.duplicate()
 	var gradientTex : GradientTexture2D = sprite.texture
 	sprite.scale = sprite.scale * self.brush_scale
+	light_range.scale *= self.brush_scale
 	sprite.visible = true
+	light_range.disabled = false
 	#sprite.scale = sprite.scale.height * lamp.brush_scale
 	#sprite.texture.resize(sprite.texture.get_width() * lamp.brush_scale, sprite.texture.get_height() * lamp.brush_scale)
 	
 	if not RoomManager.current_level:
 		await RoomManager.level_ready
-	brush = RoomManager.current_level.add_temp_mask(color, sprite )
+	brush = RoomManager.current_level.add_temp_mask(color, sprite, light_range )
 	
 	#freshness checker statement. 
 	#Lamp starts off as FRESH & UNLIT in level
@@ -63,15 +67,18 @@ func _physics_process(delta: float) -> void:
 	
 	if brush:
 		brush.position = position
+		light_range.global_position = global_position
 	move_and_slide()
 
 func turn_off_lamp():
 	glow.energy = 0
 	brush.visible = false
+	light_range.disabled = true
 
 func turn_on_lamp():
 	glow.energy = max_glow
 	brush.visible = true
+	light_range.disabled = false
 
 func receive_collected(obj_ref: Node):
 	print("lamp received collected signal")

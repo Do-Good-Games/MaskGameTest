@@ -1,14 +1,17 @@
-[gd_scene format=3 uid="uid://d3x2yq2ogpn0o"]
+[gd_scene format=3 uid="uid://by11em6ijb4bg"]
 
 [ext_resource type="Script" uid="uid://bjxb5mh7wy8cc" path="res://lamp2D.gd" id="1_a0k4x"]
 [ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_30ch0"]
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="3_ka7lb"]
-[ext_resource type="PackedScene" uid="uid://b3tm1bpk3jg16" path="res://Objects/generallamp.tscn" id="5_aycsj"]
+[ext_resource type="PackedScene" path="res://Objects/generallamp.tscn" id="5_aycsj"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="5_ka7lb"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="6_5ecer"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5ecer"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aycsj"]
+radius = 105.0
 
 [node name="Lamp2D" type="CharacterBody2D" unique_id=835076901]
 script = ExtResource("1_a0k4x")
@@ -35,7 +38,6 @@ transparent_bg = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Brush" type="Sprite2D" parent="." unique_id=1462762110]
-visible = false
 texture = ExtResource("5_ka7lb")
 centered = false
 offset = Vector2(125, 15)
@@ -45,3 +47,9 @@ position = Vector2(64, -64)
 target_position = Vector2(50, -50)
 epsilon = 1
 frequency = 0.2
+
+[node name="RangeHolder" type="Node2D" parent="." unique_id=42266780]
+
+[node name="LightRange" type="CollisionShape2D" parent="RangeHolder" unique_id=1374296739]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_aycsj")
