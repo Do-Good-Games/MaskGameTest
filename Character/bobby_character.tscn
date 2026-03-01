@@ -103,7 +103,6 @@ sprite_frames = SubResource("SpriteFrames_equ1u")
 animation = &"run"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1796897032]
-limit_enabled = false
 limit_left = -864
 limit_top = -486
 limit_right = 864
