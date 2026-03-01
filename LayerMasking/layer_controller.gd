@@ -87,7 +87,6 @@ func _ready() -> void:
 	#brush_image_texture.create_from_image(brush_image)
 	#debug_brush = brush_image_texture
 	_setup_references()
-	add_temp_mask(GameManager.color_enum.RED, $RedLayer/TempMasks/Sprite2D)
 	
 
 func _setup_references() -> void:
@@ -110,20 +109,19 @@ func _setup_references() -> void:
 	for collision_type in collision_types:
 		_set_shader_parameters(collision_type.mask.material)
 
+## Use this for lamps!!
+func what_layer_is_body_in(body: PhysicsBody2D) -> GameManager.color_enum:
+	for i in range(1,4):
+		if layers[i].layer_area.get_overlapping_bodies().has(body):
+			return i as GameManager.color_enum
+	return what_layer_contains_point(body.global_position)
 
-## Remember that layer 0 is null!
+
 func what_layer_contains_point(pos: Vector2) -> GameManager.color_enum:
 	for i in range(1,4):
-		if not temp_masks_by_layer.has(layers[i]):
-			continue
-		for mask: Node2D in temp_masks_by_layer[layers[i]]:
-			#check temp mask
-			pass
-	for i in range(1,4):
 		if layers[i].layer_mask.contains_point(pos):
-			return i
-	
-	return 0
+			return i as GameManager.color_enum
+	return GameManager.color_enum.NONE
 
 
 func choose_song_by_position(pos: Vector2) -> void:
@@ -133,7 +131,7 @@ func choose_song_by_position(pos: Vector2) -> void:
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
-	choose_song_by_position($BobbyCharacter.global_position)
+	song_index = what_layer_is_body_in($BobbyCharacter) - 1
 	var sync_stream: AudioStreamSynchronized = music_player.stream
 	for i in range(3):
 		var volume: float = sync_stream.get_sync_stream_volume(i)
@@ -239,15 +237,18 @@ func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2,
 		#collision_type.handle_rect_update(updated_rect)
 
 
-func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D , scale: float = 1) -> Node2D:
+func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D, shape: CollisionShape2D, scale: float = 1) -> Node2D:
 	var layer: Layer = layers[layer_name]
 	
 	if mask.get_parent() != null:
 		mask.get_parent().remove_child(mask)
+	if shape.get_parent() != null:
+		shape.get_parent().remove_child(shape)
 	layer.temp_masks.add_child(mask)
-	if mask is Sprite2D:
-		var mask_list: Array = temp_masks_by_layer.get_or_add(layer, [])
-		mask_list.append(mask)
+	layer.layer_area.add_child(shape)
+	#if mask is Sprite2D:
+		#var mask_list: Array = temp_masks_by_layer.get_or_add(layer, [])
+		#mask_list.append(mask)
 	return mask
 
 
