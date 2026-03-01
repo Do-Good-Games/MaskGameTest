@@ -28,7 +28,7 @@ signal held_changed(new_index : int)
 
 var current_held : InventorySlot = InventorySlot.new(inventory_slot_type.NONE, color_enum.NONE, 0, Node.new())
 
-
+var HUD_Controller: HUDController
 
 var collected_items: Array[InventorySlot] = [current_held]
 

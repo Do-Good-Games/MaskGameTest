@@ -55,6 +55,11 @@ func activate_gravity(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Player")):
+		
+		var parent = get_parent()
+		if parent is Lamp2D:
+			if parent.fresh_lantern:
+				game_manager.HUD_Controller._show_flavor_text("Press Right Click to Pick up Lamp")
 		print("we hit the player group")
 		#self.queue_free()
 

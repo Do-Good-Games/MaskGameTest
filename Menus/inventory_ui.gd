@@ -1,4 +1,4 @@
-extends Control
+class_name HUDController extends Control
 @onready var left_item_icon: TextureRect = $"CanvasLayer/Inventory/Left Item/MarginContainer/Panel/MarginContainer/Left Item Icon"
 @onready var center_item_icon :TextureRect = $"CanvasLayer/Inventory/Center Item/CenterItemPanel/MarginContainer/Center Item Icon"
 @onready var right_item_icon: TextureRect = $"CanvasLayer/Inventory/Right Item/MarginContainer/Panel/MarginContainer/Right Item Icon"
@@ -10,7 +10,11 @@ extends Control
 @export var imageMap :Dictionary[GameManager.inventory_slot_type, Texture2D]
 @export var colorMap :Dictionary[GameManager.color_enum, Color]
 
+@onready var flavor_text_label: RichTextLabel = $CanvasLayer/FlavorTextLabel
+
+
 func _ready() -> void:
+	game_manager.HUD_Controller = self
 	game_manager.held_changed.connect(update_icons)
 	
 func update_icons(new_index:int):
@@ -40,7 +44,10 @@ func update_icons(new_index:int):
 		push_error("ERROR: you somehow have an inventory less than or equal to zero. did you somehow throw away your hand?")
 		#this shouldn't happen
 		
-	
+
+func _show_flavor_text(newText: String):
+	print("showing flavor text ", newText)
+
 func _set_icon(new_index: int, icon: TextureRect, is_center : bool = false):
 	var item : game_manager.InventorySlot = game_manager.collected_items[new_index]
 	icon.texture = imageMap.get(item._item_type )
