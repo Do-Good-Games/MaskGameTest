@@ -65,16 +65,16 @@ func update_cameras_v3(new_pos_v3: Vector3, look_at_target: Vector3):
 		
 		
 		#if look_at_target != new_pos_v3
+		Cameras[key].h_offset = new_pos_v3.x
+		Cameras[key].v_offset = -new_pos_v3.z
 		
-		if new_pos_v3.x != look_at_target.x and new_pos_v3.y != look_at_target.y:
-			print("different")
-			Cameras[key].look_at_from_position( new_pos_v3,look_at_target)
-			#print ("difference ", new_pos_v3, " ", look_at_target)
-			#pass
-		else:
-			print
-			Cameras[key].h_offset = new_pos_v3.x
-			Cameras[key].v_offset = -new_pos_v3.z
+		#if new_pos_v3.x != look_at_target.x and new_pos_v3.y != look_at_target.y:
+			#print("different")
+			#Cameras[key].look_at_from_position( new_pos_v3,look_at_target)
+			##print ("difference ", new_pos_v3, " ", look_at_target)
+			##pass
+		#else:
+			#print
 		#RoomManager.current_level.red_mask.
 		
 		#Cameras[key].global_position = new_pos_v3

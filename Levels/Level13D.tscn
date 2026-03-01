@@ -56,25 +56,25 @@ shader_parameter/blue_temp_masks = SubResource("ViewportTexture_rwkd2")
 shader_parameter/cam_pos = Vector2(0, 0)
 shader_parameter/cam_size = Vector2(0, 0)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ge1o1"]
+viewport_path = NodePath("LevelVisual")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hbkoq"]
+viewport_path = NodePath("LevelVisual")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uneus"]
+viewport_path = NodePath("LevelVisual")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_t46fu"]
-viewport_path = NodePath("LevelVisual")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_n8vq3"]
-viewport_path = NodePath("LevelVisual")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_nplaj"]
-viewport_path = NodePath("LevelVisual")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_0m4bb"]
 viewport_path = NodePath("../BlueLayer/TempMasks")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_o6qit"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_n8vq3"]
 viewport_path = NodePath("../GreenLayer/TempMasks")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1k1g5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nplaj"]
 viewport_path = NodePath("../RedLayer/TempMasks")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbtpj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0m4bb"]
 resource_local_to_scene = true
 shader = ExtResource("1_ge1o1")
 shader_parameter/red_texture = ExtResource("9_t46fu")
@@ -83,21 +83,21 @@ shader_parameter/green_texture = ExtResource("10_n8vq3")
 shader_parameter/green_mask = ExtResource("7_lllj0")
 shader_parameter/blue_texture = ExtResource("11_nplaj")
 shader_parameter/blue_mask = ExtResource("8_ge1o1")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_1k1g5")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_o6qit")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_0m4bb")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_nplaj")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_n8vq3")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_t46fu")
 shader_parameter/cam_pos = Vector2(0, 0)
 shader_parameter/cam_size = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_ir1ia"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cot6j"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o6qit"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_ir1ia")
 width = 1510
 height = 1080
 
-[sub_resource type="Shader" id="Shader_ubq2l"]
+[sub_resource type="Shader" id="Shader_1k1g5"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 uniform sampler2D red_texture;
@@ -131,27 +131,27 @@ void fragment() {
 //}
 "
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ge1o1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sbtpj"]
 viewport_path = NodePath("../BlueLayer/TempMasks")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hbkoq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cot6j"]
 viewport_path = NodePath("../GreenLayer/TempMasks")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_uneus"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lqpna"]
 viewport_path = NodePath("../RedLayer/TempMasks")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nsc0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5e0b"]
 resource_local_to_scene = true
-shader = SubResource("Shader_ubq2l")
+shader = SubResource("Shader_1k1g5")
 shader_parameter/red_texture = ExtResource("12_ubq2l")
 shader_parameter/red_mask = ExtResource("6_2b3u7")
 shader_parameter/green_texture = ExtResource("13_0m4bb")
 shader_parameter/green_mask = ExtResource("7_lllj0")
 shader_parameter/blue_texture = ExtResource("14_o6qit")
 shader_parameter/blue_mask = ExtResource("8_ge1o1")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_uneus")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_hbkoq")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_ge1o1")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_lqpna")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_cot6j")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_sbtpj")
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cs8j"]
 gradient = SubResource("Gradient_ir1ia")
@@ -236,7 +236,7 @@ metadata/_edit_lock_ = true
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("16_3nsc0")]
 z_index = 5
-position = Vector2(2165.0002, 527)
+position = Vector2(30.000061, 234.00006)
 scale = Vector2(0.49999383, 0.49999383)
 upper_left_cam_bound = Vector2(-864, -468)
 lower_right_cam_bound = Vector2(864, 468)
@@ -254,7 +254,7 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Red3D" parent="RedLayer/LevelVisual" index="0" unique_id=2100347933 instance=ExtResource("18_uneus")]
 
 [node name="3D Scene goes here!" parent="RedLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_t46fu")
+texture = SubResource("ViewportTexture_ge1o1")
 
 [node name="TempMasks" parent="RedLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
@@ -278,7 +278,7 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Green3D" parent="GreenLayer/LevelVisual" index="0" unique_id=1579892656 instance=ExtResource("21_t46fu")]
 
 [node name="3D Scene goes here!" parent="GreenLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_n8vq3")
+texture = SubResource("ViewportTexture_hbkoq")
 
 [node name="TempMasks" parent="GreenLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
@@ -297,7 +297,7 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Blue3D" parent="BlueLayer/LevelVisual" index="0" unique_id=1544323911 instance=ExtResource("21_ge1o1")]
 
 [node name="3D Scene goes here!" parent="BlueLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_nplaj")
+texture = SubResource("ViewportTexture_uneus")
 
 [node name="TempMasks" parent="BlueLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
@@ -311,8 +311,8 @@ collision_object = NodePath("StaticBody2D")
 size = Vector2i(1510, 1080)
 
 [node name="CollisionMask" parent="Collision/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_sbtpj")
-texture = SubResource("GradientTexture2D_cot6j")
+material = SubResource("ShaderMaterial_0m4bb")
+texture = SubResource("GradientTexture2D_o6qit")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collision" unique_id=1968060419]
 
@@ -325,7 +325,7 @@ metadata/_edit_lock_ = true
 size = Vector2i(1510, 1080)
 
 [node name="CollisionMask" parent="Hazard/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_3nsc0")
+material = SubResource("ShaderMaterial_t5e0b")
 texture = SubResource("GradientTexture2D_8cs8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1040300366]
@@ -345,7 +345,6 @@ unique_name_in_owner = true
 z_index = -1
 material = SubResource("ShaderMaterial_b8h2f")
 texture = SubResource("GradientTexture2D_rwkd2")
-metadata/_edit_lock_ = true
 
 [node name="CollisionPreview" type="Sprite2D" parent="." unique_id=1788312755]
 texture = SubResource("ViewportTexture_ubq2l")
