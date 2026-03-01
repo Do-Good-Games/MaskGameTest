@@ -3,11 +3,9 @@
 [ext_resource type="Script" uid="uid://bjxb5mh7wy8cc" path="res://lamp2D.gd" id="1_inuhc"]
 [ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_30ch0"]
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="3_ka7lb"]
-[ext_resource type="PackedScene" uid="uid://b3tm1bpk3jg16" path="res://Objects/redlamp.tscn" id="5_5ecer"]
+[ext_resource type="PackedScene" uid="uid://b3tm1bpk3jg16" path="res://Objects/generallamp.tscn" id="5_5ecer"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="5_ka7lb"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="6_5ecer"]
-[ext_resource type="PackedScene" uid="uid://bc7vaqtwe5vb1" path="res://Objects/bluelamp.tscn" id="6_wh4vn"]
-[ext_resource type="PackedScene" uid="uid://bwhcvniyybb2k" path="res://Objects/greenlamp.tscn" id="7_r46ab"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5ecer"]
 viewport_path = NodePath("SubViewport")
@@ -34,14 +32,8 @@ texture = SubResource("ViewportTexture_5ecer")
 [node name="SubViewport" type="SubViewport" parent="." unique_id=977313198]
 transparent_bg = true
 
-[node name="RedLamp" parent="SubViewport" unique_id=280053881 instance=ExtResource("5_5ecer")]
-visible = false
-
-[node name="BlueLamp" parent="SubViewport" unique_id=2088400228 instance=ExtResource("6_wh4vn")]
-visible = false
-
-[node name="GreenLamp" parent="SubViewport" unique_id=652992875 instance=ExtResource("7_r46ab")]
-visible = false
+[node name="Lamp" parent="SubViewport" unique_id=280053881 instance=ExtResource("5_5ecer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Brush" type="Sprite2D" parent="." unique_id=1462762110]
 visible = false

@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://b3tm1bpk3jg16"]
 
-[ext_resource type="PackedScene" uid="uid://c5e1xfigvf1kt" path="res://Art/NeeaFolder/Models/mdl_red_item_lamp.tscn" id="1_w5fse"]
+[ext_resource type="PackedScene" uid="uid://bx5cosvbobo1b" path="res://Art/NeeaFolder/Models/geneal_lamp_import.tscn" id="1_egkt7"]
 
-[node name="Redlamp" type="Node3D" unique_id=280053881]
-
-[node name="Lamp" parent="." unique_id=104917581 instance=ExtResource("1_w5fse")]
-transform = Transform3D(0.0063704625, 0, 0.99997973, 0, 1, 0, -0.99997973, 0, 0.0063704625, 0, 0, 0)
+[node name="GeneralLamp" type="Node3D" unique_id=280053881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.012623, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=401235613]
 transform = Transform3D(1, 0, 0, 0, 0.9209067, 0.38978305, 0, -0.38978305, 0.9209067, 0, 1.8604736, 1.9047241)
+
+[node name="Lamp" parent="." unique_id=104917581 instance=ExtResource("1_egkt7")]
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=766196973]
 transform = Transform3D(0.58651763, 0.7496681, 0.30658573, -0.70022947, 0.27911082, 0.65709656, 0.4070329, -0.6000791, 0.6886431, 4.2335615, 3.8672829, 5.793332)

@@ -11,9 +11,8 @@ class_name Lamp2D extends CharacterBody2D
 @onready var fresh_lantern = true
 @export_range (0,1) var max_glow = .30
 @onready var glow: PointLight2D = $PointLight2D
-@onready var redlamp = $SubViewport/RedLamp
-@onready var bluelamp = $SubViewport/BlueLamp
-@onready var greenlamp = $SubViewport/GreenLamp
+@onready var lamp = $SubViewport/RedLamp
+
 
 
 var brush : Sprite2D
@@ -23,22 +22,13 @@ func _ready():
 	match color:
 		#make the modulate COLOR + alpha or .5 ish #nope nvm doesnt work like that
 		GameManager.color_enum.RED:
-			redlamp.visible = true
-			bluelamp.visible = false
-			greenlamp.visible = false
-			#sprite_2d.modulate = Color(.4,.10,-1,1)
+			sprite_2d.modulate = Color(.4,.10,-1,1)
 			glow.color = Color.RED
 		GameManager.color_enum.GREEN:
-			redlamp.visible = false
-			bluelamp.visible = false
-			greenlamp.visible = true
-			#sprite_2d.modulate = Color.GREEN
+			sprite_2d.modulate = Color.GREEN
 			glow.color = Color.GREEN
 		GameManager.color_enum.BLUE:
-			redlamp.visible = false
-			bluelamp.visible = true
-			greenlamp.visible = false
-			#sprite_2d.modulate = Color.BLUE
+			sprite_2d.modulate = Color.BLUE
 			glow.color = Color.BLUE
 	draw_lantern()
 	
