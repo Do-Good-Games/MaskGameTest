@@ -77,18 +77,32 @@ size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_faip0")
 flip_h = true
 
+[node name="QE_textlabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1348076881]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.5
+offset_top = -35.0
+offset_right = 117.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "< Q                                      E >"
+horizontal_alignment = 1
+
 [node name="Inventory" type="HBoxContainer" parent="CanvasLayer" unique_id=1030332110]
 offset_left = 20.0
 offset_top = 504.0
 offset_right = 1132.0
 offset_bottom = 618.0
-grow_horizontal = 2
-grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("3_li7pg")
 theme_override_constants/separation = 15
 alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Left Item" type="VBoxContainer" parent="CanvasLayer/Inventory" unique_id=1468087297]
 layout_mode = 2
@@ -135,6 +149,8 @@ theme_override_constants/margin_bottom = 0
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 fit_content = true
+scroll_active = false
+autowrap_mode = 0
 horizontal_alignment = 1
 
 [node name="CenterItemPanel" type="Panel" parent="CanvasLayer/Inventory/Center Item" unique_id=1750302595]
@@ -189,3 +205,19 @@ modulate = Color(1, 1, 1, 0.6392157)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 4
+
+[node name="FlavorTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1986458547]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -193.0
+offset_right = 240.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 2

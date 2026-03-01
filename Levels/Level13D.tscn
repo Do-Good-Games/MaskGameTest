@@ -24,12 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="19_sy5k4"]
 [ext_resource type="PackedScene" uid="uid://c2xu730ltbvrs" path="res://Levels/Level13D/lvl1_blue_3D.tscn" id="21_ge1o1"]
 [ext_resource type="PackedScene" uid="uid://bp5fcp1pyrcu" path="res://Levels/Level13D/lvl1_green_3D.tscn" id="21_t46fu"]
+[ext_resource type="PackedScene" uid="uid://by11em6ijb4bg" path="res://Objects/lamp2D.tscn" id="21_uneus"]
 [ext_resource type="Texture2D" uid="uid://bdsue340p8wq6" path="res://Levels/Level0/Lvl0_blue_mask.png" id="22_1m5w8"]
 [ext_resource type="Texture2D" uid="uid://bd8f2de4rd08m" path="res://Levels/Level0/Lvl0_green_mask.png" id="23_hpsve"]
 [ext_resource type="Texture2D" uid="uid://cg12j6qoyk4gg" path="res://Levels/Level0/Lvl0_red_mask.png" id="24_wha8l"]
 [ext_resource type="PackedScene" uid="uid://2jpgujndi0u3" path="res://LayerMasking/collision_type.tscn" id="25_2mw4j"]
 [ext_resource type="AudioStream" uid="uid://bhyghsfbq5m18" path="res://Audio/Music/SyncedMusic.tres" id="29_hbkoq"]
-[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp2D.tscn" id="30_uneus"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwkd2"]
 
@@ -151,6 +151,9 @@ gradient = SubResource("Gradient_ir1ia")
 width = 1510
 height = 1080
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3wkli"]
+radius = 1.0
+
 [sub_resource type="GDScript" id="GDScript_3wkli"]
 resource_name = "hazard_zone"
 script/source = "extends Area2D
@@ -159,17 +162,8 @@ script/source = "extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is BobbyCharacter:
-		$SafetyTimer.start()
-
-
-func _on_body_exited(body: Node2D) -> void:
-	if body is BobbyCharacter:
-		$SafetyTimer.stop()
-
-
-func _on_safety_timer_timeout() -> void:
-	#YOU ARE DEAD
-	RoomManager.load_level(RoomManager.current_scene_uid)
+		#YOU ARE DEAD
+		RoomManager.load_level(RoomManager.current_scene_uid)
 "
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jb1lb"]
@@ -235,13 +229,16 @@ metadata/_edit_lock_ = true
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("16_3nsc0")]
 z_index = 5
-position = Vector2(490.99997, -201.99997)
+position = Vector2(-12.999939, 239.00006)
 scale = Vector2(0.49999383, 0.49999383)
 upper_left_cam_bound = Vector2(-1296, -702)
 lower_right_cam_bound = Vector2(1296, 702)
 
 [node name="RedLayer" parent="." unique_id=1461014223 instance=ExtResource("17_a38lc")]
 visible = false
+
+[node name="LayerArea" parent="RedLayer" index="0" unique_id=1061474882]
+visible = true
 
 [node name="LayerMask" parent="RedLayer" index="1" unique_id=1379613557]
 texture = ExtResource("6_nplaj")
@@ -264,8 +261,14 @@ position = Vector2(0, 160.19)
 texture = ExtResource("19_sy5k4")
 centered = false
 
+[node name="Lamp2D" parent="RedLayer" unique_id=835076901 instance=ExtResource("21_uneus")]
+position = Vector2(-115, 746)
+
 [node name="GreenLayer" parent="." unique_id=1876231418 instance=ExtResource("17_a38lc")]
 visible = false
+
+[node name="LayerArea" parent="GreenLayer" index="0" unique_id=1061474882]
+visible = true
 
 [node name="LayerMask" parent="GreenLayer" index="1" unique_id=1379613557]
 texture = ExtResource("7_0m4bb")
@@ -285,6 +288,9 @@ render_target_update_mode = 4
 
 [node name="BlueLayer" parent="." unique_id=1089670503 instance=ExtResource("17_a38lc")]
 visible = false
+
+[node name="LayerArea" parent="BlueLayer" index="0" unique_id=1061474882]
+visible = true
 
 [node name="LayerMask" parent="BlueLayer" index="1" unique_id=1379613557]
 texture = ExtResource("8_o6qit")
@@ -316,8 +322,10 @@ texture = SubResource("GradientTexture2D_sbtpj")
 [node name="StaticBody2D" type="StaticBody2D" parent="Collision" unique_id=1968060419]
 
 [node name="Hazard" parent="." unique_id=2146344563 node_paths=PackedStringArray("collision_object") instance=ExtResource("25_2mw4j")]
+modulate = Color(1, 0.10980392, 0, 1)
+z_index = 7
 rect_size = Vector2(500, 500)
-collision_object = NodePath("ThisIsWhatKillsYou")
+collision_object = NodePath("Area2D")
 metadata/_edit_lock_ = true
 
 [node name="SubViewport" parent="Hazard" index="0" unique_id=1472265480]
@@ -327,15 +335,17 @@ size = Vector2i(1510, 1080)
 material = SubResource("ShaderMaterial_ubq2l")
 texture = SubResource("GradientTexture2D_8cs8j")
 
-[node name="ThisIsWhatKillsYou" type="Area2D" parent="Hazard" unique_id=543164836]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1040300366]
+shape = SubResource("CircleShape2D_3wkli")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="Hazard" unique_id=543164836]
 script = SubResource("GDScript_3wkli")
 metadata/_edit_lock_ = true
 
-[node name="SafetyTimer" type="Timer" parent="Hazard/ThisIsWhatKillsYou" unique_id=689106620]
-wait_time = 0.2
-
 [node name="CollisionRedrawTimer" type="Timer" parent="." unique_id=707728349]
 process_callback = 0
+wait_time = 0.1
 autostart = true
 
 [node name="CompositeVisuals" type="Sprite2D" parent="." unique_id=378184343]
@@ -353,6 +363,7 @@ metadata/_edit_lock_ = true
 [node name="HazardPreview" type="Sprite2D" parent="." unique_id=371222639]
 modulate = Color(0.8413499, 0, 0.21577135, 1)
 self_modulate = Color(1, 1, 1, 0.80784315)
+z_index = 5
 texture = SubResource("ViewportTexture_a38lc")
 metadata/_edit_lock_ = true
 
@@ -360,14 +371,10 @@ metadata/_edit_lock_ = true
 stream = ExtResource("29_hbkoq")
 autoplay = true
 
-[node name="Lamp" parent="." unique_id=134255016 instance=ExtResource("30_uneus")]
-position = Vector2(-510, 280)
-
-[connection signal="body_entered" from="Hazard/ThisIsWhatKillsYou" to="Hazard/ThisIsWhatKillsYou" method="_on_body_entered"]
-[connection signal="body_exited" from="Hazard/ThisIsWhatKillsYou" to="Hazard/ThisIsWhatKillsYou" method="_on_body_exited"]
-[connection signal="timeout" from="Hazard/ThisIsWhatKillsYou/SafetyTimer" to="Hazard/ThisIsWhatKillsYou" method="_on_safety_timer_timeout"]
+[connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="Collision" method="update_image"]
+[connection signal="timeout" from="CollisionRedrawTimer" to="Hazard" method="update_image"]
 
 [editable path="RedLayer"]
 [editable path="GreenLayer"]
