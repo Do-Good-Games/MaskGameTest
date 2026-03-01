@@ -6,6 +6,11 @@ class_name Lamp extends CharacterBody2D
 @onready var throwable: CharacterBody2D = $Throwable
 @onready var brush_template: Sprite2D = $Brush
 @onready var brush_scale : float = 2
+##Fiona Lantern Logic Tweaks
+@onready var fresh_lantern = true
+@export_range (0,1) var max_glow = .30
+@onready var glow: PointLight2D = $PointLight2D
+
 
 var brush : Sprite2D
 
@@ -38,7 +43,14 @@ func draw_lantern():
 	if not RoomManager.current_level:
 		await RoomManager.level_ready
 	brush = RoomManager.current_level.add_temp_mask(color, sprite )
-	turn_on_lamp()
+	
+	#freshness checker statement. 
+	#Lamp starts off as FRESH & UNLIT in level
+	#Becomes LIT and UNFRESH when u grab it and its in ur inventory
+	if (fresh_lantern == true):
+		turn_off_lamp()
+	else:
+		turn_on_lamp()
 
 func _physics_process(delta: float) -> void:
 	
@@ -47,13 +59,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func turn_off_lamp():
+	glow.energy = 0
 	brush.visible = false
 
 func turn_on_lamp():
+	glow.energy = max_glow
 	brush.visible = true
 
 func receive_collected(obj_ref: Node):
 	print("lamp received collected signal")
+	fresh_lantern = false #no longer a fresh lantern
+	print("lamp freshness = false.")
 	game_manager.collect_item(game_manager.inventory_slot_type.LAMP, color, obj_ref)
 	deactivate()
 
@@ -61,10 +77,8 @@ func deactivate():
 	bobby_collectable.deactivate()
 	print("deac'd")
 	sprite_2d.visible = false
-	#self.disabled = true
 
 func reactivate():
-	#self.disabled = false
 	throwable.reactivate()
 	bobby_collectable.reactivate()
 	sprite_2d.visible = true

@@ -9,6 +9,12 @@
 
 [node name="Lamp" type="CharacterBody2D" unique_id=134255016]
 script = ExtResource("1_inuhc")
+max_glow = 0.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1505378992]
+color = Color(1, 1, 1, 0.45882353)
+energy = 0.0
+texture = ExtResource("5_ka7lb")
 
 [node name="BobbyCollectable" parent="." unique_id=2115636220 instance=ExtResource("2_30ch0")]
 has_parent = true
