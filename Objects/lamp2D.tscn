@@ -36,10 +36,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Brush" type="Sprite2D" parent="." unique_id=1462762110]
 visible = false
-position = Vector2(77, 71)
 texture = ExtResource("5_ka7lb")
 centered = false
-offset = Vector2(110, 0)
+offset = Vector2(125, 15)
 
 [node name="CollisionChecker11" parent="." unique_id=1169389816 instance=ExtResource("6_5ecer")]
 position = Vector2(64, -64)
