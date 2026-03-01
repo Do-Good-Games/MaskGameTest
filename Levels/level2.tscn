@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bxioucw8hjd07" path="res://Levels/Level0/Lvl0_blue_haz.png" id="21_faulo"]
 [ext_resource type="Texture2D" uid="uid://dftlb7hd1a6sr" path="res://Levels/Level0/Lvl0_green_haz.png" id="22_b3n1j"]
 [ext_resource type="Texture2D" uid="uid://30g3jfqlgi88" path="res://Levels/Level0/Lvl0_red_haz.png" id="23_4hiw1"]
-[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp.tscn" id="24_ucg3d"]
+[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp2D.tscn" id="24_ucg3d"]
 [ext_resource type="PackedScene" uid="uid://bu54wyui6e5wf" path="res://exit.tscn" id="25_ucg3d"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hhhfn"]

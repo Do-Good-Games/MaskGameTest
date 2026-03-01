@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://twogt3u4ss88" path="res://Levels/Level13D/lvl1_green_mask_3D.png" id="7_lllj0"]
 [ext_resource type="Texture2D" uid="uid://by1qtq3ansbj5" path="res://Levels/Level13D/lvl1_blue_mask_3D.png" id="8_ge1o1"]
 [ext_resource type="Texture2D" uid="uid://n2npv1l7ospx" path="res://Levels/Level1/lvl1_blue_mask.png" id="8_o6qit"]
-[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp.tscn" id="12_lllj0"]
+[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp2D.tscn" id="12_lllj0"]
 [ext_resource type="Texture2D" uid="uid://d37h2kyha17p4" path="res://Levels/Level1/lvl1_red_haz.png" id="12_ubq2l"]
 [ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/less_evil_brush.tres" id="15_hlseg"]
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="16_3nsc0"]
