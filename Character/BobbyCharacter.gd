@@ -105,7 +105,7 @@ func process_throwing():
 			in_hand_obj_throwable.target_pos = tp * 100
 			print(mp)
 			in_hand_obj.reactivate()
-			if in_hand_obj is Lamp:
+			if in_hand_obj is Lamp2D:
 				in_hand_obj.turn_on_lamp()
 			game_manager.remove_current_held()
 			throwing = false

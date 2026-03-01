@@ -29,6 +29,7 @@ func deactivate():
 
 func reactivate():
 	collision_shape_2d.disabled = false
+	print("object reactivated?")
 	
 
 func _physics_process(delta: float) -> void:

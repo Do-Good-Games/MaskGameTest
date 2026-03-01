@@ -54,7 +54,7 @@ func update_cameras_v2(new_pos_v2: Vector2,  look_at_target_v2: Vector2 ):
 	pass
 
 func update_cameras_v3(new_pos_v3: Vector3, look_at_target: Vector3):
-	print("updatingcameras to pos ", str(new_pos_v3))
+	#print("updatingcameras to pos ", str(new_pos_v3))
 	for key in Cameras.keys():
 		
 		

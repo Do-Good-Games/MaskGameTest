@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://b8gvfv7d8ojll" path="res://Levels/Level0/Lvl0_green.png" id="20_arw13"]
 [ext_resource type="Texture2D" uid="uid://bhesf8gbe3bvw" path="res://Levels/Level0/Lvl0_blue.png" id="21_qsg52"]
 [ext_resource type="PackedScene" uid="uid://2jpgujndi0u3" path="res://LayerMasking/collision_type.tscn" id="22_jsifn"]
-[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp.tscn" id="23_4fi1o"]
+[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp2D.tscn" id="23_4fi1o"]
 [ext_resource type="PackedScene" uid="uid://cr8v26onkmicu" path="res://Menus/pauseMenu.tscn" id="24_olmyh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwkd2"]
