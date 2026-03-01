@@ -1,5 +1,5 @@
 # Adapted from https://www.youtube.com/watch?v=Btk8IzhvaDo
-
+@tool
 class_name Layer extends Node2D
 
 #@export var epsilon := 10.0

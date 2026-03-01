@@ -93,12 +93,13 @@ func _setup_references() -> void:
 	layers[2] = green_layer
 	layers[3] = blue_layer
 	
-	_set_shader_parameters(composite_visuals.material)
 	
 	
-	layers[1].layer_mask.register_texture(red_mask)
-	layers[2].layer_mask.register_texture(green_mask)
-	layers[3].layer_mask.register_texture(blue_mask)
+	if not Engine.is_editor_hint():
+		layers[1].layer_mask.register_texture(red_mask)
+		layers[2].layer_mask.register_texture(green_mask)
+		layers[3].layer_mask.register_texture(blue_mask)
+		_set_shader_parameters(composite_visuals.material)
 	
 	collision_types[0] = collision
 	collision_types[1] = hazard
