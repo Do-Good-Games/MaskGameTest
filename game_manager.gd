@@ -57,12 +57,12 @@ func set_held(idx : int ):
 		lamp.turn_on_lamp()
 
 func collect_item(item_type: inventory_slot_type, color: color_enum, obj_ref: Node):
+	print("you collected the ", color, " ", item_type)
 	
 	var new_slot : InventorySlot = InventorySlot.new(item_type, color, collected_items.size(), obj_ref)
 	#new_slot._init(item_type, color)
 	collected_items.push_back(new_slot)
 	set_held(new_slot._idx)
-	print("you collected the ", color, " ", item_type)
 	#collected_lamps.
 
 func remove_current_held():
