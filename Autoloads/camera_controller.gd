@@ -46,14 +46,8 @@ func update_cameras_v2(new_pos_v2: Vector2,  look_at_target_v2: Vector2 ):
 		print("different")
 	
 	update_cameras_v3(new_pos_v3, look_at_target_v3)
-		
-	#if rect.has_point(new_pos_v2):
-		#print(" found")
-		#CameraController.update_cameras_v2(global_position)
-	#else :
-		#print ("no")
-		
-		
+	
+	
 	#new_pos_v2.
 	#update_cameras_v3(Vector3(new_pos_v2.x * scale_mtp + offset_mtp.x, camera_depth , new_pos_v2.y * scale_mtp + offset_mtp.y))
 	#update_cameras_v3(Vector3(new_pos_v2.x, new_pos_v2.y, camera_depth))

@@ -11,12 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://twogt3u4ss88" path="res://Levels/Level13D/lvl1_green_mask_3D.png" id="7_lllj0"]
 [ext_resource type="Texture2D" uid="uid://by1qtq3ansbj5" path="res://Levels/Level13D/lvl1_blue_mask_3D.png" id="8_ge1o1"]
 [ext_resource type="Texture2D" uid="uid://n2npv1l7ospx" path="res://Levels/Level1/lvl1_blue_mask.png" id="8_o6qit"]
-[ext_resource type="Texture2D" uid="uid://cvdfnfly2m5bj" path="res://Levels/Level1/lvl1_red_col.png" id="9_t46fu"]
-[ext_resource type="Texture2D" uid="uid://dg213ggqj5guy" path="res://Levels/Level1/lvl1_green_col.png" id="10_n8vq3"]
-[ext_resource type="Texture2D" uid="uid://lo55aevilck7" path="res://Levels/Level1/lvl1_blue_col.png" id="11_nplaj"]
-[ext_resource type="Texture2D" uid="uid://d37h2kyha17p4" path="res://Levels/Level1/lvl1_red_haz.png" id="12_ubq2l"]
-[ext_resource type="Texture2D" uid="uid://dv1304j0ywq8" path="res://Levels/Level1/lvl1_green_haz.png" id="13_0m4bb"]
-[ext_resource type="Texture2D" uid="uid://da5d877rsrsl" path="res://Levels/Level1/lvl1_blue_haz.png" id="14_o6qit"]
+[ext_resource type="Texture2D" uid="uid://bux7d254lnnsa" path="res://Levels/Level13D/lvl1_red_col_3D.png" id="9_ge1o1"]
+[ext_resource type="Texture2D" uid="uid://jg2t52rbn40o" path="res://Levels/Level13D/lvl1_green_col_3D.png" id="10_hbkoq"]
+[ext_resource type="Texture2D" uid="uid://b4nrdv3im4iyx" path="res://Levels/Level13D/lvl1_blue_col_3D.png" id="11_uneus"]
+[ext_resource type="Texture2D" uid="uid://dwer5703yknvj" path="res://Levels/Level13D/lvl1_red_haz_3D.png" id="12_t46fu"]
+[ext_resource type="Texture2D" uid="uid://bu8g8j47ni2qr" path="res://Levels/Level13D/lvl1_green_haz_3D.png" id="13_n8vq3"]
+[ext_resource type="Texture2D" uid="uid://ihvarnr3wy2m" path="res://Levels/Level13D/lvl1_blue_haz_3D.png" id="14_nplaj"]
 [ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/less_evil_brush.tres" id="15_hlseg"]
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="16_3nsc0"]
 [ext_resource type="PackedScene" uid="uid://cpbird1x7ojdl" path="res://LayerMasking/layer_cleaned.tscn" id="17_a38lc"]
@@ -77,11 +77,11 @@ viewport_path = NodePath("../RedLayer/TempMasks")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0m4bb"]
 resource_local_to_scene = true
 shader = ExtResource("1_ge1o1")
-shader_parameter/red_texture = ExtResource("9_t46fu")
+shader_parameter/red_texture = ExtResource("9_ge1o1")
 shader_parameter/red_mask = ExtResource("6_2b3u7")
-shader_parameter/green_texture = ExtResource("10_n8vq3")
+shader_parameter/green_texture = ExtResource("10_hbkoq")
 shader_parameter/green_mask = ExtResource("7_lllj0")
-shader_parameter/blue_texture = ExtResource("11_nplaj")
+shader_parameter/blue_texture = ExtResource("11_uneus")
 shader_parameter/blue_mask = ExtResource("8_ge1o1")
 shader_parameter/red_temp_masks = SubResource("ViewportTexture_nplaj")
 shader_parameter/green_temp_masks = SubResource("ViewportTexture_n8vq3")
@@ -143,11 +143,11 @@ viewport_path = NodePath("../RedLayer/TempMasks")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5e0b"]
 resource_local_to_scene = true
 shader = SubResource("Shader_1k1g5")
-shader_parameter/red_texture = ExtResource("12_ubq2l")
+shader_parameter/red_texture = ExtResource("12_t46fu")
 shader_parameter/red_mask = ExtResource("6_2b3u7")
-shader_parameter/green_texture = ExtResource("13_0m4bb")
+shader_parameter/green_texture = ExtResource("13_n8vq3")
 shader_parameter/green_mask = ExtResource("7_lllj0")
-shader_parameter/blue_texture = ExtResource("14_o6qit")
+shader_parameter/blue_texture = ExtResource("14_nplaj")
 shader_parameter/blue_mask = ExtResource("8_ge1o1")
 shader_parameter/red_temp_masks = SubResource("ViewportTexture_lqpna")
 shader_parameter/green_temp_masks = SubResource("ViewportTexture_cot6j")
@@ -225,21 +225,21 @@ script = ExtResource("5_n8vq3")
 red_mask = ExtResource("6_2b3u7")
 green_mask = ExtResource("7_lllj0")
 blue_mask = ExtResource("8_ge1o1")
-red_collision = ExtResource("9_t46fu")
-green_collision = ExtResource("10_n8vq3")
-blue_collision = ExtResource("11_nplaj")
-red_hazard = ExtResource("12_ubq2l")
-green_hazard = ExtResource("13_0m4bb")
-blue_hazard = ExtResource("14_o6qit")
+red_collision = ExtResource("9_ge1o1")
+green_collision = ExtResource("10_hbkoq")
+blue_collision = ExtResource("11_uneus")
+red_hazard = ExtResource("12_t46fu")
+green_hazard = ExtResource("13_n8vq3")
+blue_hazard = ExtResource("14_nplaj")
 debug_brush = ExtResource("15_hlseg")
 metadata/_edit_lock_ = true
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("16_3nsc0")]
 z_index = 5
-position = Vector2(30.000061, 234.00006)
+position = Vector2(829.99994, 805.99994)
 scale = Vector2(0.49999383, 0.49999383)
-upper_left_cam_bound = Vector2(-864, -468)
-lower_right_cam_bound = Vector2(864, 468)
+upper_left_cam_bound = Vector2(-1296, -702)
+lower_right_cam_bound = Vector2(1296, 702)
 
 [node name="RedLayer" parent="." unique_id=1461014223 instance=ExtResource("17_a38lc")]
 visible = false
@@ -345,6 +345,8 @@ unique_name_in_owner = true
 z_index = -1
 material = SubResource("ShaderMaterial_b8h2f")
 texture = SubResource("GradientTexture2D_rwkd2")
+centered = false
+metadata/_edit_lock_ = true
 
 [node name="CollisionPreview" type="Sprite2D" parent="." unique_id=1788312755]
 texture = SubResource("ViewportTexture_ubq2l")
