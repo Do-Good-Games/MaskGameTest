@@ -151,9 +151,6 @@ gradient = SubResource("Gradient_ir1ia")
 width = 1510
 height = 1080
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3wkli"]
-radius = 1.0
-
 [sub_resource type="GDScript" id="GDScript_3wkli"]
 resource_name = "hazard_zone"
 script/source = "extends Area2D
@@ -162,8 +159,17 @@ script/source = "extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is BobbyCharacter:
-		#YOU ARE DEAD
-		RoomManager.load_level(RoomManager.current_scene_uid)
+		$SafetyTimer.start()
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is BobbyCharacter:
+		$SafetyTimer.stop()
+
+
+func _on_safety_timer_timeout() -> void:
+	#YOU ARE DEAD
+	RoomManager.load_level(RoomManager.current_scene_uid)
 "
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jb1lb"]
@@ -311,7 +317,7 @@ texture = SubResource("GradientTexture2D_sbtpj")
 
 [node name="Hazard" parent="." unique_id=2146344563 node_paths=PackedStringArray("collision_object") instance=ExtResource("25_2mw4j")]
 rect_size = Vector2(500, 500)
-collision_object = NodePath("Area2D")
+collision_object = NodePath("ThisIsWhatKillsYou")
 metadata/_edit_lock_ = true
 
 [node name="SubViewport" parent="Hazard" index="0" unique_id=1472265480]
@@ -321,13 +327,12 @@ size = Vector2i(1510, 1080)
 material = SubResource("ShaderMaterial_ubq2l")
 texture = SubResource("GradientTexture2D_8cs8j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1040300366]
-shape = SubResource("CircleShape2D_3wkli")
-metadata/_edit_lock_ = true
-
-[node name="Area2D" type="Area2D" parent="Hazard" unique_id=543164836]
+[node name="ThisIsWhatKillsYou" type="Area2D" parent="Hazard" unique_id=543164836]
 script = SubResource("GDScript_3wkli")
 metadata/_edit_lock_ = true
+
+[node name="SafetyTimer" type="Timer" parent="Hazard/ThisIsWhatKillsYou" unique_id=689106620]
+wait_time = 0.2
 
 [node name="CollisionRedrawTimer" type="Timer" parent="." unique_id=707728349]
 process_callback = 0
@@ -358,7 +363,9 @@ autoplay = true
 [node name="Lamp" parent="." unique_id=134255016 instance=ExtResource("30_uneus")]
 position = Vector2(-510, 280)
 
-[connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hazard/ThisIsWhatKillsYou" to="Hazard/ThisIsWhatKillsYou" method="_on_body_entered"]
+[connection signal="body_exited" from="Hazard/ThisIsWhatKillsYou" to="Hazard/ThisIsWhatKillsYou" method="_on_body_exited"]
+[connection signal="timeout" from="Hazard/ThisIsWhatKillsYou/SafetyTimer" to="Hazard/ThisIsWhatKillsYou" method="_on_safety_timer_timeout"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="Collision" method="update_image"]
 
