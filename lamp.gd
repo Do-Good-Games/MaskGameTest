@@ -18,7 +18,6 @@ func _ready():
 			sprite_2d.modulate = Color.GREEN
 		GameManager.color_enum.BLUE:
 			sprite_2d.modulate = Color.BLUE
-	draw_lantern()
 	
 
 func draw_lantern():

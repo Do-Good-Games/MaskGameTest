@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cg12j6qoyk4gg" path="res://Levels/Level0/Lvl0_red_mask.png" id="24_wha8l"]
 [ext_resource type="PackedScene" uid="uid://2jpgujndi0u3" path="res://LayerMasking/collision_type.tscn" id="25_2mw4j"]
 [ext_resource type="AudioStream" uid="uid://bhyghsfbq5m18" path="res://Audio/Music/SyncedMusic.tres" id="29_hbkoq"]
+[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp.tscn" id="30_uneus"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwkd2"]
 
@@ -59,6 +60,18 @@ shader_parameter/cam_size = Vector2(0, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_uneus"]
 viewport_path = NodePath("LevelVisual")
+
+[sub_resource type="Gradient" id="Gradient_hbkoq"]
+offsets = PackedFloat32Array(0.9585799, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uneus"]
+gradient = SubResource("Gradient_hbkoq")
+width = 2000
+height = 2000
+fill = 1
+fill_from = Vector2(0.46438748, 0.4871795)
+fill_to = Vector2(0.7008547, 0.27065527)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_t46fu"]
 viewport_path = NodePath("LevelVisual")
@@ -257,6 +270,9 @@ position = Vector2(0, 160.19)
 texture = ExtResource("19_sy5k4")
 centered = false
 
+[node name="Sprite2D" type="Sprite2D" parent="RedLayer/TempMasks" index="1" unique_id=909877265]
+texture = SubResource("GradientTexture2D_uneus")
+
 [node name="GreenLayer" parent="." unique_id=1876231418 instance=ExtResource("17_a38lc")]
 visible = false
 
@@ -353,6 +369,9 @@ metadata/_edit_lock_ = true
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1836167931]
 stream = ExtResource("29_hbkoq")
 autoplay = true
+
+[node name="Lamp" parent="." unique_id=134255016 instance=ExtResource("30_uneus")]
+position = Vector2(-510, 280)
 
 [connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
