@@ -1,4 +1,4 @@
-class_name Lamp extends CharacterBody2D
+class_name Lamp2D extends CharacterBody2D
 
 @export var color : game_manager.color_enum = GameManager.color_enum.RED
 @onready var bobby_collectable: BobbyCollectible = $BobbyCollectable
@@ -6,10 +6,14 @@ class_name Lamp extends CharacterBody2D
 @onready var throwable: CharacterBody2D = $Throwable
 @onready var brush_template: Sprite2D = $Brush
 @onready var brush_scale : float = 2
+
 ##Fiona Lantern Logic Tweaks
 @onready var fresh_lantern = true
 @export_range (0,1) var max_glow = .30
 @onready var glow: PointLight2D = $PointLight2D
+@onready var redlamp = $SubViewport/RedLamp
+@onready var bluelamp = $SubViewport/BlueLamp
+@onready var greenlamp = $SubViewport/GreenLamp
 
 
 var brush : Sprite2D
@@ -17,12 +21,25 @@ var brush : Sprite2D
 func _ready():
 	bobby_collectable.collected.connect(receive_collected)
 	match color:
+		#make the modulate COLOR + alpha or .5 ish #nope nvm doesnt work like that
 		GameManager.color_enum.RED:
-			sprite_2d.modulate = Color.RED
+			redlamp.visible = true
+			bluelamp.visible = false
+			greenlamp.visible = false
+			#sprite_2d.modulate = Color(.4,.10,-1,1)
+			glow.color = Color.RED
 		GameManager.color_enum.GREEN:
-			sprite_2d.modulate = Color.GREEN
+			redlamp.visible = false
+			bluelamp.visible = false
+			greenlamp.visible = true
+			#sprite_2d.modulate = Color.GREEN
+			glow.color = Color.GREEN
 		GameManager.color_enum.BLUE:
-			sprite_2d.modulate = Color.BLUE
+			redlamp.visible = false
+			bluelamp.visible = true
+			greenlamp.visible = false
+			#sprite_2d.modulate = Color.BLUE
+			glow.color = Color.BLUE
 	draw_lantern()
 	
 

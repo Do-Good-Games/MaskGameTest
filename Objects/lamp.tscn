@@ -3,13 +3,18 @@
 [ext_resource type="Script" uid="uid://bjxb5mh7wy8cc" path="res://lamp.gd" id="1_inuhc"]
 [ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_30ch0"]
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="3_ka7lb"]
-[ext_resource type="Texture2D" uid="uid://cnfytrl0jhugb" path="res://icon.svg" id="4_30ch0"]
+[ext_resource type="PackedScene" uid="uid://b3tm1bpk3jg16" path="res://Objects/redlamp.tscn" id="5_5ecer"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="5_ka7lb"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="6_5ecer"]
+[ext_resource type="PackedScene" uid="uid://bc7vaqtwe5vb1" path="res://Objects/bluelamp.tscn" id="6_wh4vn"]
+[ext_resource type="PackedScene" uid="uid://bwhcvniyybb2k" path="res://Objects/greenlamp.tscn" id="7_r46ab"]
 
-[node name="Lamp" type="CharacterBody2D" unique_id=134255016]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5ecer"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Lamp2D" type="CharacterBody2D" unique_id=835076901]
 script = ExtResource("1_inuhc")
-max_glow = 0.0
+max_glow = 0.643
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1505378992]
 color = Color(1, 1, 1, 0.45882353)
@@ -22,7 +27,21 @@ has_parent = true
 [node name="Throwable" parent="." unique_id=1897539501 instance=ExtResource("3_ka7lb")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=716510185]
-texture = ExtResource("4_30ch0")
+position = Vector2(0.75000024, 0.50000495)
+scale = Vector2(0.2451172, 0.2480469)
+texture = SubResource("ViewportTexture_5ecer")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=977313198]
+transparent_bg = true
+
+[node name="RedLamp" parent="SubViewport" unique_id=280053881 instance=ExtResource("5_5ecer")]
+visible = false
+
+[node name="BlueLamp" parent="SubViewport" unique_id=2088400228 instance=ExtResource("6_wh4vn")]
+visible = false
+
+[node name="GreenLamp" parent="SubViewport" unique_id=652992875 instance=ExtResource("7_r46ab")]
+visible = false
 
 [node name="Brush" type="Sprite2D" parent="." unique_id=1462762110]
 visible = false

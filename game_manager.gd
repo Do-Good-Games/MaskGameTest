@@ -53,7 +53,7 @@ func set_held(idx : int ):
 	held_changed.emit(current_held._idx)
 	
 	lamp = current_held._obj_ref
-	if lamp is Lamp:
+	if lamp is Lamp2D:
 		lamp.turn_on_lamp()
 
 func collect_item(item_type: inventory_slot_type, color: color_enum, obj_ref: Node):

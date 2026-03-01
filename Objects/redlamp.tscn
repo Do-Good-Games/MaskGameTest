@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b3tm1bpk3jg16"]
+
+[ext_resource type="PackedScene" uid="uid://c5e1xfigvf1kt" path="res://Art/NeeaFolder/Models/mdl_red_item_lamp.tscn" id="1_w5fse"]
+
+[node name="Redlamp" type="Node3D" unique_id=280053881]
+
+[node name="Lamp" parent="." unique_id=104917581 instance=ExtResource("1_w5fse")]
+transform = Transform3D(0.0063704625, 0, 0.99997973, 0, 1, 0, -0.99997973, 0, 0.0063704625, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=401235613]
+transform = Transform3D(1, 0, 0, 0, 0.9209067, 0.38978305, 0, -0.38978305, 0.9209067, 0, 1.8604736, 1.9047241)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=766196973]
+transform = Transform3D(0.58651763, 0.7496681, 0.30658573, -0.70022947, 0.27911082, 0.65709656, 0.4070329, -0.6000791, 0.6886431, 4.2335615, 3.8672829, 5.793332)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=85449366]
+transform = Transform3D(0.59165317, 0.80575204, 0.026651183, -0.35271916, 0.2289878, 0.9072782, 0.72493845, -0.54619443, 0.41968548, 4.2335615, 3.8672829, 5.793332)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="DirectionalLight3D4" type="DirectionalLight3D" parent="." unique_id=1627029089]
+transform = Transform3D(0.46992326, 0.70455396, 0.5317667, -0.8817528, 0.3466677, 0.31989604, 0.041037705, -0.6192134, 0.78414965, 4.2335615, 3.8672829, 5.793332)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1254433918]
+transform = Transform3D(0.60321486, 0.79528767, 0.0604112, -0.6002046, 0.40275422, 0.69104534, 0.5252489, -0.45310783, 0.72028255, 2.6295166, 1.3989868, 4.8149414)
+light_energy = 14.702
+shadow_enabled = true
+sky_mode = 1
