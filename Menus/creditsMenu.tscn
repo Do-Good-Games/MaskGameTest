@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://byl1isbtwqf06" path="res://Menus/credits_menu_script.gd" id="1_ntfyi"]
 [ext_resource type="Theme" uid="uid://cx3sm5oban123" path="res://Menus/Menu Button Theme.tres" id="3_fk2tn"]
 [ext_resource type="Texture2D" uid="uid://jl6bdtk6amsd" path="res://Art/Fiona's 2D 3D Assets/guy transparent.png" id="3_o5dli"]
+[ext_resource type="PackedScene" uid="uid://clbrr0rbsps05" path="res://Art/Fiona's 2D 3D Assets/animation_button.tscn" id="4_o5dli"]
 [ext_resource type="Script" uid="uid://ccqxdoheyp6n" path="res://Menus/button_animation.gd" id="4_ugyuf"]
 
 [sub_resource type="Theme" id="Theme_ntfyi"]
@@ -73,27 +74,30 @@ size_flags_horizontal = 3
 [node name="Name Here" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=396327381]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "Ian Warren
-Did Things"
+[i]Programming, Design"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation_Button" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row/Name Here" unique_id=684603435 instance=ExtResource("4_o5dli")]
+counter_clockwise = true
 
 [node name="Name Here2" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=81852651]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "Fiona Bolen
-Did Things"
+[i]UI, Game Design, Vibes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Animation_Button" type="Node" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row/Name Here2" unique_id=993863165]
 script = ExtResource("4_ugyuf")
-enable_rotation = false
-rotation_deg = 180.0
-enable_scale = false
-scale_max = 1.05
+counter_clockwise = true
 has_text = true
 hover_text = "I have gone[br]mad with power"
 metadata/_custom_type_script = "uid://ccqxdoheyp6n"
@@ -101,20 +105,30 @@ metadata/_custom_type_script = "uid://ccqxdoheyp6n"
 [node name="Name Here3" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=1648646068]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
-text = "Neea
-Did Things"
+text = "Neea \"Cyberebral\"
+[i]Tech Art, Level Design"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation_Button" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row/Name Here3" unique_id=1884703912 instance=ExtResource("4_o5dli")]
+counter_clockwise = true
+has_text = true
+hover_text = "Neea \"Cyberebral\"[br][i]Shader Witch ☆ .*･ﾟ✧"
 
 [node name="Name Here4" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row" unique_id=1131945235]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "Travis Cole
-Did Things"
+[i]Sound Design, Music"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation_Button" parent="CanvasLayer/HBoxContainer/Duplicate for 2nd Row/Name Here4" unique_id=299405665 instance=ExtResource("4_o5dli")]
+counter_clockwise = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=172132585]
 layout_mode = 2
@@ -123,46 +137,58 @@ size_flags_horizontal = 3
 [node name="Name Here" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=1728236744]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "Ryan Davidson
-Did Things"
+[i]Project Management, Programming"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Animation_Button" type="Node" parent="CanvasLayer/HBoxContainer/VBoxContainer2/Name Here" unique_id=250048370]
 script = ExtResource("4_ugyuf")
-enable_rotation = false
-enable_scale = false
 has_text = true
-hover_text = "Ryan \"Harley\" Davidson[br]Git Wizard"
+hover_text = "Ryan Davidson[br][i]Git Wizard"
 metadata/_custom_type_script = "uid://ccqxdoheyp6n"
 
 [node name="Name Here2" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=691331912]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
-text = "Alex Bones
-Did Things"
+text = "Alex Niederberger
+[i]Programming"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation_Button" parent="CanvasLayer/HBoxContainer/VBoxContainer2/Name Here2" unique_id=1617126485 instance=ExtResource("4_o5dli")]
+has_text = true
+hover_text = "Alex Niederberger[br][i]Certified Rubber Duck"
 
 [node name="Name Here3" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=719381957]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "Eric
-Did Things"
+[i]Art Models"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation_Button" parent="CanvasLayer/HBoxContainer/VBoxContainer2/Name Here3" unique_id=1045247140 instance=ExtResource("4_o5dli")]
 
 [node name="Name Here4" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer2" unique_id=1422915484]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/italics_font_size = 24
 bbcode_enabled = true
 text = "Bobby Breglio
-Did Things"
+[i]Programming"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animation_Button" parent="CanvasLayer/HBoxContainer/VBoxContainer2/Name Here4" unique_id=819511077 instance=ExtResource("4_o5dli")]
 
 [node name="[PLACEHOLDER] BG2" type="TextureRect" parent="CanvasLayer" unique_id=1202952474]
 anchors_preset = 15
