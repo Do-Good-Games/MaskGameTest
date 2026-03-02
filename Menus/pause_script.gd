@@ -10,7 +10,6 @@ func _ready() -> void:
 	resume_button.pressed.connect(_resume)
 	MM_button.pressed.connect(_exit_to_MM)
 
-	print("FIONA TEST")
 	
 	get_tree().paused = false
 	pause_menu.hide()
@@ -27,6 +26,7 @@ func _input(event: InputEvent) -> void:
 			get_tree().paused = true
 			ispaused = false
 		else:
+			print("already paused")
 			pause_menu.hide()
 			get_tree().paused = false
 			ispaused = true

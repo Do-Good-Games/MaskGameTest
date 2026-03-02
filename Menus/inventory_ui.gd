@@ -11,22 +11,27 @@ class_name HUDController extends Control
 @export var colorMap :Dictionary[GameManager.color_enum, Color]
 
 @onready var flavor_text_label: RichTextLabel = $CanvasLayer/FlavorTextLabel
+@onready var qe_textlabel: RichTextLabel = $CanvasLayer/QE_textlabel
 
 
 func _ready() -> void:
 	game_manager.HUD_Controller = self
+	qe_textlabel.visible = false
 	game_manager.held_changed.connect(update_icons)
+	flavor_text_label.visible = false
 	
 func update_icons(new_index:int):
 	
 	# size one means only our bare hands, don't show anything
 	if(game_manager.collected_items.size() == 1):
+		qe_textlabel.visible = false
 		left_item_icon.visible = false
 		center_item_icon.visible = false
 		right_item_icon.visible = false
 	#one item, hide second slot
 	elif game_manager.collected_items.size() == 2:
 		# TODO FIONA: rather than always showing on right, have 
+		qe_textlabel.visible = false
 		left_item_icon.visible = false
 		_set_icon(new_index, center_item_icon, false)
 		_set_icon((new_index +1 )%2, right_item_icon)
@@ -46,6 +51,8 @@ func update_icons(new_index:int):
 		
 
 func _show_flavor_text(newText: String):
+	flavor_text_label.visible = true;
+	
 	print("showing flavor text ", newText)
 
 func _set_icon(new_index: int, icon: TextureRect, is_center : bool = false):

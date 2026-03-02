@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjxb5mh7wy8cc" path="res://lamp2D.gd" id="1_a0k4x"]
 [ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_30ch0"]
 [ext_resource type="PackedScene" uid="uid://dwj2g8najpxjr" path="res://Objects/throwable.tscn" id="3_ka7lb"]
-[ext_resource type="PackedScene" path="res://Objects/generallamp.tscn" id="5_aycsj"]
+[ext_resource type="PackedScene" uid="uid://b3tm1bpk3jg16" path="res://Objects/generallamp.tscn" id="5_aycsj"]
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="5_ka7lb"]
 [ext_resource type="PackedScene" uid="uid://blwvxjexc88mh" path="res://LayerMasking/collision_checker.tscn" id="6_5ecer"]
 
