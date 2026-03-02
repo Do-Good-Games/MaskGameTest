@@ -117,6 +117,8 @@ func get_throwable_child(parent) -> Throwable:
 	if Engine.is_editor_hint() :
 		return
 	
+	if not is_instance_valid(parent):
+		return
 	for n in parent.get_children():
 		if n is Throwable:
 			return n
@@ -140,7 +142,7 @@ func _physics_process(delta):
 	#TODO: stop animation
 		# Throwing Code
 	process_throwing()
-	if game_manager.current_held._item_type == game_manager.inventory_slot_type.LAMP:
+	if game_manager.current_held._item_type == game_manager.inventory_slot_type.LAMP and is_instance_valid(game_manager.current_held._obj_ref):
 		game_manager.current_held._obj_ref.position = position
 	
 	var rect = Rect2(0,0, camera_2d.limit_right * 2, camera_2d.limit_bottom * 2)

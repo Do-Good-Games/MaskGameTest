@@ -38,8 +38,6 @@ func _ready():
 func draw_lantern():
 	#mask : Sprite = new
 	#if game_manager.current_held is game_manager.
-	if RoomManager.busy:
-		return
 	
 	#duplicate lamp sprite 
 	var sprite : Sprite2D = self.brush_template.duplicate()
@@ -51,7 +49,7 @@ func draw_lantern():
 	#sprite.scale = sprite.scale.height * lamp.brush_scale
 	#sprite.texture.resize(sprite.texture.get_width() * lamp.brush_scale, sprite.texture.get_height() * lamp.brush_scale)
 	
-	if not RoomManager.current_level:
+	if not RoomManager.current_level or RoomManager.busy:
 		await RoomManager.level_ready
 	brush = RoomManager.current_level.add_temp_mask(color, sprite, light_range )
 	

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://by11em6ijb4bg"]
+[gd_scene format=3 uid="uid://d3x2yq2ogpn0o"]
 
 [ext_resource type="Script" uid="uid://bjxb5mh7wy8cc" path="res://lamp2D.gd" id="1_a0k4x"]
 [ext_resource type="PackedScene" uid="uid://f0giku20phl1" path="res://Objects/BobbyCollectable.tscn" id="2_30ch0"]
@@ -38,6 +38,7 @@ transparent_bg = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Brush" type="Sprite2D" parent="." unique_id=1462762110]
+visible = false
 texture = ExtResource("5_ka7lb")
 centered = false
 offset = Vector2(125, 15)

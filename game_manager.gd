@@ -48,6 +48,8 @@ func _input(event:InputEvent):
 func set_held(idx : int, turn_off: bool = true ):
 	
 	var prev_obj = current_held._obj_ref
+	if not is_instance_valid(prev_obj):
+		prev_obj = null
 	if prev_obj is Lamp2D and turn_off:
 		prev_obj.turn_off_lamp()
 	
