@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://ct3hhvnxmotn6"]
 
-[ext_resource type="Script" path="res://Art/NeeaFolder/Scripts/beh_save_masks.gd" id="1_8nt4g"]
+[ext_resource type="Script" uid="uid://bvim4yuohbkqo" path="res://Art/NeeaFolder/Scripts/beh_save_masks.gd" id="1_8nt4g"]
 [ext_resource type="PackedScene" uid="uid://hqpboj0traq5" path="res://Art/NeeaFolder/Prefabs/camera_level_mask.tscn" id="1_u3bbq"]
 [ext_resource type="PackedScene" uid="uid://db1x5evw5l7xn" path="res://Art/NeeaFolder/Prefabs/mdl_mask_base.tscn" id="2_gcmxb"]
 [ext_resource type="PackedScene" uid="uid://c2xu730ltbvrs" path="res://Levels/Level13D/lvl1_blue_3D.tscn" id="3_gcmxb"]
 [ext_resource type="PackedScene" uid="uid://cgl4q6cocsnv2" path="res://Levels/Level13D/lvl1_red_3D.tscn" id="5_1a8bc"]
 [ext_resource type="PackedScene" uid="uid://bp5fcp1pyrcu" path="res://Levels/Level13D/lvl1_green_3D.tscn" id="5_now8l"]
+[ext_resource type="PackedScene" uid="uid://bn1esi3hukxjs" path="res://Levels/Level23D/lvl2_blue_3D.tscn" id="7_ims2p"]
+[ext_resource type="PackedScene" uid="uid://ymqlnrwjadje" path="res://Levels/Level23D/lvl2_green_3D.tscn" id="8_y8q16"]
+[ext_resource type="PackedScene" uid="uid://cp5bylgtf8l2o" path="res://Levels/Level23D/lvl2_red_3D.tscn" id="9_vlr84"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8nt4g"]
 viewport_path = NodePath("SubViewport")
@@ -23,7 +26,6 @@ handle_input_locally = false
 size = Vector2i(1510, 1080)
 render_target_update_mode = 4
 script = ExtResource("1_8nt4g")
-disable_render = true
 name_prefix = "_"
 
 [node name="Camera3DMask" parent="SubViewport" unique_id=731256093 instance=ExtResource("1_u3bbq")]
@@ -38,3 +40,12 @@ visible = false
 visible = false
 
 [node name="lvl1_blue_3D" parent="SubViewport" unique_id=2100347933 instance=ExtResource("3_gcmxb")]
+visible = false
+
+[node name="lvl2_red_3D" parent="SubViewport" unique_id=850211029 instance=ExtResource("9_vlr84")]
+
+[node name="lvl2_green_3D" parent="SubViewport" unique_id=658703256 instance=ExtResource("8_y8q16")]
+visible = false
+
+[node name="lvl2_blue_3D" parent="SubViewport" unique_id=566740871 instance=ExtResource("7_ims2p")]
+visible = false
