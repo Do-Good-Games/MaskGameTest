@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="19_sy5k4"]
 [ext_resource type="PackedScene" uid="uid://c2xu730ltbvrs" path="res://Levels/Level13D/lvl1_blue_3D.tscn" id="21_ge1o1"]
 [ext_resource type="PackedScene" uid="uid://bp5fcp1pyrcu" path="res://Levels/Level13D/lvl1_green_3D.tscn" id="21_t46fu"]
-[ext_resource type="PackedScene" uid="uid://by11em6ijb4bg" path="res://Objects/lamp2D.tscn" id="21_uneus"]
+[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp2D.tscn" id="21_uneus"]
 [ext_resource type="Texture2D" uid="uid://bdsue340p8wq6" path="res://Levels/Level0/Lvl0_blue_mask.png" id="22_1m5w8"]
 [ext_resource type="Texture2D" uid="uid://bd8f2de4rd08m" path="res://Levels/Level0/Lvl0_green_mask.png" id="23_hpsve"]
 [ext_resource type="Texture2D" uid="uid://cg12j6qoyk4gg" path="res://Levels/Level0/Lvl0_red_mask.png" id="24_wha8l"]
@@ -356,6 +356,7 @@ texture = SubResource("GradientTexture2D_rwkd2")
 metadata/_edit_lock_ = true
 
 [node name="CollisionPreview" type="Sprite2D" parent="." unique_id=1788312755]
+visible = false
 self_modulate = Color(1, 1, 1, 0.80784315)
 texture = SubResource("ViewportTexture_ubq2l")
 metadata/_edit_lock_ = true

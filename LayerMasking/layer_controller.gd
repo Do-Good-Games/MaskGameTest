@@ -71,7 +71,7 @@ class color_texture_map:
 var debug_selected_layer: game_manager.color_enum
 
 
-@onready var composite_visuals: Sprite2D = %CompositeVisuals
+@onready var composite_visuals: Sprite2D = $CompositeVisuals
 
 var textures_map : Dictionary[game_manager.color_enum, color_texture_map] ={
 	game_manager.color_enum.RED: color_texture_map.new("Masks", red_mask),
@@ -98,6 +98,8 @@ func _setup_references() -> void:
 	layers[3] = blue_layer
 	
 	if not Engine.is_editor_hint():
+		if not is_node_ready():
+			await ready
 		layers[1].layer_mask.register_texture(red_mask)
 		layers[2].layer_mask.register_texture(green_mask)
 		layers[3].layer_mask.register_texture(blue_mask)
@@ -225,6 +227,7 @@ func _set_shader_parameters(shader: ShaderMaterial) -> void:
 
 func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2, brush_texture: Texture2D, brush_scale := Vector2(0.5,0.5)) -> void:
 	var updated_rect: Rect2
+	
 	for i in layers.size():
 		if i == 0:
 			continue
@@ -258,7 +261,7 @@ func _input(event: InputEvent) -> void:
 			print(get_global_mouse_position())
 			paint_texture(debug_selected_layer, get_global_mouse_position(), debug_brush)
 	if event is InputEventMouseMotion and debug_paint and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		paint_texture(debug_selected_layer, get_local_mouse_position(), debug_brush)
+		paint_texture(debug_selected_layer, get_global_mouse_position(), debug_brush)
 	if event is InputEventKey and debug_paint:
 		if event.keycode == KEY_1:
 			debug_selected_layer = game_manager.color_enum.RED
