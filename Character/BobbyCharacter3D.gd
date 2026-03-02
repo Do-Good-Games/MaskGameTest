@@ -34,6 +34,7 @@ func get_input():
 		createdThrowable.global_transform = self.global_transform
 		createdThrowable.speed = throwSpeed
 		throwSpeed = 0
+		game_manager.remove_current_held()
 	return input
 
 func _physics_process(delta):

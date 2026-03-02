@@ -1,3 +1,4 @@
+@tool
 class_name LayerMask extends Sprite2D
 
 
@@ -44,6 +45,8 @@ func paint_circle(radius: float, circle_pos: Vector2) -> void:
 	var y_start: int = max(circle_rect.position.y, image_rect.position.y)
 	var y_end: int = min(circle_rect.end.y, image_rect.end.y)
 	
+	#circle_pos += img.get_size()/2.0
+	
 	# Iterate through the rectangle the circle occupies
 	for x in range(x_start, x_end):
 		for y in range(y_start, y_end):
@@ -62,6 +65,8 @@ func erase_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scal
 	var draw_pos := brush_position - brush_rect.size / 2.0
 	
 	var img_size := img.get_size()
+	
+	#brush_position += img_size/2.0
 	
 	for x in brush_rect.size.x:
 		for y in brush_rect.size.y:
@@ -89,3 +94,7 @@ func erase_texture(brush_texture: Texture2D, brush_position: Vector2, brush_scal
 	)
 	img_updated.emit(updated_rect, img)
 	return updated_rect
+
+
+func contains_point(point: Vector2) -> bool:
+	return img.get_pixelv(point + img.get_size()/2.0).a > 0

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bx5cosvbobo1b"]
+
+[ext_resource type="PackedScene" uid="uid://c7831sboi7vgk" path="res://Art/NeeaFolder/Imports/Lamp.fbx" id="1_80mxg"]
+[ext_resource type="Texture2D" uid="uid://cum6rgnyhrfth" path="res://Art/NeeaFolder/Textures/Metal_BronzeClean_1K_roughness.png" id="2_471vg"]
+[ext_resource type="Material" uid="uid://u7gur2k8eelf" path="res://Art/NeeaFolder/Materials/mat_gray_item_metal.tres" id="4_d5nk8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80mxg"]
+albedo_color = Color(0.9915896, 0.8150952, 0.32747552, 1)
+emission_enabled = true
+emission = Color(1.45, 1.45, 1.45, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ko1h6"]
+albedo_color = Color(0.22365052, 0.28042126, 0.2747634, 1)
+metallic = 1.0
+roughness_texture = ExtResource("2_471vg")
+normal_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yojxx"]
+albedo_color = Color(0.14660713, 0.18691802, 0.17514855, 1)
+metallic = 1.0
+roughness_texture = ExtResource("2_471vg")
+normal_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5nk8"]
+albedo_color = Color(0.21269691, 0.28276956, 0.28099242, 1)
+metallic = 1.0
+roughness_texture = ExtResource("2_471vg")
+normal_enabled = true
+
+[node name="Lamp" unique_id=104917581 instance=ExtResource("1_80mxg")]
+
+[node name="Cylinder" parent="." index="0" unique_id=2015905487]
+material_override = SubResource("StandardMaterial3D_80mxg")
+
+[node name="Cylinder_001" parent="." index="1" unique_id=1679713056]
+material_override = SubResource("StandardMaterial3D_ko1h6")
+
+[node name="Cylinder_002" parent="." index="2" unique_id=1991795229]
+material_override = SubResource("StandardMaterial3D_yojxx")
+
+[node name="Torus" parent="." index="3" unique_id=796742028]
+surface_material_override/0 = SubResource("StandardMaterial3D_d5nk8")
+
+[node name="Torus_001" parent="." index="4" unique_id=1744126771]
+surface_material_override/0 = ExtResource("4_d5nk8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="5" unique_id=1561826526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721547, 0)
+visible = false
+light_color = Color(0.97, 0.067899995, 0.067899995, 1)
+omni_range = 3.646738

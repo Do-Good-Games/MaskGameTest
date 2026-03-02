@@ -28,7 +28,7 @@ signal held_changed(new_index : int)
 
 var current_held : InventorySlot = InventorySlot.new(inventory_slot_type.NONE, color_enum.NONE, 0, Node.new())
 
-
+var HUD_Controller: HUDController
 
 var collected_items: Array[InventorySlot] = [current_held]
 
@@ -41,37 +41,49 @@ func _input(event:InputEvent):
 		set_held(new_idx)
 		
 	if event.is_action_pressed("inventory_right"):
-		new_idx=( current_held._idx + collected_items.size()) % collected_items.size()
+		new_idx=( current_held._idx +1 + collected_items.size()) % collected_items.size()
 		set_held(new_idx)
 	
 
-func set_held(idx : int ):
+func set_held(idx : int, turn_off: bool = true ):
+	
+	var prev_obj = current_held._obj_ref
+	if not is_instance_valid(prev_obj):
+		prev_obj = null
+	if prev_obj is Lamp2D and turn_off:
+		prev_obj.turn_off_lamp()
+	
 	var lamp = current_held._obj_ref
 	#if lamp is Lamp:
 		#lamp.turn_off_lamp()
 	current_held = collected_items[idx]
 	held_changed.emit(current_held._idx)
 	
+	
 	lamp = current_held._obj_ref
-	if lamp is Lamp:
+	if lamp is Lamp2D:
 		lamp.turn_on_lamp()
 
 func collect_item(item_type: inventory_slot_type, color: color_enum, obj_ref: Node):
+	print("you collected the ", color, " ", item_type)
 	
 	var new_slot : InventorySlot = InventorySlot.new(item_type, color, collected_items.size(), obj_ref)
 	#new_slot._init(item_type, color)
 	collected_items.push_back(new_slot)
 	set_held(new_slot._idx)
-	print("you collected the ", color, " ", item_type)
 	#collected_lamps.
 
 func remove_current_held():
+	print("removed")
 	_remove_item(current_held._idx)
-	set_held(0)
+	set_held(0, false)
+	
 	
 
 func _remove_item(idx: int):
 	collected_items.remove_at(idx)
 	
+	for slot :InventorySlot in collected_items.slice(idx, collected_items.size()):
+		slot._idx = slot._idx -1
 
 #make   for the lanters the players hold

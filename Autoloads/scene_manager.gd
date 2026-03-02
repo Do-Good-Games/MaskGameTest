@@ -48,16 +48,16 @@ func load_scene(new_scene_uid: String, anim: AnimationPlayer = default_animator)
 		return
 	busy = true
 	current_scene_uid = new_scene_uid
-	var next_scene: Node = load(new_scene_uid).instantiate()
-	next_scene.z_index = -1
 	
 	transition_started.emit(current_scene)
 	await _play_transition(to_black_anim_name, anim)
 	#Could happen earlier maybe, but it sorta lags
-	parent_node.add_child(next_scene)
-	
 	current_scene.queue_free()
 	scene_freed.emit(current_scene)
+	
+	var next_scene: Node = load(new_scene_uid).instantiate()
+	next_scene.z_index = -1
+	parent_node.add_child(next_scene)
 	
 	next_scene.z_index = 0
 	current_scene = next_scene

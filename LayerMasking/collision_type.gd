@@ -1,3 +1,4 @@
+@tool
 class_name CollisionType extends Node2D
  
 @export var rect_size := Vector2(1000, 1000)
@@ -10,6 +11,8 @@ class_name CollisionType extends Node2D
 var image: Image
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
 	await RenderingServer.frame_post_draw 
 	await RenderingServer.frame_post_draw 
 	update_image()
@@ -50,7 +53,7 @@ func do_color_cast(start_pos: Vector2, direction: Vector2, length: int,
 
 
 func check_color(check_pos: Vector2i, shape_to_spawn: CollisionShape2D) -> bool:
-	if image.get_pixelv(check_pos).a > 0:
+	if image.get_pixelv(check_pos + image.get_size()/2).a > 0:
 		if shape_to_spawn:
 			shape_to_spawn.global_position = check_pos
 			shape_to_spawn.disabled = false

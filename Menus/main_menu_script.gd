@@ -4,7 +4,7 @@ extends Control
 #@onready var settings_button : Button = $"MAIN MENU BUTTONS/MarginContainer2/Button"
 @onready var credits_button : Button = $"CanvasLayer/Button Container/Credits Button"
 
-@export var first_level: Level
+@export_file("*.tscn") var first_level: String
 
 func _ready() -> void:
 	start_button.pressed.connect(_start)
@@ -21,7 +21,7 @@ func _start() -> void:
 	print("Start Game")
 	
 	#CHANGE THIS TO THE REAL LEVEL 1 OR WHATEVER
-	get_tree().change_scene_to_file("res://Levels/Level1.tscn")
+	RoomManager.load_level(first_level)
 	
 func _credits() -> void:
 	print("Opening Credits Menu")

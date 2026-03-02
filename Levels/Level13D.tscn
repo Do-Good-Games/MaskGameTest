@@ -11,7 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://twogt3u4ss88" path="res://Levels/Level13D/lvl1_green_mask_3D.png" id="7_lllj0"]
 [ext_resource type="Texture2D" uid="uid://by1qtq3ansbj5" path="res://Levels/Level13D/lvl1_blue_mask_3D.png" id="8_ge1o1"]
 [ext_resource type="Texture2D" uid="uid://n2npv1l7ospx" path="res://Levels/Level1/lvl1_blue_mask.png" id="8_o6qit"]
-[ext_resource type="Texture2D" uid="uid://d37h2kyha17p4" path="res://Levels/Level1/lvl1_red_haz.png" id="12_ubq2l"]
+[ext_resource type="Texture2D" uid="uid://bux7d254lnnsa" path="res://Levels/Level13D/lvl1_red_col_3D.png" id="9_ge1o1"]
+[ext_resource type="Texture2D" uid="uid://jg2t52rbn40o" path="res://Levels/Level13D/lvl1_green_col_3D.png" id="10_hbkoq"]
+[ext_resource type="Texture2D" uid="uid://b4nrdv3im4iyx" path="res://Levels/Level13D/lvl1_blue_col_3D.png" id="11_uneus"]
+[ext_resource type="Texture2D" uid="uid://dwer5703yknvj" path="res://Levels/Level13D/lvl1_red_haz_3D.png" id="12_t46fu"]
+[ext_resource type="Texture2D" uid="uid://bu8g8j47ni2qr" path="res://Levels/Level13D/lvl1_green_haz_3D.png" id="13_n8vq3"]
+[ext_resource type="Texture2D" uid="uid://ihvarnr3wy2m" path="res://Levels/Level13D/lvl1_blue_haz_3D.png" id="14_nplaj"]
 [ext_resource type="Texture2D" uid="uid://dei7ywid4trbd" path="res://Ian Folder/less_evil_brush.tres" id="15_hlseg"]
 [ext_resource type="PackedScene" uid="uid://b2aodyxg1wr0g" path="res://Character/bobby_character.tscn" id="16_3nsc0"]
 [ext_resource type="PackedScene" uid="uid://cpbird1x7ojdl" path="res://LayerMasking/layer_cleaned.tscn" id="17_a38lc"]
@@ -19,13 +24,14 @@
 [ext_resource type="Texture2D" uid="uid://dvf21l451imlf" path="res://Ian Folder/brush.tres" id="19_sy5k4"]
 [ext_resource type="PackedScene" uid="uid://c2xu730ltbvrs" path="res://Levels/Level13D/lvl1_blue_3D.tscn" id="21_ge1o1"]
 [ext_resource type="PackedScene" uid="uid://bp5fcp1pyrcu" path="res://Levels/Level13D/lvl1_green_3D.tscn" id="21_t46fu"]
+[ext_resource type="PackedScene" uid="uid://d3x2yq2ogpn0o" path="res://Objects/lamp2D.tscn" id="21_uneus"]
 [ext_resource type="Texture2D" uid="uid://bdsue340p8wq6" path="res://Levels/Level0/Lvl0_blue_mask.png" id="22_1m5w8"]
 [ext_resource type="Texture2D" uid="uid://bd8f2de4rd08m" path="res://Levels/Level0/Lvl0_green_mask.png" id="23_hpsve"]
 [ext_resource type="Texture2D" uid="uid://cg12j6qoyk4gg" path="res://Levels/Level0/Lvl0_red_mask.png" id="24_wha8l"]
 [ext_resource type="PackedScene" uid="uid://2jpgujndi0u3" path="res://LayerMasking/collision_type.tscn" id="25_2mw4j"]
-[ext_resource type="Texture2D" uid="uid://bxioucw8hjd07" path="res://Levels/Level0/Lvl0_blue_haz.png" id="26_5hhh5"]
-[ext_resource type="Texture2D" uid="uid://dftlb7hd1a6sr" path="res://Levels/Level0/Lvl0_green_haz.png" id="27_xghli"]
-[ext_resource type="Texture2D" uid="uid://30g3jfqlgi88" path="res://Levels/Level0/Lvl0_red_haz.png" id="28_gaiqt"]
+[ext_resource type="AudioStream" uid="uid://bhyghsfbq5m18" path="res://Audio/Music/SyncedMusic.tres" id="29_hbkoq"]
+[ext_resource type="PackedScene" uid="uid://cr8v26onkmicu" path="res://Menus/pauseMenu.tscn" id="31_t46fu"]
+[ext_resource type="PackedScene" uid="uid://b3tm1bpk3jg16" path="res://Objects/generallamp.tscn" id="32_n8vq3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rwkd2"]
 
@@ -54,66 +60,48 @@ shader_parameter/blue_temp_masks = SubResource("ViewportTexture_rwkd2")
 shader_parameter/cam_pos = Vector2(0, 0)
 shader_parameter/cam_size = Vector2(0, 0)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2b3u7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nplaj"]
 viewport_path = NodePath("LevelVisual")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lllj0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0m4bb"]
 viewport_path = NodePath("LevelVisual")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ge1o1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_o6qit"]
 viewport_path = NodePath("LevelVisual")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3wkli"]
-load_path = "res://.godot/imported/Lvl0_blue_mask.png-f889f6d64c45ade2cfca199b538316ff.ctex"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_hbkoq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1k1g5"]
 viewport_path = NodePath("BlueLayer/TempMasks")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sdsxl"]
-load_path = "res://.godot/imported/Lvl0_blue_col.png-13ab681ceca001b7761fc48b279bba09.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oqb7r"]
-load_path = "res://.godot/imported/Lvl0_green_mask.png-f2791553c6b72f191252b857ddb14641.ctex"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_uneus"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sbtpj"]
 viewport_path = NodePath("GreenLayer/TempMasks")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ysbpt"]
-load_path = "res://.godot/imported/Lvl0_green_col.png-a05b2a1dc02479958cbebcb362b65056.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5fklp"]
-load_path = "res://.godot/imported/Lvl0_red_mask.png-e7dfd2b036206ebfce7f2945aa388bb4.ctex"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_t46fu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cot6j"]
 viewport_path = NodePath("RedLayer/TempMasks")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_irrfb"]
-load_path = "res://.godot/imported/Lvl0_red_col.png-59fc904a44126b6134852610c0b61fe9.ctex"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n8vq3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubq2l"]
 resource_local_to_scene = true
 shader = ExtResource("1_ge1o1")
-shader_parameter/red_texture = SubResource("CompressedTexture2D_irrfb")
-shader_parameter/red_mask = SubResource("CompressedTexture2D_5fklp")
-shader_parameter/green_texture = SubResource("CompressedTexture2D_ysbpt")
-shader_parameter/green_mask = SubResource("CompressedTexture2D_oqb7r")
-shader_parameter/blue_texture = SubResource("CompressedTexture2D_sdsxl")
-shader_parameter/blue_mask = SubResource("CompressedTexture2D_3wkli")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_t46fu")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_uneus")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_hbkoq")
+shader_parameter/red_texture = ExtResource("9_ge1o1")
+shader_parameter/red_mask = ExtResource("6_nplaj")
+shader_parameter/green_texture = ExtResource("10_hbkoq")
+shader_parameter/green_mask = ExtResource("7_0m4bb")
+shader_parameter/blue_texture = ExtResource("11_uneus")
+shader_parameter/blue_mask = ExtResource("8_o6qit")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_cot6j")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_sbtpj")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_1k1g5")
 shader_parameter/cam_pos = Vector2(0, 0)
 shader_parameter/cam_size = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_ir1ia"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nplaj"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lqpna"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_ir1ia")
 width = 1510
 height = 1080
 
-[sub_resource type="Shader" id="Shader_0m4bb"]
+[sub_resource type="Shader" id="Shader_t5e0b"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 uniform sampler2D red_texture;
@@ -147,36 +135,18 @@ void fragment() {
 //}
 "
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wywvs"]
-load_path = "res://.godot/imported/Lvl0_blue_mask.png-f889f6d64c45ade2cfca199b538316ff.ctex"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_o6qit"]
-viewport_path = NodePath("BlueLayer/TempMasks")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jsskw"]
-load_path = "res://.godot/imported/Lvl0_green_mask.png-f2791553c6b72f191252b857ddb14641.ctex"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_1k1g5"]
-viewport_path = NodePath("GreenLayer/TempMasks")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ochp"]
-load_path = "res://.godot/imported/Lvl0_red_mask.png-e7dfd2b036206ebfce7f2945aa388bb4.ctex"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_sbtpj"]
-viewport_path = NodePath("RedLayer/TempMasks")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cot6j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hlseg"]
 resource_local_to_scene = true
-shader = SubResource("Shader_0m4bb")
-shader_parameter/red_texture = ExtResource("28_gaiqt")
-shader_parameter/red_mask = SubResource("CompressedTexture2D_7ochp")
-shader_parameter/green_texture = ExtResource("27_xghli")
-shader_parameter/green_mask = SubResource("CompressedTexture2D_jsskw")
-shader_parameter/blue_texture = ExtResource("26_5hhh5")
-shader_parameter/blue_mask = SubResource("CompressedTexture2D_wywvs")
-shader_parameter/red_temp_masks = SubResource("ViewportTexture_sbtpj")
-shader_parameter/green_temp_masks = SubResource("ViewportTexture_1k1g5")
-shader_parameter/blue_temp_masks = SubResource("ViewportTexture_o6qit")
+shader = SubResource("Shader_t5e0b")
+shader_parameter/red_texture = ExtResource("12_t46fu")
+shader_parameter/red_mask = ExtResource("6_nplaj")
+shader_parameter/green_texture = ExtResource("13_n8vq3")
+shader_parameter/green_mask = ExtResource("7_0m4bb")
+shader_parameter/blue_texture = ExtResource("14_nplaj")
+shader_parameter/blue_mask = ExtResource("8_o6qit")
+shader_parameter/red_temp_masks = SubResource("ViewportTexture_cot6j")
+shader_parameter/green_temp_masks = SubResource("ViewportTexture_sbtpj")
+shader_parameter/blue_temp_masks = SubResource("ViewportTexture_1k1g5")
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8cs8j"]
 gradient = SubResource("Gradient_ir1ia")
@@ -238,25 +208,39 @@ gradient = SubResource("Gradient_b85kt")
 width = 1510
 height = 1080
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ubq2l"]
+viewport_path = NodePath("Collision/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a38lc"]
+viewport_path = NodePath("Hazard/SubViewport")
+
 [node name="Level2" type="Node2D" unique_id=1171352334]
 material = SubResource("ShaderMaterial_6hdhj")
 script = ExtResource("5_n8vq3")
 red_mask = ExtResource("6_2b3u7")
 green_mask = ExtResource("7_lllj0")
 blue_mask = ExtResource("8_ge1o1")
-red_collision = ExtResource("12_ubq2l")
-green_collision = ExtResource("12_ubq2l")
-blue_collision = ExtResource("12_ubq2l")
-green_hazard = ExtResource("12_ubq2l")
-blue_hazard = ExtResource("12_ubq2l")
+red_collision = ExtResource("9_ge1o1")
+green_collision = ExtResource("10_hbkoq")
+blue_collision = ExtResource("11_uneus")
+red_hazard = ExtResource("12_t46fu")
+green_hazard = ExtResource("13_n8vq3")
+blue_hazard = ExtResource("14_nplaj")
 debug_brush = ExtResource("15_hlseg")
 metadata/_edit_lock_ = true
 
 [node name="BobbyCharacter" parent="." unique_id=1423288883 instance=ExtResource("16_3nsc0")]
-position = Vector2(72, 240)
+z_index = 5
+position = Vector2(-12.999939, 239.00006)
+scale = Vector2(0.49999383, 0.49999383)
+upper_left_cam_bound = Vector2(-1296, -702)
+lower_right_cam_bound = Vector2(1296, 702)
 
 [node name="RedLayer" parent="." unique_id=1461014223 instance=ExtResource("17_a38lc")]
 visible = false
+
+[node name="LayerArea" parent="RedLayer" index="0" unique_id=1061474882]
+visible = true
 
 [node name="LayerMask" parent="RedLayer" index="1" unique_id=1379613557]
 texture = ExtResource("6_nplaj")
@@ -268,7 +252,7 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Red3D" parent="RedLayer/LevelVisual" index="0" unique_id=2100347933 instance=ExtResource("18_uneus")]
 
 [node name="3D Scene goes here!" parent="RedLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_2b3u7")
+texture = SubResource("ViewportTexture_nplaj")
 
 [node name="TempMasks" parent="RedLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
@@ -279,8 +263,14 @@ position = Vector2(0, 160.19)
 texture = ExtResource("19_sy5k4")
 centered = false
 
+[node name="Lamp2D" parent="RedLayer" unique_id=835076901 instance=ExtResource("21_uneus")]
+position = Vector2(-115, 746)
+
 [node name="GreenLayer" parent="." unique_id=1876231418 instance=ExtResource("17_a38lc")]
 visible = false
+
+[node name="LayerArea" parent="GreenLayer" index="0" unique_id=1061474882]
+visible = true
 
 [node name="LayerMask" parent="GreenLayer" index="1" unique_id=1379613557]
 texture = ExtResource("7_0m4bb")
@@ -292,7 +282,7 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Green3D" parent="GreenLayer/LevelVisual" index="0" unique_id=1579892656 instance=ExtResource("21_t46fu")]
 
 [node name="3D Scene goes here!" parent="GreenLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_lllj0")
+texture = SubResource("ViewportTexture_0m4bb")
 
 [node name="TempMasks" parent="GreenLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
@@ -300,6 +290,9 @@ render_target_update_mode = 4
 
 [node name="BlueLayer" parent="." unique_id=1089670503 instance=ExtResource("17_a38lc")]
 visible = false
+
+[node name="LayerArea" parent="BlueLayer" index="0" unique_id=1061474882]
+visible = true
 
 [node name="LayerMask" parent="BlueLayer" index="1" unique_id=1379613557]
 texture = ExtResource("8_o6qit")
@@ -311,14 +304,13 @@ size = Vector2i(1510, 1080)
 [node name="Lvl1Blue3D" parent="BlueLayer/LevelVisual" index="0" unique_id=1544323911 instance=ExtResource("21_ge1o1")]
 
 [node name="3D Scene goes here!" parent="BlueLayer/LevelVisual" index="1" unique_id=642318865]
-texture = SubResource("ViewportTexture_ge1o1")
+texture = SubResource("ViewportTexture_o6qit")
 
 [node name="TempMasks" parent="BlueLayer" index="3" unique_id=962696683]
 size = Vector2i(1510, 1080)
 render_target_update_mode = 4
 
 [node name="Collision" parent="." unique_id=1520539682 node_paths=PackedStringArray("collision_object") instance=ExtResource("25_2mw4j")]
-visible = false
 rect_size = Vector2(500, 500)
 collision_object = NodePath("StaticBody2D")
 
@@ -326,12 +318,14 @@ collision_object = NodePath("StaticBody2D")
 size = Vector2i(1510, 1080)
 
 [node name="CollisionMask" parent="Collision/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_n8vq3")
-texture = SubResource("GradientTexture2D_nplaj")
+material = SubResource("ShaderMaterial_ubq2l")
+texture = SubResource("GradientTexture2D_lqpna")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collision" unique_id=1968060419]
 
 [node name="Hazard" parent="." unique_id=2146344563 node_paths=PackedStringArray("collision_object") instance=ExtResource("25_2mw4j")]
+modulate = Color(1, 0.10980392, 0, 1)
+z_index = 7
 rect_size = Vector2(500, 500)
 collision_object = NodePath("Area2D")
 metadata/_edit_lock_ = true
@@ -340,7 +334,7 @@ metadata/_edit_lock_ = true
 size = Vector2i(1510, 1080)
 
 [node name="CollisionMask" parent="Hazard/SubViewport" index="0" unique_id=1243604259]
-material = SubResource("ShaderMaterial_cot6j")
+material = SubResource("ShaderMaterial_hlseg")
 texture = SubResource("GradientTexture2D_8cs8j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1040300366]
@@ -353,6 +347,7 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionRedrawTimer" type="Timer" parent="." unique_id=707728349]
 process_callback = 0
+wait_time = 0.1
 autostart = true
 
 [node name="CompositeVisuals" type="Sprite2D" parent="." unique_id=378184343]
@@ -362,9 +357,35 @@ material = SubResource("ShaderMaterial_b8h2f")
 texture = SubResource("GradientTexture2D_rwkd2")
 metadata/_edit_lock_ = true
 
+[node name="CollisionPreview" type="Sprite2D" parent="." unique_id=1788312755]
+visible = false
+self_modulate = Color(1, 1, 1, 0.80784315)
+texture = SubResource("ViewportTexture_ubq2l")
+metadata/_edit_lock_ = true
+
+[node name="HazardPreview" type="Sprite2D" parent="." unique_id=371222639]
+modulate = Color(0.8413499, 0, 0.21577135, 1)
+self_modulate = Color(1, 1, 1, 0.80784315)
+z_index = 5
+texture = SubResource("ViewportTexture_a38lc")
+metadata/_edit_lock_ = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1836167931]
+stream = ExtResource("29_hbkoq")
+volume_db = -28.281
+autoplay = true
+
+[node name="pauseMenu" parent="." unique_id=659569743 instance=ExtResource("31_t46fu")]
+
+[node name="GeneralLamp" parent="." unique_id=280053881 instance=ExtResource("32_n8vq3")]
+
+[node name="Lamp2D" parent="." unique_id=1671475451 instance=ExtResource("21_uneus")]
+position = Vector2(-319, 251)
+
 [connection signal="body_entered" from="Hazard/Area2D" to="Hazard/Area2D" method="_on_body_entered"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="." method="_on_collision_redraw_timer_timeout"]
 [connection signal="timeout" from="CollisionRedrawTimer" to="Collision" method="update_image"]
+[connection signal="timeout" from="CollisionRedrawTimer" to="Hazard" method="update_image"]
 
 [editable path="RedLayer"]
 [editable path="GreenLayer"]

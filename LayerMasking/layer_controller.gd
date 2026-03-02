@@ -2,6 +2,7 @@
 class_name Level extends Node2D
 
 var layers: Array[Layer] = [null, null, null, null]
+var temp_masks_by_layer: Dictionary[Layer, Array]
 
 @onready var red_layer: Layer = $RedLayer
 @onready var green_layer: Layer = $GreenLayer
@@ -15,6 +16,9 @@ var collision_types: Array[CollisionType] = [null, null]
 #@onready var Camera: Camera3D = $Camera3D
 
 @onready var level_size : SubViewport = $RedLayer/LevelVisual
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
+
+var song_index: int = 0
 
 #region Tooltip
 # Ok everything you need is pretty much here, alpha values on all the 
@@ -45,7 +49,7 @@ class color_texture_map:
 
 #@export var textures_map : Dictionary [String, Dictionary[game_manager.color_enum, Texture2D]]
 
-
+@export_tool_button("Update Preview") var preview_updater := _setup_references
 @export_category("Masks")
 @export var red_mask: Texture2D
 @export var green_mask: Texture2D
@@ -66,7 +70,8 @@ class color_texture_map:
 @export var debug_brush_scale := Vector2(0.5, 0.5)
 var debug_selected_layer: game_manager.color_enum
 
-@onready var composite_visuals: Sprite2D = %CompositeVisuals
+
+@onready var composite_visuals: Sprite2D = $CompositeVisuals
 
 var textures_map : Dictionary[game_manager.color_enum, color_texture_map] ={
 	game_manager.color_enum.RED: color_texture_map.new("Masks", red_mask),
@@ -81,24 +86,64 @@ func _ready() -> void:
 	#var brush_image_texture: ImageTexture = ImageTexture.new()
 	#brush_image_texture.create_from_image(brush_image)
 	#debug_brush = brush_image_texture
+	_setup_references()
 	
+
+func _setup_references() -> void:
+	_set_collision_textures()
 	
 	layers[0] = null
 	layers[1] = red_layer
 	layers[2] = green_layer
 	layers[3] = blue_layer
-	layers[1].layer_mask.register_texture(red_mask)
-	layers[2].layer_mask.register_texture(green_mask)
-	layers[3].layer_mask.register_texture(blue_mask)
+	
+	if not Engine.is_editor_hint():
+		if not is_node_ready():
+			await ready
+		layers[1].layer_mask.register_texture(red_mask)
+		layers[2].layer_mask.register_texture(green_mask)
+		layers[3].layer_mask.register_texture(blue_mask)
+		_set_shader_parameters(composite_visuals.material)
 	
 	collision_types[0] = collision
 	collision_types[1] = hazard
 	
-	_set_shader_parameters(composite_visuals.material)
 	for collision_type in collision_types:
 		_set_shader_parameters(collision_type.mask.material)
-	
-	_set_collision_textures()
+
+## Use this for lamps!!
+func what_layer_is_body_in(body: PhysicsBody2D) -> GameManager.color_enum:
+	for i in range(1,4):
+		if layers[i].layer_area.get_overlapping_bodies().has(body):
+			return i as GameManager.color_enum
+	return what_layer_contains_point(body.global_position)
+
+
+func what_layer_contains_point(pos: Vector2) -> GameManager.color_enum:
+	for i in range(1,4):
+		if layers[i].layer_mask.contains_point(pos):
+			return i as GameManager.color_enum
+	return GameManager.color_enum.NONE
+
+
+func choose_song_by_position(pos: Vector2) -> void:
+	song_index = what_layer_contains_point(pos) - 1
+
+
+func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	song_index = what_layer_is_body_in($BobbyCharacter) - 1
+	var sync_stream: AudioStreamSynchronized = music_player.stream
+	for i in range(3):
+		var volume: float = sync_stream.get_sync_stream_volume(i)
+		if i == song_index:
+			var new_volume := move_toward(volume, 0.0, 1.0)
+			sync_stream.set_sync_stream_volume(i, new_volume)
+		else:
+			var new_volume := move_toward(volume, -30.0, 1.0)
+			sync_stream.set_sync_stream_volume(i, new_volume)
+
 
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
@@ -111,6 +156,7 @@ func _process(delta: float) -> void:
 
 
 func _set_collision_textures() -> void:
+	print($Collision.mask)
 	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
 		"red_texture", red_collision
 	)
@@ -121,14 +167,36 @@ func _set_collision_textures() -> void:
 		"blue_texture", blue_collision
 	)
 	
+	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
+		"red_mask", red_mask
+	)
+	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
+		"green_mask", green_mask
+	)
+	($Collision.mask.material as ShaderMaterial).set_shader_parameter(
+		"blue_mask", blue_mask
+	)
+	
+	print($Hazard.mask.material)
 	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
 		"red_texture", red_hazard
 	)
+	print($Hazard.mask.material.get_shader_parameter("red_texture"))
 	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
 		"green_texture", green_hazard
 	)
 	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
 		"blue_texture", blue_hazard
+	)
+	
+	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
+		"red_mask", red_mask
+	)
+	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
+		"green_mask", green_mask
+	)
+	($Hazard.mask.material as ShaderMaterial).set_shader_parameter(
+		"blue_mask", blue_mask
 	)
 
 func _set_shader_parameters_per_frame(shader: ShaderMaterial) -> void:
@@ -159,6 +227,7 @@ func _set_shader_parameters(shader: ShaderMaterial) -> void:
 
 func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2, brush_texture: Texture2D, brush_scale := Vector2(0.5,0.5)) -> void:
 	var updated_rect: Rect2
+	
 	for i in layers.size():
 		if i == 0:
 			continue
@@ -171,12 +240,18 @@ func paint_texture(layer_name: game_manager.color_enum, brush_position: Vector2,
 		#collision_type.handle_rect_update(updated_rect)
 
 
-func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D , scale: float = 1) -> Node2D:
+func add_temp_mask(layer_name: game_manager.color_enum, mask: Node2D, shape: CollisionShape2D, scale: float = 1) -> Node2D:
 	var layer: Layer = layers[layer_name]
 	
 	if mask.get_parent() != null:
 		mask.get_parent().remove_child(mask)
+	if shape.get_parent() != null:
+		shape.get_parent().remove_child(shape)
 	layer.temp_masks.add_child(mask)
+	layer.layer_area.add_child(shape)
+	#if mask is Sprite2D:
+		#var mask_list: Array = temp_masks_by_layer.get_or_add(layer, [])
+		#mask_list.append(mask)
 	return mask
 
 
@@ -186,7 +261,7 @@ func _input(event: InputEvent) -> void:
 			print(get_global_mouse_position())
 			paint_texture(debug_selected_layer, get_global_mouse_position(), debug_brush)
 	if event is InputEventMouseMotion and debug_paint and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		paint_texture(debug_selected_layer, get_local_mouse_position(), debug_brush)
+		paint_texture(debug_selected_layer, get_global_mouse_position(), debug_brush)
 	if event is InputEventKey and debug_paint:
 		if event.keycode == KEY_1:
 			debug_selected_layer = game_manager.color_enum.RED

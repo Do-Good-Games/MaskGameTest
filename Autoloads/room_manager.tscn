@@ -258,6 +258,7 @@ script = SubResource("GDScript_s3fwq")
 default_animator = NodePath("RoomChangeAnimator")
 
 [node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1531510680]
+layer = 2
 
 [node name="ColorRect" type="ColorRect" parent="TransitionLayer" unique_id=1884721813]
 anchors_preset = 15
