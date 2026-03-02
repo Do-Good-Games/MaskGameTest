@@ -8,14 +8,11 @@ enum {LEVEL, COLOR, DIMENSION} # scene node name
 const LAYERS_MASK : Dictionary = {"col": 2, "haz": 3}
 const LAYERS_ALL : int = 1048575
 const WINDOW_SIZE = Vector2i(1920, 1080)
-
 @export var disable_render : bool
 @export var name_prefix : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if disable_render: return
-	
 	# example names:
 	# lvl1_blue_col_3D.png
 	# lvl1_blue_haz_3D.png
@@ -31,7 +28,7 @@ func _ready() -> void:
 	var scene_visible : Array[bool]
 	for i : int in range(len(scenes)):
 		scene_visible.append(scenes[i].is_visible())
-		#print(scenes[i].name, scene_visible[-1])
+		print(scenes[i].name, scene_visible[-1])
 	
 	# hide all scenes
 	for scene : Node3D in scenes:
@@ -83,9 +80,12 @@ func save_masks(viewport : Viewport, render_scene : Node3D) -> void:
 		# get rendered image
 		await RenderingServer.frame_post_draw
 		var img : Image = viewport.get_texture().get_image()
+		#var spr : Sprite2D = $"../Sprite2D"
+		#var img : Image = spr.get_canvas_item().get_material().get_texture().get_image()
 		
 		# save image
-		img.save_png(file_path)
+		if not disable_render: img.save_png(file_path)
+		
 		
 		if FileAccess.file_exists(file_path):
 			print("saved image to: " + file_path)
