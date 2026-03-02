@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b80vf8qh71pci"
-path="res://.godot/imported/__lvl2_red_haz_3D.png-44df82419b16c4828f0885adfef138a9.ctex"
+uid="uid://b2741e6a3qw5q"
+path="res://.godot/imported/lvl2_blue_haz_3D.png-905fd53760ff67acfc95dd70e77fa21d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Level23D/__lvl2_red_haz_3D.png"
-dest_files=["res://.godot/imported/__lvl2_red_haz_3D.png-44df82419b16c4828f0885adfef138a9.ctex"]
+source_file="res://Levels/Level23D/lvl2_blue_haz_3D.png"
+dest_files=["res://.godot/imported/lvl2_blue_haz_3D.png-905fd53760ff67acfc95dd70e77fa21d.ctex"]
 
 [params]
 

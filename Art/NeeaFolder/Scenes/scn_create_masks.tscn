@@ -26,7 +26,6 @@ handle_input_locally = false
 size = Vector2i(1510, 1080)
 render_target_update_mode = 4
 script = ExtResource("1_8nt4g")
-name_prefix = "_"
 
 [node name="Camera3DMask" parent="SubViewport" unique_id=731256093 instance=ExtResource("1_u3bbq")]
 
@@ -43,9 +42,9 @@ visible = false
 visible = false
 
 [node name="lvl2_red_3D" parent="SubViewport" unique_id=850211029 instance=ExtResource("9_vlr84")]
+visible = false
 
 [node name="lvl2_green_3D" parent="SubViewport" unique_id=658703256 instance=ExtResource("8_y8q16")]
 visible = false
 
 [node name="lvl2_blue_3D" parent="SubViewport" unique_id=566740871 instance=ExtResource("7_ims2p")]
-visible = false
