@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://klea83nmu5lk"]
+
+[ext_resource type="Material" uid="uid://il0iy4e4udln" path="res://Art/NeeaFolder/Materials/mat_green_haz_hole.tres" id="1_tvaav"]
+[ext_resource type="Material" uid="uid://v4pr0muyjo2h" path="res://Art/NeeaFolder/Materials/mat_mask_black.tres" id="2_n5fjs"]
+[ext_resource type="PackedScene" uid="uid://kvemjh5lcxaq" path="res://Art/NeeaFolder/Prefabs/Holes/mdl_hole_mask_2x2.tscn" id="3_tvaav"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a4r6f"]
+top_radius = 4.275
+bottom_radius = 8.7
+height = 10.0
+radial_segments = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ecxvp"]
+top_radius = 4.275
+bottom_radius = 8.7
+height = 10.0
+radial_segments = 4
+
+[node name="Hole2x2" type="MeshInstance3D" unique_id=637128496]
+transform = Transform3D(0.4709331, 0, 0.4709331, 0, 0.666, 0, -0.4709331, 0, 0.4709331, 0, -3.4, 0)
+material_override = ExtResource("1_tvaav")
+mesh = SubResource("CylinderMesh_a4r6f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1162819790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+layers = 4
+material_override = ExtResource("2_n5fjs")
+mesh = SubResource("CylinderMesh_ecxvp")
+
+[node name="MdlHoleMask2x2" parent="." unique_id=228883971 instance=ExtResource("3_tvaav")]
+transform = Transform3D(1.0606601, 0, 1.0606601, 0, 1.5, 0, -1.0606601, 0, 1.0606601, 0, 2, 0)

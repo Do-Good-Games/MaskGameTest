@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/mat_blue_haz_hole.tres" id="1_a4r6f"]
 [ext_resource type="Material" uid="uid://v4pr0muyjo2h" path="res://Art/NeeaFolder/Materials/mat_mask_black.tres" id="2_fjpd6"]
+[ext_resource type="PackedScene" uid="uid://buruty1fyh3qp" path="res://Art/NeeaFolder/Prefabs/Holes/mdl_hole_mask_3x3.tscn" id="3_vq8k4"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_a4r6f"]
 top_radius = 4.275
@@ -25,3 +26,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 layers = 4
 material_override = ExtResource("2_fjpd6")
 mesh = SubResource("CylinderMesh_vq8k4")
+
+[node name="MdlHoleMask3x3" parent="." unique_id=228883971 instance=ExtResource("3_vq8k4")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 3, 0)

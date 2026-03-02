@@ -4,8 +4,7 @@
 [ext_resource type="Material" uid="uid://dpnribk1ygfc4" path="res://Art/NeeaFolder/Materials/mat_blue_haz_edge.tres" id="2_ap850"]
 [ext_resource type="Material" uid="uid://lug5rpskn34d" path="res://Art/NeeaFolder/Materials/mat_blue_haz_hole.tres" id="3_u0da8"]
 [ext_resource type="Material" uid="uid://v4pr0muyjo2h" path="res://Art/NeeaFolder/Materials/mat_mask_black.tres" id="4_w7025"]
-[ext_resource type="PackedScene" uid="uid://ryvpxx3r7fvr" path="res://Art/NeeaFolder/Prefabs/mdl_hole_mask_b.tscn" id="5_6uloi"]
-[ext_resource type="PackedScene" uid="uid://mr6qfo8tq2v2" path="res://Art/NeeaFolder/Prefabs/mdl_hole_mask_l.tscn" id="6_i6xak"]
+[ext_resource type="PackedScene" uid="uid://c1qf1lysobomd" path="res://Art/NeeaFolder/Prefabs/Holes/mdl_hole_mask_bl.tscn" id="5_wtfa2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7djf"]
 resource_name = "Material.001"
@@ -61,6 +60,4 @@ layers = 4
 material_override = ExtResource("4_w7025")
 mesh = SubResource("ArrayMesh_tg100")
 
-[node name="mdl_hole_mask_T" parent="." index="3" unique_id=754242841 instance=ExtResource("5_6uloi")]
-
-[node name="mdl_hole_mask_L" parent="." index="4" unique_id=1196813042 instance=ExtResource("6_i6xak")]
+[node name="MdlHoleMaskBL" parent="." index="3" unique_id=228883971 instance=ExtResource("5_wtfa2")]

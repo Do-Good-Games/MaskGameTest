@@ -4,6 +4,6 @@
 
 [node name="Camera3DPlayer" type="Camera3D" unique_id=673532735]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 26, 0)
-cull_mask = 1048569
+cull_mask = 1048561
 far = 100.0
 script = ExtResource("1_6j1rh")

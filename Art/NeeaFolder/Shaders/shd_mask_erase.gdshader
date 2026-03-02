@@ -2,7 +2,7 @@ shader_type spatial;
 
 // this doesn't work, maybe use stencils
 
-render_mode depth_draw_always, unshaded;
+render_mode unshaded, shadows_disabled;
 
 //void vertex() {
 	//// Called for every vertex the material is visible on.

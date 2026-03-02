@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ibjxo83prj11"]
+
+[ext_resource type="PackedScene" uid="uid://b3uu5ms1sy2s5" path="res://Art/NeeaFolder/Prefabs/Holes/Parts/mdl_hole_mask_l.tscn" id="2_peqhx"]
+[ext_resource type="PackedScene" uid="uid://xut2ulaygcrh" path="res://Art/NeeaFolder/Prefabs/Holes/Parts/mdl_hole_mask_t.tscn" id="4_54er7"]
+
+[node name="MdlHoleMaskTL" type="Node3D" unique_id=228883971]
+
+[node name="MdlHoleMaskL" parent="." unique_id=663500599 instance=ExtResource("2_peqhx")]
+
+[node name="MdlHoleMaskT" parent="." unique_id=1501377673 instance=ExtResource("4_54er7")]

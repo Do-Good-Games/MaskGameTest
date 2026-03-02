@@ -6,8 +6,8 @@ shader_type canvas_item;
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	//COLOR = vec4(vec3(1.0), COLOR.r);
-	COLOR = vec4(1.0 - COLOR.rgb, COLOR.a);
+	COLOR = vec4(vec3(1.0), COLOR.r);
+	//COLOR = vec4(1.0 - COLOR.rgb, COLOR.a);
 }
 
 //void light() {

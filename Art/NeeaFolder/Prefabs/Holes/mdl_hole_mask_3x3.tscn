@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://buruty1fyh3qp"]
+
+[ext_resource type="PackedScene" uid="uid://hpumxtwgoeni" path="res://Art/NeeaFolder/Prefabs/Holes/Parts/mdl_hole_mask_tl.tscn" id="1_t4w25"]
+[ext_resource type="PackedScene" uid="uid://cwkiy25evc1hl" path="res://Art/NeeaFolder/Prefabs/Holes/Parts/mdl_hole_mask_tr.tscn" id="2_n4x2r"]
+[ext_resource type="PackedScene" uid="uid://0k3cusyt82ih" path="res://Art/NeeaFolder/Prefabs/Holes/Parts/mdl_hole_mask_bl.tscn" id="3_4lw7s"]
+[ext_resource type="PackedScene" uid="uid://dts1iy57rdf4f" path="res://Art/NeeaFolder/Prefabs/Holes/Parts/mdl_hole_mask_br.tscn" id="4_5yyik"]
+
+[node name="MdlHoleMask3x3" type="Node3D" unique_id=228883971]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1905802728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
+
+[node name="MdlHoleMaskTL" parent="Node3D" unique_id=375584455 instance=ExtResource("1_t4w25")]
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=881842998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="MdlHoleMaskTR" parent="Node3D2" unique_id=697861396 instance=ExtResource("2_n4x2r")]
+
+[node name="Node3D3" type="Node3D" parent="." unique_id=1826674555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+
+[node name="MdlHoleMaskBL" parent="Node3D3" unique_id=836617226 instance=ExtResource("3_4lw7s")]
+
+[node name="Node3D4" type="Node3D" parent="." unique_id=1112833927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="MdlHoleMaskBR" parent="Node3D4" unique_id=1117009062 instance=ExtResource("4_5yyik")]

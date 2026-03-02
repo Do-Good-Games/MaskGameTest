@@ -6,6 +6,6 @@
 
 [node name="MaskBase" type="MeshInstance3D" unique_id=1841915221]
 transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, 0, -20, 0)
-layers = 6
+layers = 14
 material_override = ExtResource("1_r7kw0")
 mesh = SubResource("PlaneMesh_3if5a")

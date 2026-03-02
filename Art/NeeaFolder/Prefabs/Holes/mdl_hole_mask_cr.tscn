@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://defycdnc7j2se"]
+
+[ext_resource type="PackedScene" uid="uid://don356i8x7sd0" path="res://Art/NeeaFolder/Prefabs/Holes/Parts/mdl_hole_mask_r.tscn" id="3_4gycn"]
+
+[node name="MdlHoleMaskCR" type="Node3D" unique_id=228883971]
+
+[node name="MdlHoleMaskR" parent="." unique_id=1098997573 instance=ExtResource("3_4gycn")]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://0k3cusyt82ih"]
+
+[ext_resource type="PackedScene" uid="uid://dx5vc5u15hrfr" path="res://Art/NeeaFolder/Prefabs/Holes/Parts/mdl_hole_mask.tscn" id="1_epcgb"]
+
+[node name="MdlHoleMaskBL" type="Node3D" unique_id=375584455]
+transform = Transform3D(0.45, 0, 0, 0, 1, 0, 0, 0, 0.45, -0.45, 0, 0.45)
+
+[node name="MeshInstance3D" parent="." unique_id=1300281200 instance=ExtResource("1_epcgb")]

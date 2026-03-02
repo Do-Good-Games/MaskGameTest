@@ -17,9 +17,9 @@ func _ready() -> void:
 	# lvl1_blue_col_3D.png
 	# lvl1_blue_haz_3D.png
 	# lvl1_blue_mask_3D.png
-	
 	var viewport : Viewport = get_viewport()
-	#print(viewport.name)
+	#var viewport : Viewport = get_child(0)
+	print(viewport.name)
 	
 	# get all level scenes based on name pattern and type
 	var scenes : Array[Node] = viewport.find_children("lvl*_*_?D", "Node3D", false)
@@ -28,7 +28,9 @@ func _ready() -> void:
 	var scene_visible : Array[bool]
 	for i : int in range(len(scenes)):
 		scene_visible.append(scenes[i].is_visible())
-		print(scenes[i].name, scene_visible[-1])
+		print("scene: {0}, visible: {1}".format([scenes[i].name, scene_visible[-1]]))
+	
+	if disable_render: return
 	
 	# hide all scenes
 	for scene : Node3D in scenes:
@@ -42,6 +44,15 @@ func _ready() -> void:
 		save_masks(viewport, scenes[i])
 		#scenes[i].set_visible(false)
 		break
+
+func convert_grayscale_to_alpha(img : Image) -> Image:
+	var col: Color
+	for px in range(img.get_width()):
+		for py in range(img.get_height()):
+			col = img.get_pixel(px, py)
+			img.set_pixel(px, py, Color(1.0, 1.0, 1.0, col.r))
+	
+	return img
 
 func save_masks(viewport : Viewport, render_scene : Node3D) -> void:
 	#var render_scene : Node3D = viewport.get_children()[-1]
@@ -80,11 +91,14 @@ func save_masks(viewport : Viewport, render_scene : Node3D) -> void:
 		# get rendered image
 		await RenderingServer.frame_post_draw
 		var img : Image = viewport.get_texture().get_image()
-		#var spr : Sprite2D = $"../Sprite2D"
-		#var img : Image = spr.get_canvas_item().get_material().get_texture().get_image()
+		
+		# convert black and white to alpha
+		img = convert_grayscale_to_alpha(img)
+		#var spr : Sprite2D = get_node(".")
+		#var img : Image = spr.texture.get_image()
 		
 		# save image
-		if not disable_render: img.save_png(file_path)
+		img.save_png(file_path)
 		
 		
 		if FileAccess.file_exists(file_path):

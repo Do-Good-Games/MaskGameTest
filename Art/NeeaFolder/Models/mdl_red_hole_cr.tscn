@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://c1gofb1p36xob" path="res://Art/NeeaFolder/Materials/mat_red_haz_edge.tres" id="2_8xrs8"]
 [ext_resource type="Material" uid="uid://twlrng0b5v2c" path="res://Art/NeeaFolder/Materials/mat_red_haz_hole.tres" id="3_q84kg"]
 [ext_resource type="Material" uid="uid://v4pr0muyjo2h" path="res://Art/NeeaFolder/Materials/mat_mask_black.tres" id="4_gia0x"]
+[ext_resource type="PackedScene" uid="uid://defycdnc7j2se" path="res://Art/NeeaFolder/Prefabs/Holes/mdl_hole_mask_cr.tscn" id="5_q84kg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxt8o"]
 resource_name = "Material.001"
@@ -58,3 +59,5 @@ transform = Transform3D(362.48392, 0, 0, 0, -8.64229e-05, 362.4839, 0, -362.4839
 layers = 4
 material_override = ExtResource("4_gia0x")
 mesh = SubResource("ArrayMesh_xj343")
+
+[node name="MdlHoleMaskCR" parent="." index="3" unique_id=228883971 instance=ExtResource("5_q84kg")]

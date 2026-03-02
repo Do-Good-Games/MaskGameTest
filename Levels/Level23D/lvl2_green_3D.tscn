@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dbijy1eyecsr4" path="res://Art/NeeaFolder/Models/mdl_green_hole_tl.tscn" id="16_yp7v3"]
 [ext_resource type="PackedScene" uid="uid://c758xysp054mj" path="res://Art/NeeaFolder/Models/mdl_green_hole_3x3.tscn" id="17_3w7tx"]
 [ext_resource type="PackedScene" uid="uid://bqvqhftbp41bl" path="res://Art/NeeaFolder/Models/mdl_green_haz.tscn" id="18_vpgga"]
+[ext_resource type="PackedScene" uid="uid://klea83nmu5lk" path="res://Art/NeeaFolder/Models/mdl_green_hole_2x2.tscn" id="19_h66cp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rx72a"]
 
@@ -804,6 +805,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -15)
 [node name="RockSmall6" parent="Walls" unique_id=1272280042 instance=ExtResource("7_iflby")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -42, 0, -3)
 
+[node name="RockSmall200" parent="Walls" unique_id=1470156788 instance=ExtResource("7_iflby")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -10, -1, -4)
+
 [node name="RockSmall189" parent="Walls" unique_id=2016241022 instance=ExtResource("7_iflby")]
 transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -19, 0, 9)
 
@@ -1517,24 +1521,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, -2, -31)
 [node name="Hole TM16" parent="Holes" unique_id=2030402447 instance=ExtResource("16_pvqi8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -2, -6)
 
-[node name="Hole3x4" parent="Holes/Hole TM16" unique_id=637128496 instance=ExtResource("17_3w7tx")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -6, -3.1000004, 0)
-
-[node name="Hole3x5" parent="Holes/Hole TM16" unique_id=947997934 instance=ExtResource("17_3w7tx")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -14, -3.1000004, 4)
-
-[node name="Hole3x6" parent="Holes/Hole TM16" unique_id=1519235443 instance=ExtResource("17_3w7tx")]
-transform = Transform3D(0.4714045, 0, 0.4714045, 0, 0.6666666, 0, -0.4714045, 0, 0.4714045, 17, -1.4, -1)
-
-[node name="Hole3x7" parent="Holes/Hole TM16" unique_id=906009907 instance=ExtResource("17_3w7tx")]
-transform = Transform3D(0.4714045, 0, 0.4714045, 0, 0.6666666, 0, -0.4714045, 0, 0.4714045, 5, -1.4000001, 1)
-
-[node name="Hole3x8" parent="Holes/Hole TM16" unique_id=498388886 instance=ExtResource("17_3w7tx")]
-transform = Transform3D(0.4714045, 0, 0.4714045, 0, 0.6666666, 0, -0.4714045, 0, 0.4714045, 9, -1.4000001, 3)
-
-[node name="Hole3x9" parent="Holes/Hole TM16" unique_id=1413918029 instance=ExtResource("17_3w7tx")]
-transform = Transform3D(0.4714045, 0, 0.4714045, 0, 0.6666666, 0, -0.4714045, 0, 0.4714045, -15, -1.4000001, -3)
-
 [node name="Hole TR" parent="Holes" unique_id=2125467519 instance=ExtResource("15_nnr57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, -2, -31)
 
@@ -1552,6 +1538,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2, -6)
 
 [node name="Hole TR5" parent="Holes" unique_id=15138358 instance=ExtResource("15_nnr57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -2, -6)
+
+[node name="Hole3x4" parent="Holes" unique_id=637128496 instance=ExtResource("17_3w7tx")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -7, -5.1000004, -6)
+
+[node name="Hole3x6" parent="Holes" unique_id=625666053 instance=ExtResource("17_3w7tx")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -3, -5.1000004, 2)
+
+[node name="Hole3x5" parent="Holes" unique_id=947997934 instance=ExtResource("17_3w7tx")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -15, -5.1000004, -2)
+
+[node name="Hole2x2" parent="Holes" unique_id=1849251814 instance=ExtResource("19_h66cp")]
+transform = Transform3D(0.4709331, 0, 0.4709331, 0, 0.666, 0, -0.4709331, 0, 0.4709331, 16, -3.4, -7)
+
+[node name="Hole2x3" parent="Holes" unique_id=1773570595 instance=ExtResource("19_h66cp")]
+transform = Transform3D(0.4709331, 0, 0.4709331, 0, 0.666, 0, -0.4709331, 0, 0.4709331, -16, -3.4, -9)
+
+[node name="Hole2x4" parent="Holes" unique_id=917198133 instance=ExtResource("19_h66cp")]
+transform = Transform3D(0.4709331, 0, 0.4709331, 0, 0.666, 0, -0.4709331, 0, 0.4709331, 4, -3.4, -5)
+
+[node name="Hole2x5" parent="Holes" unique_id=284869637 instance=ExtResource("19_h66cp")]
+transform = Transform3D(0.4709331, 0, 0.4709331, 0, 0.666, 0, -0.4709331, 0, 0.4709331, 8, -3.4, -3)
 
 [node name="Hazards" type="Node3D" parent="." unique_id=811222117]
 
